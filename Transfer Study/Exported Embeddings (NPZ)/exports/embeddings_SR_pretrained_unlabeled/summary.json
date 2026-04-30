@@ -1,0 +1,10 @@
+{
+  "dataset_name": "SR",
+  "n_samples": 4532,
+  "input_shape": [
+    4532,
+    58,
+    840
+  ],
+  "note": "Full export with subject metadata; no train/val/test split applied here."
+}

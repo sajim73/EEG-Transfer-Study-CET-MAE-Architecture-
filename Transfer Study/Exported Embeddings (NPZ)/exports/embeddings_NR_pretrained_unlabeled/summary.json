@@ -1,0 +1,13 @@
+{
+  "dataset_name": "NR",
+  "n_samples": 5579,
+  "input_shape": [
+    5579,
+    58,
+    840
+  ],
+  "note": "Full export with subject metadata; no train/val/test split applied here.",
+  "tokenizer_name": "bart-large",
+  "tokenizer_path": "/home/sajim/CET-MAE/models/huggingface/bart-large",
+  "preprocessing_reference": "data2pickle_v2.get_input_sample"
+}

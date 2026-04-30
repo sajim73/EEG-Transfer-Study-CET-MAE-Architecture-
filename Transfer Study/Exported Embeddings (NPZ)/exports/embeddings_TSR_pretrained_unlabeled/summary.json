@@ -1,0 +1,12 @@
+{
+  "dataset_name": "TSR",
+  "task_name": "task3-TSR-2.0",
+  "n_samples": 18935,
+  "input_shape": [
+    18935,
+    58,
+    840
+  ],
+  "note": "Built directly from TSR pickle files; preserves split metadata and TSR fixation fields when available.",
+  "source_root": "/home/sajim/CET-MAE/datasets/data_word_sentence_5"
+}
