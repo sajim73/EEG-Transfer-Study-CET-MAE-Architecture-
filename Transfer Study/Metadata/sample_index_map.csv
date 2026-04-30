@@ -1,0 +1,2 @@
+sample_id,sentence_id,subject_id,source_dataset,task_name,raw_file,processed_file,notes
+EXAMPLE_SAMPLE_0001,EXAMPLE_0001,S01,ZuCo,task1-SR,placeholder.mat,placeholder.pkl,fill_me

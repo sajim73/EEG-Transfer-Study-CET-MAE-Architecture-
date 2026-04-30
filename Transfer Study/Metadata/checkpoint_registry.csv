@@ -1,0 +1,2 @@
+run_name,seed,task,config_path,checkpoint_path,metric_name,metric_value,notes
+example_run,42,sentiment,config/transfer/probe_sentiment_linear_cet_mae.yaml,transfer_study/checkpoints/example.pt,macro_f1,0.0,fill_me

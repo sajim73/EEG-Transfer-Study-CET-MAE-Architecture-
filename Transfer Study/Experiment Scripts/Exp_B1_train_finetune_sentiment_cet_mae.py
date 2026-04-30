@@ -1,0 +1,1134 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import argparse
+import copy
+import json
+import logging
+import math
+import random
+import re
+import sys
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import torch
+import torch.nn as nn
+from sklearn.metrics import (
+    accuracy_score,
+    balanced_accuracy_score,
+    confusion_matrix,
+    f1_score,
+)
+from torch.utils.data import DataLoader, Dataset
+from tqdm.auto import tqdm
+
+# ---------------------------------------------------------------------
+# Robust import of CETMAE_project_late_bart and Pooler
+# ---------------------------------------------------------------------
+import model_mae_bart as model_mae_bart_module
+
+try:
+    from model_mae_bart import Pooler
+except ImportError as e:
+    raise ImportError(
+        "Could not import Pooler from model_mae_bart.py. "
+        "Please verify that model_mae_bart.py defines Pooler."
+    ) from e
+
+if hasattr(model_mae_bart_module, "CETMAE_project_late_bart"):
+    CETMAEprojectlatebart = getattr(
+        model_mae_bart_module, "CETMAE_project_late_bart"
+    )
+else:
+    raise ImportError(
+        "model_mae_bart.py does not define CETMAE_project_late_bart; "
+        f"available names: {[n for n in dir(model_mae_bart_module) if 'CET' in n or 'bart' in n]}"
+    )
+
+# ---------------------------------------------------------------------
+# Argument parsing, logging, and utilities
+# ---------------------------------------------------------------------
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="B1: Fine-tuned sentiment classification for CET-MAE (LOSO by subject, subject-level val split)"
+    )
+
+    parser.add_argument("--npz", "--embeddings-npz", dest="embeddings_npz", type=str, required=True)
+    parser.add_argument("--labels-csv", type=str, required=True)
+    parser.add_argument("--checkpoint", type=str, default=None)
+    parser.add_argument("--random-init", action="store_true")
+    parser.add_argument("--output-dir", type=str, required=True)
+
+    parser.add_argument("--epochs", type=int, default=25)
+    parser.add_argument("--encoder-lr", type=float, default=1e-5)
+    parser.add_argument("--head-lr", type=float, default=1e-3)
+    parser.add_argument("--weight-decay", type=float, default=1e-4)
+    parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--num-workers", type=int, default=0)
+    parser.add_argument("--val-ratio", type=float, default=0.15)
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--log-every", type=int, default=10)
+    parser.add_argument(
+        "--device",
+        type=str,
+        default="cuda" if torch.cuda.is_available() else "cpu",
+    )
+
+    parser.add_argument("--bart-path", type=str, default="facebook/bart-large")
+    parser.add_argument("--head-dim", type=int, default=1024)
+
+    parser.add_argument("--sentence-col", type=str, default="sentence")
+    parser.add_argument("--label-col", type=str, default="sentiment_label")
+    parser.add_argument("--subject-col", type=str, default=None)
+
+    parser.add_argument(
+        "--binary",
+        action="store_true",
+        help="If set, drop neutral and run binary neg/pos classification.",
+    )
+
+    return parser.parse_args()
+
+
+def setup_logging(output_dir: Path):
+    output_dir.mkdir(parents=True, exist_ok=True)
+    logger = logging.getLogger("b1_finetune_sentiment")
+    logger.setLevel(logging.INFO)
+    logger.handlers.clear()
+
+    formatter = logging.Formatter(
+        "[%(asctime)s] %(levelname)s: %(message)s", datefmt="%H:%M:%S"
+    )
+
+    sh = logging.StreamHandler(sys.stdout)
+    sh.setLevel(logging.INFO)
+    sh.setFormatter(formatter)
+
+    fh = logging.FileHandler(output_dir / "run.log")
+    fh.setLevel(logging.INFO)
+    fh.setFormatter(formatter)
+
+    logger.addHandler(sh)
+    logger.addHandler(fh)
+    logger.propagate = False
+    return logger
+
+
+def set_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+
+def save_json(path, obj):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, indent=2)
+
+
+def sanitize_name(x):
+    return re.sub(r"[^A-Za-z0-9_.-]+", "_", str(x))
+
+
+def normalize_id(x):
+    if pd.isna(x):
+        return None
+    if isinstance(x, (np.integer, int)):
+        return str(int(x))
+    if isinstance(x, (np.floating, float)):
+        if float(x).is_integer():
+            return str(int(x))
+        return str(x).strip()
+    s = str(x).strip()
+    if re.fullmatch(r"\d+\.0+", s):
+        return s.split(".")[0]
+    return s
+
+
+def normalize_text(x):
+    if pd.isna(x):
+        return None
+    s = str(x).strip()
+    s = re.sub(r"\s+", " ", s)
+    return s
+
+
+def first_existing_key(keys, candidates):
+    keyset = {k.lower(): k for k in keys}
+    for cand in candidates:
+        if cand.lower() in keyset:
+            return keyset[cand.lower()]
+    return None
+
+
+def to_numpy_array(x):
+    arr = np.asarray(x)
+    if arr.dtype == object:
+        try:
+            arr = np.stack(arr)
+        except Exception:
+            arr = np.array(list(arr))
+    return arr
+
+
+def ensure_2d_mask(mask, eeg):
+    if mask is None:
+        if eeg.ndim == 3:
+            inferred = np.any(np.abs(eeg) > 0, axis=-1).astype(np.int64)
+        elif eeg.ndim == 2:
+            inferred = np.ones((eeg.shape[0], 1), dtype=np.int64)
+        else:
+            raise ValueError(f"Unsupported EEG shape for mask inference: {eeg.shape}")
+        return inferred
+
+    mask = to_numpy_array(mask)
+    if mask.ndim == 3 and mask.shape[-1] == 1:
+        mask = np.squeeze(mask, axis=-1)
+    if mask.ndim == 1:
+        mask = mask[:, None]
+    return mask.astype(np.int64)
+
+
+def pad_or_trim_mask(mask, seq_len):
+    if mask.shape[1] == seq_len:
+        return mask
+    if mask.shape[1] > seq_len:
+        return mask[:, :seq_len]
+    pad = np.zeros((mask.shape[0], seq_len - mask.shape[1]), dtype=mask.dtype)
+    return np.concatenate([mask, pad], axis=1)
+
+
+def bootstrap_subject_metric_ci(values, n_boot=1000, alpha=0.95, seed=42):
+    arr = np.asarray(values, dtype=np.float64)
+    arr = arr[np.isfinite(arr)]
+    if arr.size == 0:
+        return {
+            "mean": None,
+            "ci_lower": None,
+            "ci_upper": None,
+            "n_boot": int(n_boot),
+        }
+
+    rng = np.random.default_rng(seed)
+    n = arr.size
+    boots = np.empty(n_boot, dtype=np.float64)
+    for i in range(n_boot):
+        boots[i] = rng.choice(arr, size=n, replace=True).mean()
+
+    lower_q = (1.0 - alpha) / 2.0
+    upper_q = 1.0 - lower_q
+    return {
+        "mean": float(arr.mean()),
+        "ci_lower": float(np.quantile(boots, lower_q)),
+        "ci_upper": float(np.quantile(boots, upper_q)),
+        "n_boot": int(n_boot),
+    }
+
+
+def split_train_val_subjects(trainval_subjects, val_ratio, seed):
+    trainval_subjects = list(sorted(trainval_subjects))
+    if len(trainval_subjects) < 2:
+        raise ValueError("Need at least 2 train/val subjects after holding one out for test.")
+    rng = random.Random(seed)
+    rng.shuffle(trainval_subjects)
+    n_val = max(1, int(round(len(trainval_subjects) * val_ratio)))
+    n_val = min(n_val, len(trainval_subjects) - 1)
+    val_subjects = sorted(trainval_subjects[:n_val])
+    train_subjects = sorted(trainval_subjects[n_val:])
+    return train_subjects, val_subjects
+
+
+# ---------------------------------------------------------------------
+# NPZ + labels loading, alignment by text
+# ---------------------------------------------------------------------
+def load_npz_data(npz_path, logger):
+    npz = np.load(npz_path, allow_pickle=True)
+    keys = list(npz.files)
+    logger.info(f"NPZ keys found: {keys}")
+
+    eeg_key = first_existing_key(
+        keys,
+        [
+            "normalized_input_embeddings",
+            "input_embeddings",
+            "eeg",
+            "embeddings",
+            "features",
+            "x",
+            "X",
+            "eeg_features",
+            "eeg_embeddings",
+            "hidden_states",
+            "token_embeddings",
+            "sentence_embeddings",
+        ],
+    )
+    if eeg_key is None:
+        raise KeyError(
+            f"Could not find EEG/features array in {npz_path}. Available keys: {keys}"
+        )
+
+    mask_key = first_existing_key(
+        keys,
+        [
+            "input_attn_mask",
+            "attention_mask",
+            "attn_mask",
+            "mask",
+            "eeg_attention_mask",
+            "eeg_mask",
+            "input_mask",
+        ],
+    )
+    invert_mask_key = first_existing_key(keys, ["input_attn_mask_invert"])
+    subject_key = first_existing_key(
+        keys,
+        [
+            "subject_id",
+            "subject",
+            "subjects",
+            "participant",
+            "participant_id",
+            "subj",
+        ],
+    )
+    text_key = first_existing_key(
+        keys,
+        [
+            "target_string",
+            "sentence_text",
+            "sentence",
+            "text",
+        ],
+    )
+
+    eeg = to_numpy_array(npz[eeg_key]).astype(np.float32)
+
+    if mask_key is not None:
+        mask_raw = npz[mask_key]
+        mask = ensure_2d_mask(mask_raw, eeg)
+    elif invert_mask_key is not None:
+        inv_mask = to_numpy_array(npz[invert_mask_key]).astype(np.int64)
+        if inv_mask.ndim == 3 and inv_mask.shape[-1] == 1:
+            inv_mask = np.squeeze(inv_mask, axis=-1)
+        if inv_mask.ndim == 1:
+            inv_mask = inv_mask[:, None]
+        mask = 1 - inv_mask
+    else:
+        mask = ensure_2d_mask(None, eeg)
+
+    if eeg.ndim == 3:
+        mask = pad_or_trim_mask(mask, eeg.shape[1])
+    elif eeg.ndim == 2:
+        if mask.shape[1] != 1:
+            mask = np.ones((eeg.shape[0], 1), dtype=np.int64)
+    else:
+        raise ValueError(f"Unsupported EEG array shape: {eeg.shape}")
+
+    subjects = None
+    if subject_key is not None:
+        subjects = [normalize_id(x) for x in to_numpy_array(npz[subject_key]).reshape(-1)]
+
+    if text_key is None:
+        raise KeyError(
+            f"Could not find sentence text key in NPZ. Available keys: {keys}"
+        )
+    texts = [normalize_text(x) for x in np.array(npz[text_key]).astype(str)]
+
+    logger.info(f"Loaded EEG/features array from key '{eeg_key}' with shape {tuple(eeg.shape)}")
+    logger.info(f"Loaded attention mask shape: {tuple(mask.shape)}")
+    logger.info(f"Subject IDs present: {subjects is not None}")
+    logger.info(f"Text key: {text_key}; unique texts: {len(set(texts))}")
+
+    return {
+        "eeg": eeg,
+        "mask": mask,
+        "subject": subjects,
+        "text": np.array(texts, dtype=object),
+        "keys": keys,
+    }
+
+
+def normalize_sentiment_label(x):
+    if pd.isna(x):
+        return None
+
+    try:
+        v = float(x)
+        if v == -1:
+            return "negative"
+        if v == 0:
+            return "neutral"
+        if v == 1:
+            return "positive"
+    except (ValueError, TypeError):
+        pass
+
+    s = str(x).strip().lower()
+    mapping = {
+        "positive": "positive",
+        "pos": "positive",
+        "1": "positive",
+        "+1": "positive",
+        "1.0": "positive",
+        "negative": "negative",
+        "neg": "negative",
+        "-1": "negative",
+        "-1.0": "negative",
+        "neutral": "neutral",
+        "neu": "neutral",
+        "0": "neutral",
+        "0.0": "neutral",
+    }
+    return mapping.get(s, None)
+
+
+def load_labels(csv_path, sentence_col, label_col, subject_col, logger):
+    last_err = None
+    for enc in ["utf-8", "cp1252", "latin-1"]:
+        try:
+            df = pd.read_csv(csv_path, comment="#", sep=";", encoding=enc)
+            logger.info(
+                f"Loaded labels CSV with shape {df.shape} from {csv_path} using encoding={enc}"
+            )
+            break
+        except UnicodeDecodeError as e:
+            last_err = e
+    else:
+        raise last_err
+
+    logger.info(f"CSV columns: {list(df.columns)}")
+
+    if sentence_col not in df.columns:
+        alt = first_existing_key(df.columns, [sentence_col, "sentence", "text"])
+        if alt is None:
+            raise KeyError(
+                f"Could not find sentence column '{sentence_col}' in CSV columns: {list(df.columns)}"
+            )
+        sentence_col = alt
+
+    if label_col not in df.columns:
+        alt = first_existing_key(df.columns, [label_col, "sentiment_label", "label", "sentiment"])
+        if alt is None:
+            raise KeyError(
+                f"Could not find label column '{label_col}' in CSV columns: {list(df.columns)}"
+            )
+        label_col = alt
+
+    if subject_col is None:
+        subject_col = first_existing_key(
+            df.columns,
+            ["subject", "subject_id", "participant", "participant_id", "subj"],
+        )
+    elif subject_col not in df.columns:
+        subject_col = first_existing_key(
+            df.columns,
+            [subject_col, "subject", "subject_id", "participant", "participant_id", "subj"],
+        )
+
+    out = pd.DataFrame(
+        {
+            "text": df[sentence_col].map(normalize_text),
+            "sentiment_raw": df[label_col].map(normalize_sentiment_label),
+        }
+    )
+
+    if subject_col is not None and subject_col in df.columns:
+        out["subject"] = df[subject_col].map(normalize_id)
+
+    out = out.dropna(subset=["text", "sentiment_raw"]).copy()
+
+    conflict_check = (
+        out.groupby("text")["sentiment_raw"].nunique(dropna=True).reset_index(name="n")
+    )
+    conflicts = conflict_check[conflict_check["n"] > 1]
+    if len(conflicts) > 0:
+        raise ValueError(
+            f"Found {len(conflicts)} sentence texts with conflicting sentiment labels."
+        )
+
+    out = out.drop_duplicates(subset=["text"]).copy()
+
+    logger.info(
+        f"Labels DataFrame after cleaning: {out.shape[0]} rows, {out['text'].nunique()} unique texts"
+    )
+    logger.info(
+        f"Unique sentiment_raw values in labels: {sorted(out['sentiment_raw'].dropna().unique().tolist())}"
+    )
+
+    if "subject" not in out.columns:
+        logger.info(
+            "No subject column found in labels CSV; B1 will fall back to subject IDs from the NPZ."
+        )
+
+    return out
+
+
+def build_merged_table(npz_data, labels_df, logger, binary=False):
+    n = len(npz_data["eeg"])
+    meta = pd.DataFrame(
+        {
+            "row_idx": np.arange(n),
+            "subject_npz": npz_data["subject"],
+            "text": npz_data["text"].astype(str),
+        }
+    )
+
+    merged = meta.merge(labels_df, on="text", how="left")
+
+    n_labeled = merged["sentiment_raw"].notna().sum()
+    n_unlabeled = merged["sentiment_raw"].isna().sum()
+    logger.info(f"After text-merge: labeled trials = {n_labeled}, unlabeled trials = {n_unlabeled}")
+
+    if n_labeled == 0:
+        unique_npz_texts = meta["text"].nunique()
+        unique_label_texts = labels_df["text"].nunique()
+        logger.error(
+            "No trials matched any labels after text-merge. "
+            f"Unique NPZ texts = {unique_npz_texts}, unique label texts = {unique_label_texts}."
+        )
+        raise ValueError("Merged trial-level dataset is empty (no labeled trials).")
+
+    merged = merged[merged["sentiment_raw"].notna()].copy()
+
+    if "subject" not in merged.columns or merged["subject"].isna().all():
+        merged["subject"] = merged["subject_npz"]
+
+    if merged["subject"].isna().any():
+        missing_subj = int(merged["subject"].isna().sum())
+        raise ValueError(
+            "Subject IDs are required for LOSO. "
+            f"Could not build a complete subject column. Missing subjects in {missing_subj} rows."
+        )
+
+    logger.info(
+        f"Unique sentiment_raw values before label mapping: {sorted(merged['sentiment_raw'].dropna().unique().tolist())}"
+    )
+
+    if binary:
+        merged = merged[merged["sentiment_raw"].isin(["negative", "positive"])].copy()
+        class_names = ["negative", "positive"]
+        label_to_id = {"negative": 0, "positive": 1}
+    else:
+        class_names = ["negative", "neutral", "positive"]
+        label_to_id = {"negative": 0, "neutral": 1, "positive": 2}
+
+    merged["label"] = merged["sentiment_raw"].map(label_to_id)
+    merged = merged.dropna(subset=["label"]).copy()
+    merged["label"] = merged["label"].astype(int)
+
+    if merged.empty:
+        raise ValueError(
+            "Merged dataset became empty after label mapping. "
+            "Check normalize_sentiment_label and label_to_id."
+        )
+
+    logger.info(f"Final merged trial-level dataset size: {len(merged)}")
+    logger.info(f"Subjects: {sorted(merged['subject'].astype(str).unique().tolist())}")
+    logger.info(f"Label counts: {merged['sentiment_raw'].value_counts().to_dict()}")
+
+    return merged.reset_index(drop=True), class_names
+
+
+# ---------------------------------------------------------------------
+# Checkpoint loading and trainable encoder
+# ---------------------------------------------------------------------
+def strip_prefixes(state_dict):
+    cleaned = {}
+    for k, v in state_dict.items():
+        nk = k
+        for prefix in ["module.", "model.", "backbone."]:
+            if nk.startswith(prefix):
+                nk = nk[len(prefix):]
+        cleaned[nk] = v
+    return cleaned
+
+
+def load_checkpoint_state(checkpoint_path):
+    ckpt = torch.load(checkpoint_path, map_location="cpu")
+    if isinstance(ckpt, dict):
+        for key in ["state_dict", "model_state_dict", "model", "net"]:
+            if key in ckpt and isinstance(ckpt[key], dict):
+                return strip_prefixes(ckpt[key])
+        return strip_prefixes(ckpt)
+    raise ValueError(f"Unsupported checkpoint format in {checkpoint_path}")
+
+
+class FinetuneSentimentModel(nn.Module):
+    def __init__(
+        self,
+        checkpoint_path,
+        bart_path,
+        device,
+        logger,
+        num_classes=3,
+        random_init=False,
+        head_dim=1024,
+    ):
+        super().__init__()
+        base = CETMAEprojectlatebart(pretrain_path=bart_path, device=str(device))
+
+        if random_init:
+            logger.info("Using random initialization for CET-MAE encoder.")
+        else:
+            if checkpoint_path is None:
+                raise ValueError("checkpoint_path must be provided unless --random-init is set.")
+            state = load_checkpoint_state(checkpoint_path)
+            missing, unexpected = base.load_state_dict(state, strict=False)
+            logger.info(f"Checkpoint loaded from {checkpoint_path}")
+            logger.info(f"Missing keys count: {len(missing)}")
+            logger.info(f"Unexpected keys count: {len(unexpected)}")
+            if len(missing) > 0:
+                logger.info(f"Missing key sample: {missing[:10]}")
+            if len(unexpected) > 0:
+                logger.info(f"Unexpected key sample: {unexpected[:10]}")
+
+        self.pos_embed_e = base.pos_embed_e
+        self.e_branch = base.e_branch
+        self.fc_eeg = base.fc_eeg
+        self.act = base.act
+        self.unify_branch = base.unify_branch
+        self.classifier = nn.Linear(head_dim, num_classes)
+
+        nn.init.xavier_uniform_(self.classifier.weight)
+        nn.init.zeros_(self.classifier.bias)
+
+    def encode(self, eeg, attention_mask):
+        if eeg.ndim != 3:
+            raise ValueError(f"Expected EEG input of shape (N,L,D), got {tuple(eeg.shape)}")
+        pad_mask = attention_mask == 0
+        x = self.pos_embed_e(eeg)
+        x = self.e_branch(x, src_key_padding_mask=pad_mask.bool())
+        x = self.act(self.fc_eeg(x))
+        try:
+            x = self.unify_branch(x, src_key_padding_mask=pad_mask.bool(), modality="e")
+        except TypeError:
+            x = self.unify_branch(x, src_key_padding_mask=pad_mask.bool())
+        pooled = Pooler(x, attention_mask.float())
+        return pooled
+
+    def forward(self, eeg, attention_mask):
+        pooled = self.encode(eeg, attention_mask)
+        logits = self.classifier(pooled)
+        return logits
+
+    def encoder_parameters(self):
+        for module in [self.pos_embed_e, self.e_branch, self.fc_eeg, self.unify_branch]:
+            yield from module.parameters()
+
+
+# ---------------------------------------------------------------------
+# Dataset, metrics, train / eval
+# ---------------------------------------------------------------------
+class EEGTrialDataset(Dataset):
+    def __init__(self, eeg, mask, y):
+        self.eeg = torch.from_numpy(eeg).float()
+        self.mask = torch.from_numpy(mask).long()
+        self.y = torch.from_numpy(y).long()
+
+    def __len__(self):
+        return len(self.y)
+
+    def __getitem__(self, idx):
+        return self.eeg[idx], self.mask[idx], self.y[idx]
+
+
+def compute_metrics(y_true, y_pred):
+    return {
+        "accuracy": float(accuracy_score(y_true, y_pred)),
+        "balanced_accuracy": float(balanced_accuracy_score(y_true, y_pred)),
+        "macro_f1": float(f1_score(y_true, y_pred, average="macro")),
+    }
+
+
+def run_epoch(model, loader, optimizer, device, train, logger, log_every, epoch_idx):
+    criterion = nn.CrossEntropyLoss()
+
+    if train:
+        model.train()
+        desc = f"Train epoch {epoch_idx}"
+    else:
+        model.eval()
+        desc = f"Val epoch {epoch_idx}"
+
+    running_loss = 0.0
+    all_y = []
+    all_pred = []
+
+    pbar = tqdm(loader, desc=desc, leave=False, dynamic_ncols=True)
+    for step, (eeg, mask, y) in enumerate(pbar, start=1):
+        eeg = eeg.to(device)
+        mask = mask.to(device)
+        y = y.to(device)
+
+        if train:
+            optimizer.zero_grad(set_to_none=True)
+
+        with torch.set_grad_enabled(train):
+            logits = model(eeg, mask)
+            loss = criterion(logits, y)
+
+            if train:
+                loss.backward()
+                optimizer.step()
+
+        preds = torch.argmax(logits, dim=1)
+        running_loss += loss.item() * eeg.size(0)
+
+        all_y.append(y.detach().cpu().numpy())
+        all_pred.append(preds.detach().cpu().numpy())
+
+        if step % log_every == 0 or step == len(loader):
+            cur_y = np.concatenate(all_y)
+            cur_pred = np.concatenate(all_pred)
+            cur_acc = accuracy_score(cur_y, cur_pred)
+            pbar.set_postfix(
+                loss=f"{running_loss / len(cur_y):.4f}",
+                acc=f"{cur_acc:.4f}",
+            )
+
+    y_true = np.concatenate(all_y)
+    y_pred = np.concatenate(all_pred)
+    metrics = compute_metrics(y_true, y_pred)
+    metrics["loss"] = float(running_loss / len(y_true))
+    return metrics
+
+
+def evaluate_test(model, loader, device):
+    model.eval()
+    all_y = []
+    all_pred = []
+    all_logits = []
+
+    with torch.no_grad():
+        for eeg, mask, y in loader:
+            eeg = eeg.to(device)
+            mask = mask.to(device)
+            logits = model(eeg, mask)
+            preds = torch.argmax(logits, dim=1)
+
+            all_y.append(y.numpy())
+            all_pred.append(preds.cpu().numpy())
+            all_logits.append(logits.cpu().numpy())
+
+    y_true = np.concatenate(all_y)
+    y_pred = np.concatenate(all_pred)
+    logits = np.concatenate(all_logits)
+    metrics = compute_metrics(y_true, y_pred)
+    return y_true, y_pred, logits, metrics
+
+
+def plot_training_curves(history, out_path, title):
+    epochs = np.arange(1, len(history["train_loss"]) + 1)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+    axes[0].plot(epochs, history["train_loss"], label="Train loss", linewidth=2)
+    axes[0].plot(epochs, history["val_loss"], label="Val loss", linewidth=2)
+    axes[0].set_title("Loss")
+    axes[0].set_xlabel("Epoch")
+    axes[0].set_ylabel("Cross-entropy")
+    axes[0].grid(True, alpha=0.3)
+    axes[0].legend()
+
+    axes[1].plot(epochs, history["train_acc"], label="Train acc", linewidth=2)
+    axes[1].plot(epochs, history["val_acc"], label="Val acc", linewidth=2)
+    axes[1].plot(epochs, history["train_bal_acc"], label="Train bal acc", linewidth=2, linestyle="--")
+    axes[1].plot(epochs, history["val_bal_acc"], label="Val bal acc", linewidth=2, linestyle="--")
+    axes[1].plot(epochs, history["train_f1"], label="Train macro-F1", linewidth=2)
+    axes[1].plot(epochs, history["val_f1"], label="Val macro-F1", linewidth=2)
+    axes[1].set_title("Accuracy / Balanced Acc / Macro-F1")
+    axes[1].set_xlabel("Epoch")
+    axes[1].set_ylabel("Score")
+    axes[1].set_ylim(0.0, 1.0)
+    axes[1].grid(True, alpha=0.3)
+    axes[1].legend()
+
+    fig.suptitle(title)
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_confusion(cm, class_names, out_path, title):
+    fig, ax = plt.subplots(figsize=(6, 5))
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        cbar=False,
+        xticklabels=class_names,
+        yticklabels=class_names,
+        ax=ax,
+    )
+    ax.set_xlabel("Predicted")
+    ax.set_ylabel("True")
+    ax.set_title(title)
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+
+def summarize_metrics(df, metric_names):
+    summary = {}
+    for m in metric_names:
+        summary[m] = {
+            "mean": float(df[m].mean()),
+            "std": float(df[m].std(ddof=1)) if len(df) > 1 else 0.0,
+        }
+    return summary
+
+
+# ---------------------------------------------------------------------
+# Main B1 LOSO pipeline
+# ---------------------------------------------------------------------
+def main():
+    args = parse_args()
+
+    if (not args.random_init) and (args.checkpoint is None):
+        raise ValueError("Provide --checkpoint for pretrained initialization, or use --random-init.")
+
+    output_dir = Path(args.output_dir)
+    logger = setup_logging(output_dir)
+    set_seed(args.seed)
+
+    logger.info("Starting B1 fine-tuned sentiment classification (subject-level LOSO + subject-level val split, text-joined)")
+    logger.info(json.dumps(vars(args), indent=2))
+    logger.info(
+    "Optimization setup: Adam with differential learning rates "
+    f"(encoder_lr={args.encoder_lr}, head_lr={args.head_lr}, weight_decay={args.weight_decay})."
+)
+    
+    device = torch.device(args.device)
+    logger.info(f"Using device: {device}")
+
+    npz_data = load_npz_data(args.embeddings_npz, logger)
+    labels_df = load_labels(
+        args.labels_csv,
+        args.sentence_col,
+        args.label_col,
+        args.subject_col,
+        logger,
+    )
+
+    merged, class_names = build_merged_table(
+        npz_data,
+        labels_df,
+        logger,
+        binary=args.binary,
+    )
+
+    eeg = npz_data["eeg"][merged["row_idx"].values]
+    mask = npz_data["mask"][merged["row_idx"].values]
+    subjects = merged["subject"].astype(str).values
+    labels = merged["label"].values.astype(np.int64)
+    texts = merged["text"].astype(str).values
+
+    if eeg.ndim != 3:
+        raise ValueError(
+            "B1 fine-tuning requires raw token-level EEG inputs of shape (N, L, D). "
+            f"Got shape {eeg.shape}. "
+            "This usually means the NPZ contains pooled sentence embeddings instead of raw token-level EEG features. "
+            "Use the raw token-level export for B1, not the pooled feature export."
+        )
+
+    subjects_unique = sorted(np.unique(subjects).tolist())
+    logger.info(f"Running leave-one-subject-out CV over {len(subjects_unique)} subjects.")
+
+    all_fold_rows = []
+    all_pred_rows = []
+    aggregate_cm = np.zeros((len(class_names), len(class_names)), dtype=np.int64)
+
+    for fold_idx, held_out_subject in enumerate(subjects_unique, start=1):
+        logger.info("=" * 88)
+        logger.info(f"Fold {fold_idx}/{len(subjects_unique)} | held-out subject: {held_out_subject}")
+
+        test_mask = subjects == held_out_subject
+        trainval_mask = ~test_mask
+
+        eeg_trainval = eeg[trainval_mask]
+        mask_trainval = mask[trainval_mask]
+        y_trainval = labels[trainval_mask]
+        subj_trainval = subjects[trainval_mask]
+
+        eeg_test = eeg[test_mask]
+        mask_test = mask[test_mask]
+        y_test = labels[test_mask]
+        texts_test = texts[test_mask]
+
+        train_subjects, val_subjects = split_train_val_subjects(
+            np.unique(subj_trainval).tolist(),
+            args.val_ratio,
+            args.seed + fold_idx,
+        )
+
+        train_idx = np.where(np.isin(subj_trainval, train_subjects))[0]
+        val_idx = np.where(np.isin(subj_trainval, val_subjects))[0]
+
+        if len(train_idx) == 0 or len(val_idx) == 0:
+            raise RuntimeError(
+                f"Fold {fold_idx}: empty train or val split after subject-level split. "
+                f"train_subjects={train_subjects}, val_subjects={val_subjects}"
+            )
+
+        eeg_train, y_train = eeg_trainval[train_idx], y_trainval[train_idx]
+        mask_train = mask_trainval[train_idx]
+
+        eeg_val, y_val = eeg_trainval[val_idx], y_trainval[val_idx]
+        mask_val = mask_trainval[val_idx]
+
+        logger.info(
+            f"Train subjects ({len(train_subjects)}): {train_subjects} | "
+            f"Val subjects ({len(val_subjects)}): {val_subjects}"
+        )
+        logger.info(
+            f"Train size: {len(eeg_train)} | Val size: {len(eeg_val)} | Test size: {len(eeg_test)}"
+        )
+        logger.info(f"Train label counts: {dict(zip(*np.unique(y_train, return_counts=True)))}")
+        logger.info(f"Val label counts: {dict(zip(*np.unique(y_val, return_counts=True)))}")
+        logger.info(f"Test label counts: {dict(zip(*np.unique(y_test, return_counts=True)))}")
+
+        train_loader = DataLoader(
+            EEGTrialDataset(eeg_train, mask_train, y_train),
+            batch_size=args.batch_size,
+            shuffle=True,
+            num_workers=args.num_workers,
+            pin_memory=torch.cuda.is_available(),
+        )
+        val_loader = DataLoader(
+            EEGTrialDataset(eeg_val, mask_val, y_val),
+            batch_size=args.batch_size,
+            shuffle=False,
+            num_workers=args.num_workers,
+            pin_memory=torch.cuda.is_available(),
+        )
+        test_loader = DataLoader(
+            EEGTrialDataset(eeg_test, mask_test, y_test),
+            batch_size=args.batch_size,
+            shuffle=False,
+            num_workers=args.num_workers,
+            pin_memory=torch.cuda.is_available(),
+        )
+
+        model = FinetuneSentimentModel(
+            checkpoint_path=args.checkpoint,
+            bart_path=args.bart_path,
+            device=device,
+            logger=logger,
+            num_classes=len(class_names),
+            random_init=args.random_init,
+            head_dim=args.head_dim,
+        ).to(device)
+
+        optimizer = torch.optim.Adam(
+            [
+                {"params": model.encoder_parameters(), "lr": args.encoder_lr},
+                {"params": model.classifier.parameters(), "lr": args.head_lr},
+            ],
+            weight_decay=args.weight_decay,
+        )
+
+        history = {
+            "train_loss": [],
+            "val_loss": [],
+            "train_acc": [],
+            "val_acc": [],
+            "train_bal_acc": [],
+            "val_bal_acc": [],
+            "train_f1": [],
+            "val_f1": [],
+        }
+
+        best_state = None
+        best_val_f1 = -math.inf
+        best_epoch = -1
+
+        for epoch in range(1, args.epochs + 1):
+            train_metrics = run_epoch(
+                model, train_loader, optimizer, device, True, logger, args.log_every, epoch
+            )
+            val_metrics = run_epoch(
+                model, val_loader, optimizer, device, False, logger, args.log_every, epoch
+            )
+
+            history["train_loss"].append(train_metrics["loss"])
+            history["val_loss"].append(val_metrics["loss"])
+            history["train_acc"].append(train_metrics["accuracy"])
+            history["val_acc"].append(val_metrics["accuracy"])
+            history["train_bal_acc"].append(train_metrics["balanced_accuracy"])
+            history["val_bal_acc"].append(val_metrics["balanced_accuracy"])
+            history["train_f1"].append(train_metrics["macro_f1"])
+            history["val_f1"].append(val_metrics["macro_f1"])
+
+            logger.info(
+                f"[Fold {fold_idx} | Epoch {epoch:03d}] "
+                f"train_loss={train_metrics['loss']:.4f} "
+                f"train_acc={train_metrics['accuracy']:.4f} "
+                f"train_bal_acc={train_metrics['balanced_accuracy']:.4f} "
+                f"train_f1={train_metrics['macro_f1']:.4f} | "
+                f"val_loss={val_metrics['loss']:.4f} "
+                f"val_acc={val_metrics['accuracy']:.4f} "
+                f"val_bal_acc={val_metrics['balanced_accuracy']:.4f} "
+                f"val_f1={val_metrics['macro_f1']:.4f}"
+            )
+
+            if val_metrics["macro_f1"] > best_val_f1:
+                best_val_f1 = val_metrics["macro_f1"]
+                best_epoch = epoch
+                best_state = copy.deepcopy(model.state_dict())
+                logger.info(
+                    f"New best model at epoch {epoch} with val_macro_f1={best_val_f1:.4f}"
+                )
+
+        if best_state is None:
+            raise RuntimeError("No best model state was captured during training.")
+
+        model.load_state_dict(best_state)
+
+        fold_dir = output_dir / f"fold_{fold_idx:02d}_{sanitize_name(held_out_subject)}"
+        fold_dir.mkdir(parents=True, exist_ok=True)
+
+        torch.save(best_state, fold_dir / "best_finetuned_model.pt")
+        plot_training_curves(
+            history,
+            fold_dir / "training_curves.png",
+            f"B1 Fine-tuned Sentiment - Subject {held_out_subject} (best epoch {best_epoch})",
+        )
+
+        y_true, y_pred, logits, test_metrics = evaluate_test(model, test_loader, device)
+        cm = confusion_matrix(y_true, y_pred, labels=list(range(len(class_names))))
+        aggregate_cm += cm
+
+        plot_confusion(
+            cm,
+            class_names,
+            fold_dir / "confusion_matrix.png",
+            f"Confusion Matrix - Held-out Subject {held_out_subject}",
+        )
+
+        logger.info(
+            f"[Fold {fold_idx} TEST] subject={held_out_subject} "
+            f"acc={test_metrics['accuracy']:.4f} "
+            f"bal_acc={test_metrics['balanced_accuracy']:.4f} "
+            f"macro_f1={test_metrics['macro_f1']:.4f}"
+        )
+
+        fold_row = {
+            "fold": fold_idx,
+            "held_out_subject": held_out_subject,
+            "init_mode": "random" if args.random_init else "pretrained",
+            "best_epoch": best_epoch,
+            "best_val_macro_f1": best_val_f1,
+            "test_accuracy": test_metrics["accuracy"],
+            "test_balanced_accuracy": test_metrics["balanced_accuracy"],
+            "test_macro_f1": test_metrics["macro_f1"],
+            "n_test": len(y_true),
+        }
+        all_fold_rows.append(fold_row)
+
+        for i in range(len(y_true)):
+            row = {
+                "fold": fold_idx,
+                "held_out_subject": held_out_subject,
+                "text": texts_test[i],
+                "true_label_id": int(y_true[i]),
+                "pred_label_id": int(y_pred[i]),
+                "true_label_name": class_names[int(y_true[i])],
+                "pred_label_name": class_names[int(y_pred[i])],
+            }
+            if logits.shape[1] >= 1:
+                for j, name in enumerate(class_names):
+                    row[f"logit_{name}"] = float(logits[i, j])
+            all_pred_rows.append(row)
+
+        save_json(
+            fold_dir / "metrics.json",
+            {
+                "fold_info": fold_row,
+                "class_names": class_names,
+                "confusion_matrix": cm.tolist(),
+                "history": history,
+            },
+        )
+
+    folds_df = pd.DataFrame(all_fold_rows)
+    preds_df = pd.DataFrame(all_pred_rows)
+
+    folds_df.to_csv(output_dir / "per_subject_results.csv", index=False)
+    preds_df.to_csv(output_dir / "all_predictions.csv", index=False)
+
+    plot_confusion(
+        aggregate_cm,
+        class_names,
+        output_dir / "overall_confusion_matrix.png",
+        "Overall Confusion Matrix Across LOSO Folds",
+    )
+
+    eval_df = folds_df.rename(
+        columns={
+            "test_accuracy": "accuracy",
+            "test_balanced_accuracy": "balanced_accuracy",
+            "test_macro_f1": "macro_f1",
+        }
+    )
+
+    summary = summarize_metrics(
+        eval_df,
+        metric_names=["accuracy", "balanced_accuracy", "macro_f1"],
+    )
+
+    bootstrap_summary = {
+        "accuracy": bootstrap_subject_metric_ci(
+            eval_df["accuracy"].values,
+            n_boot=1000,
+            alpha=0.95,
+            seed=args.seed,
+        ),
+        "balanced_accuracy": bootstrap_subject_metric_ci(
+            eval_df["balanced_accuracy"].values,
+            n_boot=1000,
+            alpha=0.95,
+            seed=args.seed,
+        ),
+        "macro_f1": bootstrap_subject_metric_ci(
+            eval_df["macro_f1"].values,
+            n_boot=1000,
+            alpha=0.95,
+            seed=args.seed,
+        ),
+    }
+
+    save_json(
+        output_dir / "summary.json",
+        {
+            "num_subjects": len(subjects_unique),
+            "class_names": class_names,
+            "init_mode": "random" if args.random_init else "pretrained",
+            "summary_mean_std": summary,
+            "summary_bootstrap_ci": bootstrap_summary,
+            "aggregate_confusion_matrix": aggregate_cm.tolist(),
+        },
+    )
+
+    logger.info("=" * 88)
+    logger.info("Finished B1 fine-tuned sentiment classification")
+    logger.info(f"Per-subject results saved to: {output_dir / 'per_subject_results.csv'}")
+    logger.info(f"All predictions saved to: {output_dir / 'all_predictions.csv'}")
+    logger.info(f"Summary saved to: {output_dir / 'summary.json'}")
+    logger.info(
+        "Final LOSO results | "
+        f"accuracy={summary['accuracy']['mean']:.4f}±{summary['accuracy']['std']:.4f} "
+        f"(95% bootstrap CI {bootstrap_summary['accuracy']['ci_lower']:.4f} to {bootstrap_summary['accuracy']['ci_upper']:.4f}) | "
+        f"balanced_accuracy={summary['balanced_accuracy']['mean']:.4f}±{summary['balanced_accuracy']['std']:.4f} "
+        f"(95% bootstrap CI {bootstrap_summary['balanced_accuracy']['ci_lower']:.4f} to {bootstrap_summary['balanced_accuracy']['ci_upper']:.4f}) | "
+        f"macro_f1={summary['macro_f1']['mean']:.4f}±{summary['macro_f1']['std']:.4f} "
+        f"(95% bootstrap CI {bootstrap_summary['macro_f1']['ci_lower']:.4f} to {bootstrap_summary['macro_f1']['ci_upper']:.4f})"
+    )
+
+
+if __name__ == "__main__":
+    main()
