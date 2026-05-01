@@ -1,0 +1,2252 @@
+{
+  "root": "/home/sajim/CET-MAE/datasets/data_word_sentence_5",
+  "splits": {
+    "train": {
+      "folder": "/home/sajim/CET-MAE/datasets/data_word_sentence_5/train",
+      "num_files": 10710,
+      "sampled_files": [
+        {
+          "file": "./datasets/data_word_sentence_5/train/v1-task1-SR-ZAB-0.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                510,
+                40826,
+                10,
+                205,
+                403,
+                150,
+                4551,
+                7,
+                694
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 22,
+              "shape": [
+                22
+              ],
+              "dtype": "<U8",
+              "preview": "list len=22",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U8"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 117,
+              "shape": null,
+              "dtype": null,
+              "preview": "Presents a good case while failing to provide a reason for us to care beyond the very basic dictums of human decency."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 17,
+              "shape": [
+                17,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=17",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 17,
+              "shape": [
+                17,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=17",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 17,
+              "shape": [
+                17
+              ],
+              "dtype": "<U8",
+              "preview": "list len=17",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U8"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                17,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                17,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        },
+        {
+          "file": "./datasets/data_word_sentence_5/train/v1-task1-SR-ZAB-1.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                29287,
+                34717,
+                17626,
+                6,
+                7580,
+                32206,
+                14,
+                197,
+                5696
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 22,
+              "shape": [
+                22
+              ],
+              "dtype": "<U11",
+              "preview": "list len=22",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U11"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 156,
+              "shape": null,
+              "dtype": null,
+              "preview": "Beautifully crafted, engaging filmmaking that should attract upscale audiences hungry for quality and a nostalgic, twisty yarn that will keep them guessing."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 19,
+              "shape": [
+                19,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=19",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 19,
+              "shape": [
+                19,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=19",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 19,
+              "shape": [
+                19
+              ],
+              "dtype": "<U11",
+              "preview": "list len=19",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U11"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                19,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                19,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        },
+        {
+          "file": "./datasets/data_word_sentence_5/train/v1-task1-SR-ZAB-10.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                29220,
+                4347,
+                16,
+                1819,
+                117,
+                4463,
+                6,
+                53,
+                5063
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 18,
+              "shape": [
+                18
+              ],
+              "dtype": "<U9",
+              "preview": "list len=18",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U5"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 99,
+              "shape": null,
+              "dtype": null,
+              "preview": "Frida is certainly no disaster, but neither is it the Kahlo movie Frida fans have been looking for."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 13,
+              "shape": [
+                13,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=13",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 13,
+              "shape": [
+                13,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=13",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 13,
+              "shape": [
+                13
+              ],
+              "dtype": "<U9",
+              "preview": "list len=13",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U5"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                13,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                13,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        }
+      ],
+      "key_counter": {
+        "embeddings_for_vis": 3,
+        "input_attn_mask": 3,
+        "input_attn_mask_invert": 3,
+        "input_embeddings": 3,
+        "non_normalized_embeddings_for_vis": 3,
+        "normalized_input_embeddings": 3,
+        "selected_words": 3,
+        "seq_len": 3,
+        "target_ids": 3,
+        "target_mask": 3,
+        "target_string": 3,
+        "target_tokenized": 3
+      }
+    },
+    "valid": {
+      "folder": "/home/sajim/CET-MAE/datasets/data_word_sentence_5/valid",
+      "num_files": 1332,
+      "sampled_files": [
+        {
+          "file": "./datasets/data_word_sentence_5/valid/v1-task1-SR-ZAB-320.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                133,
+                28148,
+                1253,
+                224,
+                383,
+                101,
+                45518,
+                11000,
+                6
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 17,
+              "shape": [
+                17
+              ],
+              "dtype": "<U11",
+              "preview": "list len=17",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U3"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 105,
+              "shape": null,
+              "dtype": null,
+              "preview": "The Venezuelans say things like ``si, pretty much'' and ``por favor, go home'' when talking to Americans."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 11,
+              "shape": [
+                11,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=11",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 11,
+              "shape": [
+                11,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=11",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 11,
+              "shape": [
+                11
+              ],
+              "dtype": "<U11",
+              "preview": "list len=11",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U11"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                11,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                11,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        },
+        {
+          "file": "./datasets/data_word_sentence_5/valid/v1-task1-SR-ZAB-321.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                1106,
+                47,
+                416,
+                101,
+                42,
+                2345,
+                9,
+                631,
+                6
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 17,
+              "shape": [
+                17
+              ],
+              "dtype": "<U7",
+              "preview": "list len=17",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U2"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 82,
+              "shape": null,
+              "dtype": null,
+              "preview": "If you already like this sort of thing, this is that sort of thing all over again."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 14,
+              "shape": [
+                14,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=14",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 14,
+              "shape": [
+                14,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=14",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 14,
+              "shape": [
+                14
+              ],
+              "dtype": "<U7",
+              "preview": "list len=14",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U2"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                14,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                14,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        },
+        {
+          "file": "./datasets/data_word_sentence_5/valid/v1-task1-SR-ZAB-322.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                4688,
+                11522,
+                1569,
+                14,
+                40,
+                129,
+                15332,
+                5,
+                144
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 13,
+              "shape": [
+                13
+              ],
+              "dtype": "<U11",
+              "preview": "list len=13",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U2"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 82,
+              "shape": null,
+              "dtype": null,
+              "preview": "An awful movie that will only satisfy the most emotionally malleable of filmgoers."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 9,
+              "shape": [
+                9,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=9",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 9,
+              "shape": [
+                9,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=9",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 9,
+              "shape": [
+                9
+              ],
+              "dtype": "<U11",
+              "preview": "list len=9",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U5"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                9,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                9,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        }
+      ],
+      "key_counter": {
+        "embeddings_for_vis": 6,
+        "input_attn_mask": 6,
+        "input_attn_mask_invert": 6,
+        "input_embeddings": 6,
+        "non_normalized_embeddings_for_vis": 6,
+        "normalized_input_embeddings": 6,
+        "selected_words": 6,
+        "seq_len": 6,
+        "target_ids": 6,
+        "target_mask": 6,
+        "target_string": 6,
+        "target_tokenized": 6
+      }
+    },
+    "test": {
+      "folder": "/home/sajim/CET-MAE/datasets/data_word_sentence_5/test",
+      "num_files": 1407,
+      "sampled_files": [
+        {
+          "file": "./datasets/data_word_sentence_5/test/v1-task1-SR-ZAB-360.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                15173,
+                63,
+                1270,
+                19659,
+                6,
+                10,
+                2526,
+                12,
+                25268
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 15,
+              "shape": [
+                15
+              ],
+              "dtype": "<U14",
+              "preview": "list len=15",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U10"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 102,
+              "shape": null,
+              "dtype": null,
+              "preview": "Everything its title implies, a standard-issue crime drama spat out from the Tinseltown assembly line."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 11,
+              "shape": [
+                11,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=11",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 11,
+              "shape": [
+                11,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=11",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 11,
+              "shape": [
+                11
+              ],
+              "dtype": "<U14",
+              "preview": "list len=11",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U10"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                11,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                11,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        },
+        {
+          "file": "./datasets/data_word_sentence_5/test/v1-task1-SR-ZAB-361.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                713,
+                8372,
+                6,
+                33709,
+                921,
+                1569,
+                6,
+                24795,
+                30
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 40,
+              "shape": [
+                40
+              ],
+              "dtype": "<U13",
+              "preview": "list len=40",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U4"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 226,
+              "shape": null,
+              "dtype": null,
+              "preview": "This odd, poetic road movie, spiked by jolts of pop music, pretty much takes place in Morton's ever-watchful gaze -- and it's a tribute to the actress, and to her inventive director, that the journey is such a mesmerizing one."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 25,
+              "shape": [
+                25,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=25",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 25,
+              "shape": [
+                25,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=25",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 25,
+              "shape": [
+                25
+              ],
+              "dtype": "<U13",
+              "preview": "list len=25",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U4"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                25,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                25,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        },
+        {
+          "file": "./datasets/data_word_sentence_5/test/v1-task1-SR-ZAB-362.pickle",
+          "top_level_type": "<class 'dict'>",
+          "keys": [
+            "embeddings_for_vis",
+            "input_attn_mask",
+            "input_attn_mask_invert",
+            "input_embeddings",
+            "non_normalized_embeddings_for_vis",
+            "normalized_input_embeddings",
+            "selected_words",
+            "seq_len",
+            "target_ids",
+            "target_mask",
+            "target_string",
+            "target_tokenized"
+          ],
+          "fields": {
+            "target_tokenized": {
+              "python_type": "<class 'transformers.tokenization_utils_base.BatchEncoding'>",
+              "len": 2,
+              "shape": [
+                2
+              ],
+              "dtype": "<U14",
+              "preview": [
+                "input_ids",
+                "attention_mask"
+              ]
+            },
+            "target_ids": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                0,
+                8739,
+                12,
+                9408,
+                73,
+                19709,
+                4167,
+                6224,
+                18,
+                3881
+              ]
+            },
+            "target_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "int64",
+              "preview": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "seq_len": {
+              "python_type": "<class 'list'>",
+              "len": 13,
+              "shape": [
+                13
+              ],
+              "dtype": "<U18",
+              "preview": "list len=13",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U18"
+            },
+            "target_string": {
+              "python_type": "<class 'str'>",
+              "len": 112,
+              "shape": null,
+              "dtype": null,
+              "preview": "Co-writer/director Jonathan Parker's attempts to fashion a Brazil-like, hyper-real satire fall dreadfully short."
+            },
+            "embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 12,
+              "shape": [
+                12,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=12",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "non_normalized_embeddings_for_vis": {
+              "python_type": "<class 'list'>",
+              "len": 12,
+              "shape": [
+                12,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "list len=12",
+              "preview_first_item_type": "<class 'torch.Tensor'>",
+              "preview_first_item_shape": [
+                840
+              ],
+              "preview_first_item_dtype": "float64"
+            },
+            "selected_words": {
+              "python_type": "<class 'list'>",
+              "len": 12,
+              "shape": [
+                12
+              ],
+              "dtype": "<U18",
+              "preview": "list len=12",
+              "preview_first_item_type": "<class 'str'>",
+              "preview_first_item_shape": [],
+              "preview_first_item_dtype": "<U18"
+            },
+            "input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "normalized_input_embeddings": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58,
+                840
+              ],
+              "dtype": "float64",
+              "preview": "array ndim=2"
+            },
+            "input_attn_mask": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "input_attn_mask_invert": {
+              "python_type": "<class 'torch.Tensor'>",
+              "len": 58,
+              "shape": [
+                58
+              ],
+              "dtype": "float32",
+              "preview": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "candidate_text_keys": [
+            [
+              "seq_len",
+              "list_of_strings"
+            ],
+            [
+              "target_string",
+              "string"
+            ],
+            [
+              "selected_words",
+              "list_of_strings"
+            ]
+          ],
+          "candidate_eeg_keys": [
+            [
+              "embeddings_for_vis",
+              [
+                12,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "non_normalized_embeddings_for_vis",
+              [
+                12,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ],
+            [
+              "normalized_input_embeddings",
+              [
+                58,
+                840
+              ],
+              "float64"
+            ]
+          ]
+        }
+      ],
+      "key_counter": {
+        "embeddings_for_vis": 9,
+        "input_attn_mask": 9,
+        "input_attn_mask_invert": 9,
+        "input_embeddings": 9,
+        "non_normalized_embeddings_for_vis": 9,
+        "normalized_input_embeddings": 9,
+        "selected_words": 9,
+        "seq_len": 9,
+        "target_ids": 9,
+        "target_mask": 9,
+        "target_string": 9,
+        "target_tokenized": 9
+      }
+    }
+  },
+  "global_key_counter": {
+    "embeddings_for_vis": 9,
+    "input_attn_mask": 9,
+    "input_attn_mask_invert": 9,
+    "input_embeddings": 9,
+    "non_normalized_embeddings_for_vis": 9,
+    "normalized_input_embeddings": 9,
+    "selected_words": 9,
+    "seq_len": 9,
+    "target_ids": 9,
+    "target_mask": 9,
+    "target_string": 9,
+    "target_tokenized": 9
+  },
+  "notes": [
+    "Goal: recover schema needed for EEG_dataset_add_sentence_mae.",
+    "Need likely text field, likely EEG field, shapes, and whether tokenized text already exists."
+  ]
+}

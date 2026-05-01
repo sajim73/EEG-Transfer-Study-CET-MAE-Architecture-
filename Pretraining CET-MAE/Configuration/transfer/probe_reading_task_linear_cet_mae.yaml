@@ -1,0 +1,21 @@
+experiment_name: probe_reading_task_linear_cet_mae
+seed: 42
+task: reading_task
+output_dir: transfer_study/results/probe_reading_task_linear
+checkpoint_in: transfer_study/checkpoints/cet_mae_encoder.pt
+labels_csv: transfer_study/labels/reading_task_labels.csv
+split_file: transfer_study/splits/loso_subject_splits.json
+
+model:
+  freeze_encoder: true
+  pooling: mean
+  head: linear
+  num_classes: 2
+
+train:
+  batch_size: 16
+  epochs: 30
+  lr: 1.0e-3
+  weight_decay: 0.0
+
+metrics: [accuracy, balanced_accuracy, macro_f1]

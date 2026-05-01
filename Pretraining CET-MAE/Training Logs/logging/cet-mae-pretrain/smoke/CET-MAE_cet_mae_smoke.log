@@ -1,0 +1,137 @@
+2026-03-17 05:46:03,904 - INFO - Logger initialized.
+2026-03-17 05:46:03,904 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 05:46:03,904 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': '5e-7', 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 05:47:36,165 - INFO - Logger initialized.
+2026-03-17 05:47:36,165 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 05:47:36,165 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': '5e-7', 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 05:47:39,382 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 05:50:47,193 - INFO - Logger initialized.
+2026-03-17 05:50:47,193 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 05:50:47,193 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 05:50:50,395 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 05:50:50,947 - INFO - 5e-07
+2026-03-17 05:50:50,947 - INFO - cet_mae_smoke.pt
+2026-03-17 05:50:50,947 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 05:50:50,947 - INFO - text_mask_ratio is 0.75
+2026-03-17 05:50:50,947 - INFO - mlm_loss_weight is 0.1
+2026-03-17 05:50:50,947 - INFO - mae_loss_weight is 1.0
+2026-03-17 05:50:50,947 - INFO - contrast_loss_weight is 0.01
+2026-03-17 05:50:50,947 - INFO - Epoch 0/0
+
+2026-03-17 05:50:50,949 - INFO - Epoch 0
+2026-03-17 06:13:08,667 - INFO - Logger initialized.
+2026-03-17 06:13:08,667 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 06:13:08,667 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 06:13:11,943 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 06:13:12,525 - INFO - 5e-07
+2026-03-17 06:13:12,525 - INFO - cet_mae_smoke.pt
+2026-03-17 06:13:12,525 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 06:13:12,525 - INFO - text_mask_ratio is 0.75
+2026-03-17 06:13:12,525 - INFO - mlm_loss_weight is 0.1
+2026-03-17 06:13:12,525 - INFO - mae_loss_weight is 1.0
+2026-03-17 06:13:12,525 - INFO - contrast_loss_weight is 0.01
+2026-03-17 06:13:12,525 - INFO - Epoch 0/0
+
+2026-03-17 06:13:12,527 - INFO - Epoch 0
+2026-03-17 06:17:44,036 - INFO - Logger initialized.
+2026-03-17 06:17:44,036 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 06:17:44,036 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 06:17:47,275 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 06:17:47,856 - INFO - 5e-07
+2026-03-17 06:17:47,857 - INFO - cet_mae_smoke.pt
+2026-03-17 06:17:47,857 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 06:17:47,857 - INFO - text_mask_ratio is 0.75
+2026-03-17 06:17:47,857 - INFO - mlm_loss_weight is 0.1
+2026-03-17 06:17:47,857 - INFO - mae_loss_weight is 1.0
+2026-03-17 06:17:47,857 - INFO - contrast_loss_weight is 0.01
+2026-03-17 06:17:47,857 - INFO - Epoch 0/0
+
+2026-03-17 06:17:47,858 - INFO - Epoch 0
+2026-03-17 06:34:19,614 - INFO - Logger initialized.
+2026-03-17 06:34:19,614 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 06:34:19,614 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 06:34:22,798 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 06:34:23,367 - INFO - 5e-07
+2026-03-17 06:34:23,367 - INFO - cet_mae_smoke.pt
+2026-03-17 06:34:23,367 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 06:34:23,367 - INFO - text_mask_ratio is 0.75
+2026-03-17 06:34:23,367 - INFO - mlm_loss_weight is 0.1
+2026-03-17 06:34:23,367 - INFO - mae_loss_weight is 1.0
+2026-03-17 06:34:23,367 - INFO - contrast_loss_weight is 0.01
+2026-03-17 06:34:23,367 - INFO - Epoch 0/0
+
+2026-03-17 06:34:23,368 - INFO - Epoch 0
+2026-03-17 06:36:46,847 - INFO - Logger initialized.
+2026-03-17 06:36:46,848 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 06:36:46,848 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 06:36:50,073 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 06:36:50,651 - INFO - 5e-07
+2026-03-17 06:36:50,651 - INFO - cet_mae_smoke.pt
+2026-03-17 06:36:50,651 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 06:36:50,651 - INFO - text_mask_ratio is 0.75
+2026-03-17 06:36:50,651 - INFO - mlm_loss_weight is 0.1
+2026-03-17 06:36:50,651 - INFO - mae_loss_weight is 1.0
+2026-03-17 06:36:50,651 - INFO - contrast_loss_weight is 0.01
+2026-03-17 06:36:50,651 - INFO - Epoch 0/0
+
+2026-03-17 06:36:50,652 - INFO - Epoch 0
+2026-03-17 06:41:31,637 - INFO - Logger initialized.
+2026-03-17 06:41:31,637 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 06:41:31,637 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 06:41:34,842 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 06:41:35,408 - INFO - 5e-07
+2026-03-17 06:41:35,409 - INFO - cet_mae_smoke.pt
+2026-03-17 06:41:35,409 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 06:41:35,409 - INFO - text_mask_ratio is 0.75
+2026-03-17 06:41:35,409 - INFO - mlm_loss_weight is 0.1
+2026-03-17 06:41:35,409 - INFO - mae_loss_weight is 1.0
+2026-03-17 06:41:35,409 - INFO - contrast_loss_weight is 0.01
+2026-03-17 06:41:35,409 - INFO - Epoch 0/0
+
+2026-03-17 06:41:35,410 - INFO - Epoch 0
+2026-03-17 06:45:42,681 - INFO - Epoch 0 train_epoch_mae_loss: 0.9628077888138329
+2026-03-17 06:45:42,681 - INFO - Epoch 0 train_epoch_c_loss: 0.0069912498765185
+2026-03-17 06:45:42,681 - INFO - Epoch 0 Train Loss: 1.9925
+2026-03-17 06:52:09,791 - INFO - Logger initialized.
+2026-03-17 06:52:09,791 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 06:52:09,791 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 06:52:13,840 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 06:52:14,533 - INFO - 5e-07
+2026-03-17 06:52:14,533 - INFO - cet_mae_smoke.pt
+2026-03-17 06:52:14,533 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 06:52:14,533 - INFO - text_mask_ratio is 0.75
+2026-03-17 06:52:14,533 - INFO - mlm_loss_weight is 0.1
+2026-03-17 06:52:14,533 - INFO - mae_loss_weight is 1.0
+2026-03-17 06:52:14,533 - INFO - contrast_loss_weight is 0.01
+2026-03-17 06:52:14,533 - INFO - Epoch 0/0
+
+2026-03-17 06:52:14,535 - INFO - Epoch 0
+2026-03-17 06:56:09,453 - INFO - Epoch 0 train_epoch_mae_loss: 0.9628077888138329
+2026-03-17 06:56:09,453 - INFO - Epoch 0 train_epoch_c_loss: 0.0069912498765185
+2026-03-17 06:56:09,453 - INFO - Epoch 0 Train Loss: 1.9925
+2026-03-17 07:02:27,374 - INFO - Logger initialized.
+2026-03-17 07:02:27,374 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/smoke/CET-MAE_cet_mae_smoke.log
+2026-03-17 07:02:27,374 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/smoke', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_smoke.pt', 'folder_name': 'cet_mae_smoke', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 1, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 2, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 07:02:30,571 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 07:02:31,169 - INFO - 5e-07
+2026-03-17 07:02:31,169 - INFO - cet_mae_smoke.pt
+2026-03-17 07:02:31,169 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 07:02:31,169 - INFO - text_mask_ratio is 0.75
+2026-03-17 07:02:31,169 - INFO - mlm_loss_weight is 0.1
+2026-03-17 07:02:31,169 - INFO - mae_loss_weight is 1.0
+2026-03-17 07:02:31,169 - INFO - contrast_loss_weight is 0.01
+2026-03-17 07:02:31,170 - INFO - Epoch 0/0
+
+2026-03-17 07:02:31,171 - INFO - Epoch 0
+2026-03-17 07:06:34,111 - INFO - Epoch 0 train_epoch_mae_loss: 0.9628077888138329
+2026-03-17 07:06:34,112 - INFO - Epoch 0 train_epoch_c_loss: 0.0069912498765185
+2026-03-17 07:06:34,112 - INFO - Epoch 0 Train Loss: 1.9925
+2026-03-17 07:06:42,353 - INFO - Epoch 0 valid_epoch_mae_loss: 0.7086341925473376
+2026-03-17 07:06:42,353 - INFO - Epoch 0 valid_epoch_c_loss: 0.006930081548820122
+2026-03-17 07:06:42,353 - INFO - Epoch 0 Valid Loss: 1.6821
+2026-03-17 07:06:43,999 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:06:43,999 - INFO - best_epoch:0
+2026-03-17 07:06:43,999 - INFO - best_mae_epoch:0
+2026-03-17 07:06:43,999 - INFO - best_mlm_epoch:0
+2026-03-17 07:06:43,999 - INFO - best_contrastive_epoch:0
+2026-03-17 07:06:45,283 - INFO - Saved final epoch weights to ./checkpoints/cet_mae/cet_mae_smoke.pt_epoch_1.pt

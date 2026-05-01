@@ -1,0 +1,15 @@
+paragraph_id;sentence_id;control_question;answer1;answer2;answer3;correct_answer
+
+305;1;Frank J. Howard played and coached...;tennis;cricket;football;football
+
+312;1;Jacqueline Bouvier was Kennedy's...;first wife;second wife;third wife;second wife
+
+319;1;Garrett Birkhoff was a...;physicist;chemist;mathematician;mathematician
+
+322;1;John Ellis Bush is the current Governor of...;California;Florida;New York;Florida
+
+324;2;Armando Codina came from...;Mexico;Cuba;Guatemala;Cuba
+
+333;1;How old was Bush when they moved to Texas?;6;7;8;6
+
+336;1;Who ran an oil drilling company?;his father;his uncle;his brother;his father

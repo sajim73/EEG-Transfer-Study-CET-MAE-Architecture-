@@ -1,0 +1,17 @@
+paragraph_id;sentence_id;control_question;answer1;answer2;answer3;correct_answer
+
+59;1;Where was he born?;Minnesota;New York;Philadelphia;Philadelphia
+
+57;1;In which state did she die?;California;Florida;Texas;California
+
+64;3;How many children did they have?;4;7;6;7
+
+70;5;Where is Martha Hodgkins from?;Minnesota;San Francisco;Philadelphia;Philadelphia
+
+71;2;She is Homer's...;daughter;wife;aunt;wife
+
+74;2;Moe works as a...;bartender;caterer;driver;bartender
+
+83;2;How many children did he have?;1;2;3;3
+
+88;3;How old was he when he died?;65;73;86;86

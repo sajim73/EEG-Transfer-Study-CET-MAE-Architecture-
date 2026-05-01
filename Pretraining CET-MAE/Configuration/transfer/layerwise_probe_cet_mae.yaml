@@ -1,0 +1,8 @@
+experiment_name: layerwise_probe_cet_mae
+seed: 42
+output_dir: transfer_study/results/layerwise_probe
+checkpoint_in: transfer_study/checkpoints/cet_mae_encoder.pt
+labels_csv: transfer_study/labels/sentiment_labels.csv
+split_file: transfer_study/splits/loso_subject_splits.json
+layers: [0, 2, 5]
+pooling: mean

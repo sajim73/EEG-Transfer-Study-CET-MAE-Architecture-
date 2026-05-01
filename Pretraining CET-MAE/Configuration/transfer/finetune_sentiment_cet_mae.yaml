@@ -1,0 +1,23 @@
+experiment_name: finetune_sentiment_cet_mae
+seed: 42
+task: sentiment
+output_dir: transfer_study/results/finetune_sentiment
+checkpoint_in: transfer_study/checkpoints/cet_mae_encoder.pt
+labels_csv: transfer_study/labels/sentiment_labels.csv
+split_file: transfer_study/splits/loso_subject_splits.json
+
+model:
+  freeze_encoder: false
+  unfreeze_from_layer: 0
+  pooling: mean
+  head: linear
+  num_classes: 3
+
+train:
+  batch_size: 8
+  epochs: 20
+  lr_encoder: 1.0e-5
+  lr_head: 1.0e-3
+  weight_decay: 1.0e-4
+
+metrics: [accuracy, balanced_accuracy, macro_f1]

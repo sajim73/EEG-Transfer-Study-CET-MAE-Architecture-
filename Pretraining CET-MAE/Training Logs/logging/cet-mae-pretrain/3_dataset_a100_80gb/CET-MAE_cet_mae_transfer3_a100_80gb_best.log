@@ -1,0 +1,997 @@
+2026-03-17 07:26:50,488 - INFO - Logger initialized.
+2026-03-17 07:26:50,489 - INFO - Logging to: ./logs/logging/cet-mae-pretrain/3_dataset_a100_80gb/CET-MAE_cet_mae_transfer3_a100_80gb_best.log
+2026-03-17 07:26:50,489 - INFO - Args/config: {'log_dir': './logs/logging/cet-mae-pretrain/3_dataset_a100_80gb', 'state': 'INFO', 'cuda': 0, 'dataset_path': './datasets/data_word_sentence_5/', 'cet_mae_checkpoint_name': 'cet_mae_transfer3_a100_80gb_best.pt', 'folder_name': 'cet_mae_transfer3_a100_80gb_best', 'pretrained_model': './models/huggingface/bart-large', 'eeg_bands': ['_t1', '_t2', '_a1', '_a2', '_b1', '_b2', '_g1', '_g2'], 'model_name': 'CET-MAE', 'num_epoch_pretrain': 100, 'cet_mae_lr': 5e-07, 'cet_mae_optimizer': 'adamw', 'batch_size': 32, 'save_path': './checkpoints/cet_mae'}
+2026-03-17 07:26:53,684 - INFO - the model is CETMAE_project_late_bart
+2026-03-17 07:26:54,248 - INFO - 5e-07
+2026-03-17 07:26:54,248 - INFO - cet_mae_transfer3_a100_80gb_best.pt
+2026-03-17 07:26:54,248 - INFO - eeg_mask_ratio is 0.75
+2026-03-17 07:26:54,248 - INFO - text_mask_ratio is 0.75
+2026-03-17 07:26:54,248 - INFO - mlm_loss_weight is 0.1
+2026-03-17 07:26:54,248 - INFO - mae_loss_weight is 1.0
+2026-03-17 07:26:54,248 - INFO - contrast_loss_weight is 0.01
+2026-03-17 07:26:54,248 - INFO - Epoch 0/99
+
+2026-03-17 07:26:54,249 - INFO - Epoch 0
+2026-03-17 07:27:36,257 - INFO - Epoch 0 train_epoch_mae_loss: 1.6213542188194132
+2026-03-17 07:27:36,257 - INFO - Epoch 0 train_epoch_c_loss: 0.034884994152923475
+2026-03-17 07:27:36,258 - INFO - Epoch 0 Train Loss: 2.7338
+2026-03-17 07:27:38,922 - INFO - Epoch 0 valid_epoch_mae_loss: 1.2406279796903783
+2026-03-17 07:27:38,923 - INFO - Epoch 0 valid_epoch_c_loss: 0.034675248729234394
+2026-03-17 07:27:38,923 - INFO - Epoch 0 Valid Loss: 2.3460
+2026-03-17 07:27:40,406 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:27:40,406 - INFO - Epoch 1/99
+
+2026-03-17 07:27:40,407 - INFO - Epoch 1
+2026-03-17 07:28:20,105 - INFO - Epoch 1 train_epoch_mae_loss: 1.179862485640245
+2026-03-17 07:28:20,106 - INFO - Epoch 1 train_epoch_c_loss: 0.03473007027800899
+2026-03-17 07:28:20,106 - INFO - Epoch 1 Train Loss: 2.2785
+2026-03-17 07:28:22,264 - INFO - Epoch 1 valid_epoch_mae_loss: 0.9768084152178331
+2026-03-17 07:28:22,264 - INFO - Epoch 1 valid_epoch_c_loss: 0.03466707637364214
+2026-03-17 07:28:22,264 - INFO - Epoch 1 Valid Loss: 2.0637
+2026-03-17 07:28:24,200 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:28:24,200 - INFO - Epoch 2/99
+
+2026-03-17 07:28:24,201 - INFO - Epoch 2
+2026-03-17 07:29:08,126 - INFO - Epoch 2 train_epoch_mae_loss: 1.0090222451984092
+2026-03-17 07:29:08,126 - INFO - Epoch 2 train_epoch_c_loss: 0.034715418612451074
+2026-03-17 07:29:08,126 - INFO - Epoch 2 Train Loss: 2.0903
+2026-03-17 07:29:10,585 - INFO - Epoch 2 valid_epoch_mae_loss: 0.8592635176398538
+2026-03-17 07:29:10,585 - INFO - Epoch 2 valid_epoch_c_loss: 0.03466301140460101
+2026-03-17 07:29:10,586 - INFO - Epoch 2 Valid Loss: 1.9261
+2026-03-17 07:29:12,644 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:29:12,644 - INFO - Epoch 3/99
+
+2026-03-17 07:29:12,646 - INFO - Epoch 3
+2026-03-17 07:29:52,171 - INFO - Epoch 3 train_epoch_mae_loss: 0.9269584463192866
+2026-03-17 07:29:52,172 - INFO - Epoch 3 train_epoch_c_loss: 0.03470124542436486
+2026-03-17 07:29:52,172 - INFO - Epoch 3 Train Loss: 1.9919
+2026-03-17 07:29:54,267 - INFO - Epoch 3 valid_epoch_mae_loss: 0.8014134778217836
+2026-03-17 07:29:54,267 - INFO - Epoch 3 valid_epoch_c_loss: 0.034660811282017014
+2026-03-17 07:29:54,268 - INFO - Epoch 3 Valid Loss: 1.8533
+2026-03-17 07:29:56,364 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:29:56,365 - INFO - Epoch 4/99
+
+2026-03-17 07:29:56,367 - INFO - Epoch 4
+2026-03-17 07:30:36,094 - INFO - Epoch 4 train_epoch_mae_loss: 0.8816869462832848
+2026-03-17 07:30:36,094 - INFO - Epoch 4 train_epoch_c_loss: 0.034691098682206885
+2026-03-17 07:30:36,095 - INFO - Epoch 4 Train Loss: 1.9343
+2026-03-17 07:30:38,205 - INFO - Epoch 4 valid_epoch_mae_loss: 0.7724886997179552
+2026-03-17 07:30:38,205 - INFO - Epoch 4 valid_epoch_c_loss: 0.03464652623303912
+2026-03-17 07:30:38,205 - INFO - Epoch 4 Valid Loss: 1.8134
+2026-03-17 07:30:40,223 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:30:40,223 - INFO - Epoch 5/99
+
+2026-03-17 07:30:40,226 - INFO - Epoch 5
+2026-03-17 07:31:19,498 - INFO - Epoch 5 train_epoch_mae_loss: 0.8555936505054605
+2026-03-17 07:31:19,499 - INFO - Epoch 5 train_epoch_c_loss: 0.03470301524852094
+2026-03-17 07:31:19,499 - INFO - Epoch 5 Train Loss: 1.8997
+2026-03-17 07:31:21,647 - INFO - Epoch 5 valid_epoch_mae_loss: 0.7565639208663594
+2026-03-17 07:31:21,647 - INFO - Epoch 5 valid_epoch_c_loss: 0.03464777064933018
+2026-03-17 07:31:21,647 - INFO - Epoch 5 Valid Loss: 1.7904
+2026-03-17 07:31:23,622 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:31:23,622 - INFO - Epoch 6/99
+
+2026-03-17 07:31:23,624 - INFO - Epoch 6
+2026-03-17 07:32:03,020 - INFO - Epoch 6 train_epoch_mae_loss: 0.8383518805238233
+2026-03-17 07:32:03,020 - INFO - Epoch 6 train_epoch_c_loss: 0.0346720412086982
+2026-03-17 07:32:03,020 - INFO - Epoch 6 Train Loss: 1.8768
+2026-03-17 07:32:05,171 - INFO - Epoch 6 valid_epoch_mae_loss: 0.743552258068865
+2026-03-17 07:32:05,172 - INFO - Epoch 6 valid_epoch_c_loss: 0.03465435687791218
+2026-03-17 07:32:05,172 - INFO - Epoch 6 Valid Loss: 1.7728
+2026-03-17 07:32:07,145 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:32:07,145 - INFO - Epoch 7/99
+
+2026-03-17 07:32:07,147 - INFO - Epoch 7
+2026-03-17 07:32:49,898 - INFO - Epoch 7 train_epoch_mae_loss: 0.828205146429077
+2026-03-17 07:32:49,899 - INFO - Epoch 7 train_epoch_c_loss: 0.03469570165386408
+2026-03-17 07:32:49,899 - INFO - Epoch 7 Train Loss: 1.8632
+2026-03-17 07:32:51,996 - INFO - Epoch 7 valid_epoch_mae_loss: 0.738079312172803
+2026-03-17 07:32:51,996 - INFO - Epoch 7 valid_epoch_c_loss: 0.03464079538190907
+2026-03-17 07:32:51,996 - INFO - Epoch 7 Valid Loss: 1.7646
+2026-03-17 07:32:53,977 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:32:53,977 - INFO - Epoch 8/99
+
+2026-03-17 07:32:53,979 - INFO - Epoch 8
+2026-03-17 07:33:33,372 - INFO - Epoch 8 train_epoch_mae_loss: 0.8228027107544856
+2026-03-17 07:33:33,372 - INFO - Epoch 8 train_epoch_c_loss: 0.034684270131216444
+2026-03-17 07:33:33,372 - INFO - Epoch 8 Train Loss: 1.8560
+2026-03-17 07:33:35,494 - INFO - Epoch 8 valid_epoch_mae_loss: 0.7339345772158016
+2026-03-17 07:33:35,494 - INFO - Epoch 8 valid_epoch_c_loss: 0.03464177835055373
+2026-03-17 07:33:35,494 - INFO - Epoch 8 Valid Loss: 1.7600
+2026-03-17 07:33:37,459 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:33:37,460 - INFO - Epoch 9/99
+
+2026-03-17 07:33:37,461 - INFO - Epoch 9
+2026-03-17 07:34:16,782 - INFO - Epoch 9 train_epoch_mae_loss: 0.8211912533332562
+2026-03-17 07:34:16,782 - INFO - Epoch 9 train_epoch_c_loss: 0.03469188217893836
+2026-03-17 07:34:16,782 - INFO - Epoch 9 Train Loss: 1.8539
+2026-03-17 07:34:18,929 - INFO - Epoch 9 valid_epoch_mae_loss: 0.7324953404339877
+2026-03-17 07:34:18,929 - INFO - Epoch 9 valid_epoch_c_loss: 0.03464600232175805
+2026-03-17 07:34:18,929 - INFO - Epoch 9 Valid Loss: 1.7577
+2026-03-17 07:34:21,115 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:34:21,115 - INFO - Epoch 10/99
+
+2026-03-17 07:34:21,117 - INFO - Epoch 10
+2026-03-17 07:35:00,487 - INFO - Epoch 10 train_epoch_mae_loss: 0.8211765580215252
+2026-03-17 07:35:00,487 - INFO - Epoch 10 train_epoch_c_loss: 0.03467410854224501
+2026-03-17 07:35:00,487 - INFO - Epoch 10 Train Loss: 1.8535
+2026-03-17 07:35:02,702 - INFO - Epoch 10 valid_epoch_mae_loss: 0.7358797639608383
+2026-03-17 07:35:02,703 - INFO - Epoch 10 valid_epoch_c_loss: 0.03466190270740877
+2026-03-17 07:35:02,703 - INFO - Epoch 10 Valid Loss: 1.7610
+2026-03-17 07:35:02,703 - INFO - Epoch 11/99
+
+2026-03-17 07:35:02,705 - INFO - Epoch 11
+2026-03-17 07:35:42,111 - INFO - Epoch 11 train_epoch_mae_loss: 0.8207935991274583
+2026-03-17 07:35:42,111 - INFO - Epoch 11 train_epoch_c_loss: 0.034680732162743415
+2026-03-17 07:35:42,111 - INFO - Epoch 11 Train Loss: 1.8528
+2026-03-17 07:35:44,271 - INFO - Epoch 11 valid_epoch_mae_loss: 0.7338453382253647
+2026-03-17 07:35:44,271 - INFO - Epoch 11 valid_epoch_c_loss: 0.034642854959449985
+2026-03-17 07:35:44,271 - INFO - Epoch 11 Valid Loss: 1.7593
+2026-03-17 07:35:44,271 - INFO - Epoch 12/99
+
+2026-03-17 07:35:44,274 - INFO - Epoch 12
+2026-03-17 07:36:23,822 - INFO - Epoch 12 train_epoch_mae_loss: 0.8183702171955564
+2026-03-17 07:36:23,822 - INFO - Epoch 12 train_epoch_c_loss: 0.03467408508872638
+2026-03-17 07:36:23,822 - INFO - Epoch 12 Train Loss: 1.8497
+2026-03-17 07:36:25,988 - INFO - Epoch 12 valid_epoch_mae_loss: 0.7300487716089595
+2026-03-17 07:36:25,988 - INFO - Epoch 12 valid_epoch_c_loss: 0.03465554846281355
+2026-03-17 07:36:25,988 - INFO - Epoch 12 Valid Loss: 1.7537
+2026-03-17 07:36:27,956 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:36:27,956 - INFO - Epoch 13/99
+
+2026-03-17 07:36:27,958 - INFO - Epoch 13
+2026-03-17 07:37:07,363 - INFO - Epoch 13 train_epoch_mae_loss: 0.8127273980439184
+2026-03-17 07:37:07,363 - INFO - Epoch 13 train_epoch_c_loss: 0.03467181804207023
+2026-03-17 07:37:07,363 - INFO - Epoch 13 Train Loss: 1.8423
+2026-03-17 07:37:09,486 - INFO - Epoch 13 valid_epoch_mae_loss: 0.7218333645300432
+2026-03-17 07:37:09,486 - INFO - Epoch 13 valid_epoch_c_loss: 0.034648067148571667
+2026-03-17 07:37:09,486 - INFO - Epoch 13 Valid Loss: 1.7431
+2026-03-17 07:37:11,428 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:37:11,428 - INFO - Epoch 14/99
+
+2026-03-17 07:37:11,430 - INFO - Epoch 14
+2026-03-17 07:37:51,536 - INFO - Epoch 14 train_epoch_mae_loss: 0.803540314065999
+2026-03-17 07:37:51,536 - INFO - Epoch 14 train_epoch_c_loss: 0.03468115108497737
+2026-03-17 07:37:51,536 - INFO - Epoch 14 Train Loss: 1.8300
+2026-03-17 07:37:53,662 - INFO - Epoch 14 valid_epoch_mae_loss: 0.7161314785480499
+2026-03-17 07:37:53,662 - INFO - Epoch 14 valid_epoch_c_loss: 0.034641086885874924
+2026-03-17 07:37:53,662 - INFO - Epoch 14 Valid Loss: 1.7337
+2026-03-17 07:37:55,623 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:37:55,623 - INFO - Epoch 15/99
+
+2026-03-17 07:37:55,625 - INFO - Epoch 15
+2026-03-17 07:38:34,930 - INFO - Epoch 15 train_epoch_mae_loss: 0.7903926620749011
+2026-03-17 07:38:34,930 - INFO - Epoch 15 train_epoch_c_loss: 0.03468667888712504
+2026-03-17 07:38:34,930 - INFO - Epoch 15 Train Loss: 1.8127
+2026-03-17 07:38:37,014 - INFO - Epoch 15 valid_epoch_mae_loss: 0.7005828903480009
+2026-03-17 07:38:37,014 - INFO - Epoch 15 valid_epoch_c_loss: 0.03464852078733119
+2026-03-17 07:38:37,014 - INFO - Epoch 15 Valid Loss: 1.7134
+2026-03-17 07:38:38,963 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:38:38,963 - INFO - Epoch 16/99
+
+2026-03-17 07:38:38,965 - INFO - Epoch 16
+2026-03-17 07:39:18,319 - INFO - Epoch 16 train_epoch_mae_loss: 0.7755408903648113
+2026-03-17 07:39:18,319 - INFO - Epoch 16 train_epoch_c_loss: 0.03467155083401292
+2026-03-17 07:39:18,319 - INFO - Epoch 16 Train Loss: 1.7921
+2026-03-17 07:39:20,642 - INFO - Epoch 16 valid_epoch_mae_loss: 0.6917761808091943
+2026-03-17 07:39:20,643 - INFO - Epoch 16 valid_epoch_c_loss: 0.03464812192727219
+2026-03-17 07:39:20,643 - INFO - Epoch 16 Valid Loss: 1.6992
+2026-03-17 07:39:22,786 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:39:22,786 - INFO - Epoch 17/99
+
+2026-03-17 07:39:22,788 - INFO - Epoch 17
+2026-03-17 07:40:02,163 - INFO - Epoch 17 train_epoch_mae_loss: 0.7596591616182808
+2026-03-17 07:40:02,163 - INFO - Epoch 17 train_epoch_c_loss: 0.034669942437456205
+2026-03-17 07:40:02,163 - INFO - Epoch 17 Train Loss: 1.7696
+2026-03-17 07:40:04,538 - INFO - Epoch 17 valid_epoch_mae_loss: 0.6744335469874468
+2026-03-17 07:40:04,538 - INFO - Epoch 17 valid_epoch_c_loss: 0.03465776196257635
+2026-03-17 07:40:04,538 - INFO - Epoch 17 Valid Loss: 1.6739
+2026-03-17 07:40:06,854 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:40:06,854 - INFO - Epoch 18/99
+
+2026-03-17 07:40:06,856 - INFO - Epoch 18
+2026-03-17 07:40:46,276 - INFO - Epoch 18 train_epoch_mae_loss: 0.7429334219317854
+2026-03-17 07:40:46,276 - INFO - Epoch 18 train_epoch_c_loss: 0.034652870153361034
+2026-03-17 07:40:46,276 - INFO - Epoch 18 Train Loss: 1.7453
+2026-03-17 07:40:48,441 - INFO - Epoch 18 valid_epoch_mae_loss: 0.6609983390027826
+2026-03-17 07:40:48,441 - INFO - Epoch 18 valid_epoch_c_loss: 0.034638774835250595
+2026-03-17 07:40:48,441 - INFO - Epoch 18 Valid Loss: 1.6522
+2026-03-17 07:40:50,589 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:40:50,589 - INFO - Epoch 19/99
+
+2026-03-17 07:40:50,590 - INFO - Epoch 19
+2026-03-17 07:41:31,463 - INFO - Epoch 19 train_epoch_mae_loss: 0.7272318698050805
+2026-03-17 07:41:31,463 - INFO - Epoch 19 train_epoch_c_loss: 0.03466177164559655
+2026-03-17 07:41:31,463 - INFO - Epoch 19 Train Loss: 1.7213
+2026-03-17 07:41:33,751 - INFO - Epoch 19 valid_epoch_mae_loss: 0.6468705203045498
+2026-03-17 07:41:33,751 - INFO - Epoch 19 valid_epoch_c_loss: 0.0346313522789966
+2026-03-17 07:41:33,751 - INFO - Epoch 19 Valid Loss: 1.6303
+2026-03-17 07:41:35,855 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:41:35,856 - INFO - Epoch 20/99
+
+2026-03-17 07:41:35,857 - INFO - Epoch 20
+2026-03-17 07:42:15,231 - INFO - Epoch 20 train_epoch_mae_loss: 0.7134544419356935
+2026-03-17 07:42:15,231 - INFO - Epoch 20 train_epoch_c_loss: 0.03463190739643352
+2026-03-17 07:42:15,231 - INFO - Epoch 20 Train Loss: 1.6986
+2026-03-17 07:42:17,368 - INFO - Epoch 20 valid_epoch_mae_loss: 0.6349895054643805
+2026-03-17 07:42:17,368 - INFO - Epoch 20 valid_epoch_c_loss: 0.034631259654733265
+2026-03-17 07:42:17,368 - INFO - Epoch 20 Valid Loss: 1.6098
+2026-03-17 07:42:19,361 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:42:19,362 - INFO - Epoch 21/99
+
+2026-03-17 07:42:19,363 - INFO - Epoch 21
+2026-03-17 07:42:58,702 - INFO - Epoch 21 train_epoch_mae_loss: 0.7007571384508351
+2026-03-17 07:42:58,702 - INFO - Epoch 21 train_epoch_c_loss: 0.03464949766386409
+2026-03-17 07:42:58,702 - INFO - Epoch 21 Train Loss: 1.6768
+2026-03-17 07:43:00,801 - INFO - Epoch 21 valid_epoch_mae_loss: 0.6247093989090486
+2026-03-17 07:43:00,801 - INFO - Epoch 21 valid_epoch_c_loss: 0.03462945475158366
+2026-03-17 07:43:00,801 - INFO - Epoch 21 Valid Loss: 1.5915
+2026-03-17 07:43:02,890 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:43:02,890 - INFO - Epoch 22/99
+
+2026-03-17 07:43:02,891 - INFO - Epoch 22
+2026-03-17 07:43:42,279 - INFO - Epoch 22 train_epoch_mae_loss: 0.6901770975608724
+2026-03-17 07:43:42,279 - INFO - Epoch 22 train_epoch_c_loss: 0.03462978554716635
+2026-03-17 07:43:42,279 - INFO - Epoch 22 Train Loss: 1.6575
+2026-03-17 07:43:44,386 - INFO - Epoch 22 valid_epoch_mae_loss: 0.6153012459928339
+2026-03-17 07:43:44,387 - INFO - Epoch 22 valid_epoch_c_loss: 0.034622563726522705
+2026-03-17 07:43:44,387 - INFO - Epoch 22 Valid Loss: 1.5733
+2026-03-17 07:43:46,478 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:43:46,478 - INFO - Epoch 23/99
+
+2026-03-17 07:43:46,480 - INFO - Epoch 23
+2026-03-17 07:44:26,016 - INFO - Epoch 23 train_epoch_mae_loss: 0.6811954559318583
+2026-03-17 07:44:26,016 - INFO - Epoch 23 train_epoch_c_loss: 0.0346128644782368
+2026-03-17 07:44:26,016 - INFO - Epoch 23 Train Loss: 1.6414
+2026-03-17 07:44:28,111 - INFO - Epoch 23 valid_epoch_mae_loss: 0.6099325601350177
+2026-03-17 07:44:28,111 - INFO - Epoch 23 valid_epoch_c_loss: 0.03462536099620841
+2026-03-17 07:44:28,112 - INFO - Epoch 23 Valid Loss: 1.5622
+2026-03-17 07:44:30,031 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:44:30,031 - INFO - Epoch 24/99
+
+2026-03-17 07:44:30,033 - INFO - Epoch 24
+2026-03-17 07:45:09,466 - INFO - Epoch 24 train_epoch_mae_loss: 0.6741776893246395
+2026-03-17 07:45:09,466 - INFO - Epoch 24 train_epoch_c_loss: 0.034608268171588366
+2026-03-17 07:45:09,466 - INFO - Epoch 24 Train Loss: 1.6277
+2026-03-17 07:45:11,591 - INFO - Epoch 24 valid_epoch_mae_loss: 0.6044884547591209
+2026-03-17 07:45:11,591 - INFO - Epoch 24 valid_epoch_c_loss: 0.03460316969589754
+2026-03-17 07:45:11,591 - INFO - Epoch 24 Valid Loss: 1.5509
+2026-03-17 07:45:13,575 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:45:13,575 - INFO - Epoch 25/99
+
+2026-03-17 07:45:13,577 - INFO - Epoch 25
+2026-03-17 07:45:52,885 - INFO - Epoch 25 train_epoch_mae_loss: 0.6685039100659621
+2026-03-17 07:45:52,886 - INFO - Epoch 25 train_epoch_c_loss: 0.03460410575750494
+2026-03-17 07:45:52,886 - INFO - Epoch 25 Train Loss: 1.6173
+2026-03-17 07:45:54,973 - INFO - Epoch 25 valid_epoch_mae_loss: 0.5977043793960051
+2026-03-17 07:45:54,973 - INFO - Epoch 25 valid_epoch_c_loss: 0.03462499066848646
+2026-03-17 07:45:54,974 - INFO - Epoch 25 Valid Loss: 1.5398
+2026-03-17 07:45:57,019 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:45:57,019 - INFO - Epoch 26/99
+
+2026-03-17 07:45:57,021 - INFO - Epoch 26
+2026-03-17 07:46:36,322 - INFO - Epoch 26 train_epoch_mae_loss: 0.6656736156036114
+2026-03-17 07:46:36,322 - INFO - Epoch 26 train_epoch_c_loss: 0.03459391560632765
+2026-03-17 07:46:36,322 - INFO - Epoch 26 Train Loss: 1.6104
+2026-03-17 07:46:38,470 - INFO - Epoch 26 valid_epoch_mae_loss: 0.596885971724987
+2026-03-17 07:46:38,470 - INFO - Epoch 26 valid_epoch_c_loss: 0.03461268078535795
+2026-03-17 07:46:38,470 - INFO - Epoch 26 Valid Loss: 1.5347
+2026-03-17 07:46:40,674 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:46:40,675 - INFO - Epoch 27/99
+
+2026-03-17 07:46:40,677 - INFO - Epoch 27
+2026-03-17 07:47:20,219 - INFO - Epoch 27 train_epoch_mae_loss: 0.6633524194320254
+2026-03-17 07:47:20,219 - INFO - Epoch 27 train_epoch_c_loss: 0.03460957006667432
+2026-03-17 07:47:20,219 - INFO - Epoch 27 Train Loss: 1.6059
+2026-03-17 07:47:22,350 - INFO - Epoch 27 valid_epoch_mae_loss: 0.5946616930040446
+2026-03-17 07:47:22,351 - INFO - Epoch 27 valid_epoch_c_loss: 0.03461030320349065
+2026-03-17 07:47:22,351 - INFO - Epoch 27 Valid Loss: 1.5325
+2026-03-17 07:47:24,616 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:47:24,617 - INFO - Epoch 28/99
+
+2026-03-17 07:47:24,618 - INFO - Epoch 28
+2026-03-17 07:48:03,981 - INFO - Epoch 28 train_epoch_mae_loss: 0.6622936795181558
+2026-03-17 07:48:03,981 - INFO - Epoch 28 train_epoch_c_loss: 0.03459684705900261
+2026-03-17 07:48:03,981 - INFO - Epoch 28 Train Loss: 1.6033
+2026-03-17 07:48:06,152 - INFO - Epoch 28 valid_epoch_mae_loss: 0.5952540541237051
+2026-03-17 07:48:06,153 - INFO - Epoch 28 valid_epoch_c_loss: 0.03461958620358597
+2026-03-17 07:48:06,153 - INFO - Epoch 28 Valid Loss: 1.5322
+2026-03-17 07:48:08,252 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:48:08,253 - INFO - Epoch 29/99
+
+2026-03-17 07:48:08,255 - INFO - Epoch 29
+2026-03-17 07:48:54,498 - INFO - Epoch 29 train_epoch_mae_loss: 0.6612523912751074
+2026-03-17 07:48:54,498 - INFO - Epoch 29 train_epoch_c_loss: 0.03459462900436051
+2026-03-17 07:48:54,498 - INFO - Epoch 29 Train Loss: 1.6020
+2026-03-17 07:48:56,704 - INFO - Epoch 29 valid_epoch_mae_loss: 0.5930868597193197
+2026-03-17 07:48:56,705 - INFO - Epoch 29 valid_epoch_c_loss: 0.034611368805847385
+2026-03-17 07:48:56,705 - INFO - Epoch 29 Valid Loss: 1.5303
+2026-03-17 07:48:58,762 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:48:58,762 - INFO - Epoch 30/99
+
+2026-03-17 07:48:58,763 - INFO - Epoch 30
+2026-03-17 07:49:38,099 - INFO - Epoch 30 train_epoch_mae_loss: 0.662120231108577
+2026-03-17 07:49:38,099 - INFO - Epoch 30 train_epoch_c_loss: 0.03462610125976469
+2026-03-17 07:49:38,099 - INFO - Epoch 30 Train Loss: 1.6028
+2026-03-17 07:49:40,193 - INFO - Epoch 30 valid_epoch_mae_loss: 0.5953301157463681
+2026-03-17 07:49:40,194 - INFO - Epoch 30 valid_epoch_c_loss: 0.03460837324911898
+2026-03-17 07:49:40,194 - INFO - Epoch 30 Valid Loss: 1.5326
+2026-03-17 07:49:40,194 - INFO - Epoch 31/99
+
+2026-03-17 07:49:40,196 - INFO - Epoch 31
+2026-03-17 07:50:19,434 - INFO - Epoch 31 train_epoch_mae_loss: 0.6619430339304775
+2026-03-17 07:50:19,434 - INFO - Epoch 31 train_epoch_c_loss: 0.03461435920897308
+2026-03-17 07:50:19,434 - INFO - Epoch 31 Train Loss: 1.6021
+2026-03-17 07:50:21,529 - INFO - Epoch 31 valid_epoch_mae_loss: 0.593038634820418
+2026-03-17 07:50:21,529 - INFO - Epoch 31 valid_epoch_c_loss: 0.03462860767136921
+2026-03-17 07:50:21,530 - INFO - Epoch 31 Valid Loss: 1.5283
+2026-03-17 07:50:23,493 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:50:23,493 - INFO - Epoch 32/99
+
+2026-03-17 07:50:23,495 - INFO - Epoch 32
+2026-03-17 07:51:07,521 - INFO - Epoch 32 train_epoch_mae_loss: 0.6617203757996901
+2026-03-17 07:51:07,521 - INFO - Epoch 32 train_epoch_c_loss: 0.03459452262113676
+2026-03-17 07:51:07,521 - INFO - Epoch 32 Train Loss: 1.6015
+2026-03-17 07:51:09,918 - INFO - Epoch 32 valid_epoch_mae_loss: 0.5953222398053516
+2026-03-17 07:51:09,918 - INFO - Epoch 32 valid_epoch_c_loss: 0.03463737251745029
+2026-03-17 07:51:09,918 - INFO - Epoch 32 Valid Loss: 1.5306
+2026-03-17 07:51:09,918 - INFO - Epoch 33/99
+
+2026-03-17 07:51:09,920 - INFO - Epoch 33
+2026-03-17 07:51:49,328 - INFO - Epoch 33 train_epoch_mae_loss: 0.659634071888911
+2026-03-17 07:51:49,329 - INFO - Epoch 33 train_epoch_c_loss: 0.03461460054750784
+2026-03-17 07:51:49,329 - INFO - Epoch 33 Train Loss: 1.5979
+2026-03-17 07:51:51,464 - INFO - Epoch 33 valid_epoch_mae_loss: 0.5921995246952231
+2026-03-17 07:51:51,464 - INFO - Epoch 33 valid_epoch_c_loss: 0.034624231132594024
+2026-03-17 07:51:51,465 - INFO - Epoch 33 Valid Loss: 1.5263
+2026-03-17 07:51:53,491 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:51:53,491 - INFO - Epoch 34/99
+
+2026-03-17 07:51:53,493 - INFO - Epoch 34
+2026-03-17 07:52:32,865 - INFO - Epoch 34 train_epoch_mae_loss: 0.6582443799517199
+2026-03-17 07:52:32,865 - INFO - Epoch 34 train_epoch_c_loss: 0.034593255859392075
+2026-03-17 07:52:32,865 - INFO - Epoch 34 Train Loss: 1.5946
+2026-03-17 07:52:35,009 - INFO - Epoch 34 valid_epoch_mae_loss: 0.5908057770945809
+2026-03-17 07:52:35,009 - INFO - Epoch 34 valid_epoch_c_loss: 0.03461144839159467
+2026-03-17 07:52:35,009 - INFO - Epoch 34 Valid Loss: 1.5216
+2026-03-17 07:52:37,013 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:52:37,013 - INFO - Epoch 35/99
+
+2026-03-17 07:52:37,015 - INFO - Epoch 35
+2026-03-17 07:53:16,313 - INFO - Epoch 35 train_epoch_mae_loss: 0.6540205183016526
+2026-03-17 07:53:16,313 - INFO - Epoch 35 train_epoch_c_loss: 0.034597069968714006
+2026-03-17 07:53:16,313 - INFO - Epoch 35 Train Loss: 1.5869
+2026-03-17 07:53:18,463 - INFO - Epoch 35 valid_epoch_mae_loss: 0.5866603214632381
+2026-03-17 07:53:18,464 - INFO - Epoch 35 valid_epoch_c_loss: 0.03459968214685267
+2026-03-17 07:53:18,464 - INFO - Epoch 35 Valid Loss: 1.5135
+2026-03-17 07:53:20,445 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:53:20,445 - INFO - Epoch 36/99
+
+2026-03-17 07:53:20,447 - INFO - Epoch 36
+2026-03-17 07:54:01,505 - INFO - Epoch 36 train_epoch_mae_loss: 0.6506274253999523
+2026-03-17 07:54:01,505 - INFO - Epoch 36 train_epoch_c_loss: 0.034593944030193814
+2026-03-17 07:54:01,506 - INFO - Epoch 36 Train Loss: 1.5783
+2026-03-17 07:54:03,733 - INFO - Epoch 36 valid_epoch_mae_loss: 0.5845214866779067
+2026-03-17 07:54:03,734 - INFO - Epoch 36 valid_epoch_c_loss: 0.03461822545663877
+2026-03-17 07:54:03,734 - INFO - Epoch 36 Valid Loss: 1.5068
+2026-03-17 07:54:05,707 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:54:05,707 - INFO - Epoch 37/99
+
+2026-03-17 07:54:05,710 - INFO - Epoch 37
+2026-03-17 07:54:46,560 - INFO - Epoch 37 train_epoch_mae_loss: 0.6444057175588228
+2026-03-17 07:54:46,560 - INFO - Epoch 37 train_epoch_c_loss: 0.034602964958991234
+2026-03-17 07:54:46,560 - INFO - Epoch 37 Train Loss: 1.5663
+2026-03-17 07:54:48,770 - INFO - Epoch 37 valid_epoch_mae_loss: 0.5805501538244161
+2026-03-17 07:54:48,770 - INFO - Epoch 37 valid_epoch_c_loss: 0.03462535998022014
+2026-03-17 07:54:48,771 - INFO - Epoch 37 Valid Loss: 1.4959
+2026-03-17 07:54:50,762 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:54:50,762 - INFO - Epoch 38/99
+
+2026-03-17 07:54:50,763 - INFO - Epoch 38
+2026-03-17 07:55:30,020 - INFO - Epoch 38 train_epoch_mae_loss: 0.6406920297708688
+2026-03-17 07:55:30,020 - INFO - Epoch 38 train_epoch_c_loss: 0.03457407952244307
+2026-03-17 07:55:30,020 - INFO - Epoch 38 Train Loss: 1.5555
+2026-03-17 07:55:32,103 - INFO - Epoch 38 valid_epoch_mae_loss: 0.5726502226157622
+2026-03-17 07:55:32,103 - INFO - Epoch 38 valid_epoch_c_loss: 0.034592804837633266
+2026-03-17 07:55:32,103 - INFO - Epoch 38 Valid Loss: 1.4813
+2026-03-17 07:55:34,055 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:55:34,055 - INFO - Epoch 39/99
+
+2026-03-17 07:55:34,057 - INFO - Epoch 39
+2026-03-17 07:56:13,415 - INFO - Epoch 39 train_epoch_mae_loss: 0.6344602286657541
+2026-03-17 07:56:13,415 - INFO - Epoch 39 train_epoch_c_loss: 0.0345651369433188
+2026-03-17 07:56:13,415 - INFO - Epoch 39 Train Loss: 1.5414
+2026-03-17 07:56:15,584 - INFO - Epoch 39 valid_epoch_mae_loss: 0.5706444822929122
+2026-03-17 07:56:15,584 - INFO - Epoch 39 valid_epoch_c_loss: 0.03462601486932148
+2026-03-17 07:56:15,585 - INFO - Epoch 39 Valid Loss: 1.4705
+2026-03-17 07:56:17,555 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:56:17,555 - INFO - Epoch 40/99
+
+2026-03-17 07:56:17,556 - INFO - Epoch 40
+2026-03-17 07:56:56,951 - INFO - Epoch 40 train_epoch_mae_loss: 0.6299745344040565
+2026-03-17 07:56:56,952 - INFO - Epoch 40 train_epoch_c_loss: 0.03458739646688222
+2026-03-17 07:56:56,952 - INFO - Epoch 40 Train Loss: 1.5288
+2026-03-17 07:56:59,076 - INFO - Epoch 40 valid_epoch_mae_loss: 0.5650081499056383
+2026-03-17 07:56:59,077 - INFO - Epoch 40 valid_epoch_c_loss: 0.03461786664345048
+2026-03-17 07:56:59,077 - INFO - Epoch 40 Valid Loss: 1.4571
+2026-03-17 07:57:01,029 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:57:01,029 - INFO - Epoch 41/99
+
+2026-03-17 07:57:01,030 - INFO - Epoch 41
+2026-03-17 07:57:40,818 - INFO - Epoch 41 train_epoch_mae_loss: 0.6242593733954492
+2026-03-17 07:57:40,818 - INFO - Epoch 41 train_epoch_c_loss: 0.03457310781455957
+2026-03-17 07:57:40,818 - INFO - Epoch 41 Train Loss: 1.5151
+2026-03-17 07:57:42,951 - INFO - Epoch 41 valid_epoch_mae_loss: 0.5613225962628018
+2026-03-17 07:57:42,952 - INFO - Epoch 41 valid_epoch_c_loss: 0.034595512954348866
+2026-03-17 07:57:42,952 - INFO - Epoch 41 Valid Loss: 1.4486
+2026-03-17 07:57:44,918 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:57:44,918 - INFO - Epoch 42/99
+
+2026-03-17 07:57:44,920 - INFO - Epoch 42
+2026-03-17 07:58:24,328 - INFO - Epoch 42 train_epoch_mae_loss: 0.6199518168636595
+2026-03-17 07:58:24,328 - INFO - Epoch 42 train_epoch_c_loss: 0.034554584475545415
+2026-03-17 07:58:24,329 - INFO - Epoch 42 Train Loss: 1.5037
+2026-03-17 07:58:26,465 - INFO - Epoch 42 valid_epoch_mae_loss: 0.5566642575643279
+2026-03-17 07:58:26,466 - INFO - Epoch 42 valid_epoch_c_loss: 0.03459291397170587
+2026-03-17 07:58:26,466 - INFO - Epoch 42 Valid Loss: 1.4361
+2026-03-17 07:58:28,395 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:58:28,395 - INFO - Epoch 43/99
+
+2026-03-17 07:58:28,397 - INFO - Epoch 43
+2026-03-17 07:59:07,772 - INFO - Epoch 43 train_epoch_mae_loss: 0.6165054293463021
+2026-03-17 07:59:07,773 - INFO - Epoch 43 train_epoch_c_loss: 0.034570528866243934
+2026-03-17 07:59:07,773 - INFO - Epoch 43 Train Loss: 1.4938
+2026-03-17 07:59:09,871 - INFO - Epoch 43 valid_epoch_mae_loss: 0.5543181720105085
+2026-03-17 07:59:09,871 - INFO - Epoch 43 valid_epoch_c_loss: 0.03459907179190354
+2026-03-17 07:59:09,871 - INFO - Epoch 43 Valid Loss: 1.4284
+2026-03-17 07:59:11,844 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:59:11,844 - INFO - Epoch 44/99
+
+2026-03-17 07:59:11,846 - INFO - Epoch 44
+2026-03-17 07:59:51,147 - INFO - Epoch 44 train_epoch_mae_loss: 0.613078106619635
+2026-03-17 07:59:51,147 - INFO - Epoch 44 train_epoch_c_loss: 0.03452645010989288
+2026-03-17 07:59:51,147 - INFO - Epoch 44 Train Loss: 1.4849
+2026-03-17 07:59:53,226 - INFO - Epoch 44 valid_epoch_mae_loss: 0.5540606318549677
+2026-03-17 07:59:53,226 - INFO - Epoch 44 valid_epoch_c_loss: 0.034596097824925724
+2026-03-17 07:59:53,226 - INFO - Epoch 44 Valid Loss: 1.4236
+2026-03-17 07:59:55,333 - INFO - save the best cet-mae checkpoint
+2026-03-17 07:59:55,334 - INFO - Epoch 45/99
+
+2026-03-17 07:59:55,335 - INFO - Epoch 45
+2026-03-17 08:00:34,683 - INFO - Epoch 45 train_epoch_mae_loss: 0.610847478361914
+2026-03-17 08:00:34,683 - INFO - Epoch 45 train_epoch_c_loss: 0.03454735109814756
+2026-03-17 08:00:34,683 - INFO - Epoch 45 Train Loss: 1.4790
+2026-03-17 08:00:36,782 - INFO - Epoch 45 valid_epoch_mae_loss: 0.5524726611646739
+2026-03-17 08:00:36,782 - INFO - Epoch 45 valid_epoch_c_loss: 0.0346009884537621
+2026-03-17 08:00:36,782 - INFO - Epoch 45 Valid Loss: 1.4201
+2026-03-17 08:00:38,750 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:00:38,750 - INFO - Epoch 46/99
+
+2026-03-17 08:00:38,751 - INFO - Epoch 46
+2026-03-17 08:01:18,043 - INFO - Epoch 46 train_epoch_mae_loss: 0.6094436773570843
+2026-03-17 08:01:18,043 - INFO - Epoch 46 train_epoch_c_loss: 0.03454900310135172
+2026-03-17 08:01:18,043 - INFO - Epoch 46 Train Loss: 1.4748
+2026-03-17 08:01:20,123 - INFO - Epoch 46 valid_epoch_mae_loss: 0.5517329770055684
+2026-03-17 08:01:20,123 - INFO - Epoch 46 valid_epoch_c_loss: 0.03459800034761429
+2026-03-17 08:01:20,124 - INFO - Epoch 46 Valid Loss: 1.4172
+2026-03-17 08:01:22,053 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:01:22,053 - INFO - Epoch 47/99
+
+2026-03-17 08:01:22,055 - INFO - Epoch 47
+2026-03-17 08:02:01,362 - INFO - Epoch 47 train_epoch_mae_loss: 0.6084988227889772
+2026-03-17 08:02:01,362 - INFO - Epoch 47 train_epoch_c_loss: 0.03453662333422061
+2026-03-17 08:02:01,362 - INFO - Epoch 47 Train Loss: 1.4716
+2026-03-17 08:02:03,456 - INFO - Epoch 47 valid_epoch_mae_loss: 0.5510733730413697
+2026-03-17 08:02:03,457 - INFO - Epoch 47 valid_epoch_c_loss: 0.03460385227067904
+2026-03-17 08:02:03,457 - INFO - Epoch 47 Valid Loss: 1.4145
+2026-03-17 08:02:05,381 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:02:05,381 - INFO - Epoch 48/99
+
+2026-03-17 08:02:05,383 - INFO - Epoch 48
+2026-03-17 08:02:44,684 - INFO - Epoch 48 train_epoch_mae_loss: 0.6081937358613356
+2026-03-17 08:02:44,684 - INFO - Epoch 48 train_epoch_c_loss: 0.034532564749017315
+2026-03-17 08:02:44,684 - INFO - Epoch 48 Train Loss: 1.4706
+2026-03-17 08:02:46,816 - INFO - Epoch 48 valid_epoch_mae_loss: 0.5487984452735294
+2026-03-17 08:02:46,816 - INFO - Epoch 48 valid_epoch_c_loss: 0.034620345485481346
+2026-03-17 08:02:46,817 - INFO - Epoch 48 Valid Loss: 1.4123
+2026-03-17 08:02:48,891 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:02:48,891 - INFO - Epoch 49/99
+
+2026-03-17 08:02:48,892 - INFO - Epoch 49
+2026-03-17 08:03:28,187 - INFO - Epoch 49 train_epoch_mae_loss: 0.6081562579784848
+2026-03-17 08:03:28,187 - INFO - Epoch 49 train_epoch_c_loss: 0.034548245404972956
+2026-03-17 08:03:28,187 - INFO - Epoch 49 Train Loss: 1.4702
+2026-03-17 08:03:30,266 - INFO - Epoch 49 valid_epoch_mae_loss: 0.5509305758909746
+2026-03-17 08:03:30,266 - INFO - Epoch 49 valid_epoch_c_loss: 0.03460342259230939
+2026-03-17 08:03:30,266 - INFO - Epoch 49 Valid Loss: 1.4132
+2026-03-17 08:03:30,267 - INFO - Epoch 50/99
+
+2026-03-17 08:03:30,268 - INFO - Epoch 50
+2026-03-17 08:04:09,597 - INFO - Epoch 50 train_epoch_mae_loss: 0.6076019365212013
+2026-03-17 08:04:09,597 - INFO - Epoch 50 train_epoch_c_loss: 0.03453618829541244
+2026-03-17 08:04:09,597 - INFO - Epoch 50 Train Loss: 1.4690
+2026-03-17 08:04:11,694 - INFO - Epoch 50 valid_epoch_mae_loss: 0.5522122234106064
+2026-03-17 08:04:11,694 - INFO - Epoch 50 valid_epoch_c_loss: 0.03458878414874727
+2026-03-17 08:04:11,694 - INFO - Epoch 50 Valid Loss: 1.4149
+2026-03-17 08:04:11,695 - INFO - Epoch 51/99
+
+2026-03-17 08:04:11,697 - INFO - Epoch 51
+2026-03-17 08:04:52,487 - INFO - Epoch 51 train_epoch_mae_loss: 0.6073852410683265
+2026-03-17 08:04:52,487 - INFO - Epoch 51 train_epoch_c_loss: 0.03452790114010835
+2026-03-17 08:04:52,488 - INFO - Epoch 51 Train Loss: 1.4690
+2026-03-17 08:04:54,624 - INFO - Epoch 51 valid_epoch_mae_loss: 0.5493437464941632
+2026-03-17 08:04:54,624 - INFO - Epoch 51 valid_epoch_c_loss: 0.03459236787801439
+2026-03-17 08:04:54,624 - INFO - Epoch 51 Valid Loss: 1.4115
+2026-03-17 08:04:56,588 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:04:56,588 - INFO - Epoch 52/99
+
+2026-03-17 08:04:56,589 - INFO - Epoch 52
+2026-03-17 08:05:35,898 - INFO - Epoch 52 train_epoch_mae_loss: 0.6070296032359176
+2026-03-17 08:05:35,898 - INFO - Epoch 52 train_epoch_c_loss: 0.034549137646584356
+2026-03-17 08:05:35,898 - INFO - Epoch 52 Train Loss: 1.4681
+2026-03-17 08:05:38,032 - INFO - Epoch 52 valid_epoch_mae_loss: 0.5489053015004505
+2026-03-17 08:05:38,032 - INFO - Epoch 52 valid_epoch_c_loss: 0.034610457803038036
+2026-03-17 08:05:38,032 - INFO - Epoch 52 Valid Loss: 1.4110
+2026-03-17 08:05:40,090 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:05:40,090 - INFO - Epoch 53/99
+
+2026-03-17 08:05:40,092 - INFO - Epoch 53
+2026-03-17 08:06:19,477 - INFO - Epoch 53 train_epoch_mae_loss: 0.6074867506242241
+2026-03-17 08:06:19,477 - INFO - Epoch 53 train_epoch_c_loss: 0.03454058665772332
+2026-03-17 08:06:19,477 - INFO - Epoch 53 Train Loss: 1.4676
+2026-03-17 08:06:21,615 - INFO - Epoch 53 valid_epoch_mae_loss: 0.5493073537945747
+2026-03-17 08:06:21,615 - INFO - Epoch 53 valid_epoch_c_loss: 0.034617376175116406
+2026-03-17 08:06:21,615 - INFO - Epoch 53 Valid Loss: 1.4107
+2026-03-17 08:06:23,563 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:06:23,563 - INFO - Epoch 54/99
+
+2026-03-17 08:06:23,565 - INFO - Epoch 54
+2026-03-17 08:07:03,937 - INFO - Epoch 54 train_epoch_mae_loss: 0.6052240248700352
+2026-03-17 08:07:03,937 - INFO - Epoch 54 train_epoch_c_loss: 0.034525742813628614
+2026-03-17 08:07:03,937 - INFO - Epoch 54 Train Loss: 1.4631
+2026-03-17 08:07:06,019 - INFO - Epoch 54 valid_epoch_mae_loss: 0.5482110435312445
+2026-03-17 08:07:06,019 - INFO - Epoch 54 valid_epoch_c_loss: 0.03458320230922916
+2026-03-17 08:07:06,019 - INFO - Epoch 54 Valid Loss: 1.4053
+2026-03-17 08:07:08,067 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:07:08,067 - INFO - Epoch 55/99
+
+2026-03-17 08:07:08,068 - INFO - Epoch 55
+2026-03-17 08:07:47,274 - INFO - Epoch 55 train_epoch_mae_loss: 0.6041586708959281
+2026-03-17 08:07:47,274 - INFO - Epoch 55 train_epoch_c_loss: 0.03454426140956759
+2026-03-17 08:07:47,275 - INFO - Epoch 55 Train Loss: 1.4594
+2026-03-17 08:07:49,356 - INFO - Epoch 55 valid_epoch_mae_loss: 0.547543154521422
+2026-03-17 08:07:49,356 - INFO - Epoch 55 valid_epoch_c_loss: 0.03457768574695696
+2026-03-17 08:07:49,356 - INFO - Epoch 55 Valid Loss: 1.4045
+2026-03-17 08:07:51,287 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:07:51,287 - INFO - Epoch 56/99
+
+2026-03-17 08:07:51,289 - INFO - Epoch 56
+2026-03-17 08:08:31,160 - INFO - Epoch 56 train_epoch_mae_loss: 0.6028483321875413
+2026-03-17 08:08:31,160 - INFO - Epoch 56 train_epoch_c_loss: 0.03453294118614349
+2026-03-17 08:08:31,161 - INFO - Epoch 56 Train Loss: 1.4544
+2026-03-17 08:08:33,581 - INFO - Epoch 56 valid_epoch_mae_loss: 0.5451858124949716
+2026-03-17 08:08:33,581 - INFO - Epoch 56 valid_epoch_c_loss: 0.0345795542340387
+2026-03-17 08:08:33,581 - INFO - Epoch 56 Valid Loss: 1.3974
+2026-03-17 08:08:35,524 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:08:35,524 - INFO - Epoch 57/99
+
+2026-03-17 08:08:35,525 - INFO - Epoch 57
+2026-03-17 08:09:14,927 - INFO - Epoch 57 train_epoch_mae_loss: 0.6003770998997777
+2026-03-17 08:09:14,927 - INFO - Epoch 57 train_epoch_c_loss: 0.03452167179761578
+2026-03-17 08:09:14,927 - INFO - Epoch 57 Train Loss: 1.4471
+2026-03-17 08:09:17,027 - INFO - Epoch 57 valid_epoch_mae_loss: 0.5438269017772241
+2026-03-17 08:09:17,027 - INFO - Epoch 57 valid_epoch_c_loss: 0.03458810445259918
+2026-03-17 08:09:17,027 - INFO - Epoch 57 Valid Loss: 1.3914
+2026-03-17 08:09:18,973 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:09:18,973 - INFO - Epoch 58/99
+
+2026-03-17 08:09:18,975 - INFO - Epoch 58
+2026-03-17 08:09:58,447 - INFO - Epoch 58 train_epoch_mae_loss: 0.5976602874636966
+2026-03-17 08:09:58,447 - INFO - Epoch 58 train_epoch_c_loss: 0.03451735094999919
+2026-03-17 08:09:58,447 - INFO - Epoch 58 Train Loss: 1.4400
+2026-03-17 08:10:00,533 - INFO - Epoch 58 valid_epoch_mae_loss: 0.5399471047249708
+2026-03-17 08:10:00,534 - INFO - Epoch 58 valid_epoch_c_loss: 0.03458824398165399
+2026-03-17 08:10:00,534 - INFO - Epoch 58 Valid Loss: 1.3839
+2026-03-17 08:10:02,523 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:10:02,524 - INFO - Epoch 59/99
+
+2026-03-17 08:10:02,525 - INFO - Epoch 59
+2026-03-17 08:10:41,841 - INFO - Epoch 59 train_epoch_mae_loss: 0.5944841706468192
+2026-03-17 08:10:41,842 - INFO - Epoch 59 train_epoch_c_loss: 0.03449951284206831
+2026-03-17 08:10:41,842 - INFO - Epoch 59 Train Loss: 1.4309
+2026-03-17 08:10:43,976 - INFO - Epoch 59 valid_epoch_mae_loss: 0.536875612356446
+2026-03-17 08:10:43,976 - INFO - Epoch 59 valid_epoch_c_loss: 0.03457691876048392
+2026-03-17 08:10:43,976 - INFO - Epoch 59 Valid Loss: 1.3754
+2026-03-17 08:10:46,329 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:10:46,330 - INFO - Epoch 60/99
+
+2026-03-17 08:10:46,331 - INFO - Epoch 60
+2026-03-17 08:11:25,693 - INFO - Epoch 60 train_epoch_mae_loss: 0.59127427791727
+2026-03-17 08:11:25,693 - INFO - Epoch 60 train_epoch_c_loss: 0.034500451936369234
+2026-03-17 08:11:25,693 - INFO - Epoch 60 Train Loss: 1.4223
+2026-03-17 08:11:27,835 - INFO - Epoch 60 valid_epoch_mae_loss: 0.5367261333899065
+2026-03-17 08:11:27,836 - INFO - Epoch 60 valid_epoch_c_loss: 0.03460149627856233
+2026-03-17 08:11:27,836 - INFO - Epoch 60 Valid Loss: 1.3708
+2026-03-17 08:11:29,834 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:11:29,834 - INFO - Epoch 61/99
+
+2026-03-17 08:11:29,836 - INFO - Epoch 61
+2026-03-17 08:12:09,384 - INFO - Epoch 61 train_epoch_mae_loss: 0.5894906438630203
+2026-03-17 08:12:09,385 - INFO - Epoch 61 train_epoch_c_loss: 0.034483760511329696
+2026-03-17 08:12:09,385 - INFO - Epoch 61 Train Loss: 1.4157
+2026-03-17 08:12:11,810 - INFO - Epoch 61 valid_epoch_mae_loss: 0.5350008275021206
+2026-03-17 08:12:11,810 - INFO - Epoch 61 valid_epoch_c_loss: 0.034552927636964756
+2026-03-17 08:12:11,810 - INFO - Epoch 61 Valid Loss: 1.3661
+2026-03-17 08:12:13,850 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:12:13,850 - INFO - Epoch 62/99
+
+2026-03-17 08:12:13,851 - INFO - Epoch 62
+2026-03-17 08:12:53,252 - INFO - Epoch 62 train_epoch_mae_loss: 0.587309874337295
+2026-03-17 08:12:53,252 - INFO - Epoch 62 train_epoch_c_loss: 0.034488694406354145
+2026-03-17 08:12:53,253 - INFO - Epoch 62 Train Loss: 1.4098
+2026-03-17 08:12:55,355 - INFO - Epoch 62 valid_epoch_mae_loss: 0.5320631055669351
+2026-03-17 08:12:55,355 - INFO - Epoch 62 valid_epoch_c_loss: 0.03456079062413086
+2026-03-17 08:12:55,355 - INFO - Epoch 62 Valid Loss: 1.3614
+2026-03-17 08:12:57,350 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:12:57,350 - INFO - Epoch 63/99
+
+2026-03-17 08:12:57,352 - INFO - Epoch 63
+2026-03-17 08:13:36,777 - INFO - Epoch 63 train_epoch_mae_loss: 0.5835883516215519
+2026-03-17 08:13:36,777 - INFO - Epoch 63 train_epoch_c_loss: 0.03447731654468519
+2026-03-17 08:13:36,777 - INFO - Epoch 63 Train Loss: 1.4024
+2026-03-17 08:13:38,904 - INFO - Epoch 63 valid_epoch_mae_loss: 0.530050894076174
+2026-03-17 08:13:38,904 - INFO - Epoch 63 valid_epoch_c_loss: 0.03455488028174097
+2026-03-17 08:13:38,904 - INFO - Epoch 63 Valid Loss: 1.3573
+2026-03-17 08:13:40,857 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:13:40,857 - INFO - Epoch 64/99
+
+2026-03-17 08:13:40,858 - INFO - Epoch 64
+2026-03-17 08:14:20,153 - INFO - Epoch 64 train_epoch_mae_loss: 0.5827572095931683
+2026-03-17 08:14:20,154 - INFO - Epoch 64 train_epoch_c_loss: 0.03448593007296877
+2026-03-17 08:14:20,154 - INFO - Epoch 64 Train Loss: 1.3985
+2026-03-17 08:14:22,239 - INFO - Epoch 64 valid_epoch_mae_loss: 0.529237648980184
+2026-03-17 08:14:22,239 - INFO - Epoch 64 valid_epoch_c_loss: 0.034567156467925415
+2026-03-17 08:14:22,239 - INFO - Epoch 64 Valid Loss: 1.3515
+2026-03-17 08:14:24,181 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:14:24,181 - INFO - Epoch 65/99
+
+2026-03-17 08:14:24,183 - INFO - Epoch 65
+2026-03-17 08:15:03,596 - INFO - Epoch 65 train_epoch_mae_loss: 0.5823622730113467
+2026-03-17 08:15:03,596 - INFO - Epoch 65 train_epoch_c_loss: 0.03447687538434561
+2026-03-17 08:15:03,596 - INFO - Epoch 65 Train Loss: 1.3961
+2026-03-17 08:15:05,812 - INFO - Epoch 65 valid_epoch_mae_loss: 0.5269148437814279
+2026-03-17 08:15:05,813 - INFO - Epoch 65 valid_epoch_c_loss: 0.03456958899782463
+2026-03-17 08:15:05,813 - INFO - Epoch 65 Valid Loss: 1.3494
+2026-03-17 08:15:07,840 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:15:07,840 - INFO - Epoch 66/99
+
+2026-03-17 08:15:07,842 - INFO - Epoch 66
+2026-03-17 08:15:47,191 - INFO - Epoch 66 train_epoch_mae_loss: 0.5809638147645034
+2026-03-17 08:15:47,191 - INFO - Epoch 66 train_epoch_c_loss: 0.03448124597002246
+2026-03-17 08:15:47,191 - INFO - Epoch 66 Train Loss: 1.3926
+2026-03-17 08:15:49,463 - INFO - Epoch 66 valid_epoch_mae_loss: 0.5275793644514951
+2026-03-17 08:15:49,463 - INFO - Epoch 66 valid_epoch_c_loss: 0.034540697847577656
+2026-03-17 08:15:49,463 - INFO - Epoch 66 Valid Loss: 1.3485
+2026-03-17 08:15:51,506 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:15:51,506 - INFO - Epoch 67/99
+
+2026-03-17 08:15:51,508 - INFO - Epoch 67
+2026-03-17 08:16:30,780 - INFO - Epoch 67 train_epoch_mae_loss: 0.5793386462196431
+2026-03-17 08:16:30,780 - INFO - Epoch 67 train_epoch_c_loss: 0.03446444504417538
+2026-03-17 08:16:30,780 - INFO - Epoch 67 Train Loss: 1.3909
+2026-03-17 08:16:33,066 - INFO - Epoch 67 valid_epoch_mae_loss: 0.5269028889861974
+2026-03-17 08:16:33,066 - INFO - Epoch 67 valid_epoch_c_loss: 0.03457438437776132
+2026-03-17 08:16:33,066 - INFO - Epoch 67 Valid Loss: 1.3471
+2026-03-17 08:16:35,037 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:16:35,037 - INFO - Epoch 68/99
+
+2026-03-17 08:16:35,039 - INFO - Epoch 68
+2026-03-17 08:17:15,675 - INFO - Epoch 68 train_epoch_mae_loss: 0.5795578313126805
+2026-03-17 08:17:15,675 - INFO - Epoch 68 train_epoch_c_loss: 0.03447343752440312
+2026-03-17 08:17:15,675 - INFO - Epoch 68 Train Loss: 1.3899
+2026-03-17 08:17:17,929 - INFO - Epoch 68 valid_epoch_mae_loss: 0.5265164443037726
+2026-03-17 08:17:17,929 - INFO - Epoch 68 valid_epoch_c_loss: 0.03454282134771347
+2026-03-17 08:17:17,929 - INFO - Epoch 68 Valid Loss: 1.3470
+2026-03-17 08:17:20,032 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:17:20,032 - INFO - Epoch 69/99
+
+2026-03-17 08:17:20,034 - INFO - Epoch 69
+2026-03-17 08:18:00,256 - INFO - Epoch 69 train_epoch_mae_loss: 0.5787986048969097
+2026-03-17 08:18:00,257 - INFO - Epoch 69 train_epoch_c_loss: 0.034475791324868756
+2026-03-17 08:18:00,257 - INFO - Epoch 69 Train Loss: 1.3897
+2026-03-17 08:18:02,372 - INFO - Epoch 69 valid_epoch_mae_loss: 0.526697847653519
+2026-03-17 08:18:02,372 - INFO - Epoch 69 valid_epoch_c_loss: 0.034538372927768665
+2026-03-17 08:18:02,372 - INFO - Epoch 69 Valid Loss: 1.3470
+2026-03-17 08:18:04,479 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:18:04,480 - INFO - Epoch 70/99
+
+2026-03-17 08:18:04,481 - INFO - Epoch 70
+2026-03-17 08:18:44,709 - INFO - Epoch 70 train_epoch_mae_loss: 0.5794190827668187
+2026-03-17 08:18:44,709 - INFO - Epoch 70 train_epoch_c_loss: 0.03448894091286457
+2026-03-17 08:18:44,709 - INFO - Epoch 70 Train Loss: 1.3905
+2026-03-17 08:18:46,840 - INFO - Epoch 70 valid_epoch_mae_loss: 0.5255952626466751
+2026-03-17 08:18:46,840 - INFO - Epoch 70 valid_epoch_c_loss: 0.034548357213762676
+2026-03-17 08:18:46,840 - INFO - Epoch 70 Valid Loss: 1.3463
+2026-03-17 08:18:48,873 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:18:48,874 - INFO - Epoch 71/99
+
+2026-03-17 08:18:48,875 - INFO - Epoch 71
+2026-03-17 08:19:28,248 - INFO - Epoch 71 train_epoch_mae_loss: 0.5795282485946737
+2026-03-17 08:19:28,248 - INFO - Epoch 71 train_epoch_c_loss: 0.03445769392882797
+2026-03-17 08:19:28,248 - INFO - Epoch 71 Train Loss: 1.3899
+2026-03-17 08:19:30,333 - INFO - Epoch 71 valid_epoch_mae_loss: 0.5268555588342927
+2026-03-17 08:19:30,333 - INFO - Epoch 71 valid_epoch_c_loss: 0.034559135155921634
+2026-03-17 08:19:30,333 - INFO - Epoch 71 Valid Loss: 1.3487
+2026-03-17 08:19:30,333 - INFO - Epoch 72/99
+
+2026-03-17 08:19:30,336 - INFO - Epoch 72
+2026-03-17 08:20:09,641 - INFO - Epoch 72 train_epoch_mae_loss: 0.5789359947888858
+2026-03-17 08:20:09,641 - INFO - Epoch 72 train_epoch_c_loss: 0.0344748348936399
+2026-03-17 08:20:09,641 - INFO - Epoch 72 Train Loss: 1.3885
+2026-03-17 08:20:11,732 - INFO - Epoch 72 valid_epoch_mae_loss: 0.5260629186576063
+2026-03-17 08:20:11,732 - INFO - Epoch 72 valid_epoch_c_loss: 0.03454209457744251
+2026-03-17 08:20:11,732 - INFO - Epoch 72 Valid Loss: 1.3464
+2026-03-17 08:20:11,733 - INFO - Epoch 73/99
+
+2026-03-17 08:20:11,734 - INFO - Epoch 73
+2026-03-17 08:20:51,066 - INFO - Epoch 73 train_epoch_mae_loss: 0.5787851328242679
+2026-03-17 08:20:51,066 - INFO - Epoch 73 train_epoch_c_loss: 0.03447090208886157
+2026-03-17 08:20:51,066 - INFO - Epoch 73 Train Loss: 1.3884
+2026-03-17 08:20:53,157 - INFO - Epoch 73 valid_epoch_mae_loss: 0.5286063294519078
+2026-03-17 08:20:53,158 - INFO - Epoch 73 valid_epoch_c_loss: 0.034554630941288036
+2026-03-17 08:20:53,158 - INFO - Epoch 73 Valid Loss: 1.3502
+2026-03-17 08:20:53,158 - INFO - Epoch 74/99
+
+2026-03-17 08:20:53,160 - INFO - Epoch 74
+2026-03-17 08:21:32,679 - INFO - Epoch 74 train_epoch_mae_loss: 0.5790037259815226
+2026-03-17 08:21:32,679 - INFO - Epoch 74 train_epoch_c_loss: 0.03444213943373145
+2026-03-17 08:21:32,679 - INFO - Epoch 74 Train Loss: 1.3878
+2026-03-17 08:21:34,774 - INFO - Epoch 74 valid_epoch_mae_loss: 0.5250088917938146
+2026-03-17 08:21:34,774 - INFO - Epoch 74 valid_epoch_c_loss: 0.03452888952398842
+2026-03-17 08:21:34,774 - INFO - Epoch 74 Valid Loss: 1.3460
+2026-03-17 08:21:36,820 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:21:36,821 - INFO - Epoch 75/99
+
+2026-03-17 08:21:36,822 - INFO - Epoch 75
+2026-03-17 08:22:16,720 - INFO - Epoch 75 train_epoch_mae_loss: 0.576938065040649
+2026-03-17 08:22:16,720 - INFO - Epoch 75 train_epoch_c_loss: 0.03444727588276964
+2026-03-17 08:22:16,720 - INFO - Epoch 75 Train Loss: 1.3842
+2026-03-17 08:22:18,844 - INFO - Epoch 75 valid_epoch_mae_loss: 0.5244637700644407
+2026-03-17 08:22:18,845 - INFO - Epoch 75 valid_epoch_c_loss: 0.03455159736966545
+2026-03-17 08:22:18,845 - INFO - Epoch 75 Valid Loss: 1.3426
+2026-03-17 08:22:20,822 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:22:20,822 - INFO - Epoch 76/99
+
+2026-03-17 08:22:20,824 - INFO - Epoch 76
+2026-03-17 08:23:00,180 - INFO - Epoch 76 train_epoch_mae_loss: 0.5759592169317705
+2026-03-17 08:23:00,181 - INFO - Epoch 76 train_epoch_c_loss: 0.034419705705909895
+2026-03-17 08:23:00,181 - INFO - Epoch 76 Train Loss: 1.3821
+2026-03-17 08:23:02,307 - INFO - Epoch 76 valid_epoch_mae_loss: 0.5214842375029217
+2026-03-17 08:23:02,307 - INFO - Epoch 76 valid_epoch_c_loss: 0.0345215562900359
+2026-03-17 08:23:02,307 - INFO - Epoch 76 Valid Loss: 1.3390
+2026-03-17 08:23:04,262 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:23:04,262 - INFO - Epoch 77/99
+
+2026-03-17 08:23:04,265 - INFO - Epoch 77
+2026-03-17 08:23:43,497 - INFO - Epoch 77 train_epoch_mae_loss: 0.5751029266444695
+2026-03-17 08:23:43,497 - INFO - Epoch 77 train_epoch_c_loss: 0.03443432444662093
+2026-03-17 08:23:43,498 - INFO - Epoch 77 Train Loss: 1.3783
+2026-03-17 08:23:45,626 - INFO - Epoch 77 valid_epoch_mae_loss: 0.5238802907141772
+2026-03-17 08:23:45,626 - INFO - Epoch 77 valid_epoch_c_loss: 0.034545624290000305
+2026-03-17 08:23:45,626 - INFO - Epoch 77 Valid Loss: 1.3399
+2026-03-17 08:23:45,626 - INFO - Epoch 78/99
+
+2026-03-17 08:23:45,629 - INFO - Epoch 78
+2026-03-17 08:24:26,064 - INFO - Epoch 78 train_epoch_mae_loss: 0.5734094107815062
+2026-03-17 08:24:26,065 - INFO - Epoch 78 train_epoch_c_loss: 0.03443485787459489
+2026-03-17 08:24:26,065 - INFO - Epoch 78 Train Loss: 1.3755
+2026-03-17 08:24:28,142 - INFO - Epoch 78 valid_epoch_mae_loss: 0.5219937366518107
+2026-03-17 08:24:28,143 - INFO - Epoch 78 valid_epoch_c_loss: 0.03453355265611952
+2026-03-17 08:24:28,143 - INFO - Epoch 78 Valid Loss: 1.3379
+2026-03-17 08:24:30,068 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:24:30,069 - INFO - Epoch 79/99
+
+2026-03-17 08:24:30,070 - INFO - Epoch 79
+2026-03-17 08:25:09,427 - INFO - Epoch 79 train_epoch_mae_loss: 0.5712413835272548
+2026-03-17 08:25:09,427 - INFO - Epoch 79 train_epoch_c_loss: 0.03443643780775981
+2026-03-17 08:25:09,427 - INFO - Epoch 79 Train Loss: 1.3710
+2026-03-17 08:25:11,520 - INFO - Epoch 79 valid_epoch_mae_loss: 0.5209897919134661
+2026-03-17 08:25:11,520 - INFO - Epoch 79 valid_epoch_c_loss: 0.03455716828730973
+2026-03-17 08:25:11,520 - INFO - Epoch 79 Valid Loss: 1.3346
+2026-03-17 08:25:13,458 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:25:13,458 - INFO - Epoch 80/99
+
+2026-03-17 08:25:13,459 - INFO - Epoch 80
+2026-03-17 08:25:52,812 - INFO - Epoch 80 train_epoch_mae_loss: 0.568803071343298
+2026-03-17 08:25:52,812 - INFO - Epoch 80 train_epoch_c_loss: 0.03440140938233159
+2026-03-17 08:25:52,812 - INFO - Epoch 80 Train Loss: 1.3664
+2026-03-17 08:25:54,903 - INFO - Epoch 80 valid_epoch_mae_loss: 0.517811079594222
+2026-03-17 08:25:54,904 - INFO - Epoch 80 valid_epoch_c_loss: 0.03449394579299472
+2026-03-17 08:25:54,904 - INFO - Epoch 80 Valid Loss: 1.3290
+2026-03-17 08:25:56,855 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:25:56,855 - INFO - Epoch 81/99
+
+2026-03-17 08:25:56,857 - INFO - Epoch 81
+2026-03-17 08:26:36,498 - INFO - Epoch 81 train_epoch_mae_loss: 0.5677228544688036
+2026-03-17 08:26:36,498 - INFO - Epoch 81 train_epoch_c_loss: 0.034390420961719924
+2026-03-17 08:26:36,498 - INFO - Epoch 81 Train Loss: 1.3631
+2026-03-17 08:26:38,623 - INFO - Epoch 81 valid_epoch_mae_loss: 0.5186671499501575
+2026-03-17 08:26:38,623 - INFO - Epoch 81 valid_epoch_c_loss: 0.0344936970452016
+2026-03-17 08:26:38,623 - INFO - Epoch 81 Valid Loss: 1.3304
+2026-03-17 08:26:38,623 - INFO - Epoch 82/99
+
+2026-03-17 08:26:38,626 - INFO - Epoch 82
+2026-03-17 08:27:18,043 - INFO - Epoch 82 train_epoch_mae_loss: 0.5657088490949069
+2026-03-17 08:27:18,043 - INFO - Epoch 82 train_epoch_c_loss: 0.03438146818498401
+2026-03-17 08:27:18,043 - INFO - Epoch 82 Train Loss: 1.3594
+2026-03-17 08:27:20,173 - INFO - Epoch 82 valid_epoch_mae_loss: 0.5162563628771089
+2026-03-17 08:27:20,173 - INFO - Epoch 82 valid_epoch_c_loss: 0.03449108409271999
+2026-03-17 08:27:20,173 - INFO - Epoch 82 Valid Loss: 1.3267
+2026-03-17 08:27:22,154 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:27:22,155 - INFO - Epoch 83/99
+
+2026-03-17 08:27:22,156 - INFO - Epoch 83
+2026-03-17 08:28:01,476 - INFO - Epoch 83 train_epoch_mae_loss: 0.5645222483642538
+2026-03-17 08:28:01,476 - INFO - Epoch 83 train_epoch_c_loss: 0.034379150199676696
+2026-03-17 08:28:01,476 - INFO - Epoch 83 Train Loss: 1.3570
+2026-03-17 08:28:03,572 - INFO - Epoch 83 valid_epoch_mae_loss: 0.5126681903546507
+2026-03-17 08:28:03,572 - INFO - Epoch 83 valid_epoch_c_loss: 0.03448360303247517
+2026-03-17 08:28:03,572 - INFO - Epoch 83 Valid Loss: 1.3219
+2026-03-17 08:28:05,543 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:28:05,543 - INFO - Epoch 84/99
+
+2026-03-17 08:28:05,544 - INFO - Epoch 84
+2026-03-17 08:28:45,214 - INFO - Epoch 84 train_epoch_mae_loss: 0.5633837755384117
+2026-03-17 08:28:45,215 - INFO - Epoch 84 train_epoch_c_loss: 0.03436549392773397
+2026-03-17 08:28:45,215 - INFO - Epoch 84 Train Loss: 1.3548
+2026-03-17 08:28:47,310 - INFO - Epoch 84 valid_epoch_mae_loss: 0.5142158852382139
+2026-03-17 08:28:47,310 - INFO - Epoch 84 valid_epoch_c_loss: 0.03449112769554962
+2026-03-17 08:28:47,310 - INFO - Epoch 84 Valid Loss: 1.3250
+2026-03-17 08:28:47,310 - INFO - Epoch 85/99
+
+2026-03-17 08:28:47,314 - INFO - Epoch 85
+2026-03-17 08:29:26,664 - INFO - Epoch 85 train_epoch_mae_loss: 0.5616629790089807
+2026-03-17 08:29:26,664 - INFO - Epoch 85 train_epoch_c_loss: 0.034344229926244016
+2026-03-17 08:29:26,664 - INFO - Epoch 85 Train Loss: 1.3522
+2026-03-17 08:29:28,788 - INFO - Epoch 85 valid_epoch_mae_loss: 0.5112555196339433
+2026-03-17 08:29:28,788 - INFO - Epoch 85 valid_epoch_c_loss: 0.03447783992371776
+2026-03-17 08:29:28,789 - INFO - Epoch 85 Valid Loss: 1.3209
+2026-03-17 08:29:30,841 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:29:30,841 - INFO - Epoch 86/99
+
+2026-03-17 08:29:30,843 - INFO - Epoch 86
+2026-03-17 08:30:10,242 - INFO - Epoch 86 train_epoch_mae_loss: 0.561839145437792
+2026-03-17 08:30:10,243 - INFO - Epoch 86 train_epoch_c_loss: 0.03435134208842677
+2026-03-17 08:30:10,243 - INFO - Epoch 86 Train Loss: 1.3514
+2026-03-17 08:30:12,331 - INFO - Epoch 86 valid_epoch_mae_loss: 0.5123549306934531
+2026-03-17 08:30:12,332 - INFO - Epoch 86 valid_epoch_c_loss: 0.03448023333806883
+2026-03-17 08:30:12,332 - INFO - Epoch 86 Valid Loss: 1.3206
+2026-03-17 08:30:14,313 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:30:14,313 - INFO - Epoch 87/99
+
+2026-03-17 08:30:14,315 - INFO - Epoch 87
+2026-03-17 08:30:53,681 - INFO - Epoch 87 train_epoch_mae_loss: 0.5606425447236322
+2026-03-17 08:30:53,682 - INFO - Epoch 87 train_epoch_c_loss: 0.034352467061867765
+2026-03-17 08:30:53,682 - INFO - Epoch 87 Train Loss: 1.3496
+2026-03-17 08:30:55,878 - INFO - Epoch 87 valid_epoch_mae_loss: 0.511671054769646
+2026-03-17 08:30:55,878 - INFO - Epoch 87 valid_epoch_c_loss: 0.03449466968463226
+2026-03-17 08:30:55,878 - INFO - Epoch 87 Valid Loss: 1.3198
+2026-03-17 08:30:57,872 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:30:57,872 - INFO - Epoch 88/99
+
+2026-03-17 08:30:57,874 - INFO - Epoch 88
+2026-03-17 08:31:37,288 - INFO - Epoch 88 train_epoch_mae_loss: 0.5609334463782273
+2026-03-17 08:31:37,289 - INFO - Epoch 88 train_epoch_c_loss: 0.03436099681064526
+2026-03-17 08:31:37,289 - INFO - Epoch 88 Train Loss: 1.3496
+2026-03-17 08:31:39,413 - INFO - Epoch 88 valid_epoch_mae_loss: 0.5131546380844983
+2026-03-17 08:31:39,413 - INFO - Epoch 88 valid_epoch_c_loss: 0.03445107066495852
+2026-03-17 08:31:39,413 - INFO - Epoch 88 Valid Loss: 1.3194
+2026-03-17 08:31:41,409 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:31:41,409 - INFO - Epoch 89/99
+
+2026-03-17 08:31:41,412 - INFO - Epoch 89
+2026-03-17 08:32:21,064 - INFO - Epoch 89 train_epoch_mae_loss: 0.5603142671623028
+2026-03-17 08:32:21,065 - INFO - Epoch 89 train_epoch_c_loss: 0.03436047626802555
+2026-03-17 08:32:21,065 - INFO - Epoch 89 Train Loss: 1.3493
+2026-03-17 08:32:23,161 - INFO - Epoch 89 valid_epoch_mae_loss: 0.5114466602152045
+2026-03-17 08:32:23,161 - INFO - Epoch 89 valid_epoch_c_loss: 0.03446522634476423
+2026-03-17 08:32:23,161 - INFO - Epoch 89 Valid Loss: 1.3199
+2026-03-17 08:32:23,162 - INFO - Epoch 90/99
+
+2026-03-17 08:32:23,164 - INFO - Epoch 90
+2026-03-17 08:33:02,489 - INFO - Epoch 90 train_epoch_mae_loss: 0.561193645711919
+2026-03-17 08:33:02,490 - INFO - Epoch 90 train_epoch_c_loss: 0.03435140470195987
+2026-03-17 08:33:02,490 - INFO - Epoch 90 Train Loss: 1.3501
+2026-03-17 08:33:04,582 - INFO - Epoch 90 valid_epoch_mae_loss: 0.5119863030585375
+2026-03-17 08:33:04,582 - INFO - Epoch 90 valid_epoch_c_loss: 0.03447001766074787
+2026-03-17 08:33:04,582 - INFO - Epoch 90 Valid Loss: 1.3215
+2026-03-17 08:33:04,583 - INFO - Epoch 91/99
+
+2026-03-17 08:33:04,585 - INFO - Epoch 91
+2026-03-17 08:33:43,958 - INFO - Epoch 91 train_epoch_mae_loss: 0.5605950751576563
+2026-03-17 08:33:43,959 - INFO - Epoch 91 train_epoch_c_loss: 0.034356012979932425
+2026-03-17 08:33:43,959 - INFO - Epoch 91 Train Loss: 1.3494
+2026-03-17 08:33:46,037 - INFO - Epoch 91 valid_epoch_mae_loss: 0.5122953179207715
+2026-03-17 08:33:46,037 - INFO - Epoch 91 valid_epoch_c_loss: 0.03448028667745265
+2026-03-17 08:33:46,037 - INFO - Epoch 91 Valid Loss: 1.3226
+2026-03-17 08:33:46,037 - INFO - Epoch 92/99
+
+2026-03-17 08:33:46,039 - INFO - Epoch 92
+2026-03-17 08:34:25,491 - INFO - Epoch 92 train_epoch_mae_loss: 0.5616629003529839
+2026-03-17 08:34:25,491 - INFO - Epoch 92 train_epoch_c_loss: 0.03436443577236459
+2026-03-17 08:34:25,491 - INFO - Epoch 92 Train Loss: 1.3500
+2026-03-17 08:34:27,578 - INFO - Epoch 92 valid_epoch_mae_loss: 0.5115593610839411
+2026-03-17 08:34:27,578 - INFO - Epoch 92 valid_epoch_c_loss: 0.034493493254889145
+2026-03-17 08:34:27,578 - INFO - Epoch 92 Valid Loss: 1.3206
+2026-03-17 08:34:27,578 - INFO - Epoch 93/99
+
+2026-03-17 08:34:27,580 - INFO - Epoch 93
+2026-03-17 08:35:06,876 - INFO - Epoch 93 train_epoch_mae_loss: 0.5605856240269992
+2026-03-17 08:35:06,877 - INFO - Epoch 93 train_epoch_c_loss: 0.03432518615330562
+2026-03-17 08:35:06,877 - INFO - Epoch 93 Train Loss: 1.3487
+2026-03-17 08:35:08,956 - INFO - Epoch 93 valid_epoch_mae_loss: 0.5109025260264223
+2026-03-17 08:35:08,956 - INFO - Epoch 93 valid_epoch_c_loss: 0.03448635009540753
+2026-03-17 08:35:08,956 - INFO - Epoch 93 Valid Loss: 1.3170
+2026-03-17 08:35:10,952 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:35:10,952 - INFO - Epoch 94/99
+
+2026-03-17 08:35:10,953 - INFO - Epoch 94
+2026-03-17 08:35:50,370 - INFO - Epoch 94 train_epoch_mae_loss: 0.5596526346567139
+2026-03-17 08:35:50,370 - INFO - Epoch 94 train_epoch_c_loss: 0.03435063043446218
+2026-03-17 08:35:50,370 - INFO - Epoch 94 Train Loss: 1.3479
+2026-03-17 08:35:52,533 - INFO - Epoch 94 valid_epoch_mae_loss: 0.5111643150448799
+2026-03-17 08:35:52,533 - INFO - Epoch 94 valid_epoch_c_loss: 0.034483094784346496
+2026-03-17 08:35:52,534 - INFO - Epoch 94 Valid Loss: 1.3194
+2026-03-17 08:35:52,534 - INFO - Epoch 95/99
+
+2026-03-17 08:35:52,535 - INFO - Epoch 95
+2026-03-17 08:36:31,945 - INFO - Epoch 95 train_epoch_mae_loss: 0.5593660128369572
+2026-03-17 08:36:31,945 - INFO - Epoch 95 train_epoch_c_loss: 0.03433901760776574
+2026-03-17 08:36:31,946 - INFO - Epoch 95 Train Loss: 1.3470
+2026-03-17 08:36:34,094 - INFO - Epoch 95 valid_epoch_mae_loss: 0.5100150866941973
+2026-03-17 08:36:34,094 - INFO - Epoch 95 valid_epoch_c_loss: 0.034431756982071834
+2026-03-17 08:36:34,094 - INFO - Epoch 95 Valid Loss: 1.3166
+2026-03-17 08:36:36,125 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:36:36,125 - INFO - Epoch 96/99
+
+2026-03-17 08:36:36,126 - INFO - Epoch 96
+2026-03-17 08:37:15,510 - INFO - Epoch 96 train_epoch_mae_loss: 0.558539095702791
+2026-03-17 08:37:15,510 - INFO - Epoch 96 train_epoch_c_loss: 0.034325450935477606
+2026-03-17 08:37:15,510 - INFO - Epoch 96 Train Loss: 1.3456
+2026-03-17 08:37:17,636 - INFO - Epoch 96 valid_epoch_mae_loss: 0.5102446004748344
+2026-03-17 08:37:17,637 - INFO - Epoch 96 valid_epoch_c_loss: 0.03446459177542816
+2026-03-17 08:37:17,637 - INFO - Epoch 96 Valid Loss: 1.3174
+2026-03-17 08:37:17,637 - INFO - Epoch 97/99
+
+2026-03-17 08:37:17,639 - INFO - Epoch 97
+2026-03-17 08:37:57,012 - INFO - Epoch 97 train_epoch_mae_loss: 0.5575615836391399
+2026-03-17 08:37:57,013 - INFO - Epoch 97 train_epoch_c_loss: 0.03431721060815952
+2026-03-17 08:37:57,013 - INFO - Epoch 97 Train Loss: 1.3434
+2026-03-17 08:37:59,141 - INFO - Epoch 97 valid_epoch_mae_loss: 0.5083596354181116
+2026-03-17 08:37:59,141 - INFO - Epoch 97 valid_epoch_c_loss: 0.03446026908403093
+2026-03-17 08:37:59,141 - INFO - Epoch 97 Valid Loss: 1.3145
+2026-03-17 08:38:01,261 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:38:01,261 - INFO - Epoch 98/99
+
+2026-03-17 08:38:01,263 - INFO - Epoch 98
+2026-03-17 08:38:40,763 - INFO - Epoch 98 train_epoch_mae_loss: 0.5571015479552018
+2026-03-17 08:38:40,764 - INFO - Epoch 98 train_epoch_c_loss: 0.03427901854664483
+2026-03-17 08:38:40,765 - INFO - Epoch 98 Train Loss: 1.3419
+2026-03-17 08:38:42,912 - INFO - Epoch 98 valid_epoch_mae_loss: 0.5073344334959984
+2026-03-17 08:38:42,913 - INFO - Epoch 98 valid_epoch_c_loss: 0.03440665589137511
+2026-03-17 08:38:42,913 - INFO - Epoch 98 Valid Loss: 1.3148
+2026-03-17 08:38:42,913 - INFO - Epoch 99/99
+
+2026-03-17 08:38:42,914 - INFO - Epoch 99
+2026-03-17 08:39:22,306 - INFO - Epoch 99 train_epoch_mae_loss: 0.5550396916720848
+2026-03-17 08:39:22,306 - INFO - Epoch 99 train_epoch_c_loss: 0.0342779844772041
+2026-03-17 08:39:22,306 - INFO - Epoch 99 Train Loss: 1.3378
+2026-03-17 08:39:24,392 - INFO - Epoch 99 valid_epoch_mae_loss: 0.5070969929749315
+2026-03-17 08:39:24,392 - INFO - Epoch 99 valid_epoch_c_loss: 0.03441226075996052
+2026-03-17 08:39:24,392 - INFO - Epoch 99 Valid Loss: 1.3118
+2026-03-17 08:39:26,312 - INFO - save the best cet-mae checkpoint
+2026-03-17 08:39:26,312 - INFO - best_epoch:99
+2026-03-17 08:39:26,313 - INFO - best_mae_epoch:99
+2026-03-17 08:39:26,313 - INFO - best_mlm_epoch:99
+2026-03-17 08:39:26,313 - INFO - best_contrastive_epoch:98
+2026-03-17 08:39:27,694 - INFO - Saved final epoch weights to ./checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt_epoch_100.pt

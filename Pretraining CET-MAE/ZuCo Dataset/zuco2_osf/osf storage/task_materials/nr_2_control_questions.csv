@@ -1,0 +1,15 @@
+paragraph_id;sentence_id;control_question;answer1;answer2;answer3;correct_answer
+
+3;2;In which year was he NFL co-MVP?;1999;1987;2003;2003
+
+3;3;Steve McNair was a...;quarterback;wide receiver;cornerback;quarterback
+
+9;2;He received a degree in...;math;history;literature;history
+
+15;5;In which year did she die?;1901;1867;1775;1775
+
+24;2;Jack Davenport was his...;uncle;nephew;son;nephew
+
+32;2;He was a...;journalist;actor;politician;politician
+
+48;3;Which war interrupted his sutdies?;World War II;World War I;Vietnam War;World War II

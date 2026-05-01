@@ -1,0 +1,12 @@
+experiment_name: noise_control_cet_mae
+seed: 42
+output_dir: transfer_study/results/noise_control
+checkpoint_in: transfer_study/checkpoints/cet_mae_encoder.pt
+split_file: transfer_study/splits/noise_control_split.json
+
+noise:
+  type: gaussian
+  match_shape: true
+  match_mean_std: true
+
+metrics: [accuracy, balanced_accuracy, macro_f1]

@@ -1,0 +1,15 @@
+paragraph_id;sentence_id;control_question;answer1;answer2;answer3;correct_answer
+
+135;2;How old was Reagan when he became president?;56;69;72;69
+
+136;5;What was his job?;journalist;radio announcer;football commentator;radio announcer
+
+819;2;Maria Shriver was Kennedy's...;niece;aunt;daughter;niece
+
+144;4;How old was Jack when he started to learn English?;3;4;6;6
+
+697;1;She married in...;1899;1994;2003;1994
+
+959;2;Her husband was...;Bill Clinton;George W. Bush;Barack Obama;Bill Clinton
+
+163;5;Which army did he join?;British Army;German Army;U.S. Army; U.S. Army

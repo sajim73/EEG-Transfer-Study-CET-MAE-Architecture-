@@ -1,0 +1,15 @@
+paragraph_id;sentence_id;control_question;answer1;answer2;answer3;correct_answer
+
+90;8;How many years would it run on TV?;9;10;11;11
+
+93;2;He is named after his...;mother;grandfather;grandmother;grandfather
+
+482;3;He left the Army as a...;major;lieutenant;general;major
+
+110;4;In which year did he get married?;1599;1622;1662;1662
+
+110;9;Where did she die?;Paris;Barcelona;Lisbon;Lisbon
+
+112;2;How many children did they have?;3;4;6;4
+
+118;4;At which age was he elected president?;40;43;50;43
