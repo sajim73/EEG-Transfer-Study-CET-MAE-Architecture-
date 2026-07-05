@@ -1,0 +1,5 @@
+2026-05-01 04:38:55,435 | INFO | Noise_Control_LOSO | Starting Noise Control Experiments (C1/C2) with Leave-One-Subject-Out CV
+2026-05-01 04:39:57,557 | INFO | Noise_Control_LOSO | Starting Noise Control Experiments (C1/C2) with Leave-One-Subject-Out CV
+2026-05-01 04:39:59,480 | INFO | Noise_Control_LOSO | Loaded labels CSV with shape (400, 4) from labels/sentiment_labels_task1.csv using encoding=utf-8
+2026-05-01 04:39:59,482 | WARNING | Noise_Control_LOSO | No subject column found! LOSO CV will not work properly without a subject column.
+2026-05-01 04:39:59,482 | ERROR | Noise_Control_LOSO | A subject column is required in the CSV for LOSO Cross-Validation.

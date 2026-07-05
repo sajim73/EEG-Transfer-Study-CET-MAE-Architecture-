@@ -1,0 +1,20 @@
+{
+    "none": {
+        "mean_accuracy": 0.353707124620623,
+        "std_accuracy": 0.008095937829636714,
+        "mean_balanced_accuracy": 0.2577682316660835,
+        "mean_macro_f1": 0.22772574496006937
+    },
+    "gaussian": {
+        "mean_accuracy": 0.32325912512686467,
+        "std_accuracy": 0.009097235151157611,
+        "mean_balanced_accuracy": 0.2660677754757427,
+        "mean_macro_f1": 0.2583024093474141
+    },
+    "shuffle": {
+        "mean_accuracy": 0.32854910665391335,
+        "std_accuracy": 0.010031029047711807,
+        "mean_balanced_accuracy": 0.24003757211939628,
+        "mean_macro_f1": 0.2166103532098033
+    }
+}

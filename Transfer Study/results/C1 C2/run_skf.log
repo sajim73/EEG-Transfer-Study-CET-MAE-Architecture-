@@ -1,0 +1,19 @@
+2026-05-01 04:59:20,011 | INFO | Noise_Control_SKF | Starting Noise Control Experiments (C1/C2) with Stratified K-Fold CV
+2026-05-01 04:59:21,919 | INFO | Noise_Control_SKF | Loaded labels CSV with shape (400, 4) from labels/sentiment_labels_task1.csv using encoding=utf-8
+2026-05-01 04:59:21,927 | INFO | Noise_Control_SKF | Aligned 0 valid samples.
+2026-05-01 05:05:26,399 | INFO | Noise_Control_SKF | Starting Noise Control Experiments (C1/C2) with Stratified K-Fold CV
+2026-05-01 05:05:26,400 | INFO | Noise_Control_SKF | NPZ keys found: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+2026-05-01 05:05:28,617 | INFO | Noise_Control_SKF | Loaded 4532 EEG samples from NPZ. Found text: True
+2026-05-01 05:05:28,621 | INFO | Noise_Control_SKF | Loaded labels CSV with shape (400, 4) from labels/sentiment_labels_task1.csv using encoding=utf-8
+2026-05-01 05:05:28,626 | INFO | Noise_Control_SKF | Aligned 4532 valid samples by text match. Missed 0.
+2026-05-01 05:05:32,854 | INFO | Noise_Control_SKF | Evaluating condition: none
+2026-05-01 05:05:32,893 | INFO | Noise_Control_SKF | Running Stratified 5-Fold CV...
+2026-05-01 05:05:35,311 | INFO | Noise_Control_SKF | none -> Mean Acc: 0.354 (±0.008)
+2026-05-01 05:05:35,311 | INFO | Noise_Control_SKF | Evaluating condition: gaussian
+2026-05-01 05:05:35,312 | INFO | Noise_Control_SKF | Running Stratified 5-Fold CV...
+2026-05-01 05:05:38,022 | INFO | Noise_Control_SKF | gaussian -> Mean Acc: 0.323 (±0.009)
+2026-05-01 05:05:38,022 | INFO | Noise_Control_SKF | Evaluating condition: shuffle
+2026-05-01 05:05:38,023 | INFO | Noise_Control_SKF | Running Stratified 5-Fold CV...
+2026-05-01 05:05:39,476 | INFO | Noise_Control_SKF | shuffle -> Mean Acc: 0.329 (±0.010)
+2026-05-01 05:05:39,476 | INFO | Noise_Control_SKF | Generating advanced visualizations...
+2026-05-01 05:05:54,519 | INFO | Noise_Control_SKF | Noise Control C1/C2 audit complete!
