@@ -1,0 +1,58 @@
+{
+  "dataset": "ZuCo 2.0",
+  "task_definition": {
+    "negative_class": "NR",
+    "positive_class": "TSR",
+    "note": "This experiment uses within-ZuCo-2.0 Normal Reading vs Task-Specific Reading, not ZuCo-2.0 NR vs ZuCo-1.0 SR."
+  },
+  "num_subjects": 18,
+  "class_names": [
+    "NR",
+    "TSR"
+  ],
+  "init_mode": "random",
+  "summary_mean_std": {
+    "accuracy": {
+      "mean": 0.5743437640047415,
+      "std": 0.0786005010510861
+    },
+    "balanced_accuracy": {
+      "mean": 0.5196223234087715,
+      "std": 0.02940624568038519
+    },
+    "macro_f1": {
+      "mean": 0.4755862019461964,
+      "std": 0.0503900141097265
+    }
+  },
+  "summary_bootstrap_ci": {
+    "accuracy": {
+      "mean": 0.5743437640047415,
+      "ci_lower": 0.5362406979003996,
+      "ci_upper": 0.6085329833858617,
+      "n_boot": 1000
+    },
+    "balanced_accuracy": {
+      "mean": 0.5196223234087715,
+      "ci_lower": 0.5071523437097264,
+      "ci_upper": 0.5330345002073765,
+      "n_boot": 1000
+    },
+    "macro_f1": {
+      "mean": 0.4755862019461964,
+      "ci_lower": 0.45445284062036734,
+      "ci_upper": 0.4977155322305283,
+      "n_boot": 1000
+    }
+  },
+  "aggregate_confusion_matrix": [
+    [
+      1966,
+      3613
+    ],
+    [
+      3488,
+      7577
+    ]
+  ]
+}

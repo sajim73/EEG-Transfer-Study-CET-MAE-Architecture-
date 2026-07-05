@@ -1,0 +1,1130 @@
+[06:52:44] INFO: Starting B1 fine-tuned sentiment classification (trial-level, text-joined)
+[06:52:44] INFO: {
+  "embeddings_npz": "exports/embeddings_SR_pretrained_unlabeled/embeddings.npz",
+  "labels_csv": "labels/sentiment_normal_reading.csv",
+  "checkpoint": "../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt",
+  "random_init": false,
+  "output_dir": "results/B1_finetune_sentiment_pretrained",
+  "epochs": 25,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "num_workers": 0,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "log_every": 10,
+  "device": "cuda",
+  "bart_path": "facebook/bart-large",
+  "head_dim": 1024,
+  "sentence_col": "sentence",
+  "label_col": "sentiment_label",
+  "subject_col": null,
+  "binary": false
+}
+[06:52:44] INFO: Using device: cuda
+[06:52:44] INFO: NPZ keys found: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[06:52:46] INFO: Loaded EEG/features array from key 'normalized_input_embeddings' with shape (4532, 58, 840)
+[06:52:46] INFO: Loaded attention mask shape: (4532, 58)
+[06:52:46] INFO: Subject IDs present: True
+[06:52:46] INFO: Text key: target_string; unique texts: 400
+[06:52:46] INFO: Loaded labels CSV with shape (600, 3) from labels/sentiment_normal_reading.csv using encoding=utf-8
+[06:52:46] INFO: CSV columns: ['ID', 'sentence', 'control']
+[06:55:13] INFO: Starting B1 fine-tuned sentiment classification (trial-level, text-joined)
+[06:55:13] INFO: {
+  "embeddings_npz": "exports/embeddings_SR_pretrained_unlabeled/embeddings.npz",
+  "labels_csv": "labels/sentiment_labsls_task1.csv",
+  "checkpoint": "../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt",
+  "random_init": false,
+  "output_dir": "results/B1_finetune_sentiment_pretrained",
+  "epochs": 25,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "num_workers": 0,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "log_every": 10,
+  "device": "cuda",
+  "bart_path": "facebook/bart-large",
+  "head_dim": 1024,
+  "sentence_col": "sentence",
+  "label_col": "sentiment_label",
+  "subject_col": null,
+  "binary": false
+}
+[06:55:13] INFO: Using device: cuda
+[06:55:13] INFO: NPZ keys found: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[06:55:15] INFO: Loaded EEG/features array from key 'normalized_input_embeddings' with shape (4532, 58, 840)
+[06:55:15] INFO: Loaded attention mask shape: (4532, 58)
+[06:55:15] INFO: Subject IDs present: True
+[06:55:15] INFO: Text key: target_string; unique texts: 400
+[06:56:02] INFO: Starting B1 fine-tuned sentiment classification (trial-level, text-joined)
+[06:56:02] INFO: {
+  "embeddings_npz": "exports/embeddings_SR_pretrained_unlabeled/embeddings.npz",
+  "labels_csv": "labels/sentiment_labels_task1.csv",
+  "checkpoint": "../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt",
+  "random_init": false,
+  "output_dir": "results/B1_finetune_sentiment_pretrained",
+  "epochs": 25,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "num_workers": 0,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "log_every": 10,
+  "device": "cuda",
+  "bart_path": "facebook/bart-large",
+  "head_dim": 1024,
+  "sentence_col": "sentence",
+  "label_col": "sentiment_label",
+  "subject_col": null,
+  "binary": false
+}
+[06:56:02] INFO: Using device: cuda
+[06:56:02] INFO: NPZ keys found: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[06:56:04] INFO: Loaded EEG/features array from key 'normalized_input_embeddings' with shape (4532, 58, 840)
+[06:56:04] INFO: Loaded attention mask shape: (4532, 58)
+[06:56:04] INFO: Subject IDs present: True
+[06:56:04] INFO: Text key: target_string; unique texts: 400
+[06:56:04] INFO: Loaded labels CSV with shape (400, 4) from labels/sentiment_labels_task1.csv using encoding=utf-8
+[06:56:04] INFO: CSV columns: ['sentence_id', 'sentence', 'control', 'sentiment_label']
+[06:56:04] INFO: Labels DataFrame after cleaning: 395 rows, 395 unique texts
+[06:56:04] INFO: Unique sentiment_raw values in labels: ['negative', 'neutral', 'positive']
+[06:56:04] INFO: After text-merge: labeled trials = 4476, unlabeled trials = 56
+[06:56:04] INFO: Unique sentiment_raw values before label mapping: ['negative', 'neutral', 'positive']
+[06:56:04] INFO: Final merged trial-level dataset size: 4476
+[06:56:04] INFO: Subjects: ['ZAB', 'ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZMG', 'ZPH']
+[06:56:04] INFO: Label counts: {'positive': 1582, 'neutral': 1549, 'negative': 1345}
+[06:56:04] INFO: Running leave-one-subject-out CV over 12 subjects.
+[06:56:04] INFO: ========================================================================================
+[06:56:04] INFO: Fold 1/12 | held-out subject: ZAB
+[06:56:05] INFO: Train size: 3475 | Val size: 614 | Test size: 387
+[06:56:05] INFO: Train label counts: {np.int64(0): np.int64(1044), np.int64(1): np.int64(1204), np.int64(2): np.int64(1227)}
+[06:56:05] INFO: Val label counts: {np.int64(0): np.int64(184), np.int64(1): np.int64(213), np.int64(2): np.int64(217)}
+[06:56:05] INFO: Test label counts: {np.int64(0): np.int64(117), np.int64(1): np.int64(132), np.int64(2): np.int64(138)}
+[06:56:10] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:56:10] INFO: Missing keys count: 0
+[06:56:10] INFO: Unexpected keys count: 0
+[06:56:21] INFO: [Fold 1 | Epoch 001] train_loss=1.2502 train_acc=0.3476 train_f1=0.3441 | val_loss=1.2402 val_acc=0.3062 val_f1=0.2251
+[06:56:21] INFO: New best model at epoch 1 with val_macro_f1=0.2251
+[06:56:31] INFO: [Fold 1 | Epoch 002] train_loss=1.1639 train_acc=0.3358 train_f1=0.3317 | val_loss=1.2247 val_acc=0.3225 val_f1=0.2364
+[06:56:31] INFO: New best model at epoch 2 with val_macro_f1=0.2364
+[06:56:41] INFO: [Fold 1 | Epoch 003] train_loss=1.1547 train_acc=0.3494 train_f1=0.3421 | val_loss=1.2323 val_acc=0.3029 val_f1=0.1786
+[06:56:51] INFO: [Fold 1 | Epoch 004] train_loss=1.1413 train_acc=0.3600 train_f1=0.3553 | val_loss=1.1941 val_acc=0.3453 val_f1=0.1715
+[06:57:02] INFO: [Fold 1 | Epoch 005] train_loss=1.1454 train_acc=0.3540 train_f1=0.3472 | val_loss=1.1295 val_acc=0.3534 val_f1=0.2490
+[06:57:02] INFO: New best model at epoch 5 with val_macro_f1=0.2490
+[06:57:12] INFO: [Fold 1 | Epoch 006] train_loss=1.1382 train_acc=0.3557 train_f1=0.3511 | val_loss=1.2045 val_acc=0.3371 val_f1=0.1747
+[06:57:20] INFO: [Fold 1 | Epoch 007] train_loss=1.1221 train_acc=0.3655 train_f1=0.3606 | val_loss=1.1296 val_acc=0.3404 val_f1=0.3265
+[06:57:20] INFO: New best model at epoch 7 with val_macro_f1=0.3265
+[06:57:25] INFO: [Fold 1 | Epoch 008] train_loss=1.1270 train_acc=0.3847 train_f1=0.3812 | val_loss=1.1580 val_acc=0.3941 val_f1=0.3057
+[06:57:31] INFO: [Fold 1 | Epoch 009] train_loss=1.1097 train_acc=0.3882 train_f1=0.3843 | val_loss=1.1692 val_acc=0.3518 val_f1=0.2332
+[06:57:37] INFO: [Fold 1 | Epoch 010] train_loss=1.1335 train_acc=0.3991 train_f1=0.3921 | val_loss=1.1945 val_acc=0.3143 val_f1=0.2431
+[06:57:42] INFO: [Fold 1 | Epoch 011] train_loss=1.1223 train_acc=0.3948 train_f1=0.3902 | val_loss=1.2227 val_acc=0.3681 val_f1=0.2276
+[06:57:48] INFO: [Fold 1 | Epoch 012] train_loss=1.0961 train_acc=0.4055 train_f1=0.4022 | val_loss=1.1755 val_acc=0.3599 val_f1=0.3443
+[06:57:48] INFO: New best model at epoch 12 with val_macro_f1=0.3443
+[06:57:53] INFO: [Fold 1 | Epoch 013] train_loss=1.0786 train_acc=0.4325 train_f1=0.4276 | val_loss=1.2079 val_acc=0.3388 val_f1=0.2629
+[06:57:59] INFO: [Fold 1 | Epoch 014] train_loss=1.0725 train_acc=0.4394 train_f1=0.4337 | val_loss=1.2563 val_acc=0.3388 val_f1=0.2359
+[06:58:04] INFO: [Fold 1 | Epoch 015] train_loss=1.0950 train_acc=0.4391 train_f1=0.4351 | val_loss=1.1938 val_acc=0.3436 val_f1=0.2858
+[06:58:10] INFO: [Fold 1 | Epoch 016] train_loss=1.0431 train_acc=0.4633 train_f1=0.4575 | val_loss=1.2003 val_acc=0.3844 val_f1=0.3610
+[06:58:10] INFO: New best model at epoch 16 with val_macro_f1=0.3610
+[06:58:15] INFO: [Fold 1 | Epoch 017] train_loss=1.0084 train_acc=0.4927 train_f1=0.4866 | val_loss=1.3377 val_acc=0.3388 val_f1=0.2605
+[06:58:21] INFO: [Fold 1 | Epoch 018] train_loss=0.9959 train_acc=0.5036 train_f1=0.4993 | val_loss=1.2930 val_acc=0.3339 val_f1=0.3273
+[06:58:26] INFO: [Fold 1 | Epoch 019] train_loss=0.9610 train_acc=0.5309 train_f1=0.5274 | val_loss=1.3918 val_acc=0.3420 val_f1=0.3212
+[06:58:32] INFO: [Fold 1 | Epoch 020] train_loss=0.9512 train_acc=0.5289 train_f1=0.5232 | val_loss=1.4925 val_acc=0.3339 val_f1=0.2922
+[06:58:37] INFO: [Fold 1 | Epoch 021] train_loss=0.9176 train_acc=0.5557 train_f1=0.5517 | val_loss=1.4184 val_acc=0.3062 val_f1=0.2901
+[06:58:43] INFO: [Fold 1 | Epoch 022] train_loss=0.8740 train_acc=0.5822 train_f1=0.5795 | val_loss=1.5650 val_acc=0.3176 val_f1=0.3092
+[06:58:48] INFO: [Fold 1 | Epoch 023] train_loss=0.8668 train_acc=0.5891 train_f1=0.5869 | val_loss=1.4927 val_acc=0.3648 val_f1=0.3569
+[06:58:54] INFO: [Fold 1 | Epoch 024] train_loss=0.8143 train_acc=0.6167 train_f1=0.6146 | val_loss=1.6958 val_acc=0.3355 val_f1=0.3093
+[06:58:59] INFO: [Fold 1 | Epoch 025] train_loss=0.7960 train_acc=0.6253 train_f1=0.6227 | val_loss=1.5771 val_acc=0.3339 val_f1=0.3284
+[06:59:00] INFO: [Fold 1 TEST] subject=ZAB acc=0.3230 bal_acc=0.3167 macro_f1=0.2052
+[06:59:00] INFO: ========================================================================================
+[06:59:00] INFO: Fold 2/12 | held-out subject: ZDM
+[06:59:00] INFO: Train size: 3482 | Val size: 615 | Test size: 379
+[06:59:00] INFO: Train label counts: {np.int64(0): np.int64(1045), np.int64(1): np.int64(1208), np.int64(2): np.int64(1229)}
+[06:59:00] INFO: Val label counts: {np.int64(0): np.int64(185), np.int64(1): np.int64(213), np.int64(2): np.int64(217)}
+[06:59:00] INFO: Test label counts: {np.int64(0): np.int64(115), np.int64(1): np.int64(128), np.int64(2): np.int64(136)}
+[06:59:05] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:59:05] INFO: Missing keys count: 0
+[06:59:05] INFO: Unexpected keys count: 0
+[06:59:10] INFO: [Fold 2 | Epoch 001] train_loss=1.2548 train_acc=0.3403 train_f1=0.3367 | val_loss=1.3617 val_acc=0.3187 val_f1=0.2643
+[06:59:10] INFO: New best model at epoch 1 with val_macro_f1=0.2643
+[06:59:16] INFO: [Fold 2 | Epoch 002] train_loss=1.1708 train_acc=0.3461 train_f1=0.3388 | val_loss=1.2822 val_acc=0.3382 val_f1=0.2016
+[06:59:21] INFO: [Fold 2 | Epoch 003] train_loss=1.1760 train_acc=0.3555 train_f1=0.3516 | val_loss=1.1533 val_acc=0.3268 val_f1=0.2870
+[06:59:21] INFO: New best model at epoch 3 with val_macro_f1=0.2870
+[06:59:27] INFO: [Fold 2 | Epoch 004] train_loss=1.1867 train_acc=0.3418 train_f1=0.3391 | val_loss=1.1399 val_acc=0.3398 val_f1=0.2819
+[06:59:32] INFO: [Fold 2 | Epoch 005] train_loss=1.1370 train_acc=0.3636 train_f1=0.3544 | val_loss=1.1594 val_acc=0.3447 val_f1=0.2515
+[06:59:38] INFO: [Fold 2 | Epoch 006] train_loss=1.1620 train_acc=0.3590 train_f1=0.3548 | val_loss=1.1703 val_acc=0.3431 val_f1=0.2968
+[06:59:38] INFO: New best model at epoch 6 with val_macro_f1=0.2968
+[06:59:44] INFO: [Fold 2 | Epoch 007] train_loss=1.1311 train_acc=0.3647 train_f1=0.3592 | val_loss=1.1461 val_acc=0.3382 val_f1=0.3330
+[06:59:44] INFO: New best model at epoch 7 with val_macro_f1=0.3330
+[06:59:49] INFO: [Fold 2 | Epoch 008] train_loss=1.1276 train_acc=0.3702 train_f1=0.3619 | val_loss=1.1560 val_acc=0.3593 val_f1=0.3329
+[06:59:55] INFO: [Fold 2 | Epoch 009] train_loss=1.1239 train_acc=0.3894 train_f1=0.3856 | val_loss=1.1794 val_acc=0.3415 val_f1=0.2638
+[07:00:00] INFO: [Fold 2 | Epoch 010] train_loss=1.1189 train_acc=0.3851 train_f1=0.3767 | val_loss=1.1801 val_acc=0.3528 val_f1=0.2623
+[07:00:06] INFO: [Fold 2 | Epoch 011] train_loss=1.0888 train_acc=0.4047 train_f1=0.4005 | val_loss=1.1978 val_acc=0.3463 val_f1=0.2887
+[07:00:11] INFO: [Fold 2 | Epoch 012] train_loss=1.1360 train_acc=0.3845 train_f1=0.3803 | val_loss=1.2183 val_acc=0.3171 val_f1=0.2479
+[07:00:17] INFO: [Fold 2 | Epoch 013] train_loss=1.0868 train_acc=0.4259 train_f1=0.4194 | val_loss=1.2386 val_acc=0.3415 val_f1=0.2813
+[07:00:22] INFO: [Fold 2 | Epoch 014] train_loss=1.0855 train_acc=0.4182 train_f1=0.4142 | val_loss=1.3705 val_acc=0.3415 val_f1=0.2729
+[07:00:28] INFO: [Fold 2 | Epoch 015] train_loss=1.0836 train_acc=0.4161 train_f1=0.4114 | val_loss=1.2237 val_acc=0.3512 val_f1=0.3116
+[07:00:33] INFO: [Fold 2 | Epoch 016] train_loss=1.0471 train_acc=0.4566 train_f1=0.4510 | val_loss=1.1690 val_acc=0.3593 val_f1=0.3486
+[07:00:33] INFO: New best model at epoch 16 with val_macro_f1=0.3486
+[07:00:38] INFO: [Fold 2 | Epoch 017] train_loss=1.0251 train_acc=0.4716 train_f1=0.4658 | val_loss=1.2555 val_acc=0.3561 val_f1=0.3463
+[07:00:44] INFO: [Fold 2 | Epoch 018] train_loss=1.0254 train_acc=0.4730 train_f1=0.4676 | val_loss=1.2434 val_acc=0.3480 val_f1=0.3458
+[07:00:50] INFO: [Fold 2 | Epoch 019] train_loss=0.9847 train_acc=0.5046 train_f1=0.4998 | val_loss=1.2321 val_acc=0.3463 val_f1=0.3240
+[07:00:55] INFO: [Fold 2 | Epoch 020] train_loss=0.9538 train_acc=0.5276 train_f1=0.5233 | val_loss=1.2927 val_acc=0.3512 val_f1=0.3353
+[07:01:01] INFO: [Fold 2 | Epoch 021] train_loss=0.9531 train_acc=0.5313 train_f1=0.5280 | val_loss=1.3570 val_acc=0.3626 val_f1=0.3122
+[07:01:06] INFO: [Fold 2 | Epoch 022] train_loss=0.9329 train_acc=0.5485 train_f1=0.5454 | val_loss=1.5086 val_acc=0.2894 val_f1=0.2653
+[07:01:12] INFO: [Fold 2 | Epoch 023] train_loss=0.9050 train_acc=0.5661 train_f1=0.5632 | val_loss=1.4487 val_acc=0.3333 val_f1=0.3299
+[07:01:17] INFO: [Fold 2 | Epoch 024] train_loss=0.8496 train_acc=0.6074 train_f1=0.6048 | val_loss=1.6369 val_acc=0.3659 val_f1=0.3427
+[07:01:23] INFO: [Fold 2 | Epoch 025] train_loss=0.8081 train_acc=0.6246 train_f1=0.6206 | val_loss=1.7113 val_acc=0.3398 val_f1=0.3384
+[07:01:23] INFO: [Fold 2 TEST] subject=ZDM acc=0.3826 bal_acc=0.3816 macro_f1=0.3827
+[07:01:23] INFO: ========================================================================================
+[07:01:23] INFO: Fold 3/12 | held-out subject: ZDN
+[07:01:24] INFO: Train size: 3558 | Val size: 629 | Test size: 289
+[07:01:24] INFO: Train label counts: {np.int64(0): np.int64(1069), np.int64(1): np.int64(1225), np.int64(2): np.int64(1264)}
+[07:01:24] INFO: Val label counts: {np.int64(0): np.int64(189), np.int64(1): np.int64(217), np.int64(2): np.int64(223)}
+[07:01:24] INFO: Test label counts: {np.int64(0): np.int64(87), np.int64(1): np.int64(107), np.int64(2): np.int64(95)}
+[07:01:28] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:01:28] INFO: Missing keys count: 0
+[07:01:28] INFO: Unexpected keys count: 0
+[07:01:34] INFO: [Fold 3 | Epoch 001] train_loss=1.2343 train_acc=0.3373 train_f1=0.3332 | val_loss=1.1944 val_acc=0.3116 val_f1=0.2415
+[07:01:34] INFO: New best model at epoch 1 with val_macro_f1=0.2415
+[07:01:39] INFO: [Fold 3 | Epoch 002] train_loss=1.1806 train_acc=0.3567 train_f1=0.3543 | val_loss=1.2112 val_acc=0.3545 val_f1=0.1836
+[07:01:45] INFO: [Fold 3 | Epoch 003] train_loss=1.1809 train_acc=0.3392 train_f1=0.3340 | val_loss=1.2941 val_acc=0.3005 val_f1=0.1573
+[07:01:51] INFO: [Fold 3 | Epoch 004] train_loss=1.1405 train_acc=0.3567 train_f1=0.3529 | val_loss=1.1524 val_acc=0.3052 val_f1=0.2065
+[07:01:56] INFO: [Fold 3 | Epoch 005] train_loss=1.1294 train_acc=0.3676 train_f1=0.3616 | val_loss=1.1540 val_acc=0.3657 val_f1=0.2584
+[07:01:56] INFO: New best model at epoch 5 with val_macro_f1=0.2584
+[07:02:02] INFO: [Fold 3 | Epoch 006] train_loss=1.1682 train_acc=0.3578 train_f1=0.3540 | val_loss=1.2463 val_acc=0.3370 val_f1=0.1913
+[07:02:08] INFO: [Fold 3 | Epoch 007] train_loss=1.1168 train_acc=0.3775 train_f1=0.3685 | val_loss=1.1580 val_acc=0.3418 val_f1=0.3008
+[07:02:08] INFO: New best model at epoch 7 with val_macro_f1=0.3008
+[07:02:13] INFO: [Fold 3 | Epoch 008] train_loss=1.1496 train_acc=0.3687 train_f1=0.3626 | val_loss=1.1721 val_acc=0.3164 val_f1=0.2675
+[07:02:19] INFO: [Fold 3 | Epoch 009] train_loss=1.1137 train_acc=0.3772 train_f1=0.3728 | val_loss=1.1538 val_acc=0.3514 val_f1=0.2931
+[07:02:24] INFO: [Fold 3 | Epoch 010] train_loss=1.1149 train_acc=0.3879 train_f1=0.3788 | val_loss=1.1821 val_acc=0.3736 val_f1=0.2797
+[07:02:30] INFO: [Fold 3 | Epoch 011] train_loss=1.0847 train_acc=0.4207 train_f1=0.4162 | val_loss=1.1715 val_acc=0.3577 val_f1=0.3153
+[07:02:30] INFO: New best model at epoch 11 with val_macro_f1=0.3153
+[07:02:36] INFO: [Fold 3 | Epoch 012] train_loss=1.0924 train_acc=0.4146 train_f1=0.4078 | val_loss=1.1419 val_acc=0.3370 val_f1=0.3099
+[07:02:41] INFO: [Fold 3 | Epoch 013] train_loss=1.0784 train_acc=0.4306 train_f1=0.4281 | val_loss=1.1759 val_acc=0.3609 val_f1=0.3230
+[07:02:41] INFO: New best model at epoch 13 with val_macro_f1=0.3230
+[07:02:47] INFO: [Fold 3 | Epoch 014] train_loss=1.0767 train_acc=0.4348 train_f1=0.4322 | val_loss=1.3001 val_acc=0.3243 val_f1=0.2264
+[07:02:53] INFO: [Fold 3 | Epoch 015] train_loss=1.0620 train_acc=0.4503 train_f1=0.4477 | val_loss=1.1672 val_acc=0.3672 val_f1=0.3608
+[07:02:53] INFO: New best model at epoch 15 with val_macro_f1=0.3608
+[07:02:58] INFO: [Fold 3 | Epoch 016] train_loss=1.0417 train_acc=0.4505 train_f1=0.4456 | val_loss=1.2193 val_acc=0.3418 val_f1=0.3323
+[07:03:04] INFO: [Fold 3 | Epoch 017] train_loss=1.0192 train_acc=0.4809 train_f1=0.4780 | val_loss=1.2312 val_acc=0.3768 val_f1=0.3125
+[07:03:09] INFO: [Fold 3 | Epoch 018] train_loss=1.0381 train_acc=0.4792 train_f1=0.4744 | val_loss=1.3935 val_acc=0.3514 val_f1=0.2641
+[07:03:15] INFO: [Fold 3 | Epoch 019] train_loss=0.9687 train_acc=0.5166 train_f1=0.5128 | val_loss=1.3403 val_acc=0.3720 val_f1=0.3589
+[07:03:21] INFO: [Fold 3 | Epoch 020] train_loss=0.9666 train_acc=0.5185 train_f1=0.5145 | val_loss=1.4675 val_acc=0.3370 val_f1=0.2781
+[07:03:26] INFO: [Fold 3 | Epoch 021] train_loss=0.9306 train_acc=0.5492 train_f1=0.5458 | val_loss=1.4033 val_acc=0.3625 val_f1=0.3565
+[07:03:32] INFO: [Fold 3 | Epoch 022] train_loss=0.8862 train_acc=0.5627 train_f1=0.5595 | val_loss=1.4999 val_acc=0.3736 val_f1=0.3627
+[07:03:32] INFO: New best model at epoch 22 with val_macro_f1=0.3627
+[07:03:38] INFO: [Fold 3 | Epoch 023] train_loss=0.8639 train_acc=0.5815 train_f1=0.5790 | val_loss=1.6511 val_acc=0.3720 val_f1=0.3687
+[07:03:38] INFO: New best model at epoch 23 with val_macro_f1=0.3687
+[07:03:43] INFO: [Fold 3 | Epoch 024] train_loss=0.8312 train_acc=0.6113 train_f1=0.6084 | val_loss=1.5390 val_acc=0.3450 val_f1=0.3438
+[07:03:49] INFO: [Fold 3 | Epoch 025] train_loss=0.7961 train_acc=0.6346 train_f1=0.6327 | val_loss=1.6860 val_acc=0.3593 val_f1=0.3544
+[07:03:50] INFO: [Fold 3 TEST] subject=ZDN acc=0.3495 bal_acc=0.3617 macro_f1=0.3235
+[07:03:50] INFO: ========================================================================================
+[07:03:50] INFO: Fold 4/12 | held-out subject: ZGW
+[07:03:50] INFO: Train size: 3490 | Val size: 616 | Test size: 370
+[07:03:50] INFO: Train label counts: {np.int64(0): np.int64(1046), np.int64(1): np.int64(1209), np.int64(2): np.int64(1235)}
+[07:03:50] INFO: Val label counts: {np.int64(0): np.int64(185), np.int64(1): np.int64(213), np.int64(2): np.int64(218)}
+[07:03:50] INFO: Test label counts: {np.int64(0): np.int64(114), np.int64(1): np.int64(127), np.int64(2): np.int64(129)}
+[07:03:55] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:03:55] INFO: Missing keys count: 0
+[07:03:55] INFO: Unexpected keys count: 0
+[07:04:01] INFO: [Fold 4 | Epoch 001] train_loss=1.2338 train_acc=0.3355 train_f1=0.3307 | val_loss=1.1883 val_acc=0.3588 val_f1=0.2814
+[07:04:01] INFO: New best model at epoch 1 with val_macro_f1=0.2814
+[07:04:07] INFO: [Fold 4 | Epoch 002] train_loss=1.1881 train_acc=0.3530 train_f1=0.3483 | val_loss=1.1315 val_acc=0.3263 val_f1=0.2995
+[07:04:07] INFO: New best model at epoch 2 with val_macro_f1=0.2995
+[07:04:12] INFO: [Fold 4 | Epoch 003] train_loss=1.1512 train_acc=0.3587 train_f1=0.3552 | val_loss=1.1363 val_acc=0.3393 val_f1=0.2607
+[07:04:18] INFO: [Fold 4 | Epoch 004] train_loss=1.1355 train_acc=0.3616 train_f1=0.3568 | val_loss=1.1515 val_acc=0.3247 val_f1=0.3070
+[07:04:18] INFO: New best model at epoch 4 with val_macro_f1=0.3070
+[07:04:23] INFO: [Fold 4 | Epoch 005] train_loss=1.1334 train_acc=0.3648 train_f1=0.3548 | val_loss=1.1922 val_acc=0.3506 val_f1=0.1735
+[07:04:29] INFO: [Fold 4 | Epoch 006] train_loss=1.1211 train_acc=0.3877 train_f1=0.3831 | val_loss=1.1507 val_acc=0.3133 val_f1=0.2793
+[07:04:35] INFO: [Fold 4 | Epoch 007] train_loss=1.1536 train_acc=0.3668 train_f1=0.3638 | val_loss=1.1290 val_acc=0.3782 val_f1=0.3382
+[07:04:35] INFO: New best model at epoch 7 with val_macro_f1=0.3382
+[07:04:40] INFO: [Fold 4 | Epoch 008] train_loss=1.1184 train_acc=0.3788 train_f1=0.3721 | val_loss=1.2598 val_acc=0.3539 val_f1=0.1931
+[07:04:46] INFO: [Fold 4 | Epoch 009] train_loss=1.1441 train_acc=0.3831 train_f1=0.3752 | val_loss=1.2537 val_acc=0.3539 val_f1=0.2838
+[07:04:51] INFO: [Fold 4 | Epoch 010] train_loss=1.1115 train_acc=0.3940 train_f1=0.3907 | val_loss=1.1521 val_acc=0.3312 val_f1=0.3268
+[07:04:57] INFO: [Fold 4 | Epoch 011] train_loss=1.0983 train_acc=0.3960 train_f1=0.3901 | val_loss=1.2128 val_acc=0.3393 val_f1=0.2754
+[07:05:02] INFO: [Fold 4 | Epoch 012] train_loss=1.1106 train_acc=0.4072 train_f1=0.4015 | val_loss=1.1765 val_acc=0.3377 val_f1=0.2485
+[07:05:08] INFO: [Fold 4 | Epoch 013] train_loss=1.0992 train_acc=0.4138 train_f1=0.4080 | val_loss=1.1861 val_acc=0.3425 val_f1=0.3077
+[07:05:13] INFO: [Fold 4 | Epoch 014] train_loss=1.0859 train_acc=0.4338 train_f1=0.4294 | val_loss=1.1729 val_acc=0.3247 val_f1=0.2866
+[07:05:19] INFO: [Fold 4 | Epoch 015] train_loss=1.0608 train_acc=0.4438 train_f1=0.4396 | val_loss=1.4221 val_acc=0.3279 val_f1=0.2244
+[07:05:24] INFO: [Fold 4 | Epoch 016] train_loss=1.0519 train_acc=0.4530 train_f1=0.4493 | val_loss=1.2794 val_acc=0.3425 val_f1=0.2804
+[07:05:30] INFO: [Fold 4 | Epoch 017] train_loss=1.0625 train_acc=0.4662 train_f1=0.4623 | val_loss=1.1997 val_acc=0.3458 val_f1=0.3311
+[07:05:36] INFO: [Fold 4 | Epoch 018] train_loss=1.0524 train_acc=0.4630 train_f1=0.4584 | val_loss=1.2188 val_acc=0.3490 val_f1=0.3320
+[07:05:42] INFO: [Fold 4 | Epoch 019] train_loss=1.0019 train_acc=0.4900 train_f1=0.4853 | val_loss=1.2687 val_acc=0.3604 val_f1=0.3333
+[07:05:47] INFO: [Fold 4 | Epoch 020] train_loss=0.9952 train_acc=0.4986 train_f1=0.4947 | val_loss=1.3283 val_acc=0.3247 val_f1=0.3201
+[07:05:53] INFO: [Fold 4 | Epoch 021] train_loss=0.9740 train_acc=0.5321 train_f1=0.5299 | val_loss=1.3708 val_acc=0.3247 val_f1=0.3198
+[07:05:58] INFO: [Fold 4 | Epoch 022] train_loss=0.9611 train_acc=0.5289 train_f1=0.5267 | val_loss=1.3582 val_acc=0.3263 val_f1=0.3215
+[07:06:04] INFO: [Fold 4 | Epoch 023] train_loss=0.9149 train_acc=0.5610 train_f1=0.5589 | val_loss=1.3597 val_acc=0.3166 val_f1=0.3087
+[07:06:10] INFO: [Fold 4 | Epoch 024] train_loss=0.8853 train_acc=0.5797 train_f1=0.5772 | val_loss=1.5371 val_acc=0.3393 val_f1=0.2963
+[07:06:15] INFO: [Fold 4 | Epoch 025] train_loss=0.8662 train_acc=0.5874 train_f1=0.5843 | val_loss=1.4937 val_acc=0.3588 val_f1=0.3056
+[07:06:16] INFO: [Fold 4 TEST] subject=ZGW acc=0.3081 bal_acc=0.2963 macro_f1=0.2391
+[07:06:16] INFO: ========================================================================================
+[07:06:16] INFO: Fold 5/12 | held-out subject: ZJM
+[07:06:16] INFO: Train size: 3469 | Val size: 613 | Test size: 394
+[07:06:16] INFO: Train label counts: {np.int64(0): np.int64(1042), np.int64(1): np.int64(1201), np.int64(2): np.int64(1226)}
+[07:06:16] INFO: Val label counts: {np.int64(0): np.int64(184), np.int64(1): np.int64(212), np.int64(2): np.int64(217)}
+[07:06:16] INFO: Test label counts: {np.int64(0): np.int64(119), np.int64(1): np.int64(136), np.int64(2): np.int64(139)}
+[07:06:21] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:06:21] INFO: Missing keys count: 0
+[07:06:21] INFO: Unexpected keys count: 0
+[07:06:27] INFO: [Fold 5 | Epoch 001] train_loss=1.2584 train_acc=0.3301 train_f1=0.3238 | val_loss=1.1824 val_acc=0.3442 val_f1=0.2209
+[07:06:27] INFO: New best model at epoch 1 with val_macro_f1=0.2209
+[07:06:32] INFO: [Fold 5 | Epoch 002] train_loss=1.1793 train_acc=0.3433 train_f1=0.3381 | val_loss=1.2373 val_acc=0.3132 val_f1=0.2264
+[07:06:32] INFO: New best model at epoch 2 with val_macro_f1=0.2264
+[07:06:38] INFO: [Fold 5 | Epoch 003] train_loss=1.1636 train_acc=0.3439 train_f1=0.3397 | val_loss=1.1570 val_acc=0.3458 val_f1=0.2888
+[07:06:38] INFO: New best model at epoch 3 with val_macro_f1=0.2888
+[07:06:44] INFO: [Fold 5 | Epoch 004] train_loss=1.1378 train_acc=0.3624 train_f1=0.3574 | val_loss=1.1437 val_acc=0.3589 val_f1=0.2783
+[07:06:49] INFO: [Fold 5 | Epoch 005] train_loss=1.1417 train_acc=0.3687 train_f1=0.3624 | val_loss=1.1693 val_acc=0.3263 val_f1=0.2634
+[07:06:55] INFO: [Fold 5 | Epoch 006] train_loss=1.1430 train_acc=0.3667 train_f1=0.3552 | val_loss=1.1707 val_acc=0.3622 val_f1=0.2423
+[07:07:00] INFO: [Fold 5 | Epoch 007] train_loss=1.1272 train_acc=0.3779 train_f1=0.3703 | val_loss=1.2299 val_acc=0.3344 val_f1=0.2682
+[07:07:06] INFO: [Fold 5 | Epoch 008] train_loss=1.1752 train_acc=0.3537 train_f1=0.3501 | val_loss=1.1698 val_acc=0.3638 val_f1=0.2856
+[07:07:12] INFO: [Fold 5 | Epoch 009] train_loss=1.1166 train_acc=0.3918 train_f1=0.3864 | val_loss=1.2462 val_acc=0.3377 val_f1=0.1917
+[07:07:17] INFO: [Fold 5 | Epoch 010] train_loss=1.1061 train_acc=0.3935 train_f1=0.3850 | val_loss=1.1406 val_acc=0.3654 val_f1=0.3196
+[07:07:17] INFO: New best model at epoch 10 with val_macro_f1=0.3196
+[07:07:23] INFO: [Fold 5 | Epoch 011] train_loss=1.0990 train_acc=0.4007 train_f1=0.3947 | val_loss=1.1421 val_acc=0.3507 val_f1=0.2730
+[07:07:29] INFO: [Fold 5 | Epoch 012] train_loss=1.0971 train_acc=0.4033 train_f1=0.4003 | val_loss=1.2893 val_acc=0.3605 val_f1=0.2175
+[07:07:34] INFO: [Fold 5 | Epoch 013] train_loss=1.0764 train_acc=0.4111 train_f1=0.4041 | val_loss=1.1808 val_acc=0.3442 val_f1=0.3030
+[07:07:40] INFO: [Fold 5 | Epoch 014] train_loss=1.0704 train_acc=0.4281 train_f1=0.4233 | val_loss=1.1717 val_acc=0.3475 val_f1=0.3433
+[07:07:40] INFO: New best model at epoch 14 with val_macro_f1=0.3433
+[07:07:45] INFO: [Fold 5 | Epoch 015] train_loss=1.0521 train_acc=0.4601 train_f1=0.4570 | val_loss=1.1753 val_acc=0.3442 val_f1=0.3226
+[07:07:51] INFO: [Fold 5 | Epoch 016] train_loss=1.0351 train_acc=0.4687 train_f1=0.4630 | val_loss=1.2401 val_acc=0.3556 val_f1=0.2985
+[07:07:56] INFO: [Fold 5 | Epoch 017] train_loss=1.0171 train_acc=0.4768 train_f1=0.4729 | val_loss=1.1840 val_acc=0.3377 val_f1=0.3370
+[07:08:02] INFO: [Fold 5 | Epoch 018] train_loss=0.9879 train_acc=0.5022 train_f1=0.4982 | val_loss=1.3459 val_acc=0.3132 val_f1=0.2886
+[07:08:07] INFO: [Fold 5 | Epoch 019] train_loss=0.9694 train_acc=0.5249 train_f1=0.5216 | val_loss=1.2324 val_acc=0.3344 val_f1=0.3337
+[07:08:13] INFO: [Fold 5 | Epoch 020] train_loss=0.9534 train_acc=0.5319 train_f1=0.5284 | val_loss=1.3487 val_acc=0.2985 val_f1=0.2941
+[07:08:18] INFO: [Fold 5 | Epoch 021] train_loss=0.9193 train_acc=0.5500 train_f1=0.5473 | val_loss=1.4328 val_acc=0.3409 val_f1=0.3206
+[07:08:23] INFO: [Fold 5 | Epoch 022] train_loss=0.8848 train_acc=0.5869 train_f1=0.5843 | val_loss=1.4355 val_acc=0.3148 val_f1=0.3050
+[07:08:29] INFO: [Fold 5 | Epoch 023] train_loss=0.8771 train_acc=0.5817 train_f1=0.5796 | val_loss=1.5677 val_acc=0.3148 val_f1=0.3086
+[07:08:34] INFO: [Fold 5 | Epoch 024] train_loss=0.8308 train_acc=0.6080 train_f1=0.6052 | val_loss=1.6503 val_acc=0.3409 val_f1=0.3291
+[07:08:40] INFO: [Fold 5 | Epoch 025] train_loss=0.7711 train_acc=0.6414 train_f1=0.6397 | val_loss=1.5220 val_acc=0.3524 val_f1=0.3299
+[07:08:41] INFO: [Fold 5 TEST] subject=ZJM acc=0.3604 bal_acc=0.3825 macro_f1=0.2898
+[07:08:41] INFO: ========================================================================================
+[07:08:41] INFO: Fold 6/12 | held-out subject: ZJN
+[07:08:42] INFO: Train size: 3481 | Val size: 615 | Test size: 380
+[07:08:42] INFO: Train label counts: {np.int64(0): np.int64(1047), np.int64(1): np.int64(1205), np.int64(2): np.int64(1229)}
+[07:08:42] INFO: Val label counts: {np.int64(0): np.int64(185), np.int64(1): np.int64(213), np.int64(2): np.int64(217)}
+[07:08:42] INFO: Test label counts: {np.int64(0): np.int64(113), np.int64(1): np.int64(131), np.int64(2): np.int64(136)}
+[07:08:47] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:08:47] INFO: Missing keys count: 0
+[07:08:47] INFO: Unexpected keys count: 0
+[07:08:52] INFO: [Fold 6 | Epoch 001] train_loss=1.2360 train_acc=0.3364 train_f1=0.3305 | val_loss=1.1982 val_acc=0.3382 val_f1=0.3327
+[07:08:52] INFO: New best model at epoch 1 with val_macro_f1=0.3327
+[07:08:58] INFO: [Fold 6 | Epoch 002] train_loss=1.1691 train_acc=0.3488 train_f1=0.3455 | val_loss=1.2124 val_acc=0.3626 val_f1=0.1994
+[07:09:03] INFO: [Fold 6 | Epoch 003] train_loss=1.1678 train_acc=0.3462 train_f1=0.3373 | val_loss=1.3689 val_acc=0.3122 val_f1=0.2524
+[07:09:09] INFO: [Fold 6 | Epoch 004] train_loss=1.1680 train_acc=0.3556 train_f1=0.3526 | val_loss=1.2162 val_acc=0.3415 val_f1=0.2729
+[07:09:14] INFO: [Fold 6 | Epoch 005] train_loss=1.1237 train_acc=0.3634 train_f1=0.3571 | val_loss=1.2115 val_acc=0.3480 val_f1=0.2043
+[07:09:20] INFO: [Fold 6 | Epoch 006] train_loss=1.1476 train_acc=0.3585 train_f1=0.3539 | val_loss=1.2442 val_acc=0.3187 val_f1=0.2465
+[07:09:25] INFO: [Fold 6 | Epoch 007] train_loss=1.1220 train_acc=0.3847 train_f1=0.3788 | val_loss=1.2430 val_acc=0.3236 val_f1=0.2685
+[07:09:31] INFO: [Fold 6 | Epoch 008] train_loss=1.1436 train_acc=0.3654 train_f1=0.3620 | val_loss=1.1406 val_acc=0.3415 val_f1=0.3179
+[07:09:36] INFO: [Fold 6 | Epoch 009] train_loss=1.1136 train_acc=0.3875 train_f1=0.3836 | val_loss=1.3282 val_acc=0.3447 val_f1=0.1864
+[07:09:42] INFO: [Fold 6 | Epoch 010] train_loss=1.1191 train_acc=0.3806 train_f1=0.3754 | val_loss=1.2049 val_acc=0.3106 val_f1=0.2196
+[07:09:47] INFO: [Fold 6 | Epoch 011] train_loss=1.0918 train_acc=0.4197 train_f1=0.4129 | val_loss=1.2121 val_acc=0.3593 val_f1=0.2454
+[07:09:53] INFO: [Fold 6 | Epoch 012] train_loss=1.1039 train_acc=0.4039 train_f1=0.4000 | val_loss=1.2047 val_acc=0.3350 val_f1=0.2786
+[07:09:58] INFO: [Fold 6 | Epoch 013] train_loss=1.1048 train_acc=0.4148 train_f1=0.4118 | val_loss=1.2379 val_acc=0.3561 val_f1=0.2929
+[07:10:04] INFO: [Fold 6 | Epoch 014] train_loss=1.0789 train_acc=0.4229 train_f1=0.4155 | val_loss=1.1929 val_acc=0.3512 val_f1=0.3256
+[07:10:10] INFO: [Fold 6 | Epoch 015] train_loss=1.0833 train_acc=0.4303 train_f1=0.4241 | val_loss=1.2137 val_acc=0.3642 val_f1=0.3490
+[07:10:10] INFO: New best model at epoch 15 with val_macro_f1=0.3490
+[07:10:15] INFO: [Fold 6 | Epoch 016] train_loss=1.0445 train_acc=0.4688 train_f1=0.4636 | val_loss=1.2401 val_acc=0.3398 val_f1=0.3224
+[07:10:21] INFO: [Fold 6 | Epoch 017] train_loss=1.0271 train_acc=0.4634 train_f1=0.4588 | val_loss=1.3450 val_acc=0.3691 val_f1=0.2872
+[07:10:26] INFO: [Fold 6 | Epoch 018] train_loss=1.0128 train_acc=0.4878 train_f1=0.4822 | val_loss=1.2641 val_acc=0.3366 val_f1=0.3351
+[07:10:32] INFO: [Fold 6 | Epoch 019] train_loss=0.9936 train_acc=0.4970 train_f1=0.4920 | val_loss=1.3404 val_acc=0.3154 val_f1=0.3025
+[07:10:37] INFO: [Fold 6 | Epoch 020] train_loss=0.9638 train_acc=0.5266 train_f1=0.5226 | val_loss=1.3823 val_acc=0.3659 val_f1=0.3496
+[07:10:37] INFO: New best model at epoch 20 with val_macro_f1=0.3496
+[07:10:42] INFO: [Fold 6 | Epoch 021] train_loss=0.9188 train_acc=0.5590 train_f1=0.5554 | val_loss=1.3021 val_acc=0.3480 val_f1=0.3332
+[07:10:48] INFO: [Fold 6 | Epoch 022] train_loss=0.8905 train_acc=0.5797 train_f1=0.5763 | val_loss=1.4022 val_acc=0.3512 val_f1=0.3400
+[07:10:54] INFO: [Fold 6 | Epoch 023] train_loss=0.8820 train_acc=0.5791 train_f1=0.5766 | val_loss=1.4585 val_acc=0.3593 val_f1=0.3338
+[07:10:59] INFO: [Fold 6 | Epoch 024] train_loss=0.8301 train_acc=0.6102 train_f1=0.6069 | val_loss=1.5653 val_acc=0.3480 val_f1=0.3338
+[07:11:05] INFO: [Fold 6 | Epoch 025] train_loss=0.7768 train_acc=0.6403 train_f1=0.6375 | val_loss=1.5375 val_acc=0.3610 val_f1=0.3571
+[07:11:05] INFO: New best model at epoch 25 with val_macro_f1=0.3571
+[07:11:06] INFO: [Fold 6 TEST] subject=ZJN acc=0.3711 bal_acc=0.3627 macro_f1=0.2875
+[07:11:06] INFO: ========================================================================================
+[07:11:06] INFO: Fold 7/12 | held-out subject: ZJS
+[07:11:07] INFO: Train size: 3520 | Val size: 622 | Test size: 334
+[07:11:07] INFO: Train label counts: {np.int64(0): np.int64(1063), np.int64(1): np.int64(1214), np.int64(2): np.int64(1243)}
+[07:11:07] INFO: Val label counts: {np.int64(0): np.int64(188), np.int64(1): np.int64(215), np.int64(2): np.int64(219)}
+[07:11:07] INFO: Test label counts: {np.int64(0): np.int64(94), np.int64(1): np.int64(120), np.int64(2): np.int64(120)}
+[07:11:11] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:11:11] INFO: Missing keys count: 0
+[07:11:11] INFO: Unexpected keys count: 0
+[07:11:17] INFO: [Fold 7 | Epoch 001] train_loss=1.2356 train_acc=0.3216 train_f1=0.3174 | val_loss=1.1820 val_acc=0.3569 val_f1=0.2808
+[07:11:17] INFO: New best model at epoch 1 with val_macro_f1=0.2808
+[07:11:23] INFO: [Fold 7 | Epoch 002] train_loss=1.1481 train_acc=0.3543 train_f1=0.3437 | val_loss=1.1462 val_acc=0.3569 val_f1=0.3198
+[07:11:23] INFO: New best model at epoch 2 with val_macro_f1=0.3198
+[07:11:28] INFO: [Fold 7 | Epoch 003] train_loss=1.1798 train_acc=0.3392 train_f1=0.3311 | val_loss=1.1368 val_acc=0.3376 val_f1=0.2336
+[07:11:34] INFO: [Fold 7 | Epoch 004] train_loss=1.1480 train_acc=0.3548 train_f1=0.3533 | val_loss=1.1621 val_acc=0.3280 val_f1=0.2511
+[07:11:40] INFO: [Fold 7 | Epoch 005] train_loss=1.1510 train_acc=0.3622 train_f1=0.3491 | val_loss=1.1646 val_acc=0.3633 val_f1=0.2568
+[07:11:45] INFO: [Fold 7 | Epoch 006] train_loss=1.1301 train_acc=0.3776 train_f1=0.3743 | val_loss=1.1550 val_acc=0.3650 val_f1=0.2815
+[07:11:51] INFO: [Fold 7 | Epoch 007] train_loss=1.1606 train_acc=0.3565 train_f1=0.3516 | val_loss=1.2860 val_acc=0.3585 val_f1=0.2187
+[07:11:56] INFO: [Fold 7 | Epoch 008] train_loss=1.1240 train_acc=0.3866 train_f1=0.3820 | val_loss=1.1893 val_acc=0.3473 val_f1=0.1883
+[07:12:02] INFO: [Fold 7 | Epoch 009] train_loss=1.1034 train_acc=0.3994 train_f1=0.3930 | val_loss=1.1831 val_acc=0.3312 val_f1=0.3001
+[07:12:07] INFO: [Fold 7 | Epoch 010] train_loss=1.1274 train_acc=0.3969 train_f1=0.3893 | val_loss=1.1389 val_acc=0.3489 val_f1=0.2661
+[07:12:13] INFO: [Fold 7 | Epoch 011] train_loss=1.1226 train_acc=0.4037 train_f1=0.4008 | val_loss=1.1596 val_acc=0.3617 val_f1=0.3040
+[07:12:19] INFO: [Fold 7 | Epoch 012] train_loss=1.1099 train_acc=0.4043 train_f1=0.3991 | val_loss=1.2003 val_acc=0.3601 val_f1=0.2700
+[07:12:24] INFO: [Fold 7 | Epoch 013] train_loss=1.0643 train_acc=0.4335 train_f1=0.4270 | val_loss=1.1976 val_acc=0.3585 val_f1=0.3141
+[07:12:30] INFO: [Fold 7 | Epoch 014] train_loss=1.0606 train_acc=0.4418 train_f1=0.4390 | val_loss=1.1913 val_acc=0.3392 val_f1=0.2913
+[07:12:36] INFO: [Fold 7 | Epoch 015] train_loss=1.0494 train_acc=0.4557 train_f1=0.4522 | val_loss=1.4240 val_acc=0.3553 val_f1=0.2129
+[07:12:41] INFO: [Fold 7 | Epoch 016] train_loss=1.0403 train_acc=0.4594 train_f1=0.4560 | val_loss=1.1963 val_acc=0.3376 val_f1=0.3186
+[07:12:47] INFO: [Fold 7 | Epoch 017] train_loss=1.0077 train_acc=0.4952 train_f1=0.4905 | val_loss=1.2169 val_acc=0.3569 val_f1=0.3449
+[07:12:47] INFO: New best model at epoch 17 with val_macro_f1=0.3449
+[07:12:53] INFO: [Fold 7 | Epoch 018] train_loss=0.9897 train_acc=0.5071 train_f1=0.5037 | val_loss=1.3602 val_acc=0.3312 val_f1=0.2987
+[07:12:58] INFO: [Fold 7 | Epoch 019] train_loss=0.9893 train_acc=0.5026 train_f1=0.4991 | val_loss=1.4394 val_acc=0.3264 val_f1=0.2988
+[07:13:04] INFO: [Fold 7 | Epoch 020] train_loss=0.9549 train_acc=0.5170 train_f1=0.5122 | val_loss=1.3550 val_acc=0.3666 val_f1=0.3605
+[07:13:04] INFO: New best model at epoch 20 with val_macro_f1=0.3605
+[07:13:09] INFO: [Fold 7 | Epoch 021] train_loss=0.8935 train_acc=0.5662 train_f1=0.5629 | val_loss=1.4270 val_acc=0.3698 val_f1=0.3363
+[07:13:15] INFO: [Fold 7 | Epoch 022] train_loss=0.8761 train_acc=0.5781 train_f1=0.5758 | val_loss=1.5090 val_acc=0.3569 val_f1=0.3239
+[07:13:20] INFO: [Fold 7 | Epoch 023] train_loss=0.8496 train_acc=0.5889 train_f1=0.5859 | val_loss=1.4149 val_acc=0.3730 val_f1=0.3477
+[07:13:26] INFO: [Fold 7 | Epoch 024] train_loss=0.8053 train_acc=0.6278 train_f1=0.6245 | val_loss=1.7171 val_acc=0.3569 val_f1=0.3381
+[07:13:31] INFO: [Fold 7 | Epoch 025] train_loss=0.7830 train_acc=0.6318 train_f1=0.6291 | val_loss=1.6509 val_acc=0.3650 val_f1=0.3141
+[07:13:32] INFO: [Fold 7 TEST] subject=ZJS acc=0.3413 bal_acc=0.3290 macro_f1=0.3138
+[07:13:32] INFO: ========================================================================================
+[07:13:32] INFO: Fold 8/12 | held-out subject: ZKB
+[07:13:33] INFO: Train size: 3469 | Val size: 613 | Test size: 394
+[07:13:33] INFO: Train label counts: {np.int64(0): np.int64(1042), np.int64(1): np.int64(1201), np.int64(2): np.int64(1226)}
+[07:13:33] INFO: Val label counts: {np.int64(0): np.int64(184), np.int64(1): np.int64(212), np.int64(2): np.int64(217)}
+[07:13:33] INFO: Test label counts: {np.int64(0): np.int64(119), np.int64(1): np.int64(136), np.int64(2): np.int64(139)}
+[07:13:37] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:13:37] INFO: Missing keys count: 0
+[07:13:37] INFO: Unexpected keys count: 0
+[07:13:43] INFO: [Fold 8 | Epoch 001] train_loss=1.2613 train_acc=0.3381 train_f1=0.3345 | val_loss=1.1467 val_acc=0.3279 val_f1=0.2268
+[07:13:43] INFO: New best model at epoch 1 with val_macro_f1=0.2268
+[07:13:48] INFO: [Fold 8 | Epoch 002] train_loss=1.1770 train_acc=0.3549 train_f1=0.3483 | val_loss=1.1841 val_acc=0.3507 val_f1=0.2586
+[07:13:48] INFO: New best model at epoch 2 with val_macro_f1=0.2586
+[07:13:54] INFO: [Fold 8 | Epoch 003] train_loss=1.1591 train_acc=0.3433 train_f1=0.3386 | val_loss=1.3583 val_acc=0.3344 val_f1=0.2778
+[07:13:54] INFO: New best model at epoch 3 with val_macro_f1=0.2778
+[07:13:59] INFO: [Fold 8 | Epoch 004] train_loss=1.1429 train_acc=0.3626 train_f1=0.3501 | val_loss=1.1021 val_acc=0.3866 val_f1=0.3815
+[07:13:59] INFO: New best model at epoch 4 with val_macro_f1=0.3815
+[07:14:05] INFO: [Fold 8 | Epoch 005] train_loss=1.1309 train_acc=0.3589 train_f1=0.3505 | val_loss=1.1174 val_acc=0.3524 val_f1=0.3355
+[07:14:10] INFO: [Fold 8 | Epoch 006] train_loss=1.1283 train_acc=0.3641 train_f1=0.3555 | val_loss=1.1369 val_acc=0.3377 val_f1=0.3159
+[07:14:15] INFO: [Fold 8 | Epoch 007] train_loss=1.1472 train_acc=0.3678 train_f1=0.3641 | val_loss=1.2232 val_acc=0.3507 val_f1=0.2682
+[07:14:21] INFO: [Fold 8 | Epoch 008] train_loss=1.1272 train_acc=0.3848 train_f1=0.3798 | val_loss=1.1356 val_acc=0.3703 val_f1=0.3410
+[07:14:26] INFO: [Fold 8 | Epoch 009] train_loss=1.1024 train_acc=0.3941 train_f1=0.3886 | val_loss=1.1333 val_acc=0.3654 val_f1=0.3088
+[07:14:32] INFO: [Fold 8 | Epoch 010] train_loss=1.0963 train_acc=0.4056 train_f1=0.3985 | val_loss=1.1999 val_acc=0.3654 val_f1=0.3187
+[07:14:37] INFO: [Fold 8 | Epoch 011] train_loss=1.0911 train_acc=0.4096 train_f1=0.4019 | val_loss=1.3317 val_acc=0.3540 val_f1=0.1963
+[07:14:43] INFO: [Fold 8 | Epoch 012] train_loss=1.1037 train_acc=0.4067 train_f1=0.4014 | val_loss=1.1553 val_acc=0.3834 val_f1=0.3763
+[07:14:48] INFO: [Fold 8 | Epoch 013] train_loss=1.0566 train_acc=0.4367 train_f1=0.4333 | val_loss=1.1904 val_acc=0.3605 val_f1=0.3355
+[07:14:54] INFO: [Fold 8 | Epoch 014] train_loss=1.0727 train_acc=0.4434 train_f1=0.4365 | val_loss=1.2758 val_acc=0.3524 val_f1=0.3174
+[07:14:59] INFO: [Fold 8 | Epoch 015] train_loss=1.0582 train_acc=0.4517 train_f1=0.4477 | val_loss=1.2378 val_acc=0.3507 val_f1=0.2969
+[07:15:05] INFO: [Fold 8 | Epoch 016] train_loss=1.0054 train_acc=0.4987 train_f1=0.4937 | val_loss=1.3567 val_acc=0.3328 val_f1=0.2804
+[07:15:10] INFO: [Fold 8 | Epoch 017] train_loss=1.0101 train_acc=0.4947 train_f1=0.4908 | val_loss=1.3902 val_acc=0.3361 val_f1=0.3288
+[07:15:16] INFO: [Fold 8 | Epoch 018] train_loss=0.9593 train_acc=0.5278 train_f1=0.5234 | val_loss=1.3879 val_acc=0.3295 val_f1=0.2954
+[07:15:21] INFO: [Fold 8 | Epoch 019] train_loss=0.9778 train_acc=0.5157 train_f1=0.5131 | val_loss=1.4003 val_acc=0.3622 val_f1=0.3141
+[07:15:27] INFO: [Fold 8 | Epoch 020] train_loss=0.9104 train_acc=0.5486 train_f1=0.5456 | val_loss=1.5234 val_acc=0.3458 val_f1=0.3266
+[07:15:32] INFO: [Fold 8 | Epoch 021] train_loss=0.9047 train_acc=0.5590 train_f1=0.5555 | val_loss=1.5046 val_acc=0.3361 val_f1=0.3266
+[07:15:38] INFO: [Fold 8 | Epoch 022] train_loss=0.8747 train_acc=0.5858 train_f1=0.5829 | val_loss=1.5557 val_acc=0.3458 val_f1=0.3378
+[07:15:43] INFO: [Fold 8 | Epoch 023] train_loss=0.8416 train_acc=0.5904 train_f1=0.5882 | val_loss=1.5978 val_acc=0.3573 val_f1=0.3521
+[07:15:49] INFO: [Fold 8 | Epoch 024] train_loss=0.8109 train_acc=0.6149 train_f1=0.6127 | val_loss=1.6978 val_acc=0.3703 val_f1=0.3342
+[07:15:54] INFO: [Fold 8 | Epoch 025] train_loss=0.7637 train_acc=0.6446 train_f1=0.6424 | val_loss=1.6598 val_acc=0.3442 val_f1=0.3417
+[07:15:55] INFO: [Fold 8 TEST] subject=ZKB acc=0.2995 bal_acc=0.3294 macro_f1=0.1671
+[07:15:55] INFO: ========================================================================================
+[07:15:55] INFO: Fold 9/12 | held-out subject: ZKH
+[07:15:56] INFO: Train size: 3475 | Val size: 614 | Test size: 387
+[07:15:56] INFO: Train label counts: {np.int64(0): np.int64(1044), np.int64(1): np.int64(1204), np.int64(2): np.int64(1227)}
+[07:15:56] INFO: Val label counts: {np.int64(0): np.int64(184), np.int64(1): np.int64(213), np.int64(2): np.int64(217)}
+[07:15:56] INFO: Test label counts: {np.int64(0): np.int64(117), np.int64(1): np.int64(132), np.int64(2): np.int64(138)}
+[07:16:00] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:16:00] INFO: Missing keys count: 0
+[07:16:00] INFO: Unexpected keys count: 0
+[07:16:06] INFO: [Fold 9 | Epoch 001] train_loss=1.2576 train_acc=0.3416 train_f1=0.3377 | val_loss=1.2652 val_acc=0.3160 val_f1=0.2735
+[07:16:06] INFO: New best model at epoch 1 with val_macro_f1=0.2735
+[07:16:11] INFO: [Fold 9 | Epoch 002] train_loss=1.1947 train_acc=0.3534 train_f1=0.3499 | val_loss=1.2143 val_acc=0.3730 val_f1=0.2776
+[07:16:11] INFO: New best model at epoch 2 with val_macro_f1=0.2776
+[07:16:17] INFO: [Fold 9 | Epoch 003] train_loss=1.1848 train_acc=0.3525 train_f1=0.3505 | val_loss=1.2169 val_acc=0.3143 val_f1=0.2494
+[07:16:22] INFO: [Fold 9 | Epoch 004] train_loss=1.1451 train_acc=0.3594 train_f1=0.3528 | val_loss=1.1794 val_acc=0.3257 val_f1=0.2762
+[07:16:28] INFO: [Fold 9 | Epoch 005] train_loss=1.1334 train_acc=0.3698 train_f1=0.3608 | val_loss=1.3470 val_acc=0.2980 val_f1=0.1637
+[07:16:33] INFO: [Fold 9 | Epoch 006] train_loss=1.1357 train_acc=0.3735 train_f1=0.3655 | val_loss=1.2253 val_acc=0.3485 val_f1=0.2030
+[07:16:39] INFO: [Fold 9 | Epoch 007] train_loss=1.1226 train_acc=0.3919 train_f1=0.3882 | val_loss=1.1608 val_acc=0.3257 val_f1=0.2706
+[07:16:44] INFO: [Fold 9 | Epoch 008] train_loss=1.1312 train_acc=0.3954 train_f1=0.3891 | val_loss=1.1667 val_acc=0.3648 val_f1=0.2890
+[07:16:44] INFO: New best model at epoch 8 with val_macro_f1=0.2890
+[07:16:49] INFO: [Fold 9 | Epoch 009] train_loss=1.0997 train_acc=0.4026 train_f1=0.3968 | val_loss=1.1835 val_acc=0.3404 val_f1=0.3165
+[07:16:49] INFO: New best model at epoch 9 with val_macro_f1=0.3165
+[07:16:55] INFO: [Fold 9 | Epoch 010] train_loss=1.1231 train_acc=0.3922 train_f1=0.3884 | val_loss=1.2164 val_acc=0.3844 val_f1=0.3009
+[07:17:00] INFO: [Fold 9 | Epoch 011] train_loss=1.0900 train_acc=0.4092 train_f1=0.4040 | val_loss=1.2388 val_acc=0.3469 val_f1=0.2790
+[07:17:06] INFO: [Fold 9 | Epoch 012] train_loss=1.0978 train_acc=0.4104 train_f1=0.4051 | val_loss=1.1638 val_acc=0.3502 val_f1=0.3376
+[07:17:06] INFO: New best model at epoch 12 with val_macro_f1=0.3376
+[07:17:12] INFO: [Fold 9 | Epoch 013] train_loss=1.0801 train_acc=0.4216 train_f1=0.4141 | val_loss=1.1549 val_acc=0.3632 val_f1=0.3514
+[07:17:12] INFO: New best model at epoch 13 with val_macro_f1=0.3514
+[07:17:17] INFO: [Fold 9 | Epoch 014] train_loss=1.0622 train_acc=0.4472 train_f1=0.4421 | val_loss=1.2305 val_acc=0.3436 val_f1=0.2832
+[07:17:23] INFO: [Fold 9 | Epoch 015] train_loss=1.0469 train_acc=0.4515 train_f1=0.4469 | val_loss=1.1449 val_acc=0.3876 val_f1=0.3825
+[07:17:23] INFO: New best model at epoch 15 with val_macro_f1=0.3825
+[07:17:28] INFO: [Fold 9 | Epoch 016] train_loss=1.0372 train_acc=0.4553 train_f1=0.4494 | val_loss=1.2802 val_acc=0.3779 val_f1=0.3346
+[07:17:34] INFO: [Fold 9 | Epoch 017] train_loss=1.0056 train_acc=0.4973 train_f1=0.4933 | val_loss=1.1934 val_acc=0.3827 val_f1=0.3544
+[07:17:39] INFO: [Fold 9 | Epoch 018] train_loss=0.9813 train_acc=0.5140 train_f1=0.5096 | val_loss=1.2340 val_acc=0.3453 val_f1=0.3378
+[07:17:45] INFO: [Fold 9 | Epoch 019] train_loss=0.9487 train_acc=0.5347 train_f1=0.5292 | val_loss=1.3115 val_acc=0.3469 val_f1=0.3328
+[07:17:50] INFO: [Fold 9 | Epoch 020] train_loss=0.9261 train_acc=0.5471 train_f1=0.5423 | val_loss=1.3270 val_acc=0.3550 val_f1=0.3522
+[07:17:56] INFO: [Fold 9 | Epoch 021] train_loss=0.8970 train_acc=0.5672 train_f1=0.5639 | val_loss=1.3580 val_acc=0.3453 val_f1=0.3381
+[07:18:02] INFO: [Fold 9 | Epoch 022] train_loss=0.8932 train_acc=0.5721 train_f1=0.5690 | val_loss=1.6153 val_acc=0.3502 val_f1=0.3312
+[07:18:07] INFO: [Fold 9 | Epoch 023] train_loss=0.8457 train_acc=0.6132 train_f1=0.6094 | val_loss=1.5537 val_acc=0.3502 val_f1=0.3443
+[07:18:13] INFO: [Fold 9 | Epoch 024] train_loss=0.7880 train_acc=0.6391 train_f1=0.6364 | val_loss=1.5426 val_acc=0.3583 val_f1=0.3221
+[07:18:18] INFO: [Fold 9 | Epoch 025] train_loss=0.7776 train_acc=0.6368 train_f1=0.6337 | val_loss=1.6067 val_acc=0.3306 val_f1=0.3276
+[07:18:19] INFO: [Fold 9 TEST] subject=ZKH acc=0.3437 bal_acc=0.3674 macro_f1=0.2757
+[07:18:19] INFO: ========================================================================================
+[07:18:19] INFO: Fold 10/12 | held-out subject: ZKW
+[07:18:19] INFO: Train size: 3469 | Val size: 613 | Test size: 394
+[07:18:19] INFO: Train label counts: {np.int64(0): np.int64(1042), np.int64(1): np.int64(1201), np.int64(2): np.int64(1226)}
+[07:18:19] INFO: Val label counts: {np.int64(0): np.int64(184), np.int64(1): np.int64(212), np.int64(2): np.int64(217)}
+[07:18:19] INFO: Test label counts: {np.int64(0): np.int64(119), np.int64(1): np.int64(136), np.int64(2): np.int64(139)}
+[07:18:24] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:18:24] INFO: Missing keys count: 0
+[07:18:24] INFO: Unexpected keys count: 0
+[07:18:29] INFO: [Fold 10 | Epoch 001] train_loss=1.2566 train_acc=0.3286 train_f1=0.3245 | val_loss=1.2308 val_acc=0.3328 val_f1=0.2547
+[07:18:29] INFO: New best model at epoch 1 with val_macro_f1=0.2547
+[07:18:35] INFO: [Fold 10 | Epoch 002] train_loss=1.1827 train_acc=0.3304 train_f1=0.3261 | val_loss=1.2687 val_acc=0.3589 val_f1=0.1849
+[07:18:40] INFO: [Fold 10 | Epoch 003] train_loss=1.1667 train_acc=0.3526 train_f1=0.3450 | val_loss=1.1352 val_acc=0.3719 val_f1=0.2886
+[07:18:40] INFO: New best model at epoch 3 with val_macro_f1=0.2886
+[07:18:46] INFO: [Fold 10 | Epoch 004] train_loss=1.1278 train_acc=0.3575 train_f1=0.3512 | val_loss=1.1524 val_acc=0.3507 val_f1=0.3164
+[07:18:46] INFO: New best model at epoch 4 with val_macro_f1=0.3164
+[07:18:51] INFO: [Fold 10 | Epoch 005] train_loss=1.1604 train_acc=0.3583 train_f1=0.3537 | val_loss=1.3002 val_acc=0.3458 val_f1=0.1806
+[07:18:56] INFO: [Fold 10 | Epoch 006] train_loss=1.1299 train_acc=0.3771 train_f1=0.3673 | val_loss=1.1139 val_acc=0.3540 val_f1=0.3493
+[07:18:56] INFO: New best model at epoch 6 with val_macro_f1=0.3493
+[07:19:02] INFO: [Fold 10 | Epoch 007] train_loss=1.1148 train_acc=0.3796 train_f1=0.3707 | val_loss=1.1396 val_acc=0.3687 val_f1=0.3519
+[07:19:02] INFO: New best model at epoch 7 with val_macro_f1=0.3519
+[07:19:07] INFO: [Fold 10 | Epoch 008] train_loss=1.1392 train_acc=0.3776 train_f1=0.3717 | val_loss=1.3753 val_acc=0.3475 val_f1=0.2191
+[07:19:13] INFO: [Fold 10 | Epoch 009] train_loss=1.1257 train_acc=0.3854 train_f1=0.3793 | val_loss=1.1667 val_acc=0.3605 val_f1=0.2743
+[07:19:18] INFO: [Fold 10 | Epoch 010] train_loss=1.1220 train_acc=0.3820 train_f1=0.3751 | val_loss=1.1222 val_acc=0.3573 val_f1=0.3287
+[07:19:24] INFO: [Fold 10 | Epoch 011] train_loss=1.1131 train_acc=0.4018 train_f1=0.3963 | val_loss=1.1379 val_acc=0.4013 val_f1=0.3650
+[07:19:24] INFO: New best model at epoch 11 with val_macro_f1=0.3650
+[07:19:29] INFO: [Fold 10 | Epoch 012] train_loss=1.1097 train_acc=0.3972 train_f1=0.3918 | val_loss=1.1103 val_acc=0.3638 val_f1=0.3616
+[07:19:35] INFO: [Fold 10 | Epoch 013] train_loss=1.0671 train_acc=0.4338 train_f1=0.4311 | val_loss=1.1345 val_acc=0.3719 val_f1=0.3316
+[07:19:40] INFO: [Fold 10 | Epoch 014] train_loss=1.0605 train_acc=0.4341 train_f1=0.4297 | val_loss=1.1824 val_acc=0.3458 val_f1=0.3163
+[07:19:46] INFO: [Fold 10 | Epoch 015] train_loss=1.0629 train_acc=0.4402 train_f1=0.4368 | val_loss=1.1512 val_acc=0.3931 val_f1=0.3913
+[07:19:46] INFO: New best model at epoch 15 with val_macro_f1=0.3913
+[07:19:51] INFO: [Fold 10 | Epoch 016] train_loss=1.0509 train_acc=0.4661 train_f1=0.4608 | val_loss=1.1863 val_acc=0.3589 val_f1=0.3479
+[07:19:57] INFO: [Fold 10 | Epoch 017] train_loss=1.0277 train_acc=0.4647 train_f1=0.4612 | val_loss=1.2118 val_acc=0.3817 val_f1=0.3677
+[07:20:02] INFO: [Fold 10 | Epoch 018] train_loss=0.9952 train_acc=0.4944 train_f1=0.4904 | val_loss=1.4016 val_acc=0.3361 val_f1=0.2954
+[07:20:08] INFO: [Fold 10 | Epoch 019] train_loss=0.9951 train_acc=0.4915 train_f1=0.4891 | val_loss=1.4815 val_acc=0.3670 val_f1=0.3065
+[07:20:13] INFO: [Fold 10 | Epoch 020] train_loss=0.9409 train_acc=0.5321 train_f1=0.5296 | val_loss=1.2308 val_acc=0.3980 val_f1=0.3897
+[07:20:18] INFO: [Fold 10 | Epoch 021] train_loss=0.9173 train_acc=0.5566 train_f1=0.5541 | val_loss=1.4061 val_acc=0.3866 val_f1=0.3548
+[07:20:24] INFO: [Fold 10 | Epoch 022] train_loss=0.8748 train_acc=0.5866 train_f1=0.5844 | val_loss=1.3183 val_acc=0.3670 val_f1=0.3529
+[07:20:29] INFO: [Fold 10 | Epoch 023] train_loss=0.8385 train_acc=0.6042 train_f1=0.6014 | val_loss=1.6376 val_acc=0.3556 val_f1=0.3552
+[07:20:35] INFO: [Fold 10 | Epoch 024] train_loss=0.8248 train_acc=0.6163 train_f1=0.6153 | val_loss=1.6051 val_acc=0.3622 val_f1=0.3554
+[07:20:40] INFO: [Fold 10 | Epoch 025] train_loss=0.7775 train_acc=0.6420 train_f1=0.6412 | val_loss=1.5633 val_acc=0.3736 val_f1=0.3665
+[07:20:41] INFO: [Fold 10 TEST] subject=ZKW acc=0.3503 bal_acc=0.3553 macro_f1=0.3212
+[07:20:41] INFO: ========================================================================================
+[07:20:41] INFO: Fold 11/12 | held-out subject: ZMG
+[07:20:42] INFO: Train size: 3481 | Val size: 615 | Test size: 380
+[07:20:42] INFO: Train label counts: {np.int64(0): np.int64(1046), np.int64(1): np.int64(1206), np.int64(2): np.int64(1229)}
+[07:20:42] INFO: Val label counts: {np.int64(0): np.int64(185), np.int64(1): np.int64(213), np.int64(2): np.int64(217)}
+[07:20:42] INFO: Test label counts: {np.int64(0): np.int64(114), np.int64(1): np.int64(130), np.int64(2): np.int64(136)}
+[07:20:46] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:20:46] INFO: Missing keys count: 0
+[07:20:46] INFO: Unexpected keys count: 0
+[07:20:52] INFO: [Fold 11 | Epoch 001] train_loss=1.2477 train_acc=0.3456 train_f1=0.3420 | val_loss=1.2700 val_acc=0.3545 val_f1=0.2045
+[07:20:52] INFO: New best model at epoch 1 with val_macro_f1=0.2045
+[07:20:57] INFO: [Fold 11 | Epoch 002] train_loss=1.1803 train_acc=0.3502 train_f1=0.3456 | val_loss=1.2116 val_acc=0.3236 val_f1=0.2775
+[07:20:57] INFO: New best model at epoch 2 with val_macro_f1=0.2775
+[07:21:03] INFO: [Fold 11 | Epoch 003] train_loss=1.1875 train_acc=0.3378 train_f1=0.3343 | val_loss=1.1457 val_acc=0.3463 val_f1=0.3253
+[07:21:03] INFO: New best model at epoch 3 with val_macro_f1=0.3253
+[07:21:08] INFO: [Fold 11 | Epoch 004] train_loss=1.1503 train_acc=0.3462 train_f1=0.3377 | val_loss=1.1624 val_acc=0.3707 val_f1=0.2902
+[07:21:14] INFO: [Fold 11 | Epoch 005] train_loss=1.1504 train_acc=0.3539 train_f1=0.3471 | val_loss=1.2701 val_acc=0.3301 val_f1=0.2634
+[07:21:19] INFO: [Fold 11 | Epoch 006] train_loss=1.1618 train_acc=0.3548 train_f1=0.3497 | val_loss=1.2799 val_acc=0.3463 val_f1=0.1986
+[07:21:25] INFO: [Fold 11 | Epoch 007] train_loss=1.1498 train_acc=0.3709 train_f1=0.3659 | val_loss=1.2232 val_acc=0.3545 val_f1=0.2387
+[07:21:30] INFO: [Fold 11 | Epoch 008] train_loss=1.1285 train_acc=0.3740 train_f1=0.3658 | val_loss=1.1525 val_acc=0.3593 val_f1=0.2767
+[07:21:36] INFO: [Fold 11 | Epoch 009] train_loss=1.1411 train_acc=0.3872 train_f1=0.3825 | val_loss=1.2352 val_acc=0.3691 val_f1=0.2625
+[07:21:41] INFO: [Fold 11 | Epoch 010] train_loss=1.0990 train_acc=0.4007 train_f1=0.3920 | val_loss=1.2939 val_acc=0.3463 val_f1=0.1928
+[07:21:47] INFO: [Fold 11 | Epoch 011] train_loss=1.1287 train_acc=0.3944 train_f1=0.3850 | val_loss=1.1351 val_acc=0.3707 val_f1=0.3421
+[07:21:47] INFO: New best model at epoch 11 with val_macro_f1=0.3421
+[07:21:52] INFO: [Fold 11 | Epoch 012] train_loss=1.0861 train_acc=0.4226 train_f1=0.4149 | val_loss=1.1743 val_acc=0.3512 val_f1=0.3431
+[07:21:52] INFO: New best model at epoch 12 with val_macro_f1=0.3431
+[07:21:58] INFO: [Fold 11 | Epoch 013] train_loss=1.0946 train_acc=0.4097 train_f1=0.4047 | val_loss=1.1736 val_acc=0.3528 val_f1=0.3491
+[07:21:58] INFO: New best model at epoch 13 with val_macro_f1=0.3491
+[07:22:03] INFO: [Fold 11 | Epoch 014] train_loss=1.0744 train_acc=0.4226 train_f1=0.4176 | val_loss=1.2205 val_acc=0.3724 val_f1=0.3184
+[07:22:09] INFO: [Fold 11 | Epoch 015] train_loss=1.0658 train_acc=0.4387 train_f1=0.4346 | val_loss=1.1819 val_acc=0.3642 val_f1=0.3624
+[07:22:09] INFO: New best model at epoch 15 with val_macro_f1=0.3624
+[07:22:14] INFO: [Fold 11 | Epoch 016] train_loss=1.0549 train_acc=0.4542 train_f1=0.4489 | val_loss=1.2744 val_acc=0.3512 val_f1=0.3033
+[07:22:19] INFO: [Fold 11 | Epoch 017] train_loss=1.0165 train_acc=0.4760 train_f1=0.4711 | val_loss=1.2348 val_acc=0.3528 val_f1=0.3213
+[07:22:25] INFO: [Fold 11 | Epoch 018] train_loss=0.9886 train_acc=0.5073 train_f1=0.5030 | val_loss=1.2939 val_acc=0.3626 val_f1=0.3227
+[07:22:30] INFO: [Fold 11 | Epoch 019] train_loss=0.9757 train_acc=0.5062 train_f1=0.5010 | val_loss=1.4014 val_acc=0.3252 val_f1=0.3138
+[07:22:36] INFO: [Fold 11 | Epoch 020] train_loss=0.9741 train_acc=0.5185 train_f1=0.5160 | val_loss=1.3264 val_acc=0.3382 val_f1=0.3366
+[07:22:42] INFO: [Fold 11 | Epoch 021] train_loss=0.9242 train_acc=0.5412 train_f1=0.5362 | val_loss=1.3851 val_acc=0.3480 val_f1=0.3261
+[07:22:47] INFO: [Fold 11 | Epoch 022] train_loss=0.9002 train_acc=0.5608 train_f1=0.5571 | val_loss=1.4141 val_acc=0.3203 val_f1=0.3134
+[07:22:53] INFO: [Fold 11 | Epoch 023] train_loss=0.8666 train_acc=0.5886 train_f1=0.5848 | val_loss=1.6463 val_acc=0.3122 val_f1=0.2769
+[07:22:58] INFO: [Fold 11 | Epoch 024] train_loss=0.8604 train_acc=0.5903 train_f1=0.5874 | val_loss=1.5476 val_acc=0.3886 val_f1=0.3574
+[07:23:04] INFO: [Fold 11 | Epoch 025] train_loss=0.8099 train_acc=0.6222 train_f1=0.6183 | val_loss=1.6580 val_acc=0.3366 val_f1=0.3137
+[07:23:04] INFO: [Fold 11 TEST] subject=ZMG acc=0.3579 bal_acc=0.3531 macro_f1=0.3460
+[07:23:04] INFO: ========================================================================================
+[07:23:04] INFO: Fold 12/12 | held-out subject: ZPH
+[07:23:05] INFO: Train size: 3474 | Val size: 614 | Test size: 388
+[07:23:05] INFO: Train label counts: {np.int64(0): np.int64(1044), np.int64(1): np.int64(1202), np.int64(2): np.int64(1228)}
+[07:23:05] INFO: Val label counts: {np.int64(0): np.int64(184), np.int64(1): np.int64(213), np.int64(2): np.int64(217)}
+[07:23:05] INFO: Test label counts: {np.int64(0): np.int64(117), np.int64(1): np.int64(134), np.int64(2): np.int64(137)}
+[07:23:09] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:23:09] INFO: Missing keys count: 0
+[07:23:09] INFO: Unexpected keys count: 0
+[07:23:15] INFO: [Fold 12 | Epoch 001] train_loss=1.2929 train_acc=0.3336 train_f1=0.3295 | val_loss=1.1317 val_acc=0.3436 val_f1=0.2999
+[07:23:15] INFO: New best model at epoch 1 with val_macro_f1=0.2999
+[07:23:20] INFO: [Fold 12 | Epoch 002] train_loss=1.1482 train_acc=0.3578 train_f1=0.3539 | val_loss=1.1441 val_acc=0.3241 val_f1=0.2806
+[07:23:26] INFO: [Fold 12 | Epoch 003] train_loss=1.1563 train_acc=0.3532 train_f1=0.3494 | val_loss=1.1689 val_acc=0.3583 val_f1=0.2811
+[07:23:31] INFO: [Fold 12 | Epoch 004] train_loss=1.1209 train_acc=0.3670 train_f1=0.3628 | val_loss=1.1220 val_acc=0.3469 val_f1=0.2767
+[07:23:37] INFO: [Fold 12 | Epoch 005] train_loss=1.1432 train_acc=0.3682 train_f1=0.3617 | val_loss=1.1287 val_acc=0.3436 val_f1=0.2769
+[07:23:42] INFO: [Fold 12 | Epoch 006] train_loss=1.1439 train_acc=0.3607 train_f1=0.3516 | val_loss=1.1551 val_acc=0.3257 val_f1=0.2252
+[07:23:48] INFO: [Fold 12 | Epoch 007] train_loss=1.1372 train_acc=0.3690 train_f1=0.3648 | val_loss=1.2288 val_acc=0.3355 val_f1=0.2101
+[07:23:53] INFO: [Fold 12 | Epoch 008] train_loss=1.1356 train_acc=0.3708 train_f1=0.3636 | val_loss=1.2100 val_acc=0.3339 val_f1=0.2019
+[07:23:59] INFO: [Fold 12 | Epoch 009] train_loss=1.1041 train_acc=0.3918 train_f1=0.3848 | val_loss=1.1699 val_acc=0.3388 val_f1=0.3148
+[07:23:59] INFO: New best model at epoch 9 with val_macro_f1=0.3148
+[07:24:04] INFO: [Fold 12 | Epoch 010] train_loss=1.1162 train_acc=0.3975 train_f1=0.3916 | val_loss=1.3468 val_acc=0.3143 val_f1=0.2536
+[07:24:10] INFO: [Fold 12 | Epoch 011] train_loss=1.1231 train_acc=0.3941 train_f1=0.3892 | val_loss=1.1612 val_acc=0.3534 val_f1=0.3204
+[07:24:10] INFO: New best model at epoch 11 with val_macro_f1=0.3204
+[07:24:15] INFO: [Fold 12 | Epoch 012] train_loss=1.1088 train_acc=0.4119 train_f1=0.4063 | val_loss=1.1738 val_acc=0.3583 val_f1=0.3523
+[07:24:15] INFO: New best model at epoch 12 with val_macro_f1=0.3523
+[07:24:21] INFO: [Fold 12 | Epoch 013] train_loss=1.0816 train_acc=0.4125 train_f1=0.4073 | val_loss=1.2161 val_acc=0.3322 val_f1=0.3068
+[07:24:26] INFO: [Fold 12 | Epoch 014] train_loss=1.0592 train_acc=0.4347 train_f1=0.4289 | val_loss=1.1940 val_acc=0.3583 val_f1=0.3208
+[07:24:32] INFO: [Fold 12 | Epoch 015] train_loss=1.0806 train_acc=0.4332 train_f1=0.4271 | val_loss=1.1943 val_acc=0.3469 val_f1=0.3101
+[07:24:37] INFO: [Fold 12 | Epoch 016] train_loss=1.0542 train_acc=0.4421 train_f1=0.4366 | val_loss=1.2150 val_acc=0.3502 val_f1=0.3442
+[07:24:43] INFO: [Fold 12 | Epoch 017] train_loss=1.0312 train_acc=0.4738 train_f1=0.4715 | val_loss=1.2732 val_acc=0.3371 val_f1=0.3179
+[07:24:48] INFO: [Fold 12 | Epoch 018] train_loss=1.0171 train_acc=0.4833 train_f1=0.4797 | val_loss=1.2121 val_acc=0.3322 val_f1=0.3139
+[07:24:54] INFO: [Fold 12 | Epoch 019] train_loss=0.9887 train_acc=0.4997 train_f1=0.4951 | val_loss=1.2924 val_acc=0.3534 val_f1=0.3310
+[07:24:59] INFO: [Fold 12 | Epoch 020] train_loss=0.9509 train_acc=0.5325 train_f1=0.5303 | val_loss=1.3081 val_acc=0.3632 val_f1=0.2911
+[07:25:05] INFO: [Fold 12 | Epoch 021] train_loss=0.9359 train_acc=0.5501 train_f1=0.5448 | val_loss=1.3750 val_acc=0.3355 val_f1=0.3218
+[07:25:10] INFO: [Fold 12 | Epoch 022] train_loss=0.9069 train_acc=0.5691 train_f1=0.5667 | val_loss=1.3992 val_acc=0.3404 val_f1=0.3397
+[07:25:16] INFO: [Fold 12 | Epoch 023] train_loss=0.8699 train_acc=0.5881 train_f1=0.5852 | val_loss=1.4915 val_acc=0.3502 val_f1=0.3486
+[07:25:21] INFO: [Fold 12 | Epoch 024] train_loss=0.8426 train_acc=0.6200 train_f1=0.6171 | val_loss=1.4754 val_acc=0.3388 val_f1=0.3272
+[07:25:27] INFO: [Fold 12 | Epoch 025] train_loss=0.8204 train_acc=0.6272 train_f1=0.6249 | val_loss=1.6044 val_acc=0.3371 val_f1=0.3025
+[07:25:27] INFO: [Fold 12 TEST] subject=ZPH acc=0.3582 bal_acc=0.3568 macro_f1=0.3236
+[07:25:27] INFO: ========================================================================================
+[07:25:27] INFO: Finished B1 fine-tuned sentiment classification
+[07:25:27] INFO: Per-subject results saved to: results/B1_finetune_sentiment_pretrained/per_subject_results.csv
+[07:25:27] INFO: All predictions saved to: results/B1_finetune_sentiment_pretrained/all_predictions.csv
+[07:25:27] INFO: Summary saved to: results/B1_finetune_sentiment_pretrained/summary.json
+[07:25:27] INFO: Final LOSO results | accuracy=0.3455±0.0246 | balanced_accuracy=0.3494±0.0263 | macro_f1=0.2896±0.0608
+[04:36:12] INFO: Starting B1 fine-tuned sentiment classification (subject-level LOSO + subject-level val split, text-joined)
+[04:36:12] INFO: {
+  "embeddings_npz": "exports/embeddings_SR_pretrained_unlabeled/embeddings.npz",
+  "labels_csv": "labels/sentiment_labels_task1.csv",
+  "checkpoint": "../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt",
+  "random_init": false,
+  "output_dir": "results/B1_finetune_sentiment_pretrained",
+  "epochs": 25,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "num_workers": 0,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "log_every": 10,
+  "device": "cuda",
+  "bart_path": "facebook/bart-large",
+  "head_dim": 1024,
+  "sentence_col": "sentence",
+  "label_col": "sentiment_label",
+  "subject_col": null,
+  "binary": false
+}
+[04:36:12] INFO: Optimization setup: Adam with differential learning rates (encoder_lr=1e-05, head_lr=0.001, weight_decay=0.0001).
+[04:36:12] INFO: Using device: cuda
+[04:36:12] INFO: NPZ keys found: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[04:36:15] INFO: Loaded EEG/features array from key 'normalized_input_embeddings' with shape (4532, 58, 840)
+[04:36:15] INFO: Loaded attention mask shape: (4532, 58)
+[04:36:15] INFO: Subject IDs present: True
+[04:36:15] INFO: Text key: target_string; unique texts: 400
+[04:36:15] INFO: Loaded labels CSV with shape (400, 4) from labels/sentiment_labels_task1.csv using encoding=utf-8
+[04:36:15] INFO: CSV columns: ['sentence_id', 'sentence', 'control', 'sentiment_label']
+[04:36:15] INFO: Labels DataFrame after cleaning: 395 rows, 395 unique texts
+[04:36:15] INFO: Unique sentiment_raw values in labels: ['negative', 'neutral', 'positive']
+[04:36:15] INFO: No subject column found in labels CSV; B1 will fall back to subject IDs from the NPZ.
+[04:36:15] INFO: After text-merge: labeled trials = 4476, unlabeled trials = 56
+[04:36:15] INFO: Unique sentiment_raw values before label mapping: ['negative', 'neutral', 'positive']
+[04:36:15] INFO: Final merged trial-level dataset size: 4476
+[04:36:15] INFO: Subjects: ['ZAB', 'ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZMG', 'ZPH']
+[04:36:15] INFO: Label counts: {'positive': 1582, 'neutral': 1549, 'negative': 1345}
+[04:36:15] INFO: Running leave-one-subject-out CV over 12 subjects.
+[04:36:15] INFO: ========================================================================================
+[04:36:15] INFO: Fold 1/12 | held-out subject: ZAB
+[04:36:15] INFO: Train subjects (9): ['ZDM', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZPH'] | Val subjects (2): ['ZDN', 'ZMG']
+[04:36:15] INFO: Train size: 3420 | Val size: 669 | Test size: 387
+[04:36:15] INFO: Train label counts: {np.int64(0): np.int64(1027), np.int64(1): np.int64(1180), np.int64(2): np.int64(1213)}
+[04:36:15] INFO: Val label counts: {np.int64(0): np.int64(201), np.int64(1): np.int64(237), np.int64(2): np.int64(231)}
+[04:36:15] INFO: Test label counts: {np.int64(0): np.int64(117), np.int64(1): np.int64(132), np.int64(2): np.int64(138)}
+[04:36:20] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:36:20] INFO: Missing keys count: 0
+[04:36:20] INFO: Unexpected keys count: 0
+[04:36:26] INFO: [Fold 1 | Epoch 001] train_loss=1.2541 train_acc=0.3339 train_bal_acc=0.3318 train_f1=0.3317 | val_loss=1.2026 val_acc=0.3587 val_bal_acc=0.3389 val_f1=0.2227
+[04:36:26] INFO: New best model at epoch 1 with val_macro_f1=0.2227
+[04:36:32] INFO: [Fold 1 | Epoch 002] train_loss=1.1987 train_acc=0.3363 train_bal_acc=0.3304 train_f1=0.3275 | val_loss=1.1555 val_acc=0.3617 val_bal_acc=0.3424 val_f1=0.2616
+[04:36:32] INFO: New best model at epoch 2 with val_macro_f1=0.2616
+[04:36:37] INFO: [Fold 1 | Epoch 003] train_loss=1.1435 train_acc=0.3523 train_bal_acc=0.3472 train_f1=0.3454 | val_loss=1.1209 val_acc=0.3378 val_bal_acc=0.3489 val_f1=0.3005
+[04:36:37] INFO: New best model at epoch 3 with val_macro_f1=0.3005
+[04:36:43] INFO: [Fold 1 | Epoch 004] train_loss=1.1332 train_acc=0.3690 train_bal_acc=0.3645 train_f1=0.3633 | val_loss=1.2191 val_acc=0.3438 val_bal_acc=0.3319 val_f1=0.1706
+[04:36:48] INFO: [Fold 1 | Epoch 005] train_loss=1.1490 train_acc=0.3658 train_bal_acc=0.3610 train_f1=0.3596 | val_loss=1.1213 val_acc=0.3318 val_bal_acc=0.3305 val_f1=0.2914
+[04:36:54] INFO: [Fold 1 | Epoch 006] train_loss=1.1480 train_acc=0.3713 train_bal_acc=0.3677 train_f1=0.3673 | val_loss=1.1927 val_acc=0.3468 val_bal_acc=0.3347 val_f1=0.1741
+[04:36:59] INFO: [Fold 1 | Epoch 007] train_loss=1.1313 train_acc=0.3678 train_bal_acc=0.3642 train_f1=0.3638 | val_loss=1.1026 val_acc=0.3767 val_bal_acc=0.3666 val_f1=0.3327
+[04:36:59] INFO: New best model at epoch 7 with val_macro_f1=0.3327
+[04:37:04] INFO: [Fold 1 | Epoch 008] train_loss=1.1319 train_acc=0.3734 train_bal_acc=0.3680 train_f1=0.3662 | val_loss=1.1157 val_acc=0.3483 val_bal_acc=0.3457 val_f1=0.3440
+[04:37:04] INFO: New best model at epoch 8 with val_macro_f1=0.3440
+[04:37:10] INFO: [Fold 1 | Epoch 009] train_loss=1.1228 train_acc=0.3769 train_bal_acc=0.3736 train_f1=0.3734 | val_loss=1.1657 val_acc=0.3707 val_bal_acc=0.3536 val_f1=0.2317
+[04:37:15] INFO: [Fold 1 | Epoch 010] train_loss=1.1101 train_acc=0.3912 train_bal_acc=0.3870 train_f1=0.3862 | val_loss=1.2214 val_acc=0.3498 val_bal_acc=0.3367 val_f1=0.2355
+[04:37:21] INFO: [Fold 1 | Epoch 011] train_loss=1.0997 train_acc=0.3942 train_bal_acc=0.3901 train_f1=0.3895 | val_loss=1.2262 val_acc=0.3587 val_bal_acc=0.3389 val_f1=0.2435
+[04:37:26] INFO: [Fold 1 | Epoch 012] train_loss=1.0992 train_acc=0.4076 train_bal_acc=0.4039 train_f1=0.4035 | val_loss=1.1586 val_acc=0.3513 val_bal_acc=0.3434 val_f1=0.3367
+[04:37:32] INFO: [Fold 1 | Epoch 013] train_loss=1.0819 train_acc=0.4251 train_bal_acc=0.4207 train_f1=0.4201 | val_loss=1.2517 val_acc=0.3587 val_bal_acc=0.3383 val_f1=0.2023
+[04:37:37] INFO: [Fold 1 | Epoch 014] train_loss=1.0661 train_acc=0.4395 train_bal_acc=0.4347 train_f1=0.4339 | val_loss=1.4991 val_acc=0.3617 val_bal_acc=0.3406 val_f1=0.1921
+[04:37:43] INFO: [Fold 1 | Epoch 015] train_loss=1.0754 train_acc=0.4424 train_bal_acc=0.4386 train_f1=0.4385 | val_loss=1.4803 val_acc=0.3408 val_bal_acc=0.3216 val_f1=0.2179
+[04:37:48] INFO: [Fold 1 | Epoch 016] train_loss=1.0595 train_acc=0.4591 train_bal_acc=0.4553 train_f1=0.4549 | val_loss=1.2383 val_acc=0.3558 val_bal_acc=0.3497 val_f1=0.3380
+[04:37:53] INFO: [Fold 1 | Epoch 017] train_loss=1.0303 train_acc=0.4646 train_bal_acc=0.4616 train_f1=0.4617 | val_loss=1.2990 val_acc=0.3647 val_bal_acc=0.3481 val_f1=0.2936
+[04:37:59] INFO: [Fold 1 | Epoch 018] train_loss=0.9978 train_acc=0.5053 train_bal_acc=0.5017 train_f1=0.5017 | val_loss=1.4111 val_acc=0.3767 val_bal_acc=0.3566 val_f1=0.2730
+[04:38:04] INFO: [Fold 1 | Epoch 019] train_loss=1.0032 train_acc=0.4953 train_bal_acc=0.4917 train_f1=0.4915 | val_loss=1.3202 val_acc=0.3558 val_bal_acc=0.3471 val_f1=0.2991
+[04:38:10] INFO: [Fold 1 | Epoch 020] train_loss=0.9599 train_acc=0.5357 train_bal_acc=0.5326 train_f1=0.5327 | val_loss=1.4414 val_acc=0.3274 val_bal_acc=0.3167 val_f1=0.2982
+[04:38:15] INFO: [Fold 1 | Epoch 021] train_loss=0.9324 train_acc=0.5535 train_bal_acc=0.5498 train_f1=0.5499 | val_loss=1.5101 val_acc=0.3468 val_bal_acc=0.3332 val_f1=0.3019
+[04:38:20] INFO: [Fold 1 | Epoch 022] train_loss=0.8985 train_acc=0.5681 train_bal_acc=0.5651 train_f1=0.5653 | val_loss=1.5159 val_acc=0.3303 val_bal_acc=0.3153 val_f1=0.2753
+[04:38:26] INFO: [Fold 1 | Epoch 023] train_loss=0.8744 train_acc=0.5830 train_bal_acc=0.5807 train_f1=0.5802 | val_loss=1.6043 val_acc=0.3363 val_bal_acc=0.3200 val_f1=0.2672
+[04:38:31] INFO: [Fold 1 | Epoch 024] train_loss=0.8090 train_acc=0.6243 train_bal_acc=0.6206 train_f1=0.6209 | val_loss=1.6101 val_acc=0.3378 val_bal_acc=0.3305 val_f1=0.3227
+[04:38:37] INFO: [Fold 1 | Epoch 025] train_loss=0.8152 train_acc=0.6234 train_bal_acc=0.6204 train_f1=0.6204 | val_loss=1.8476 val_acc=0.3393 val_bal_acc=0.3267 val_f1=0.3017
+[04:38:38] INFO: [Fold 1 TEST] subject=ZAB acc=0.3049 bal_acc=0.3310 macro_f1=0.1969
+[04:38:38] INFO: ========================================================================================
+[04:38:38] INFO: Fold 2/12 | held-out subject: ZDM
+[04:38:38] INFO: Train subjects (9): ['ZAB', 'ZDN', 'ZGW', 'ZJM', 'ZKB', 'ZKH', 'ZKW', 'ZMG', 'ZPH'] | Val subjects (2): ['ZJN', 'ZJS']
+[04:38:38] INFO: Train size: 3383 | Val size: 714 | Test size: 379
+[04:38:38] INFO: Train label counts: {np.int64(0): np.int64(1023), np.int64(1): np.int64(1170), np.int64(2): np.int64(1190)}
+[04:38:38] INFO: Val label counts: {np.int64(0): np.int64(207), np.int64(1): np.int64(251), np.int64(2): np.int64(256)}
+[04:38:38] INFO: Test label counts: {np.int64(0): np.int64(115), np.int64(1): np.int64(128), np.int64(2): np.int64(136)}
+[04:38:44] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:38:44] INFO: Missing keys count: 0
+[04:38:44] INFO: Unexpected keys count: 0
+[04:38:49] INFO: [Fold 2 | Epoch 001] train_loss=1.2421 train_acc=0.3435 train_bal_acc=0.3401 train_f1=0.3395 | val_loss=1.3217 val_acc=0.2955 val_bal_acc=0.3348 val_f1=0.1842
+[04:38:49] INFO: New best model at epoch 1 with val_macro_f1=0.1842
+[04:38:55] INFO: [Fold 2 | Epoch 002] train_loss=1.1827 train_acc=0.3269 train_bal_acc=0.3249 train_f1=0.3248 | val_loss=1.3485 val_acc=0.3543 val_bal_acc=0.3311 val_f1=0.2579
+[04:38:55] INFO: New best model at epoch 2 with val_macro_f1=0.2579
+[04:39:00] INFO: [Fold 2 | Epoch 003] train_loss=1.1716 train_acc=0.3423 train_bal_acc=0.3390 train_f1=0.3382 | val_loss=1.1247 val_acc=0.3361 val_bal_acc=0.3379 val_f1=0.3231
+[04:39:00] INFO: New best model at epoch 3 with val_macro_f1=0.3231
+[04:39:05] INFO: [Fold 2 | Epoch 004] train_loss=1.1590 train_acc=0.3476 train_bal_acc=0.3441 train_f1=0.3434 | val_loss=1.2346 val_acc=0.3529 val_bal_acc=0.3346 val_f1=0.1786
+[04:39:11] INFO: [Fold 2 | Epoch 005] train_loss=1.2165 train_acc=0.3432 train_bal_acc=0.3387 train_f1=0.3365 | val_loss=1.2057 val_acc=0.3347 val_bal_acc=0.3318 val_f1=0.2477
+[04:39:16] INFO: [Fold 2 | Epoch 006] train_loss=1.1290 train_acc=0.3612 train_bal_acc=0.3576 train_f1=0.3568 | val_loss=1.1170 val_acc=0.3459 val_bal_acc=0.3338 val_f1=0.2962
+[04:39:22] INFO: [Fold 2 | Epoch 007] train_loss=1.1317 train_acc=0.3733 train_bal_acc=0.3673 train_f1=0.3636 | val_loss=1.2305 val_acc=0.3627 val_bal_acc=0.3378 val_f1=0.2174
+[04:39:27] INFO: [Fold 2 | Epoch 008] train_loss=1.1212 train_acc=0.3695 train_bal_acc=0.3638 train_f1=0.3608 | val_loss=1.1648 val_acc=0.3277 val_bal_acc=0.3072 val_f1=0.2537
+[04:39:33] INFO: [Fold 2 | Epoch 009] train_loss=1.0999 train_acc=0.3937 train_bal_acc=0.3892 train_f1=0.3877 | val_loss=1.2024 val_acc=0.3613 val_bal_acc=0.3365 val_f1=0.2169
+[04:39:38] INFO: [Fold 2 | Epoch 010] train_loss=1.1195 train_acc=0.3855 train_bal_acc=0.3819 train_f1=0.3813 | val_loss=1.1386 val_acc=0.3417 val_bal_acc=0.3231 val_f1=0.2420
+[04:39:44] INFO: [Fold 2 | Epoch 011] train_loss=1.1015 train_acc=0.3967 train_bal_acc=0.3926 train_f1=0.3917 | val_loss=1.2090 val_acc=0.3445 val_bal_acc=0.3295 val_f1=0.2016
+[04:39:50] INFO: [Fold 2 | Epoch 012] train_loss=1.0996 train_acc=0.3917 train_bal_acc=0.3870 train_f1=0.3855 | val_loss=1.2266 val_acc=0.3852 val_bal_acc=0.3620 val_f1=0.2997
+[04:39:58] INFO: [Fold 2 | Epoch 013] train_loss=1.0851 train_acc=0.4218 train_bal_acc=0.4177 train_f1=0.4168 | val_loss=1.3119 val_acc=0.3599 val_bal_acc=0.3359 val_f1=0.2517
+[04:40:04] INFO: [Fold 2 | Epoch 014] train_loss=1.0861 train_acc=0.4203 train_bal_acc=0.4156 train_f1=0.4143 | val_loss=1.1519 val_acc=0.3683 val_bal_acc=0.3499 val_f1=0.3199
+[04:40:09] INFO: [Fold 2 | Epoch 015] train_loss=1.0725 train_acc=0.4245 train_bal_acc=0.4201 train_f1=0.4192 | val_loss=1.1961 val_acc=0.3515 val_bal_acc=0.3361 val_f1=0.3157
+[04:40:14] INFO: [Fold 2 | Epoch 016] train_loss=1.0413 train_acc=0.4602 train_bal_acc=0.4557 train_f1=0.4545 | val_loss=1.2271 val_acc=0.3585 val_bal_acc=0.3390 val_f1=0.2979
+[04:42:20] INFO: [Fold 2 | Epoch 017] train_loss=1.0411 train_acc=0.4670 train_bal_acc=0.4630 train_f1=0.4625 | val_loss=1.3857 val_acc=0.3599 val_bal_acc=0.3394 val_f1=0.2749
+[04:42:25] INFO: [Fold 2 | Epoch 018] train_loss=1.0263 train_acc=0.4721 train_bal_acc=0.4677 train_f1=0.4667 | val_loss=1.2239 val_acc=0.3291 val_bal_acc=0.3265 val_f1=0.3114
+[04:42:30] INFO: [Fold 2 | Epoch 019] train_loss=0.9849 train_acc=0.5123 train_bal_acc=0.5082 train_f1=0.5079 | val_loss=1.2571 val_acc=0.3571 val_bal_acc=0.3672 val_f1=0.3382
+[04:42:30] INFO: New best model at epoch 19 with val_macro_f1=0.3382
+[04:42:36] INFO: [Fold 2 | Epoch 020] train_loss=0.9802 train_acc=0.5146 train_bal_acc=0.5108 train_f1=0.5105 | val_loss=1.6221 val_acc=0.3613 val_bal_acc=0.3369 val_f1=0.2258
+[04:42:41] INFO: [Fold 2 | Epoch 021] train_loss=0.9506 train_acc=0.5297 train_bal_acc=0.5252 train_f1=0.5246 | val_loss=1.3912 val_acc=0.3627 val_bal_acc=0.3397 val_f1=0.2792
+[04:42:46] INFO: [Fold 2 | Epoch 022] train_loss=0.8977 train_acc=0.5678 train_bal_acc=0.5643 train_f1=0.5642 | val_loss=1.4305 val_acc=0.3263 val_bal_acc=0.3320 val_f1=0.3256
+[04:42:52] INFO: [Fold 2 | Epoch 023] train_loss=0.9029 train_acc=0.5613 train_bal_acc=0.5588 train_f1=0.5589 | val_loss=1.4427 val_acc=0.3431 val_bal_acc=0.3307 val_f1=0.3055
+[04:42:57] INFO: [Fold 2 | Epoch 024] train_loss=0.8375 train_acc=0.6122 train_bal_acc=0.6093 train_f1=0.6091 | val_loss=1.5298 val_acc=0.3487 val_bal_acc=0.3342 val_f1=0.2967
+[04:43:02] INFO: [Fold 2 | Epoch 025] train_loss=0.7966 train_acc=0.6394 train_bal_acc=0.6376 train_f1=0.6376 | val_loss=1.6763 val_acc=0.3529 val_bal_acc=0.3376 val_f1=0.3072
+[04:43:04] INFO: [Fold 2 TEST] subject=ZDM acc=0.3720 bal_acc=0.3620 macro_f1=0.2997
+[04:43:04] INFO: ========================================================================================
+[04:43:04] INFO: Fold 3/12 | held-out subject: ZDN
+[04:43:05] INFO: Train subjects (9): ['ZAB', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZMG', 'ZPH'] | Val subjects (2): ['ZDM', 'ZKW']
+[04:43:05] INFO: Train size: 3414 | Val size: 773 | Test size: 289
+[04:43:05] INFO: Train label counts: {np.int64(0): np.int64(1024), np.int64(1): np.int64(1178), np.int64(2): np.int64(1212)}
+[04:43:05] INFO: Val label counts: {np.int64(0): np.int64(234), np.int64(1): np.int64(264), np.int64(2): np.int64(275)}
+[04:43:05] INFO: Test label counts: {np.int64(0): np.int64(87), np.int64(1): np.int64(107), np.int64(2): np.int64(95)}
+[04:43:10] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:43:10] INFO: Missing keys count: 0
+[04:43:10] INFO: Unexpected keys count: 0
+[04:43:16] INFO: [Fold 3 | Epoch 001] train_loss=1.2599 train_acc=0.3289 train_bal_acc=0.3262 train_f1=0.3258 | val_loss=1.1537 val_acc=0.3532 val_bal_acc=0.3318 val_f1=0.1838
+[04:43:16] INFO: New best model at epoch 1 with val_macro_f1=0.1838
+[04:43:21] INFO: [Fold 3 | Epoch 002] train_loss=1.1856 train_acc=0.3386 train_bal_acc=0.3323 train_f1=0.3286 | val_loss=1.3679 val_acc=0.3415 val_bal_acc=0.3333 val_f1=0.1697
+[04:43:26] INFO: [Fold 3 | Epoch 003] train_loss=1.1889 train_acc=0.3450 train_bal_acc=0.3410 train_f1=0.3401 | val_loss=1.2096 val_acc=0.3415 val_bal_acc=0.3601 val_f1=0.2634
+[04:43:26] INFO: New best model at epoch 3 with val_macro_f1=0.2634
+[04:43:32] INFO: [Fold 3 | Epoch 004] train_loss=1.1454 train_acc=0.3550 train_bal_acc=0.3498 train_f1=0.3477 | val_loss=1.2252 val_acc=0.3506 val_bal_acc=0.3292 val_f1=0.2024
+[04:43:37] INFO: [Fold 3 | Epoch 005] train_loss=1.1243 train_acc=0.3664 train_bal_acc=0.3639 train_f1=0.3638 | val_loss=1.1030 val_acc=0.3583 val_bal_acc=0.3535 val_f1=0.3383
+[04:43:37] INFO: New best model at epoch 5 with val_macro_f1=0.3383
+[04:43:43] INFO: [Fold 3 | Epoch 006] train_loss=1.1289 train_acc=0.3697 train_bal_acc=0.3654 train_f1=0.3647 | val_loss=1.1115 val_acc=0.3402 val_bal_acc=0.3304 val_f1=0.2409
+[04:43:48] INFO: [Fold 3 | Epoch 007] train_loss=1.1195 train_acc=0.3820 train_bal_acc=0.3757 train_f1=0.3729 | val_loss=1.1408 val_acc=0.3454 val_bal_acc=0.3608 val_f1=0.2834
+[04:43:54] INFO: [Fold 3 | Epoch 008] train_loss=1.1364 train_acc=0.3732 train_bal_acc=0.3682 train_f1=0.3668 | val_loss=1.1591 val_acc=0.3493 val_bal_acc=0.3612 val_f1=0.2912
+[04:43:59] INFO: [Fold 3 | Epoch 009] train_loss=1.1175 train_acc=0.3817 train_bal_acc=0.3773 train_f1=0.3765 | val_loss=1.2149 val_acc=0.3389 val_bal_acc=0.3308 val_f1=0.1689
+[04:44:04] INFO: [Fold 3 | Epoch 010] train_loss=1.1304 train_acc=0.3767 train_bal_acc=0.3718 train_f1=0.3705 | val_loss=1.1403 val_acc=0.3338 val_bal_acc=0.3255 val_f1=0.2530
+[04:44:10] INFO: [Fold 3 | Epoch 011] train_loss=1.0995 train_acc=0.4112 train_bal_acc=0.4066 train_f1=0.4057 | val_loss=1.1357 val_acc=0.3687 val_bal_acc=0.3510 val_f1=0.2600
+[04:44:15] INFO: [Fold 3 | Epoch 012] train_loss=1.1129 train_acc=0.4074 train_bal_acc=0.4032 train_f1=0.4027 | val_loss=1.4081 val_acc=0.3648 val_bal_acc=0.3487 val_f1=0.2865
+[04:44:21] INFO: [Fold 3 | Epoch 013] train_loss=1.0978 train_acc=0.4107 train_bal_acc=0.4067 train_f1=0.4060 | val_loss=1.2497 val_acc=0.3519 val_bal_acc=0.3311 val_f1=0.1990
+[04:44:26] INFO: [Fold 3 | Epoch 014] train_loss=1.0763 train_acc=0.4373 train_bal_acc=0.4320 train_f1=0.4309 | val_loss=1.2279 val_acc=0.3480 val_bal_acc=0.3666 val_f1=0.2994
+[04:44:32] INFO: [Fold 3 | Epoch 015] train_loss=1.0809 train_acc=0.4247 train_bal_acc=0.4207 train_f1=0.4202 | val_loss=1.1759 val_acc=0.3752 val_bal_acc=0.3566 val_f1=0.2878
+[04:44:37] INFO: [Fold 3 | Epoch 016] train_loss=1.0462 train_acc=0.4493 train_bal_acc=0.4445 train_f1=0.4441 | val_loss=1.1679 val_acc=0.3545 val_bal_acc=0.3637 val_f1=0.3295
+[04:44:43] INFO: [Fold 3 | Epoch 017] train_loss=1.0231 train_acc=0.4842 train_bal_acc=0.4806 train_f1=0.4804 | val_loss=1.2532 val_acc=0.3700 val_bal_acc=0.3538 val_f1=0.2932
+[04:44:48] INFO: [Fold 3 | Epoch 018] train_loss=1.0049 train_acc=0.4880 train_bal_acc=0.4829 train_f1=0.4819 | val_loss=1.1849 val_acc=0.3752 val_bal_acc=0.3676 val_f1=0.3504
+[04:44:48] INFO: New best model at epoch 18 with val_macro_f1=0.3504
+[04:44:55] INFO: [Fold 3 | Epoch 019] train_loss=1.0077 train_acc=0.4854 train_bal_acc=0.4815 train_f1=0.4813 | val_loss=1.3107 val_acc=0.3907 val_bal_acc=0.3703 val_f1=0.2928
+[04:45:00] INFO: [Fold 3 | Epoch 020] train_loss=0.9732 train_acc=0.5164 train_bal_acc=0.5119 train_f1=0.5116 | val_loss=1.1980 val_acc=0.3842 val_bal_acc=0.3837 val_f1=0.3838
+[04:45:00] INFO: New best model at epoch 20 with val_macro_f1=0.3838
+[04:45:09] INFO: [Fold 3 | Epoch 021] train_loss=0.9377 train_acc=0.5410 train_bal_acc=0.5376 train_f1=0.5377 | val_loss=1.3698 val_acc=0.3558 val_bal_acc=0.3474 val_f1=0.2760
+[04:45:15] INFO: [Fold 3 | Epoch 022] train_loss=0.9352 train_acc=0.5439 train_bal_acc=0.5408 train_f1=0.5408 | val_loss=1.3297 val_acc=0.3739 val_bal_acc=0.3666 val_f1=0.3587
+[04:45:20] INFO: [Fold 3 | Epoch 023] train_loss=0.8751 train_acc=0.5759 train_bal_acc=0.5729 train_f1=0.5726 | val_loss=1.4605 val_acc=0.3596 val_bal_acc=0.3589 val_f1=0.3508
+[04:45:26] INFO: [Fold 3 | Epoch 024] train_loss=0.8519 train_acc=0.5958 train_bal_acc=0.5912 train_f1=0.5912 | val_loss=1.6631 val_acc=0.3687 val_bal_acc=0.3605 val_f1=0.3320
+[04:45:32] INFO: [Fold 3 | Epoch 025] train_loss=0.8136 train_acc=0.6227 train_bal_acc=0.6193 train_f1=0.6194 | val_loss=1.6505 val_acc=0.3622 val_bal_acc=0.3460 val_f1=0.2958
+[04:45:33] INFO: [Fold 3 TEST] subject=ZDN acc=0.3772 bal_acc=0.3687 macro_f1=0.3478
+[04:45:33] INFO: ========================================================================================
+[04:45:33] INFO: Fold 4/12 | held-out subject: ZGW
+[04:45:33] INFO: Train subjects (9): ['ZAB', 'ZDM', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZPH'] | Val subjects (2): ['ZDN', 'ZMG']
+[04:45:33] INFO: Train size: 3437 | Val size: 669 | Test size: 370
+[04:45:33] INFO: Train label counts: {np.int64(0): np.int64(1030), np.int64(1): np.int64(1185), np.int64(2): np.int64(1222)}
+[04:45:33] INFO: Val label counts: {np.int64(0): np.int64(201), np.int64(1): np.int64(237), np.int64(2): np.int64(231)}
+[04:45:33] INFO: Test label counts: {np.int64(0): np.int64(114), np.int64(1): np.int64(127), np.int64(2): np.int64(129)}
+[04:45:38] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:45:38] INFO: Missing keys count: 0
+[04:45:38] INFO: Unexpected keys count: 0
+[04:45:45] INFO: [Fold 4 | Epoch 001] train_loss=1.2332 train_acc=0.3343 train_bal_acc=0.3322 train_f1=0.3322 | val_loss=1.2141 val_acc=0.3602 val_bal_acc=0.3473 val_f1=0.2045
+[04:45:45] INFO: New best model at epoch 1 with val_macro_f1=0.2045
+[04:45:53] INFO: [Fold 4 | Epoch 002] train_loss=1.1733 train_acc=0.3503 train_bal_acc=0.3458 train_f1=0.3448 | val_loss=1.1809 val_acc=0.3468 val_bal_acc=0.3459 val_f1=0.2644
+[04:45:53] INFO: New best model at epoch 2 with val_macro_f1=0.2644
+[04:45:59] INFO: [Fold 4 | Epoch 003] train_loss=1.1720 train_acc=0.3576 train_bal_acc=0.3536 train_f1=0.3518 | val_loss=1.1250 val_acc=0.3767 val_bal_acc=0.3659 val_f1=0.3368
+[04:45:59] INFO: New best model at epoch 3 with val_macro_f1=0.3368
+[04:46:05] INFO: [Fold 4 | Epoch 004] train_loss=1.1451 train_acc=0.3515 train_bal_acc=0.3446 train_f1=0.3404 | val_loss=1.2398 val_acc=0.3483 val_bal_acc=0.3280 val_f1=0.1760
+[04:50:04] INFO: [Fold 4 | Epoch 005] train_loss=1.1517 train_acc=0.3727 train_bal_acc=0.3704 train_f1=0.3704 | val_loss=1.2397 val_acc=0.3632 val_bal_acc=0.3448 val_f1=0.2104
+[04:50:12] INFO: [Fold 4 | Epoch 006] train_loss=1.1277 train_acc=0.3864 train_bal_acc=0.3811 train_f1=0.3796 | val_loss=1.1339 val_acc=0.3408 val_bal_acc=0.3326 val_f1=0.2315
+[04:50:19] INFO: [Fold 4 | Epoch 007] train_loss=1.1326 train_acc=0.3806 train_bal_acc=0.3737 train_f1=0.3702 | val_loss=1.1295 val_acc=0.3558 val_bal_acc=0.3506 val_f1=0.3267
+[04:50:24] INFO: [Fold 4 | Epoch 008] train_loss=1.1442 train_acc=0.3838 train_bal_acc=0.3799 train_f1=0.3795 | val_loss=1.3880 val_acc=0.3558 val_bal_acc=0.3350 val_f1=0.1779
+[04:50:30] INFO: [Fold 4 | Epoch 009] train_loss=1.1369 train_acc=0.3753 train_bal_acc=0.3712 train_f1=0.3705 | val_loss=1.1561 val_acc=0.3303 val_bal_acc=0.3260 val_f1=0.3186
+[04:50:37] INFO: [Fold 4 | Epoch 010] train_loss=1.0912 train_acc=0.4117 train_bal_acc=0.4071 train_f1=0.4064 | val_loss=1.2069 val_acc=0.3543 val_bal_acc=0.3552 val_f1=0.2910
+[04:50:43] INFO: [Fold 4 | Epoch 011] train_loss=1.1042 train_acc=0.4085 train_bal_acc=0.4046 train_f1=0.4042 | val_loss=1.2129 val_acc=0.3647 val_bal_acc=0.3477 val_f1=0.2581
+[04:50:48] INFO: [Fold 4 | Epoch 012] train_loss=1.1078 train_acc=0.4158 train_bal_acc=0.4119 train_f1=0.4118 | val_loss=1.5966 val_acc=0.3543 val_bal_acc=0.3333 val_f1=0.1744
+[04:50:54] INFO: [Fold 4 | Epoch 013] train_loss=1.0630 train_acc=0.4443 train_bal_acc=0.4397 train_f1=0.4392 | val_loss=1.2501 val_acc=0.3363 val_bal_acc=0.3204 val_f1=0.2657
+[04:51:00] INFO: [Fold 4 | Epoch 014] train_loss=1.0536 train_acc=0.4548 train_bal_acc=0.4497 train_f1=0.4488 | val_loss=1.2050 val_acc=0.3288 val_bal_acc=0.3191 val_f1=0.3001
+[04:51:05] INFO: [Fold 4 | Epoch 015] train_loss=1.0556 train_acc=0.4507 train_bal_acc=0.4465 train_f1=0.4461 | val_loss=1.5484 val_acc=0.3498 val_bal_acc=0.3345 val_f1=0.2288
+[04:51:11] INFO: [Fold 4 | Epoch 016] train_loss=1.0469 train_acc=0.4507 train_bal_acc=0.4470 train_f1=0.4468 | val_loss=1.2278 val_acc=0.3528 val_bal_acc=0.3497 val_f1=0.3482
+[04:51:11] INFO: New best model at epoch 16 with val_macro_f1=0.3482
+[04:51:17] INFO: [Fold 4 | Epoch 017] train_loss=0.9934 train_acc=0.4908 train_bal_acc=0.4866 train_f1=0.4863 | val_loss=1.3795 val_acc=0.3408 val_bal_acc=0.3298 val_f1=0.2988
+[04:51:22] INFO: [Fold 4 | Epoch 018] train_loss=0.9987 train_acc=0.5036 train_bal_acc=0.5004 train_f1=0.5006 | val_loss=1.2666 val_acc=0.3453 val_bal_acc=0.3415 val_f1=0.3206
+[04:51:28] INFO: [Fold 4 | Epoch 019] train_loss=0.9438 train_acc=0.5406 train_bal_acc=0.5367 train_f1=0.5367 | val_loss=1.4216 val_acc=0.3408 val_bal_acc=0.3289 val_f1=0.3044
+[04:51:33] INFO: [Fold 4 | Epoch 020] train_loss=0.9697 train_acc=0.5228 train_bal_acc=0.5196 train_f1=0.5197 | val_loss=1.3852 val_acc=0.3423 val_bal_acc=0.3384 val_f1=0.3356
+[04:51:39] INFO: [Fold 4 | Epoch 021] train_loss=0.9188 train_acc=0.5563 train_bal_acc=0.5529 train_f1=0.5532 | val_loss=1.5978 val_acc=0.3274 val_bal_acc=0.3229 val_f1=0.3048
+[04:51:44] INFO: [Fold 4 | Epoch 022] train_loss=0.8836 train_acc=0.5816 train_bal_acc=0.5786 train_f1=0.5788 | val_loss=1.4812 val_acc=0.3333 val_bal_acc=0.3265 val_f1=0.3217
+[04:51:50] INFO: [Fold 4 | Epoch 023] train_loss=0.8268 train_acc=0.6125 train_bal_acc=0.6098 train_f1=0.6103 | val_loss=1.9539 val_acc=0.3423 val_bal_acc=0.3277 val_f1=0.2617
+[04:51:56] INFO: [Fold 4 | Epoch 024] train_loss=0.8064 train_acc=0.6232 train_bal_acc=0.6207 train_f1=0.6213 | val_loss=1.8275 val_acc=0.3378 val_bal_acc=0.3248 val_f1=0.2858
+[04:52:01] INFO: [Fold 4 | Epoch 025] train_loss=0.7720 train_acc=0.6375 train_bal_acc=0.6343 train_f1=0.6345 | val_loss=2.0202 val_acc=0.3483 val_bal_acc=0.3429 val_f1=0.3138
+[04:52:03] INFO: [Fold 4 TEST] subject=ZGW acc=0.3811 bal_acc=0.3756 macro_f1=0.3536
+[04:52:03] INFO: ========================================================================================
+[04:52:03] INFO: Fold 5/12 | held-out subject: ZJM
+[04:52:03] INFO: Train subjects (9): ['ZDM', 'ZDN', 'ZGW', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZMG', 'ZPH'] | Val subjects (2): ['ZAB', 'ZKW']
+[04:52:03] INFO: Train size: 3301 | Val size: 781 | Test size: 394
+[04:52:03] INFO: Train label counts: {np.int64(0): np.int64(990), np.int64(1): np.int64(1145), np.int64(2): np.int64(1166)}
+[04:52:03] INFO: Val label counts: {np.int64(0): np.int64(236), np.int64(1): np.int64(268), np.int64(2): np.int64(277)}
+[04:52:03] INFO: Test label counts: {np.int64(0): np.int64(119), np.int64(1): np.int64(136), np.int64(2): np.int64(139)}
+[04:52:08] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:52:08] INFO: Missing keys count: 0
+[04:52:08] INFO: Unexpected keys count: 0
+[04:52:13] INFO: [Fold 5 | Epoch 001] train_loss=1.2494 train_acc=0.3175 train_bal_acc=0.3149 train_f1=0.3147 | val_loss=1.2451 val_acc=0.3406 val_bal_acc=0.3324 val_f1=0.1905
+[04:52:13] INFO: New best model at epoch 1 with val_macro_f1=0.1905
+[04:52:18] INFO: [Fold 5 | Epoch 002] train_loss=1.1603 train_acc=0.3505 train_bal_acc=0.3449 train_f1=0.3425 | val_loss=1.2121 val_acc=0.3431 val_bal_acc=0.3271 val_f1=0.2722
+[04:52:18] INFO: New best model at epoch 2 with val_macro_f1=0.2722
+[04:52:24] INFO: [Fold 5 | Epoch 003] train_loss=1.1499 train_acc=0.3523 train_bal_acc=0.3486 train_f1=0.3479 | val_loss=1.1372 val_acc=0.3163 val_bal_acc=0.3241 val_f1=0.2939
+[04:52:24] INFO: New best model at epoch 3 with val_macro_f1=0.2939
+[04:52:29] INFO: [Fold 5 | Epoch 004] train_loss=1.1650 train_acc=0.3496 train_bal_acc=0.3441 train_f1=0.3421 | val_loss=1.1554 val_acc=0.3163 val_bal_acc=0.3392 val_f1=0.2418
+[04:52:34] INFO: [Fold 5 | Epoch 005] train_loss=1.1467 train_acc=0.3493 train_bal_acc=0.3448 train_f1=0.3437 | val_loss=1.1676 val_acc=0.3483 val_bal_acc=0.3639 val_f1=0.2756
+[04:52:40] INFO: [Fold 5 | Epoch 006] train_loss=1.1355 train_acc=0.3672 train_bal_acc=0.3638 train_f1=0.3634 | val_loss=1.2986 val_acc=0.3303 val_bal_acc=0.3428 val_f1=0.2678
+[04:52:45] INFO: [Fold 5 | Epoch 007] train_loss=1.1245 train_acc=0.3641 train_bal_acc=0.3592 train_f1=0.3575 | val_loss=1.1159 val_acc=0.3496 val_bal_acc=0.3441 val_f1=0.2903
+[04:52:50] INFO: [Fold 5 | Epoch 008] train_loss=1.1310 train_acc=0.3799 train_bal_acc=0.3762 train_f1=0.3758 | val_loss=1.1549 val_acc=0.3201 val_bal_acc=0.3110 val_f1=0.2001
+[04:52:56] INFO: [Fold 5 | Epoch 009] train_loss=1.1023 train_acc=0.3884 train_bal_acc=0.3825 train_f1=0.3805 | val_loss=1.1834 val_acc=0.3585 val_bal_acc=0.3386 val_f1=0.2255
+[04:53:01] INFO: [Fold 5 | Epoch 010] train_loss=1.1169 train_acc=0.3890 train_bal_acc=0.3833 train_f1=0.3813 | val_loss=1.1297 val_acc=0.3419 val_bal_acc=0.3542 val_f1=0.3159
+[04:53:01] INFO: New best model at epoch 10 with val_macro_f1=0.3159
+[04:53:06] INFO: [Fold 5 | Epoch 011] train_loss=1.1506 train_acc=0.3869 train_bal_acc=0.3846 train_f1=0.3842 | val_loss=1.3394 val_acc=0.3329 val_bal_acc=0.3404 val_f1=0.2665
+[04:53:11] INFO: [Fold 5 | Epoch 012] train_loss=1.1057 train_acc=0.4135 train_bal_acc=0.4081 train_f1=0.4066 | val_loss=1.1599 val_acc=0.3431 val_bal_acc=0.3295 val_f1=0.2952
+[04:53:17] INFO: [Fold 5 | Epoch 013] train_loss=1.0844 train_acc=0.4165 train_bal_acc=0.4129 train_f1=0.4124 | val_loss=1.2592 val_acc=0.3111 val_bal_acc=0.3374 val_f1=0.2120
+[04:53:22] INFO: [Fold 5 | Epoch 014] train_loss=1.0504 train_acc=0.4408 train_bal_acc=0.4366 train_f1=0.4361 | val_loss=1.2290 val_acc=0.3547 val_bal_acc=0.3354 val_f1=0.2321
+[04:53:27] INFO: [Fold 5 | Epoch 015] train_loss=1.0538 train_acc=0.4523 train_bal_acc=0.4483 train_f1=0.4481 | val_loss=1.1514 val_acc=0.3457 val_bal_acc=0.3361 val_f1=0.2981
+[04:53:33] INFO: [Fold 5 | Epoch 016] train_loss=1.0384 train_acc=0.4538 train_bal_acc=0.4507 train_f1=0.4507 | val_loss=1.2255 val_acc=0.3291 val_bal_acc=0.3375 val_f1=0.3165
+[04:53:33] INFO: New best model at epoch 16 with val_macro_f1=0.3165
+[04:53:38] INFO: [Fold 5 | Epoch 017] train_loss=1.0060 train_acc=0.4847 train_bal_acc=0.4808 train_f1=0.4807 | val_loss=1.2529 val_acc=0.3342 val_bal_acc=0.3330 val_f1=0.3334
+[04:53:38] INFO: New best model at epoch 17 with val_macro_f1=0.3334
+[04:53:43] INFO: [Fold 5 | Epoch 018] train_loss=0.9763 train_acc=0.5123 train_bal_acc=0.5081 train_f1=0.5079 | val_loss=1.2482 val_acc=0.3585 val_bal_acc=0.3551 val_f1=0.3094
+[04:53:49] INFO: [Fold 5 | Epoch 019] train_loss=0.9709 train_acc=0.5171 train_bal_acc=0.5130 train_f1=0.5130 | val_loss=1.2540 val_acc=0.3508 val_bal_acc=0.3403 val_f1=0.3063
+[04:53:54] INFO: [Fold 5 | Epoch 020] train_loss=0.9543 train_acc=0.5147 train_bal_acc=0.5122 train_f1=0.5123 | val_loss=1.3759 val_acc=0.3572 val_bal_acc=0.3400 val_f1=0.2789
+[04:53:59] INFO: [Fold 5 | Epoch 021] train_loss=0.9102 train_acc=0.5577 train_bal_acc=0.5542 train_f1=0.5545 | val_loss=1.3419 val_acc=0.3534 val_bal_acc=0.3513 val_f1=0.3506
+[04:53:59] INFO: New best model at epoch 21 with val_macro_f1=0.3506
+[04:54:05] INFO: [Fold 5 | Epoch 022] train_loss=0.8847 train_acc=0.5686 train_bal_acc=0.5649 train_f1=0.5649 | val_loss=1.3324 val_acc=0.3496 val_bal_acc=0.3478 val_f1=0.3330
+[04:54:10] INFO: [Fold 5 | Epoch 023] train_loss=0.9121 train_acc=0.5632 train_bal_acc=0.5592 train_f1=0.5596 | val_loss=1.3628 val_acc=0.3457 val_bal_acc=0.3373 val_f1=0.3164
+[04:54:16] INFO: [Fold 5 | Epoch 024] train_loss=0.8195 train_acc=0.6116 train_bal_acc=0.6084 train_f1=0.6084 | val_loss=1.4694 val_acc=0.3470 val_bal_acc=0.3432 val_f1=0.3321
+[04:54:21] INFO: [Fold 5 | Epoch 025] train_loss=0.7909 train_acc=0.6322 train_bal_acc=0.6283 train_f1=0.6284 | val_loss=1.8953 val_acc=0.3521 val_bal_acc=0.3655 val_f1=0.2958
+[04:54:22] INFO: [Fold 5 TEST] subject=ZJM acc=0.3655 bal_acc=0.3649 macro_f1=0.3187
+[04:54:22] INFO: ========================================================================================
+[04:54:22] INFO: Fold 6/12 | held-out subject: ZJN
+[04:54:23] INFO: Train subjects (9): ['ZAB', 'ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJS', 'ZKB', 'ZKH', 'ZKW'] | Val subjects (2): ['ZMG', 'ZPH']
+[04:54:23] INFO: Train size: 3328 | Val size: 768 | Test size: 380
+[04:54:23] INFO: Train label counts: {np.int64(0): np.int64(1001), np.int64(1): np.int64(1154), np.int64(2): np.int64(1173)}
+[04:54:23] INFO: Val label counts: {np.int64(0): np.int64(231), np.int64(1): np.int64(264), np.int64(2): np.int64(273)}
+[04:54:23] INFO: Test label counts: {np.int64(0): np.int64(113), np.int64(1): np.int64(131), np.int64(2): np.int64(136)}
+[04:54:28] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:54:28] INFO: Missing keys count: 0
+[04:54:28] INFO: Unexpected keys count: 0
+[04:54:33] INFO: [Fold 6 | Epoch 001] train_loss=1.2686 train_acc=0.3251 train_bal_acc=0.3220 train_f1=0.3217 | val_loss=1.1616 val_acc=0.3477 val_bal_acc=0.3396 val_f1=0.2041
+[04:54:33] INFO: New best model at epoch 1 with val_macro_f1=0.2041
+[04:54:38] INFO: [Fold 6 | Epoch 002] train_loss=1.1683 train_acc=0.3495 train_bal_acc=0.3457 train_f1=0.3450 | val_loss=1.1912 val_acc=0.3568 val_bal_acc=0.3410 val_f1=0.2320
+[04:54:38] INFO: New best model at epoch 2 with val_macro_f1=0.2320
+[04:54:43] INFO: [Fold 6 | Epoch 003] train_loss=1.1623 train_acc=0.3456 train_bal_acc=0.3400 train_f1=0.3374 | val_loss=1.2494 val_acc=0.3438 val_bal_acc=0.3332 val_f1=0.1804
+[04:54:49] INFO: [Fold 6 | Epoch 004] train_loss=1.1520 train_acc=0.3594 train_bal_acc=0.3535 train_f1=0.3508 | val_loss=1.1892 val_acc=0.3438 val_bal_acc=0.3333 val_f1=0.1705
+[04:54:54] INFO: [Fold 6 | Epoch 005] train_loss=1.1516 train_acc=0.3618 train_bal_acc=0.3568 train_f1=0.3551 | val_loss=1.1442 val_acc=0.3737 val_bal_acc=0.3588 val_f1=0.2813
+[04:54:54] INFO: New best model at epoch 5 with val_macro_f1=0.2813
+[04:54:59] INFO: [Fold 6 | Epoch 006] train_loss=1.1334 train_acc=0.3645 train_bal_acc=0.3579 train_f1=0.3531 | val_loss=1.1110 val_acc=0.3776 val_bal_acc=0.3637 val_f1=0.2729
+[04:55:04] INFO: [Fold 6 | Epoch 007] train_loss=1.1284 train_acc=0.3738 train_bal_acc=0.3671 train_f1=0.3630 | val_loss=1.3195 val_acc=0.3464 val_bal_acc=0.3458 val_f1=0.2549
+[04:55:10] INFO: [Fold 6 | Epoch 008] train_loss=1.1295 train_acc=0.3807 train_bal_acc=0.3779 train_f1=0.3776 | val_loss=1.1664 val_acc=0.3620 val_bal_acc=0.3434 val_f1=0.2775
+[04:55:15] INFO: [Fold 6 | Epoch 009] train_loss=1.1138 train_acc=0.3843 train_bal_acc=0.3807 train_f1=0.3802 | val_loss=1.2012 val_acc=0.3581 val_bal_acc=0.3406 val_f1=0.2794
+[04:55:20] INFO: [Fold 6 | Epoch 010] train_loss=1.1163 train_acc=0.3861 train_bal_acc=0.3812 train_f1=0.3798 | val_loss=1.2350 val_acc=0.3490 val_bal_acc=0.3380 val_f1=0.1923
+[04:55:25] INFO: [Fold 6 | Epoch 011] train_loss=1.1029 train_acc=0.4041 train_bal_acc=0.3982 train_f1=0.3957 | val_loss=1.1645 val_acc=0.3477 val_bal_acc=0.3357 val_f1=0.2411
+[04:55:31] INFO: [Fold 6 | Epoch 012] train_loss=1.0903 train_acc=0.4159 train_bal_acc=0.4106 train_f1=0.4089 | val_loss=1.1774 val_acc=0.3477 val_bal_acc=0.3463 val_f1=0.2952
+[04:55:31] INFO: New best model at epoch 12 with val_macro_f1=0.2952
+[04:55:36] INFO: [Fold 6 | Epoch 013] train_loss=1.0728 train_acc=0.4363 train_bal_acc=0.4313 train_f1=0.4302 | val_loss=1.1979 val_acc=0.3750 val_bal_acc=0.3573 val_f1=0.3023
+[04:55:36] INFO: New best model at epoch 13 with val_macro_f1=0.3023
+[04:55:41] INFO: [Fold 6 | Epoch 014] train_loss=1.0704 train_acc=0.4291 train_bal_acc=0.4247 train_f1=0.4239 | val_loss=1.2971 val_acc=0.3607 val_bal_acc=0.3451 val_f1=0.2805
+[04:55:47] INFO: [Fold 6 | Epoch 015] train_loss=1.0562 train_acc=0.4531 train_bal_acc=0.4477 train_f1=0.4464 | val_loss=1.3091 val_acc=0.3659 val_bal_acc=0.3536 val_f1=0.2597
+[04:55:52] INFO: [Fold 6 | Epoch 016] train_loss=1.0560 train_acc=0.4540 train_bal_acc=0.4492 train_f1=0.4483 | val_loss=1.3416 val_acc=0.3385 val_bal_acc=0.3293 val_f1=0.2003
+[04:55:58] INFO: [Fold 6 | Epoch 017] train_loss=1.0524 train_acc=0.4627 train_bal_acc=0.4595 train_f1=0.4593 | val_loss=1.3916 val_acc=0.3438 val_bal_acc=0.3310 val_f1=0.2444
+[04:56:06] INFO: [Fold 6 | Epoch 018] train_loss=1.0010 train_acc=0.4910 train_bal_acc=0.4870 train_f1=0.4867 | val_loss=1.2030 val_acc=0.3490 val_bal_acc=0.3360 val_f1=0.2783
+[04:56:15] INFO: [Fold 6 | Epoch 019] train_loss=0.9981 train_acc=0.4910 train_bal_acc=0.4880 train_f1=0.4879 | val_loss=1.1744 val_acc=0.3672 val_bal_acc=0.3581 val_f1=0.3492
+[04:56:15] INFO: New best model at epoch 19 with val_macro_f1=0.3492
+[04:56:23] INFO: [Fold 6 | Epoch 020] train_loss=0.9686 train_acc=0.5126 train_bal_acc=0.5079 train_f1=0.5074 | val_loss=1.4338 val_acc=0.3542 val_bal_acc=0.3394 val_f1=0.2726
+[04:56:29] INFO: [Fold 6 | Epoch 021] train_loss=0.9227 train_acc=0.5478 train_bal_acc=0.5450 train_f1=0.5449 | val_loss=1.3487 val_acc=0.3815 val_bal_acc=0.3665 val_f1=0.3265
+[04:56:34] INFO: [Fold 6 | Epoch 022] train_loss=0.8925 train_acc=0.5685 train_bal_acc=0.5642 train_f1=0.5641 | val_loss=1.2586 val_acc=0.3568 val_bal_acc=0.3450 val_f1=0.3265
+[04:56:40] INFO: [Fold 6 | Epoch 023] train_loss=0.9027 train_acc=0.5706 train_bal_acc=0.5681 train_f1=0.5682 | val_loss=1.2842 val_acc=0.3802 val_bal_acc=0.3642 val_f1=0.3259
+[04:56:45] INFO: [Fold 6 | Epoch 024] train_loss=0.8354 train_acc=0.6112 train_bal_acc=0.6076 train_f1=0.6077 | val_loss=1.6186 val_acc=0.3372 val_bal_acc=0.3292 val_f1=0.2499
+[04:56:51] INFO: [Fold 6 | Epoch 025] train_loss=0.8040 train_acc=0.6265 train_bal_acc=0.6237 train_f1=0.6238 | val_loss=1.7755 val_acc=0.3711 val_bal_acc=0.3570 val_f1=0.3130
+[04:56:52] INFO: [Fold 6 TEST] subject=ZJN acc=0.3605 bal_acc=0.3586 macro_f1=0.2973
+[04:56:52] INFO: ========================================================================================
+[04:56:52] INFO: Fold 7/12 | held-out subject: ZJS
+[04:56:53] INFO: Train subjects (9): ['ZAB', 'ZDM', 'ZDN', 'ZJM', 'ZJN', 'ZKB', 'ZKW', 'ZMG', 'ZPH'] | Val subjects (2): ['ZGW', 'ZKH']
+[04:56:53] INFO: Train size: 3385 | Val size: 757 | Test size: 334
+[04:56:53] INFO: Train label counts: {np.int64(0): np.int64(1020), np.int64(1): np.int64(1170), np.int64(2): np.int64(1195)}
+[04:56:53] INFO: Val label counts: {np.int64(0): np.int64(231), np.int64(1): np.int64(259), np.int64(2): np.int64(267)}
+[04:56:53] INFO: Test label counts: {np.int64(0): np.int64(94), np.int64(1): np.int64(120), np.int64(2): np.int64(120)}
+[04:56:58] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:56:58] INFO: Missing keys count: 0
+[04:56:58] INFO: Unexpected keys count: 0
+[04:57:04] INFO: [Fold 7 | Epoch 001] train_loss=1.2283 train_acc=0.3391 train_bal_acc=0.3353 train_f1=0.3344 | val_loss=1.6259 val_acc=0.3382 val_bal_acc=0.3360 val_f1=0.2383
+[04:57:04] INFO: New best model at epoch 1 with val_macro_f1=0.2383
+[04:57:10] INFO: [Fold 7 | Epoch 002] train_loss=1.1886 train_acc=0.3486 train_bal_acc=0.3459 train_f1=0.3457 | val_loss=1.2692 val_acc=0.3593 val_bal_acc=0.3489 val_f1=0.2286
+[04:57:15] INFO: [Fold 7 | Epoch 003] train_loss=1.1910 train_acc=0.3545 train_bal_acc=0.3502 train_f1=0.3488 | val_loss=1.1267 val_acc=0.3435 val_bal_acc=0.3287 val_f1=0.2681
+[04:57:15] INFO: New best model at epoch 3 with val_macro_f1=0.2681
+[04:57:20] INFO: [Fold 7 | Epoch 004] train_loss=1.1428 train_acc=0.3613 train_bal_acc=0.3560 train_f1=0.3538 | val_loss=1.1601 val_acc=0.3408 val_bal_acc=0.3298 val_f1=0.2462
+[04:57:26] INFO: [Fold 7 | Epoch 005] train_loss=1.1517 train_acc=0.3654 train_bal_acc=0.3605 train_f1=0.3584 | val_loss=1.1300 val_acc=0.3487 val_bal_acc=0.3360 val_f1=0.2700
+[04:57:26] INFO: New best model at epoch 5 with val_macro_f1=0.2700
+[04:57:31] INFO: [Fold 7 | Epoch 006] train_loss=1.1288 train_acc=0.3699 train_bal_acc=0.3661 train_f1=0.3655 | val_loss=1.2059 val_acc=0.3448 val_bal_acc=0.3358 val_f1=0.1776
+[04:57:36] INFO: [Fold 7 | Epoch 007] train_loss=1.1513 train_acc=0.3645 train_bal_acc=0.3611 train_f1=0.3595 | val_loss=1.1354 val_acc=0.3461 val_bal_acc=0.3282 val_f1=0.2193
+[04:57:42] INFO: [Fold 7 | Epoch 008] train_loss=1.1111 train_acc=0.3870 train_bal_acc=0.3813 train_f1=0.3786 | val_loss=1.1018 val_acc=0.3355 val_bal_acc=0.3383 val_f1=0.3356
+[04:57:42] INFO: New best model at epoch 8 with val_macro_f1=0.3356
+[04:57:47] INFO: [Fold 7 | Epoch 009] train_loss=1.1205 train_acc=0.3758 train_bal_acc=0.3702 train_f1=0.3678 | val_loss=1.1429 val_acc=0.3487 val_bal_acc=0.3387 val_f1=0.2204
+[04:57:52] INFO: [Fold 7 | Epoch 010] train_loss=1.1046 train_acc=0.4035 train_bal_acc=0.3989 train_f1=0.3978 | val_loss=1.1230 val_acc=0.3448 val_bal_acc=0.3405 val_f1=0.3191
+[04:57:58] INFO: [Fold 7 | Epoch 011] train_loss=1.1071 train_acc=0.4030 train_bal_acc=0.3979 train_f1=0.3963 | val_loss=1.3154 val_acc=0.3527 val_bal_acc=0.3333 val_f1=0.1738
+[04:58:03] INFO: [Fold 7 | Epoch 012] train_loss=1.0982 train_acc=0.4024 train_bal_acc=0.3965 train_f1=0.3942 | val_loss=1.1510 val_acc=0.3461 val_bal_acc=0.3394 val_f1=0.2332
+[04:58:09] INFO: [Fold 7 | Epoch 013] train_loss=1.0723 train_acc=0.4331 train_bal_acc=0.4277 train_f1=0.4261 | val_loss=1.3351 val_acc=0.3223 val_bal_acc=0.3463 val_f1=0.2246
+[04:58:14] INFO: [Fold 7 | Epoch 014] train_loss=1.0731 train_acc=0.4334 train_bal_acc=0.4297 train_f1=0.4293 | val_loss=1.1904 val_acc=0.3593 val_bal_acc=0.3422 val_f1=0.2347
+[04:58:20] INFO: [Fold 7 | Epoch 015] train_loss=1.0594 train_acc=0.4576 train_bal_acc=0.4525 train_f1=0.4516 | val_loss=1.2184 val_acc=0.3646 val_bal_acc=0.3531 val_f1=0.2643
+[04:58:25] INFO: [Fold 7 | Epoch 016] train_loss=1.0483 train_acc=0.4603 train_bal_acc=0.4555 train_f1=0.4546 | val_loss=1.1164 val_acc=0.3738 val_bal_acc=0.3640 val_f1=0.3430
+[04:58:25] INFO: New best model at epoch 16 with val_macro_f1=0.3430
+[04:58:31] INFO: [Fold 7 | Epoch 017] train_loss=1.0063 train_acc=0.4960 train_bal_acc=0.4918 train_f1=0.4914 | val_loss=1.1882 val_acc=0.3342 val_bal_acc=0.3356 val_f1=0.3181
+[04:58:36] INFO: [Fold 7 | Epoch 018] train_loss=1.0322 train_acc=0.4694 train_bal_acc=0.4658 train_f1=0.4657 | val_loss=1.1434 val_acc=0.3646 val_bal_acc=0.3487 val_f1=0.2787
+[04:58:42] INFO: [Fold 7 | Epoch 019] train_loss=0.9972 train_acc=0.4839 train_bal_acc=0.4803 train_f1=0.4800 | val_loss=1.2459 val_acc=0.3659 val_bal_acc=0.3612 val_f1=0.3283
+[04:58:47] INFO: [Fold 7 | Epoch 020] train_loss=0.9391 train_acc=0.5433 train_bal_acc=0.5405 train_f1=0.5406 | val_loss=1.2251 val_acc=0.3791 val_bal_acc=0.3851 val_f1=0.3448
+[04:58:47] INFO: New best model at epoch 20 with val_macro_f1=0.3448
+[04:58:53] INFO: [Fold 7 | Epoch 021] train_loss=0.9259 train_acc=0.5462 train_bal_acc=0.5431 train_f1=0.5431 | val_loss=1.2712 val_acc=0.3421 val_bal_acc=0.3389 val_f1=0.3179
+[04:58:58] INFO: [Fold 7 | Epoch 022] train_loss=0.9113 train_acc=0.5592 train_bal_acc=0.5557 train_f1=0.5558 | val_loss=1.3772 val_acc=0.3210 val_bal_acc=0.3261 val_f1=0.2843
+[04:59:04] INFO: [Fold 7 | Epoch 023] train_loss=0.8668 train_acc=0.5861 train_bal_acc=0.5824 train_f1=0.5823 | val_loss=1.3645 val_acc=0.3421 val_bal_acc=0.3434 val_f1=0.3066
+[04:59:09] INFO: [Fold 7 | Epoch 024] train_loss=0.8419 train_acc=0.6089 train_bal_acc=0.6054 train_f1=0.6053 | val_loss=1.5373 val_acc=0.3408 val_bal_acc=0.3525 val_f1=0.3095
+[04:59:14] INFO: [Fold 7 | Epoch 025] train_loss=0.8098 train_acc=0.6260 train_bal_acc=0.6230 train_f1=0.6230 | val_loss=1.5852 val_acc=0.3421 val_bal_acc=0.3523 val_f1=0.3039
+[04:59:15] INFO: [Fold 7 TEST] subject=ZJS acc=0.3383 bal_acc=0.3531 macro_f1=0.3277
+[04:59:15] INFO: ========================================================================================
+[04:59:15] INFO: Fold 8/12 | held-out subject: ZKB
+[04:59:16] INFO: Train subjects (9): ['ZAB', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZKH', 'ZKW', 'ZMG', 'ZPH'] | Val subjects (2): ['ZDM', 'ZJS']
+[04:59:16] INFO: Train size: 3369 | Val size: 713 | Test size: 394
+[04:59:16] INFO: Train label counts: {np.int64(0): np.int64(1017), np.int64(1): np.int64(1165), np.int64(2): np.int64(1187)}
+[04:59:16] INFO: Val label counts: {np.int64(0): np.int64(209), np.int64(1): np.int64(248), np.int64(2): np.int64(256)}
+[04:59:16] INFO: Test label counts: {np.int64(0): np.int64(119), np.int64(1): np.int64(136), np.int64(2): np.int64(139)}
+[04:59:20] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[04:59:20] INFO: Missing keys count: 0
+[04:59:20] INFO: Unexpected keys count: 0
+[04:59:26] INFO: [Fold 8 | Epoch 001] train_loss=1.2514 train_acc=0.3342 train_bal_acc=0.3305 train_f1=0.3296 | val_loss=1.2367 val_acc=0.3184 val_bal_acc=0.3452 val_f1=0.2458
+[04:59:26] INFO: New best model at epoch 1 with val_macro_f1=0.2458
+[04:59:31] INFO: [Fold 8 | Epoch 002] train_loss=1.1816 train_acc=0.3422 train_bal_acc=0.3396 train_f1=0.3392 | val_loss=1.2261 val_acc=0.3212 val_bal_acc=0.3351 val_f1=0.2608
+[04:59:31] INFO: New best model at epoch 2 with val_macro_f1=0.2608
+[04:59:36] INFO: [Fold 8 | Epoch 003] train_loss=1.1400 train_acc=0.3559 train_bal_acc=0.3510 train_f1=0.3492 | val_loss=1.1531 val_acc=0.3282 val_bal_acc=0.3148 val_f1=0.2778
+[04:59:36] INFO: New best model at epoch 3 with val_macro_f1=0.2778
+[04:59:42] INFO: [Fold 8 | Epoch 004] train_loss=1.1298 train_acc=0.3642 train_bal_acc=0.3587 train_f1=0.3555 | val_loss=1.1809 val_acc=0.3282 val_bal_acc=0.3413 val_f1=0.2779
+[04:59:42] INFO: New best model at epoch 4 with val_macro_f1=0.2779
+[04:59:47] INFO: [Fold 8 | Epoch 005] train_loss=1.1450 train_acc=0.3725 train_bal_acc=0.3674 train_f1=0.3654 | val_loss=1.2388 val_acc=0.2959 val_bal_acc=0.3350 val_f1=0.1663
+[04:59:52] INFO: [Fold 8 | Epoch 006] train_loss=1.1382 train_acc=0.3707 train_bal_acc=0.3657 train_f1=0.3637 | val_loss=1.1325 val_acc=0.3801 val_bal_acc=0.3608 val_f1=0.2906
+[04:59:52] INFO: New best model at epoch 6 with val_macro_f1=0.2906
+[04:59:58] INFO: [Fold 8 | Epoch 007] train_loss=1.1499 train_acc=0.3642 train_bal_acc=0.3603 train_f1=0.3595 | val_loss=1.1862 val_acc=0.3492 val_bal_acc=0.3345 val_f1=0.1814
+[05:00:03] INFO: [Fold 8 | Epoch 008] train_loss=1.1203 train_acc=0.3859 train_bal_acc=0.3808 train_f1=0.3789 | val_loss=1.3029 val_acc=0.3240 val_bal_acc=0.3531 val_f1=0.2486
+[05:00:08] INFO: [Fold 8 | Epoch 009] train_loss=1.1273 train_acc=0.3764 train_bal_acc=0.3723 train_f1=0.3715 | val_loss=1.2105 val_acc=0.3366 val_bal_acc=0.3195 val_f1=0.2530
+[05:00:14] INFO: [Fold 8 | Epoch 010] train_loss=1.1292 train_acc=0.3897 train_bal_acc=0.3859 train_f1=0.3853 | val_loss=1.2184 val_acc=0.3282 val_bal_acc=0.3528 val_f1=0.2802
+[05:00:19] INFO: [Fold 8 | Epoch 011] train_loss=1.1172 train_acc=0.3945 train_bal_acc=0.3900 train_f1=0.3890 | val_loss=1.1273 val_acc=0.3464 val_bal_acc=0.3511 val_f1=0.3197
+[05:00:19] INFO: New best model at epoch 11 with val_macro_f1=0.3197
+[05:00:24] INFO: [Fold 8 | Epoch 012] train_loss=1.1033 train_acc=0.4081 train_bal_acc=0.4031 train_f1=0.4016 | val_loss=1.1293 val_acc=0.3619 val_bal_acc=0.3618 val_f1=0.3606
+[05:00:24] INFO: New best model at epoch 12 with val_macro_f1=0.3606
+[05:00:30] INFO: [Fold 8 | Epoch 013] train_loss=1.0853 train_acc=0.4164 train_bal_acc=0.4128 train_f1=0.4123 | val_loss=1.1771 val_acc=0.3604 val_bal_acc=0.3457 val_f1=0.3122
+[05:00:35] INFO: [Fold 8 | Epoch 014] train_loss=1.0711 train_acc=0.4384 train_bal_acc=0.4333 train_f1=0.4319 | val_loss=1.1478 val_acc=0.3408 val_bal_acc=0.3306 val_f1=0.3062
+[05:00:40] INFO: [Fold 8 | Epoch 015] train_loss=1.0700 train_acc=0.4438 train_bal_acc=0.4394 train_f1=0.4386 | val_loss=1.2097 val_acc=0.3562 val_bal_acc=0.3561 val_f1=0.3378
+[05:00:56] INFO: [Fold 8 | Epoch 016] train_loss=1.0483 train_acc=0.4538 train_bal_acc=0.4485 train_f1=0.4469 | val_loss=1.2268 val_acc=0.3520 val_bal_acc=0.3578 val_f1=0.3330
+[05:01:02] INFO: [Fold 8 | Epoch 017] train_loss=1.0530 train_acc=0.4550 train_bal_acc=0.4502 train_f1=0.4489 | val_loss=1.2432 val_acc=0.3520 val_bal_acc=0.3455 val_f1=0.3259
+[05:01:07] INFO: [Fold 8 | Epoch 018] train_loss=1.0216 train_acc=0.4838 train_bal_acc=0.4793 train_f1=0.4787 | val_loss=1.2127 val_acc=0.3408 val_bal_acc=0.3517 val_f1=0.3353
+[05:01:12] INFO: [Fold 8 | Epoch 019] train_loss=0.9813 train_acc=0.5067 train_bal_acc=0.5032 train_f1=0.5031 | val_loss=1.2825 val_acc=0.3310 val_bal_acc=0.3288 val_f1=0.2924
+[05:01:18] INFO: [Fold 8 | Epoch 020] train_loss=0.9885 train_acc=0.5052 train_bal_acc=0.5024 train_f1=0.5024 | val_loss=1.2718 val_acc=0.3394 val_bal_acc=0.3501 val_f1=0.3236
+[05:01:23] INFO: [Fold 8 | Epoch 021] train_loss=0.9475 train_acc=0.5447 train_bal_acc=0.5421 train_f1=0.5422 | val_loss=1.2721 val_acc=0.3647 val_bal_acc=0.3663 val_f1=0.3619
+[05:01:23] INFO: New best model at epoch 21 with val_macro_f1=0.3619
+[05:01:28] INFO: [Fold 8 | Epoch 022] train_loss=0.9273 train_acc=0.5512 train_bal_acc=0.5477 train_f1=0.5475 | val_loss=1.5613 val_acc=0.3436 val_bal_acc=0.3632 val_f1=0.3199
+[05:01:34] INFO: [Fold 8 | Epoch 023] train_loss=0.8980 train_acc=0.5675 train_bal_acc=0.5643 train_f1=0.5643 | val_loss=1.4545 val_acc=0.3675 val_bal_acc=0.3481 val_f1=0.3042
+[05:01:39] INFO: [Fold 8 | Epoch 024] train_loss=0.8706 train_acc=0.5880 train_bal_acc=0.5853 train_f1=0.5854 | val_loss=1.5524 val_acc=0.3590 val_bal_acc=0.3648 val_f1=0.3586
+[05:01:44] INFO: [Fold 8 | Epoch 025] train_loss=0.8251 train_acc=0.6129 train_bal_acc=0.6104 train_f1=0.6106 | val_loss=1.4955 val_acc=0.3506 val_bal_acc=0.3408 val_f1=0.3294
+[05:01:45] INFO: [Fold 8 TEST] subject=ZKB acc=0.3350 bal_acc=0.3283 macro_f1=0.2755
+[05:01:45] INFO: ========================================================================================
+[05:01:45] INFO: Fold 9/12 | held-out subject: ZKH
+[05:01:46] INFO: Train subjects (9): ['ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKW', 'ZMG'] | Val subjects (2): ['ZAB', 'ZPH']
+[05:01:46] INFO: Train size: 3314 | Val size: 775 | Test size: 387
+[05:01:46] INFO: Train label counts: {np.int64(0): np.int64(994), np.int64(1): np.int64(1151), np.int64(2): np.int64(1169)}
+[05:01:46] INFO: Val label counts: {np.int64(0): np.int64(234), np.int64(1): np.int64(266), np.int64(2): np.int64(275)}
+[05:01:46] INFO: Test label counts: {np.int64(0): np.int64(117), np.int64(1): np.int64(132), np.int64(2): np.int64(138)}
+[05:01:50] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[05:01:50] INFO: Missing keys count: 0
+[05:01:50] INFO: Unexpected keys count: 0
+[05:01:55] INFO: [Fold 9 | Epoch 001] train_loss=1.2530 train_acc=0.3422 train_bal_acc=0.3398 train_f1=0.3398 | val_loss=1.2392 val_acc=0.3690 val_bal_acc=0.3483 val_f1=0.2444
+[05:01:55] INFO: New best model at epoch 1 with val_macro_f1=0.2444
+[05:02:01] INFO: [Fold 9 | Epoch 002] train_loss=1.2114 train_acc=0.3322 train_bal_acc=0.3263 train_f1=0.3230 | val_loss=1.1418 val_acc=0.3445 val_bal_acc=0.3448 val_f1=0.3430
+[05:02:01] INFO: New best model at epoch 2 with val_macro_f1=0.3430
+[05:02:06] INFO: [Fold 9 | Epoch 003] train_loss=1.1455 train_acc=0.3594 train_bal_acc=0.3528 train_f1=0.3492 | val_loss=1.2055 val_acc=0.3381 val_bal_acc=0.3419 val_f1=0.2630
+[05:02:12] INFO: [Fold 9 | Epoch 004] train_loss=1.1333 train_acc=0.3594 train_bal_acc=0.3541 train_f1=0.3518 | val_loss=1.1173 val_acc=0.3316 val_bal_acc=0.3338 val_f1=0.2684
+[05:02:17] INFO: [Fold 9 | Epoch 005] train_loss=1.1661 train_acc=0.3549 train_bal_acc=0.3492 train_f1=0.3468 | val_loss=1.2532 val_acc=0.3510 val_bal_acc=0.3401 val_f1=0.2091
+[05:02:22] INFO: [Fold 9 | Epoch 006] train_loss=1.1458 train_acc=0.3705 train_bal_acc=0.3671 train_f1=0.3668 | val_loss=1.1573 val_acc=0.3497 val_bal_acc=0.3449 val_f1=0.2344
+[05:02:28] INFO: [Fold 9 | Epoch 007] train_loss=1.1315 train_acc=0.3823 train_bal_acc=0.3760 train_f1=0.3732 | val_loss=1.1830 val_acc=0.3471 val_bal_acc=0.3376 val_f1=0.1901
+[05:02:33] INFO: [Fold 9 | Epoch 008] train_loss=1.1061 train_acc=0.3859 train_bal_acc=0.3797 train_f1=0.3771 | val_loss=1.1348 val_acc=0.3561 val_bal_acc=0.3637 val_f1=0.3516
+[05:02:33] INFO: New best model at epoch 8 with val_macro_f1=0.3516
+[05:02:38] INFO: [Fold 9 | Epoch 009] train_loss=1.0951 train_acc=0.4062 train_bal_acc=0.4003 train_f1=0.3980 | val_loss=1.2076 val_acc=0.3613 val_bal_acc=0.3443 val_f1=0.2851
+[05:02:43] INFO: [Fold 9 | Epoch 010] train_loss=1.1318 train_acc=0.3877 train_bal_acc=0.3836 train_f1=0.3829 | val_loss=1.1715 val_acc=0.3432 val_bal_acc=0.3337 val_f1=0.1844
+[05:02:49] INFO: [Fold 9 | Epoch 011] train_loss=1.0985 train_acc=0.4053 train_bal_acc=0.4000 train_f1=0.3986 | val_loss=1.2509 val_acc=0.3471 val_bal_acc=0.3371 val_f1=0.1850
+[05:02:54] INFO: [Fold 9 | Epoch 012] train_loss=1.0795 train_acc=0.4221 train_bal_acc=0.4170 train_f1=0.4156 | val_loss=1.1235 val_acc=0.3613 val_bal_acc=0.3523 val_f1=0.2964
+[05:02:59] INFO: [Fold 9 | Epoch 013] train_loss=1.0741 train_acc=0.4282 train_bal_acc=0.4238 train_f1=0.4231 | val_loss=1.2024 val_acc=0.3510 val_bal_acc=0.3445 val_f1=0.3210
+[05:03:04] INFO: [Fold 9 | Epoch 014] train_loss=1.0683 train_acc=0.4396 train_bal_acc=0.4354 train_f1=0.4350 | val_loss=1.2175 val_acc=0.3587 val_bal_acc=0.3518 val_f1=0.2781
+[05:03:09] INFO: [Fold 9 | Epoch 015] train_loss=1.0455 train_acc=0.4556 train_bal_acc=0.4514 train_f1=0.4510 | val_loss=1.3120 val_acc=0.3677 val_bal_acc=0.3520 val_f1=0.2879
+[05:03:15] INFO: [Fold 9 | Epoch 016] train_loss=1.0381 train_acc=0.4562 train_bal_acc=0.4517 train_f1=0.4510 | val_loss=1.2029 val_acc=0.3652 val_bal_acc=0.3519 val_f1=0.2713
+[05:03:20] INFO: [Fold 9 | Epoch 017] train_loss=1.0066 train_acc=0.4937 train_bal_acc=0.4888 train_f1=0.4882 | val_loss=1.2020 val_acc=0.3510 val_bal_acc=0.3424 val_f1=0.2647
+[05:03:25] INFO: [Fold 9 | Epoch 018] train_loss=0.9788 train_acc=0.5091 train_bal_acc=0.5052 train_f1=0.5051 | val_loss=1.3230 val_acc=0.3523 val_bal_acc=0.3548 val_f1=0.3133
+[05:03:30] INFO: [Fold 9 | Epoch 019] train_loss=0.9713 train_acc=0.5163 train_bal_acc=0.5117 train_f1=0.5113 | val_loss=1.3728 val_acc=0.3613 val_bal_acc=0.3487 val_f1=0.2809
+[05:03:36] INFO: [Fold 9 | Epoch 020] train_loss=0.9364 train_acc=0.5347 train_bal_acc=0.5295 train_f1=0.5289 | val_loss=1.4145 val_acc=0.3587 val_bal_acc=0.3473 val_f1=0.2711
+[05:03:41] INFO: [Fold 9 | Epoch 021] train_loss=0.9081 train_acc=0.5604 train_bal_acc=0.5558 train_f1=0.5555 | val_loss=1.4577 val_acc=0.3574 val_bal_acc=0.3451 val_f1=0.2491
+[05:03:46] INFO: [Fold 9 | Epoch 022] train_loss=0.8761 train_acc=0.5745 train_bal_acc=0.5706 train_f1=0.5706 | val_loss=1.5030 val_acc=0.3626 val_bal_acc=0.3511 val_f1=0.2923
+[05:03:52] INFO: [Fold 9 | Epoch 023] train_loss=0.8498 train_acc=0.5990 train_bal_acc=0.5955 train_f1=0.5957 | val_loss=1.7133 val_acc=0.3548 val_bal_acc=0.3438 val_f1=0.2306
+[05:03:57] INFO: [Fold 9 | Epoch 024] train_loss=0.8036 train_acc=0.6340 train_bal_acc=0.6305 train_f1=0.6306 | val_loss=1.6206 val_acc=0.3639 val_bal_acc=0.3508 val_f1=0.2643
+[05:04:03] INFO: [Fold 9 | Epoch 025] train_loss=0.7635 train_acc=0.6503 train_bal_acc=0.6462 train_f1=0.6462 | val_loss=1.9108 val_acc=0.3716 val_bal_acc=0.3589 val_f1=0.2795
+[05:04:04] INFO: [Fold 9 TEST] subject=ZKH acc=0.3178 bal_acc=0.3474 macro_f1=0.1886
+[05:04:04] INFO: ========================================================================================
+[05:04:04] INFO: Fold 10/12 | held-out subject: ZKW
+[05:04:05] INFO: Train subjects (9): ['ZAB', 'ZDN', 'ZGW', 'ZJM', 'ZJS', 'ZKB', 'ZKH', 'ZMG', 'ZPH'] | Val subjects (2): ['ZDM', 'ZJN']
+[05:04:05] INFO: Train size: 3323 | Val size: 759 | Test size: 394
+[05:04:05] INFO: Train label counts: {np.int64(0): np.int64(998), np.int64(1): np.int64(1154), np.int64(2): np.int64(1171)}
+[05:04:05] INFO: Val label counts: {np.int64(0): np.int64(228), np.int64(1): np.int64(259), np.int64(2): np.int64(272)}
+[05:04:05] INFO: Test label counts: {np.int64(0): np.int64(119), np.int64(1): np.int64(136), np.int64(2): np.int64(139)}
+[05:04:10] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[05:04:10] INFO: Missing keys count: 0
+[05:04:10] INFO: Unexpected keys count: 0
+[05:04:18] INFO: [Fold 10 | Epoch 001] train_loss=1.2604 train_acc=0.3428 train_bal_acc=0.3385 train_f1=0.3374 | val_loss=1.1875 val_acc=0.3123 val_bal_acc=0.3318 val_f1=0.2609
+[05:04:18] INFO: New best model at epoch 1 with val_macro_f1=0.2609
+[05:04:24] INFO: [Fold 10 | Epoch 002] train_loss=1.1870 train_acc=0.3527 train_bal_acc=0.3499 train_f1=0.3497 | val_loss=1.2762 val_acc=0.3241 val_bal_acc=0.3367 val_f1=0.2582
+[05:04:29] INFO: [Fold 10 | Epoch 003] train_loss=1.1966 train_acc=0.3512 train_bal_acc=0.3469 train_f1=0.3459 | val_loss=1.2891 val_acc=0.3584 val_bal_acc=0.3333 val_f1=0.1759
+[05:04:34] INFO: [Fold 10 | Epoch 004] train_loss=1.1557 train_acc=0.3590 train_bal_acc=0.3535 train_f1=0.3516 | val_loss=1.1758 val_acc=0.3584 val_bal_acc=0.3334 val_f1=0.1781
+[05:04:39] INFO: [Fold 10 | Epoch 005] train_loss=1.1328 train_acc=0.3572 train_bal_acc=0.3513 train_f1=0.3481 | val_loss=1.1026 val_acc=0.3570 val_bal_acc=0.3480 val_f1=0.3343
+[05:04:39] INFO: New best model at epoch 5 with val_macro_f1=0.3343
+[05:04:45] INFO: [Fold 10 | Epoch 006] train_loss=1.1480 train_acc=0.3765 train_bal_acc=0.3724 train_f1=0.3714 | val_loss=1.1847 val_acc=0.3518 val_bal_acc=0.3527 val_f1=0.2802
+[05:04:50] INFO: [Fold 10 | Epoch 007] train_loss=1.1571 train_acc=0.3572 train_bal_acc=0.3533 train_f1=0.3519 | val_loss=1.1139 val_acc=0.3294 val_bal_acc=0.3429 val_f1=0.2963
+[05:04:55] INFO: [Fold 10 | Epoch 008] train_loss=1.1142 train_acc=0.3641 train_bal_acc=0.3597 train_f1=0.3586 | val_loss=1.1504 val_acc=0.3887 val_bal_acc=0.3693 val_f1=0.3036
+[05:05:01] INFO: [Fold 10 | Epoch 009] train_loss=1.1127 train_acc=0.3942 train_bal_acc=0.3884 train_f1=0.3864 | val_loss=1.1451 val_acc=0.3267 val_bal_acc=0.3444 val_f1=0.2824
+[05:05:06] INFO: [Fold 10 | Epoch 010] train_loss=1.1172 train_acc=0.3846 train_bal_acc=0.3806 train_f1=0.3799 | val_loss=1.0917 val_acc=0.3953 val_bal_acc=0.3768 val_f1=0.3308
+[05:05:11] INFO: [Fold 10 | Epoch 011] train_loss=1.1080 train_acc=0.3843 train_bal_acc=0.3775 train_f1=0.3734 | val_loss=1.2330 val_acc=0.3610 val_bal_acc=0.3367 val_f1=0.1873
+[05:05:16] INFO: [Fold 10 | Epoch 012] train_loss=1.0907 train_acc=0.4225 train_bal_acc=0.4160 train_f1=0.4130 | val_loss=1.1132 val_acc=0.3768 val_bal_acc=0.3810 val_f1=0.3729
+[05:05:16] INFO: New best model at epoch 12 with val_macro_f1=0.3729
+[05:05:22] INFO: [Fold 10 | Epoch 013] train_loss=1.0855 train_acc=0.4171 train_bal_acc=0.4127 train_f1=0.4117 | val_loss=1.1437 val_acc=0.3676 val_bal_acc=0.3439 val_f1=0.2250
+[05:05:27] INFO: [Fold 10 | Epoch 014] train_loss=1.0810 train_acc=0.4351 train_bal_acc=0.4306 train_f1=0.4300 | val_loss=1.2349 val_acc=0.3070 val_bal_acc=0.3380 val_f1=0.1874
+[05:05:32] INFO: [Fold 10 | Epoch 015] train_loss=1.0738 train_acc=0.4367 train_bal_acc=0.4325 train_f1=0.4318 | val_loss=1.2439 val_acc=0.3610 val_bal_acc=0.3363 val_f1=0.1826
+[05:05:37] INFO: [Fold 10 | Epoch 016] train_loss=1.0636 train_acc=0.4457 train_bal_acc=0.4424 train_f1=0.4423 | val_loss=1.3616 val_acc=0.3267 val_bal_acc=0.3529 val_f1=0.2292
+[05:05:43] INFO: [Fold 10 | Epoch 017] train_loss=1.0467 train_acc=0.4652 train_bal_acc=0.4603 train_f1=0.4596 | val_loss=1.4762 val_acc=0.3557 val_bal_acc=0.3320 val_f1=0.2106
+[05:05:48] INFO: [Fold 10 | Epoch 018] train_loss=1.0472 train_acc=0.4652 train_bal_acc=0.4609 train_f1=0.4604 | val_loss=1.2482 val_acc=0.3689 val_bal_acc=0.3462 val_f1=0.2546
+[05:05:53] INFO: [Fold 10 | Epoch 019] train_loss=0.9909 train_acc=0.5011 train_bal_acc=0.4975 train_f1=0.4974 | val_loss=1.1882 val_acc=0.3926 val_bal_acc=0.3750 val_f1=0.3318
+[05:05:59] INFO: [Fold 10 | Epoch 020] train_loss=0.9928 train_acc=0.5077 train_bal_acc=0.5047 train_f1=0.5047 | val_loss=1.5890 val_acc=0.3505 val_bal_acc=0.3261 val_f1=0.1787
+[05:06:04] INFO: [Fold 10 | Epoch 021] train_loss=0.9453 train_acc=0.5336 train_bal_acc=0.5306 train_f1=0.5304 | val_loss=1.4503 val_acc=0.3465 val_bal_acc=0.3259 val_f1=0.2251
+[05:06:09] INFO: [Fold 10 | Epoch 022] train_loss=0.9200 train_acc=0.5567 train_bal_acc=0.5528 train_f1=0.5533 | val_loss=1.7458 val_acc=0.3505 val_bal_acc=0.3291 val_f1=0.2041
+[05:06:14] INFO: [Fold 10 | Epoch 023] train_loss=0.8890 train_acc=0.5742 train_bal_acc=0.5719 train_f1=0.5719 | val_loss=1.3310 val_acc=0.3702 val_bal_acc=0.3622 val_f1=0.3364
+[05:06:20] INFO: [Fold 10 | Epoch 024] train_loss=0.8570 train_acc=0.5898 train_bal_acc=0.5868 train_f1=0.5866 | val_loss=1.8139 val_acc=0.3491 val_bal_acc=0.3260 val_f1=0.2055
+[05:06:25] INFO: [Fold 10 | Epoch 025] train_loss=0.8424 train_acc=0.6040 train_bal_acc=0.5999 train_f1=0.5997 | val_loss=2.1409 val_acc=0.3702 val_bal_acc=0.3548 val_f1=0.2758
+[05:06:26] INFO: [Fold 10 TEST] subject=ZKW acc=0.3426 bal_acc=0.3524 macro_f1=0.2876
+[05:06:26] INFO: ========================================================================================
+[05:06:26] INFO: Fold 11/12 | held-out subject: ZMG
+[05:06:27] INFO: Train subjects (9): ['ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZPH'] | Val subjects (2): ['ZAB', 'ZDM']
+[05:06:27] INFO: Train size: 3330 | Val size: 766 | Test size: 380
+[05:06:27] INFO: Train label counts: {np.int64(0): np.int64(999), np.int64(1): np.int64(1159), np.int64(2): np.int64(1172)}
+[05:06:27] INFO: Val label counts: {np.int64(0): np.int64(232), np.int64(1): np.int64(260), np.int64(2): np.int64(274)}
+[05:06:27] INFO: Test label counts: {np.int64(0): np.int64(114), np.int64(1): np.int64(130), np.int64(2): np.int64(136)}
+[05:06:31] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[05:06:31] INFO: Missing keys count: 0
+[05:06:31] INFO: Unexpected keys count: 0
+[05:06:37] INFO: [Fold 11 | Epoch 001] train_loss=1.2684 train_acc=0.3408 train_bal_acc=0.3369 train_f1=0.3357 | val_loss=1.2667 val_acc=0.3512 val_bal_acc=0.3299 val_f1=0.2007
+[05:06:37] INFO: New best model at epoch 1 with val_macro_f1=0.2007
+[05:06:42] INFO: [Fold 11 | Epoch 002] train_loss=1.2018 train_acc=0.3511 train_bal_acc=0.3438 train_f1=0.3384 | val_loss=1.2339 val_acc=0.3107 val_bal_acc=0.3142 val_f1=0.2750
+[05:06:42] INFO: New best model at epoch 2 with val_macro_f1=0.2750
+[05:06:47] INFO: [Fold 11 | Epoch 003] train_loss=1.1991 train_acc=0.3550 train_bal_acc=0.3513 train_f1=0.3507 | val_loss=1.2653 val_acc=0.3042 val_bal_acc=0.3344 val_f1=0.1597
+[05:06:53] INFO: [Fold 11 | Epoch 004] train_loss=1.1590 train_acc=0.3577 train_bal_acc=0.3526 train_f1=0.3508 | val_loss=1.2596 val_acc=0.3238 val_bal_acc=0.3361 val_f1=0.2630
+[05:06:58] INFO: [Fold 11 | Epoch 005] train_loss=1.1268 train_acc=0.3595 train_bal_acc=0.3526 train_f1=0.3476 | val_loss=1.1086 val_acc=0.3930 val_bal_acc=0.3795 val_f1=0.3554
+[05:06:58] INFO: New best model at epoch 5 with val_macro_f1=0.3554
+[05:07:04] INFO: [Fold 11 | Epoch 006] train_loss=1.1304 train_acc=0.3724 train_bal_acc=0.3670 train_f1=0.3650 | val_loss=1.1396 val_acc=0.3460 val_bal_acc=0.3338 val_f1=0.2885
+[05:07:09] INFO: [Fold 11 | Epoch 007] train_loss=1.1382 train_acc=0.3649 train_bal_acc=0.3600 train_f1=0.3585 | val_loss=1.1141 val_acc=0.3303 val_bal_acc=0.3398 val_f1=0.3104
+[05:07:15] INFO: [Fold 11 | Epoch 008] train_loss=1.1198 train_acc=0.3787 train_bal_acc=0.3740 train_f1=0.3728 | val_loss=1.1891 val_acc=0.3394 val_bal_acc=0.3441 val_f1=0.2672
+[05:07:20] INFO: [Fold 11 | Epoch 009] train_loss=1.1295 train_acc=0.3709 train_bal_acc=0.3649 train_f1=0.3620 | val_loss=1.2676 val_acc=0.3407 val_bal_acc=0.3501 val_f1=0.2730
+[05:07:25] INFO: [Fold 11 | Epoch 010] train_loss=1.1252 train_acc=0.3826 train_bal_acc=0.3789 train_f1=0.3784 | val_loss=1.1504 val_acc=0.3394 val_bal_acc=0.3421 val_f1=0.2747
+[05:07:31] INFO: [Fold 11 | Epoch 011] train_loss=1.1233 train_acc=0.3865 train_bal_acc=0.3820 train_f1=0.3809 | val_loss=1.1516 val_acc=0.3538 val_bal_acc=0.3607 val_f1=0.3213
+[05:07:36] INFO: [Fold 11 | Epoch 012] train_loss=1.1178 train_acc=0.3772 train_bal_acc=0.3723 train_f1=0.3702 | val_loss=1.1432 val_acc=0.3525 val_bal_acc=0.3518 val_f1=0.3457
+[05:07:42] INFO: [Fold 11 | Epoch 013] train_loss=1.1247 train_acc=0.3877 train_bal_acc=0.3838 train_f1=0.3832 | val_loss=1.1589 val_acc=0.3420 val_bal_acc=0.3473 val_f1=0.2724
+[05:07:47] INFO: [Fold 11 | Epoch 014] train_loss=1.1070 train_acc=0.4081 train_bal_acc=0.4022 train_f1=0.3996 | val_loss=1.1605 val_acc=0.3747 val_bal_acc=0.3765 val_f1=0.2995
+[05:07:52] INFO: [Fold 11 | Epoch 015] train_loss=1.0913 train_acc=0.4144 train_bal_acc=0.4106 train_f1=0.4102 | val_loss=1.1362 val_acc=0.3655 val_bal_acc=0.3623 val_f1=0.3478
+[05:07:58] INFO: [Fold 11 | Epoch 016] train_loss=1.0937 train_acc=0.4114 train_bal_acc=0.4070 train_f1=0.4062 | val_loss=1.2254 val_acc=0.3695 val_bal_acc=0.3495 val_f1=0.2489
+[05:08:03] INFO: [Fold 11 | Epoch 017] train_loss=1.0912 train_acc=0.4102 train_bal_acc=0.4051 train_f1=0.4036 | val_loss=1.1556 val_acc=0.3433 val_bal_acc=0.3495 val_f1=0.3117
+[05:08:08] INFO: [Fold 11 | Epoch 018] train_loss=1.0647 train_acc=0.4387 train_bal_acc=0.4339 train_f1=0.4330 | val_loss=1.1822 val_acc=0.3277 val_bal_acc=0.3437 val_f1=0.2982
+[05:08:14] INFO: [Fold 11 | Epoch 019] train_loss=1.0485 train_acc=0.4459 train_bal_acc=0.4419 train_f1=0.4415 | val_loss=1.2568 val_acc=0.3590 val_bal_acc=0.3707 val_f1=0.3346
+[05:08:19] INFO: [Fold 11 | Epoch 020] train_loss=1.0287 train_acc=0.4769 train_bal_acc=0.4727 train_f1=0.4722 | val_loss=1.2023 val_acc=0.3629 val_bal_acc=0.3748 val_f1=0.3135
+[05:08:25] INFO: [Fold 11 | Epoch 021] train_loss=1.0137 train_acc=0.4835 train_bal_acc=0.4792 train_f1=0.4789 | val_loss=1.1950 val_acc=0.3460 val_bal_acc=0.3561 val_f1=0.3350
+[05:08:30] INFO: [Fold 11 | Epoch 022] train_loss=1.0118 train_acc=0.4826 train_bal_acc=0.4793 train_f1=0.4792 | val_loss=1.2339 val_acc=0.3316 val_bal_acc=0.3398 val_f1=0.3197
+[05:08:35] INFO: [Fold 11 | Epoch 023] train_loss=0.9626 train_acc=0.5270 train_bal_acc=0.5229 train_f1=0.5226 | val_loss=1.4621 val_acc=0.3577 val_bal_acc=0.3555 val_f1=0.3438
+[05:08:41] INFO: [Fold 11 | Epoch 024] train_loss=0.9680 train_acc=0.5228 train_bal_acc=0.5187 train_f1=0.5186 | val_loss=1.4649 val_acc=0.3473 val_bal_acc=0.3550 val_f1=0.3422
+[05:08:46] INFO: [Fold 11 | Epoch 025] train_loss=0.9390 train_acc=0.5393 train_bal_acc=0.5348 train_f1=0.5343 | val_loss=1.3058 val_acc=0.3407 val_bal_acc=0.3530 val_f1=0.3117
+[05:08:47] INFO: [Fold 11 TEST] subject=ZMG acc=0.3579 bal_acc=0.3452 macro_f1=0.2667
+[05:08:47] INFO: ========================================================================================
+[05:08:47] INFO: Fold 12/12 | held-out subject: ZPH
+[05:08:47] INFO: Train subjects (9): ['ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW'] | Val subjects (2): ['ZAB', 'ZMG']
+[05:08:47] INFO: Train size: 3321 | Val size: 767 | Test size: 388
+[05:08:47] INFO: Train label counts: {np.int64(0): np.int64(997), np.int64(1): np.int64(1153), np.int64(2): np.int64(1171)}
+[05:08:47] INFO: Val label counts: {np.int64(0): np.int64(231), np.int64(1): np.int64(262), np.int64(2): np.int64(274)}
+[05:08:47] INFO: Test label counts: {np.int64(0): np.int64(117), np.int64(1): np.int64(134), np.int64(2): np.int64(137)}
+[05:08:52] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[05:08:52] INFO: Missing keys count: 0
+[05:08:52] INFO: Unexpected keys count: 0
+[05:08:57] INFO: [Fold 12 | Epoch 001] train_loss=1.2387 train_acc=0.3469 train_bal_acc=0.3440 train_f1=0.3436 | val_loss=1.1528 val_acc=0.3377 val_bal_acc=0.3392 val_f1=0.3104
+[05:08:57] INFO: New best model at epoch 1 with val_macro_f1=0.3104
+[05:09:03] INFO: [Fold 12 | Epoch 002] train_loss=1.1870 train_acc=0.3665 train_bal_acc=0.3633 train_f1=0.3630 | val_loss=1.3142 val_acc=0.3403 val_bal_acc=0.3589 val_f1=0.2736
+[05:09:08] INFO: [Fold 12 | Epoch 003] train_loss=1.1760 train_acc=0.3430 train_bal_acc=0.3383 train_f1=0.3365 | val_loss=1.1572 val_acc=0.3520 val_bal_acc=0.3390 val_f1=0.3030
+[05:09:13] INFO: [Fold 12 | Epoch 004] train_loss=1.1613 train_acc=0.3454 train_bal_acc=0.3425 train_f1=0.3422 | val_loss=1.1744 val_acc=0.3429 val_bal_acc=0.3372 val_f1=0.2709
+[05:09:19] INFO: [Fold 12 | Epoch 005] train_loss=1.1463 train_acc=0.3475 train_bal_acc=0.3420 train_f1=0.3398 | val_loss=1.1837 val_acc=0.3351 val_bal_acc=0.3360 val_f1=0.2543
+[05:09:24] INFO: [Fold 12 | Epoch 006] train_loss=1.1320 train_acc=0.3547 train_bal_acc=0.3482 train_f1=0.3442 | val_loss=1.1907 val_acc=0.3416 val_bal_acc=0.3409 val_f1=0.2871
+[05:09:29] INFO: [Fold 12 | Epoch 007] train_loss=1.1552 train_acc=0.3631 train_bal_acc=0.3597 train_f1=0.3594 | val_loss=1.2310 val_acc=0.3455 val_bal_acc=0.3349 val_f1=0.2893
+[05:09:35] INFO: [Fold 12 | Epoch 008] train_loss=1.1132 train_acc=0.3821 train_bal_acc=0.3765 train_f1=0.3744 | val_loss=1.2298 val_acc=0.3403 val_bal_acc=0.3548 val_f1=0.2762
+[05:09:40] INFO: [Fold 12 | Epoch 009] train_loss=1.0985 train_acc=0.4008 train_bal_acc=0.3954 train_f1=0.3937 | val_loss=1.1534 val_acc=0.3416 val_bal_acc=0.3357 val_f1=0.2683
+[05:09:45] INFO: [Fold 12 | Epoch 010] train_loss=1.1272 train_acc=0.3857 train_bal_acc=0.3806 train_f1=0.3789 | val_loss=1.2898 val_acc=0.3429 val_bal_acc=0.3509 val_f1=0.2781
+[05:09:50] INFO: [Fold 12 | Epoch 011] train_loss=1.1170 train_acc=0.3924 train_bal_acc=0.3884 train_f1=0.3878 | val_loss=1.3982 val_acc=0.3494 val_bal_acc=0.3517 val_f1=0.2633
+[05:09:56] INFO: [Fold 12 | Epoch 012] train_loss=1.1083 train_acc=0.4017 train_bal_acc=0.3968 train_f1=0.3952 | val_loss=1.2309 val_acc=0.3455 val_bal_acc=0.3531 val_f1=0.3327
+[05:09:56] INFO: New best model at epoch 12 with val_macro_f1=0.3327
+[05:10:01] INFO: [Fold 12 | Epoch 013] train_loss=1.0927 train_acc=0.4185 train_bal_acc=0.4140 train_f1=0.4130 | val_loss=1.2763 val_acc=0.3481 val_bal_acc=0.3486 val_f1=0.2855
+[05:10:06] INFO: [Fold 12 | Epoch 014] train_loss=1.0867 train_acc=0.4348 train_bal_acc=0.4314 train_f1=0.4313 | val_loss=1.2640 val_acc=0.3494 val_bal_acc=0.3493 val_f1=0.3485
+[05:10:06] INFO: New best model at epoch 14 with val_macro_f1=0.3485
+[05:10:11] INFO: [Fold 12 | Epoch 015] train_loss=1.0662 train_acc=0.4444 train_bal_acc=0.4403 train_f1=0.4397 | val_loss=1.3965 val_acc=0.3390 val_bal_acc=0.3336 val_f1=0.2259
+[05:10:17] INFO: [Fold 12 | Epoch 016] train_loss=1.0453 train_acc=0.4520 train_bal_acc=0.4478 train_f1=0.4473 | val_loss=1.2958 val_acc=0.3390 val_bal_acc=0.3451 val_f1=0.3358
+[05:10:22] INFO: [Fold 12 | Epoch 017] train_loss=1.0284 train_acc=0.4724 train_bal_acc=0.4696 train_f1=0.4697 | val_loss=1.2464 val_acc=0.3377 val_bal_acc=0.3339 val_f1=0.3248
+[05:10:28] INFO: [Fold 12 | Epoch 018] train_loss=1.0245 train_acc=0.4734 train_bal_acc=0.4686 train_f1=0.4679 | val_loss=1.4523 val_acc=0.3468 val_bal_acc=0.3485 val_f1=0.3187
+[05:10:33] INFO: [Fold 12 | Epoch 019] train_loss=0.9877 train_acc=0.4992 train_bal_acc=0.4953 train_f1=0.4951 | val_loss=1.5483 val_acc=0.3429 val_bal_acc=0.3503 val_f1=0.3050
+[05:10:39] INFO: [Fold 12 | Epoch 020] train_loss=0.9825 train_acc=0.4986 train_bal_acc=0.4938 train_f1=0.4932 | val_loss=1.5107 val_acc=0.3351 val_bal_acc=0.3303 val_f1=0.2698
+[05:10:44] INFO: [Fold 12 | Epoch 021] train_loss=0.9659 train_acc=0.5104 train_bal_acc=0.5071 train_f1=0.5072 | val_loss=1.3689 val_acc=0.3390 val_bal_acc=0.3337 val_f1=0.3054
+[05:10:49] INFO: [Fold 12 | Epoch 022] train_loss=0.9198 train_acc=0.5480 train_bal_acc=0.5440 train_f1=0.5439 | val_loss=1.7505 val_acc=0.3233 val_bal_acc=0.3297 val_f1=0.3161
+[05:10:54] INFO: [Fold 12 | Epoch 023] train_loss=0.8860 train_acc=0.5685 train_bal_acc=0.5645 train_f1=0.5646 | val_loss=1.8662 val_acc=0.3312 val_bal_acc=0.3327 val_f1=0.2718
+[05:11:00] INFO: [Fold 12 | Epoch 024] train_loss=0.8519 train_acc=0.5899 train_bal_acc=0.5871 train_f1=0.5873 | val_loss=1.8503 val_acc=0.3338 val_bal_acc=0.3290 val_f1=0.3112
+[05:11:05] INFO: [Fold 12 | Epoch 025] train_loss=0.8185 train_acc=0.6073 train_bal_acc=0.6038 train_f1=0.6039 | val_loss=1.9504 val_acc=0.3442 val_bal_acc=0.3416 val_f1=0.3111
+[05:11:06] INFO: [Fold 12 TEST] subject=ZPH acc=0.3557 bal_acc=0.3358 macro_f1=0.1798
+[05:11:06] INFO: ========================================================================================
+[05:11:06] INFO: Finished B1 fine-tuned sentiment classification
+[05:11:06] INFO: Per-subject results saved to: results/B1_finetune_sentiment_pretrained/per_subject_results.csv
+[05:11:06] INFO: All predictions saved to: results/B1_finetune_sentiment_pretrained/all_predictions.csv
+[05:11:06] INFO: Summary saved to: results/B1_finetune_sentiment_pretrained/summary.json
+[05:11:06] INFO: Final LOSO results | accuracy=0.3507±0.0236 (95% bootstrap CI 0.3365 to 0.3633) | balanced_accuracy=0.3519±0.0150 (95% bootstrap CI 0.3435 to 0.3603) | macro_f1=0.2783±0.0603 (95% bootstrap CI 0.2483 to 0.3107)

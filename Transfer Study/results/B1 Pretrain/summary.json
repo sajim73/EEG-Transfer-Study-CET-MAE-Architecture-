@@ -1,0 +1,60 @@
+{
+  "num_subjects": 12,
+  "class_names": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "init_mode": "pretrained",
+  "summary_mean_std": {
+    "accuracy": {
+      "mean": 0.35071467569462117,
+      "std": 0.02356989082113485
+    },
+    "balanced_accuracy": {
+      "mean": 0.35191466822546263,
+      "std": 0.015018523282786857
+    },
+    "macro_f1": {
+      "mean": 0.27832180867248724,
+      "std": 0.06028003827154995
+    }
+  },
+  "summary_bootstrap_ci": {
+    "accuracy": {
+      "mean": 0.35071467569462117,
+      "ci_lower": 0.3364966790386594,
+      "ci_upper": 0.36325664214152364,
+      "n_boot": 1000
+    },
+    "balanced_accuracy": {
+      "mean": 0.35191466822546263,
+      "ci_lower": 0.34349218596286946,
+      "ci_upper": 0.3602767784600663,
+      "n_boot": 1000
+    },
+    "macro_f1": {
+      "mean": 0.27832180867248724,
+      "ci_lower": 0.2483379692069652,
+      "ci_upper": 0.31068136521956013,
+      "n_boot": 1000
+    }
+  },
+  "aggregate_confusion_matrix": [
+    [
+      543,
+      310,
+      492
+    ],
+    [
+      566,
+      392,
+      591
+    ],
+    [
+      586,
+      364,
+      632
+    ]
+  ]
+}

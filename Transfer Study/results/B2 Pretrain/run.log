@@ -1,0 +1,477 @@
+[00:30:01] INFO: Starting B2 fine-tuned reading-task classification (NR vs SR)
+[00:30:01] INFO: {
+  "nr_npz": "exports/embeddings_NR_pretrained_unlabeled/embeddings.npz",
+  "sr_npz": "exports/embeddings_SR_pretrained_unlabeled/embeddings.npz",
+  "checkpoint": "../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt",
+  "random_init": false,
+  "output_dir": "results/B2_finetune_reading_pretrained",
+  "epochs": 25,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "num_workers": 0,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "log_every": 10,
+  "device": "cuda",
+  "bart_path": "facebook/bart-large",
+  "head_dim": 1024
+}
+[00:30:01] INFO: Using device: cuda
+[00:30:01] INFO: NPZ keys found in exports/embeddings_NR_pretrained_unlabeled/embeddings.npz: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[00:30:04] INFO: Loaded EEG/features from key 'normalized_input_embeddings' with shape (5579, 58, 840)
+[00:30:04] INFO: Loaded attention mask shape: (5579, 58)
+[00:30:04] INFO: Subject IDs present: True
+[00:30:04] INFO: Text key: target_string; unique texts: 333
+[00:30:04] INFO: NPZ keys found in exports/embeddings_SR_pretrained_unlabeled/embeddings.npz: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[00:30:06] INFO: Loaded EEG/features from key 'normalized_input_embeddings' with shape (4532, 58, 840)
+[00:30:06] INFO: Loaded attention mask shape: (4532, 58)
+[00:30:06] INFO: Subject IDs present: True
+[00:30:06] INFO: Text key: target_string; unique texts: 400
+[00:30:07] INFO: Combined NR+SR dataset size: 10111
+[00:30:07] INFO: Task counts: {'NR': 5579, 'SR': 4532}
+[00:30:07] INFO: Subjects: ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL', 'ZAB', 'ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZMG', 'ZPH']
+[00:30:07] INFO: Running leave-one-subject-out CV over 30 subjects.
+[00:30:07] INFO: ========================================================================================
+[00:30:07] INFO: Fold 1/30 | held-out subject: YAC
+[00:30:08] INFO: Train size: 8397 | Val size: 1482 | Test size: 232
+[00:30:08] INFO: Train label counts: {np.int64(0): np.int64(4545), np.int64(1): np.int64(3852)}
+[00:30:08] INFO: Val label counts: {np.int64(0): np.int64(802), np.int64(1): np.int64(680)}
+[00:30:08] INFO: Test label counts: {np.int64(0): np.int64(232)}
+[00:30:13] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[00:30:13] INFO: Missing keys count: 0
+[00:30:13] INFO: Unexpected keys count: 0
+[00:30:26] INFO: [Fold 1 | Epoch 001] train_loss=0.0501 train_acc=0.9813 train_f1=0.9812 | val_loss=0.0060 val_acc=0.9966 val_f1=0.9966
+[00:30:26] INFO: New best model at epoch 1 with val_macro_f1=0.9966
+[00:30:39] INFO: [Fold 1 | Epoch 002] train_loss=0.0098 train_acc=0.9967 train_f1=0.9966 | val_loss=0.0281 val_acc=0.9912 val_f1=0.9912
+[00:30:53] INFO: [Fold 1 | Epoch 003] train_loss=0.0069 train_acc=0.9981 train_f1=0.9981 | val_loss=0.0016 val_acc=0.9993 val_f1=0.9993
+[00:30:53] INFO: New best model at epoch 3 with val_macro_f1=0.9993
+[00:31:07] INFO: [Fold 1 | Epoch 004] train_loss=0.0020 train_acc=0.9993 train_f1=0.9993 | val_loss=0.0279 val_acc=0.9939 val_f1=0.9939
+[00:31:20] INFO: [Fold 1 | Epoch 005] train_loss=0.0264 train_acc=0.9950 train_f1=0.9950 | val_loss=0.0438 val_acc=0.9885 val_f1=0.9885
+[00:31:33] INFO: [Fold 1 | Epoch 006] train_loss=0.0097 train_acc=0.9977 train_f1=0.9977 | val_loss=0.0129 val_acc=0.9973 val_f1=0.9973
+[00:31:46] INFO: [Fold 1 | Epoch 007] train_loss=0.0035 train_acc=0.9988 train_f1=0.9988 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:31:46] INFO: New best model at epoch 7 with val_macro_f1=1.0000
+[00:31:59] INFO: [Fold 1 | Epoch 008] train_loss=0.0012 train_acc=0.9998 train_f1=0.9998 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:32:13] INFO: [Fold 1 | Epoch 009] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:32:26] INFO: [Fold 1 | Epoch 010] train_loss=0.0058 train_acc=0.9982 train_f1=0.9982 | val_loss=0.0014 val_acc=0.9993 val_f1=0.9993
+[00:32:39] INFO: [Fold 1 | Epoch 011] train_loss=0.0157 train_acc=0.9961 train_f1=0.9960 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:32:52] INFO: [Fold 1 | Epoch 012] train_loss=0.0086 train_acc=0.9983 train_f1=0.9983 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:33:05] INFO: [Fold 1 | Epoch 013] train_loss=0.0214 train_acc=0.9962 train_f1=0.9962 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:33:18] INFO: [Fold 1 | Epoch 014] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:33:32] INFO: [Fold 1 | Epoch 015] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:33:45] INFO: [Fold 1 | Epoch 016] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:33:58] INFO: [Fold 1 | Epoch 017] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:34:11] INFO: [Fold 1 | Epoch 018] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:34:24] INFO: [Fold 1 | Epoch 019] train_loss=0.0143 train_acc=0.9975 train_f1=0.9975 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:34:38] INFO: [Fold 1 | Epoch 020] train_loss=0.0075 train_acc=0.9990 train_f1=0.9990 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:34:51] INFO: [Fold 1 | Epoch 021] train_loss=0.0001 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:35:04] INFO: [Fold 1 | Epoch 022] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:35:17] INFO: [Fold 1 | Epoch 023] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:35:30] INFO: [Fold 1 | Epoch 024] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:35:43] INFO: [Fold 1 | Epoch 025] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0000 val_acc=1.0000 val_f1=1.0000
+[00:35:44] INFO: [Fold 1 TEST] subject=YAC acc=1.0000 bal_acc=1.0000 macro_f1=1.0000
+[00:35:44] INFO: ========================================================================================
+[00:35:44] INFO: Fold 2/30 | held-out subject: YAG
+[00:35:45] INFO: Train size: 8313 | Val size: 1468 | Test size: 330
+[00:35:45] INFO: Train label counts: {np.int64(0): np.int64(4461), np.int64(1): np.int64(3852)}
+[00:35:45] INFO: Val label counts: {np.int64(0): np.int64(788), np.int64(1): np.int64(680)}
+[00:35:45] INFO: Test label counts: {np.int64(0): np.int64(330)}
+[00:35:50] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[00:35:50] INFO: Missing keys count: 0
+[00:35:50] INFO: Unexpected keys count: 0
+[00:36:03] INFO: [Fold 2 | Epoch 001] train_loss=0.0271 train_acc=0.9895 train_f1=0.9895 | val_loss=0.0073 val_acc=0.9993 val_f1=0.9993
+[00:36:03] INFO: New best model at epoch 1 with val_macro_f1=0.9993
+[00:36:16] INFO: [Fold 2 | Epoch 002] train_loss=0.0144 train_acc=0.9947 train_f1=0.9947 | val_loss=0.0092 val_acc=0.9986 val_f1=0.9986
+[00:36:29] INFO: [Fold 2 | Epoch 003] train_loss=0.0006 train_acc=0.9998 train_f1=0.9998 | val_loss=0.0054 val_acc=0.9993 val_f1=0.9993
+[00:36:42] INFO: [Fold 2 | Epoch 004] train_loss=0.0001 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0070 val_acc=0.9993 val_f1=0.9993
+[00:36:55] INFO: [Fold 2 | Epoch 005] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0060 val_acc=0.9993 val_f1=0.9993
+[00:37:09] INFO: [Fold 2 | Epoch 006] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0057 val_acc=0.9993 val_f1=0.9993
+[00:37:22] INFO: [Fold 2 | Epoch 007] train_loss=0.0354 train_acc=0.9930 train_f1=0.9930 | val_loss=0.0131 val_acc=0.9986 val_f1=0.9986
+[00:37:35] INFO: [Fold 2 | Epoch 008] train_loss=0.0113 train_acc=0.9971 train_f1=0.9971 | val_loss=0.0125 val_acc=0.9993 val_f1=0.9993
+[00:37:48] INFO: [Fold 2 | Epoch 009] train_loss=0.0024 train_acc=0.9995 train_f1=0.9995 | val_loss=0.0101 val_acc=0.9993 val_f1=0.9993
+[00:38:01] INFO: [Fold 2 | Epoch 010] train_loss=0.0003 train_acc=0.9998 train_f1=0.9998 | val_loss=0.0099 val_acc=0.9993 val_f1=0.9993
+[00:38:14] INFO: [Fold 2 | Epoch 011] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0102 val_acc=0.9993 val_f1=0.9993
+[00:38:27] INFO: [Fold 2 | Epoch 012] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:38:40] INFO: [Fold 2 | Epoch 013] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0106 val_acc=0.9993 val_f1=0.9993
+[00:38:53] INFO: [Fold 2 | Epoch 014] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0102 val_acc=0.9993 val_f1=0.9993
+[00:39:06] INFO: [Fold 2 | Epoch 015] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:39:20] INFO: [Fold 2 | Epoch 016] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:39:33] INFO: [Fold 2 | Epoch 017] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:39:46] INFO: [Fold 2 | Epoch 018] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0102 val_acc=0.9993 val_f1=0.9993
+[00:39:59] INFO: [Fold 2 | Epoch 019] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0102 val_acc=0.9993 val_f1=0.9993
+[00:40:12] INFO: [Fold 2 | Epoch 020] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:40:26] INFO: [Fold 2 | Epoch 021] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0102 val_acc=0.9993 val_f1=0.9993
+[00:40:39] INFO: [Fold 2 | Epoch 022] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0102 val_acc=0.9993 val_f1=0.9993
+[00:40:52] INFO: [Fold 2 | Epoch 023] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0100 val_acc=0.9993 val_f1=0.9993
+[00:41:05] INFO: [Fold 2 | Epoch 024] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0098 val_acc=0.9993 val_f1=0.9993
+[00:41:18] INFO: [Fold 2 | Epoch 025] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0095 val_acc=0.9993 val_f1=0.9993
+[00:41:19] INFO: [Fold 2 TEST] subject=YAG acc=1.0000 bal_acc=1.0000 macro_f1=1.0000
+[00:41:19] INFO: ========================================================================================
+[00:41:19] INFO: Fold 3/30 | held-out subject: YAK
+[00:41:20] INFO: Train size: 8385 | Val size: 1480 | Test size: 246
+[00:41:20] INFO: Train label counts: {np.int64(0): np.int64(4533), np.int64(1): np.int64(3852)}
+[00:41:20] INFO: Val label counts: {np.int64(0): np.int64(800), np.int64(1): np.int64(680)}
+[00:41:20] INFO: Test label counts: {np.int64(0): np.int64(246)}
+[00:41:25] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[00:41:25] INFO: Missing keys count: 0
+[00:41:25] INFO: Unexpected keys count: 0
+[00:41:38] INFO: [Fold 3 | Epoch 001] train_loss=0.0270 train_acc=0.9899 train_f1=0.9898 | val_loss=0.0196 val_acc=0.9959 val_f1=0.9959
+[00:41:38] INFO: New best model at epoch 1 with val_macro_f1=0.9959
+[00:41:51] INFO: [Fold 3 | Epoch 002] train_loss=0.0083 train_acc=0.9975 train_f1=0.9975 | val_loss=0.0249 val_acc=0.9966 val_f1=0.9966
+[00:41:51] INFO: New best model at epoch 2 with val_macro_f1=0.9966
+[00:42:05] INFO: [Fold 3 | Epoch 003] train_loss=0.0145 train_acc=0.9959 train_f1=0.9959 | val_loss=0.0126 val_acc=0.9986 val_f1=0.9986
+[00:42:05] INFO: New best model at epoch 3 with val_macro_f1=0.9986
+[00:42:18] INFO: [Fold 3 | Epoch 004] train_loss=0.0003 train_acc=0.9999 train_f1=0.9999 | val_loss=0.0110 val_acc=0.9986 val_f1=0.9986
+[00:42:31] INFO: [Fold 3 | Epoch 005] train_loss=0.0001 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0087 val_acc=0.9993 val_f1=0.9993
+[00:42:31] INFO: New best model at epoch 5 with val_macro_f1=0.9993
+[00:42:45] INFO: [Fold 3 | Epoch 006] train_loss=0.0118 train_acc=0.9971 train_f1=0.9971 | val_loss=0.0386 val_acc=0.9953 val_f1=0.9952
+[00:42:58] INFO: [Fold 3 | Epoch 007] train_loss=0.0210 train_acc=0.9968 train_f1=0.9968 | val_loss=0.0284 val_acc=0.9980 val_f1=0.9980
+[00:43:11] INFO: [Fold 3 | Epoch 008] train_loss=0.0140 train_acc=0.9976 train_f1=0.9976 | val_loss=0.0080 val_acc=0.9986 val_f1=0.9986
+[00:43:24] INFO: [Fold 3 | Epoch 009] train_loss=0.0007 train_acc=0.9998 train_f1=0.9998 | val_loss=0.0063 val_acc=0.9993 val_f1=0.9993
+[00:43:38] INFO: [Fold 3 | Epoch 010] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0078 val_acc=0.9993 val_f1=0.9993
+[00:43:51] INFO: [Fold 3 | Epoch 011] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0075 val_acc=0.9993 val_f1=0.9993
+[00:44:05] INFO: [Fold 3 | Epoch 012] train_loss=0.0189 train_acc=0.9962 train_f1=0.9962 | val_loss=0.0465 val_acc=0.9912 val_f1=0.9911
+[00:44:19] INFO: [Fold 3 | Epoch 013] train_loss=0.0058 train_acc=0.9987 train_f1=0.9987 | val_loss=0.0130 val_acc=0.9993 val_f1=0.9993
+[00:44:32] INFO: [Fold 3 | Epoch 014] train_loss=0.0033 train_acc=0.9993 train_f1=0.9993 | val_loss=0.0092 val_acc=0.9993 val_f1=0.9993
+[00:44:46] INFO: [Fold 3 | Epoch 015] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0103 val_acc=0.9993 val_f1=0.9993
+[00:44:59] INFO: [Fold 3 | Epoch 016] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:45:13] INFO: [Fold 3 | Epoch 017] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0104 val_acc=0.9993 val_f1=0.9993
+[00:45:26] INFO: [Fold 3 | Epoch 018] train_loss=0.0171 train_acc=0.9977 train_f1=0.9977 | val_loss=0.0136 val_acc=0.9993 val_f1=0.9993
+[00:45:39] INFO: [Fold 3 | Epoch 019] train_loss=0.0039 train_acc=0.9994 train_f1=0.9994 | val_loss=0.0210 val_acc=0.9966 val_f1=0.9966
+[00:45:53] INFO: [Fold 3 | Epoch 020] train_loss=0.0169 train_acc=0.9973 train_f1=0.9972 | val_loss=0.0482 val_acc=0.9919 val_f1=0.9918
+[00:46:07] INFO: [Fold 3 | Epoch 021] train_loss=0.0044 train_acc=0.9987 train_f1=0.9987 | val_loss=0.0141 val_acc=0.9993 val_f1=0.9993
+[00:46:20] INFO: [Fold 3 | Epoch 022] train_loss=0.0000 train_acc=1.0000 train_f1=1.0000 | val_loss=0.0142 val_acc=0.9993 val_f1=0.9993
+[05:48:27] INFO: Starting B2 fine-tuned reading-task classification (ZuCo 2.0 NR vs TSR)
+[05:48:27] INFO: {
+  "npz_nr": "exports/embeddings_NR_pretrained_unlabeled/embeddings.npz",
+  "npz_tsr": "exports/embeddings_TSR_pretrained_unlabeled/embeddings.npz",
+  "checkpoint": "../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt",
+  "random_init": false,
+  "output_dir": "results/B2_finetune_reading_pretrained",
+  "epochs": 25,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "num_workers": 0,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "log_every_epochs": 10,
+  "device": "cuda",
+  "bart_path": "facebook/bart-large",
+  "head_dim": 1024,
+  "use_class_weights": true
+}
+[05:48:27] INFO: Optimization setup: Adam with differential learning rates (encoder_lr=1e-05, head_lr=0.001, weight_decay=0.0001); class_weights_enabled=True.
+[05:48:27] INFO: Using device: cuda
+[05:48:27] INFO: NPZ keys found in exports/embeddings_NR_pretrained_unlabeled/embeddings.npz: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'source_file']
+[05:48:29] INFO: Loaded EEG/features from key 'normalized_input_embeddings' with shape (5579, 58, 840)
+[05:48:29] INFO: Loaded attention mask shape: (5579, 58)
+[05:48:29] INFO: Text key: target_string; unique texts: 333
+[05:48:29] INFO: NPZ keys found in exports/embeddings_TSR_pretrained_unlabeled/embeddings.npz: ['input_embeddings', 'normalized_input_embeddings', 'input_attn_mask', 'input_attn_mask_invert', 'seq_len', 'target_string', 'subject_id', 'sentence_index', 'task_name', 'split_name', 'pickle_file', 'source_prefix', 'selected_words']
+[05:48:39] INFO: Loaded EEG/features from key 'normalized_input_embeddings' with shape (18935, 58, 840)
+[05:48:39] INFO: Loaded attention mask shape: (18935, 58)
+[05:48:39] INFO: Text key: target_string; unique texts: 1227
+[05:48:39] INFO: NR subjects: ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']
+[05:48:39] INFO: TSR subjects: ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL', 'ZAB', 'ZDM', 'ZDN', 'ZGW', 'ZJM', 'ZJN', 'ZJS', 'ZKB', 'ZKH', 'ZKW', 'ZMG', 'ZPH']
+[05:48:39] INFO: Using common subjects only (18): ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']
+[05:48:39] INFO: After common-subject filtering | NR: 5579 samples | TSR: 11065 samples
+[05:48:41] INFO: Combined NR+TSR dataset size: 16644
+[05:48:41] INFO: Task counts: {'TSR': 11065, 'NR': 5579}
+[05:48:41] INFO: Subjects in final dataset: ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL']
+[05:48:41] INFO: Running leave-one-subject-out CV over 18 subjects.
+[05:48:41] INFO: ========================================================================================
+[05:48:41] INFO: Fold 1/18 | held-out subject: YAC
+[05:48:42] INFO: Train subjects (14): ['YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YRH', 'YRK', 'YSD', 'YTL'] | Val subjects (3): ['YMS', 'YRP', 'YSL'] | Test subject: YAC
+[05:48:42] INFO: Train size: 13038 | Val size: 2914 | Test size: 692
+[05:48:42] INFO: Train label counts: {np.int64(0): np.int64(4369), np.int64(1): np.int64(8669)}
+[05:48:42] INFO: Val label counts: {np.int64(0): np.int64(978), np.int64(1): np.int64(1936)}
+[05:48:42] INFO: Test label counts: {np.int64(0): np.int64(232), np.int64(1): np.int64(460)}
+[05:48:42] INFO: Class weights: NR=1.4921, TSR=0.7520
+[05:48:47] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[05:48:47] INFO: Missing keys count: 0
+[05:48:47] INFO: Unexpected keys count: 0
+[05:49:08] INFO: [Fold 1 | Epoch 001] train_loss=0.7361 train_acc=0.5644 train_bal_acc=0.5653 train_f1=0.5492 | val_loss=0.7738 val_acc=0.5909 val_bal_acc=0.4931 val_f1=0.4812
+[05:52:16] INFO: [Fold 1 | Epoch 010] train_loss=0.5424 train_acc=0.6444 train_bal_acc=0.7018 train_f1=0.6432 | val_loss=0.9888 val_acc=0.4787 val_bal_acc=0.5012 val_f1=0.4738
+[05:55:44] INFO: [Fold 1 | Epoch 020] train_loss=0.5211 train_acc=0.6434 train_bal_acc=0.7194 train_f1=0.6434 | val_loss=1.0897 val_acc=0.5096 val_bal_acc=0.4888 val_f1=0.4837
+[05:57:27] INFO: [Fold 1 | Epoch 025] train_loss=0.5188 train_acc=0.6446 train_bal_acc=0.7203 train_f1=0.6446 | val_loss=1.1585 val_acc=0.4774 val_bal_acc=0.5191 val_f1=0.4764
+[05:57:35] INFO: [Fold 1 TEST] subject=YAC acc=0.6647 bal_acc=0.5000 macro_f1=0.3993
+[05:57:35] INFO: ========================================================================================
+[05:57:35] INFO: Fold 2/18 | held-out subject: YAG
+[05:57:39] INFO: Train subjects (14): ['YAC', 'YAK', 'YDG', 'YDR', 'YFR', 'YHS', 'YIS', 'YLS', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL'] | Val subjects (3): ['YFS', 'YMD', 'YTL'] | Test subject: YAG
+[05:57:39] INFO: Train size: 12758 | Val size: 2908 | Test size: 978
+[05:57:39] INFO: Train label counts: {np.int64(0): np.int64(4275), np.int64(1): np.int64(8483)}
+[05:57:39] INFO: Val label counts: {np.int64(0): np.int64(974), np.int64(1): np.int64(1934)}
+[05:57:39] INFO: Test label counts: {np.int64(0): np.int64(330), np.int64(1): np.int64(648)}
+[05:57:39] INFO: Class weights: NR=1.4922, TSR=0.7520
+[05:57:44] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[05:57:44] INFO: Missing keys count: 0
+[05:57:44] INFO: Unexpected keys count: 0
+[05:58:04] INFO: [Fold 2 | Epoch 001] train_loss=0.7567 train_acc=0.5502 train_bal_acc=0.5476 train_f1=0.5336 | val_loss=0.7697 val_acc=0.5523 val_bal_acc=0.5337 val_f1=0.5267
+[06:01:06] INFO: [Fold 2 | Epoch 010] train_loss=0.5451 train_acc=0.6397 train_bal_acc=0.6958 train_f1=0.6384 | val_loss=1.2245 val_acc=0.5096 val_bal_acc=0.4958 val_f1=0.4880
+[06:04:29] INFO: [Fold 2 | Epoch 020] train_loss=0.5260 train_acc=0.6394 train_bal_acc=0.7143 train_f1=0.6393 | val_loss=1.2686 val_acc=0.4567 val_bal_acc=0.4850 val_f1=0.4537
+[06:06:10] INFO: [Fold 2 | Epoch 025] train_loss=0.5115 train_acc=0.6505 train_bal_acc=0.7293 train_f1=0.6505 | val_loss=0.7857 val_acc=0.4701 val_bal_acc=0.4760 val_f1=0.4596
+[06:06:18] INFO: [Fold 2 TEST] subject=YAG acc=0.6472 bal_acc=0.5145 macro_f1=0.4724
+[06:06:18] INFO: ========================================================================================
+[06:06:18] INFO: Fold 3/18 | held-out subject: YAK
+[06:06:20] INFO: Train subjects (14): ['YAC', 'YAG', 'YDG', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRK', 'YRP', 'YSD', 'YSL'] | Val subjects (3): ['YDR', 'YRH', 'YTL'] | Test subject: YAK
+[06:06:20] INFO: Train size: 13027 | Val size: 2801 | Test size: 816
+[06:06:20] INFO: Train label counts: {np.int64(0): np.int64(4390), np.int64(1): np.int64(8637)}
+[06:06:20] INFO: Val label counts: {np.int64(0): np.int64(943), np.int64(1): np.int64(1858)}
+[06:06:20] INFO: Test label counts: {np.int64(0): np.int64(246), np.int64(1): np.int64(570)}
+[06:06:20] INFO: Class weights: NR=1.4837, TSR=0.7541
+[06:06:24] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:06:24] INFO: Missing keys count: 0
+[06:06:24] INFO: Unexpected keys count: 0
+[06:06:45] INFO: [Fold 3 | Epoch 001] train_loss=0.7384 train_acc=0.5493 train_bal_acc=0.5465 train_f1=0.5330 | val_loss=0.6264 val_acc=0.6630 val_bal_acc=0.5125 val_f1=0.4435
+[06:09:50] INFO: [Fold 3 | Epoch 010] train_loss=0.5466 train_acc=0.6457 train_bal_acc=0.6990 train_f1=0.6442 | val_loss=0.9861 val_acc=0.5873 val_bal_acc=0.5022 val_f1=0.4966
+[06:13:15] INFO: [Fold 3 | Epoch 020] train_loss=0.5239 train_acc=0.6410 train_bal_acc=0.7163 train_f1=0.6410 | val_loss=1.0103 val_acc=0.5005 val_bal_acc=0.4906 val_f1=0.4817
+[06:14:59] INFO: [Fold 3 | Epoch 025] train_loss=0.5151 train_acc=0.6450 train_bal_acc=0.7270 train_f1=0.6449 | val_loss=1.2544 val_acc=0.4873 val_bal_acc=0.4974 val_f1=0.4783
+[06:15:06] INFO: [Fold 3 TEST] subject=YAK acc=0.4510 bal_acc=0.5596 macro_f1=0.4495
+[06:15:06] INFO: ========================================================================================
+[06:15:06] INFO: Fold 4/18 | held-out subject: YDG
+[06:15:07] INFO: Train subjects (14): ['YAC', 'YAK', 'YDR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YAG', 'YFR', 'YRH'] | Test subject: YDG
+[06:15:07] INFO: Train size: 13210 | Val size: 2447 | Test size: 987
+[06:15:07] INFO: Train label counts: {np.int64(0): np.int64(4403), np.int64(1): np.int64(8807)}
+[06:15:07] INFO: Val label counts: {np.int64(0): np.int64(845), np.int64(1): np.int64(1602)}
+[06:15:07] INFO: Test label counts: {np.int64(0): np.int64(331), np.int64(1): np.int64(656)}
+[06:15:07] INFO: Class weights: NR=1.5001, TSR=0.7500
+[06:15:12] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:15:12] INFO: Missing keys count: 0
+[06:15:12] INFO: Unexpected keys count: 0
+[06:15:33] INFO: [Fold 4 | Epoch 001] train_loss=0.7479 train_acc=0.5441 train_bal_acc=0.5410 train_f1=0.5271 | val_loss=0.7342 val_acc=0.4953 val_bal_acc=0.5315 val_f1=0.4942
+[06:18:41] INFO: [Fold 4 | Epoch 010] train_loss=0.5380 train_acc=0.6444 train_bal_acc=0.7044 train_f1=0.6434 | val_loss=1.1838 val_acc=0.5774 val_bal_acc=0.5350 val_f1=0.5348
+[06:22:10] INFO: [Fold 4 | Epoch 020] train_loss=0.5135 train_acc=0.6526 train_bal_acc=0.7306 train_f1=0.6526 | val_loss=0.9976 val_acc=0.5447 val_bal_acc=0.5528 val_f1=0.5350
+[06:23:53] INFO: [Fold 4 | Epoch 025] train_loss=0.5013 train_acc=0.6569 train_bal_acc=0.7376 train_f1=0.6569 | val_loss=1.4286 val_acc=0.5325 val_bal_acc=0.5392 val_f1=0.5224
+[06:24:01] INFO: [Fold 4 TEST] subject=YDG acc=0.5562 bal_acc=0.5786 macro_f1=0.5495
+[06:24:01] INFO: ========================================================================================
+[06:24:01] INFO: Fold 5/18 | held-out subject: YDR
+[06:24:02] INFO: Train subjects (14): ['YAC', 'YAK', 'YDG', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YRH', 'YRK', 'YRP', 'YSD', 'YTL'] | Val subjects (3): ['YAG', 'YMS', 'YSL'] | Test subject: YDR
+[06:24:02] INFO: Train size: 12739 | Val size: 2922 | Test size: 983
+[06:24:02] INFO: Train label counts: {np.int64(0): np.int64(4268), np.int64(1): np.int64(8471)}
+[06:24:02] INFO: Val label counts: {np.int64(0): np.int64(982), np.int64(1): np.int64(1940)}
+[06:24:02] INFO: Test label counts: {np.int64(0): np.int64(329), np.int64(1): np.int64(654)}
+[06:24:02] INFO: Class weights: NR=1.4924, TSR=0.7519
+[06:24:06] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:24:06] INFO: Missing keys count: 0
+[06:24:06] INFO: Unexpected keys count: 0
+[06:24:27] INFO: [Fold 5 | Epoch 001] train_loss=0.7598 train_acc=0.5466 train_bal_acc=0.5460 train_f1=0.5310 | val_loss=0.6878 val_acc=0.5921 val_bal_acc=0.4901 val_f1=0.4754
+[06:27:29] INFO: [Fold 5 | Epoch 010] train_loss=0.5479 train_acc=0.6455 train_bal_acc=0.7025 train_f1=0.6443 | val_loss=0.9225 val_acc=0.4658 val_bal_acc=0.5097 val_f1=0.4652
+[06:30:52] INFO: [Fold 5 | Epoch 020] train_loss=0.5109 train_acc=0.6507 train_bal_acc=0.7291 train_f1=0.6507 | val_loss=1.0098 val_acc=0.4860 val_bal_acc=0.5292 val_f1=0.4851
+[06:32:34] INFO: [Fold 5 | Epoch 025] train_loss=0.5143 train_acc=0.6462 train_bal_acc=0.7251 train_f1=0.6462 | val_loss=0.9061 val_acc=0.4648 val_bal_acc=0.5401 val_f1=0.4633
+[06:32:41] INFO: [Fold 5 TEST] subject=YDR acc=0.6592 bal_acc=0.4969 macro_f1=0.4029
+[06:32:41] INFO: ========================================================================================
+[06:32:41] INFO: Fold 6/18 | held-out subject: YFR
+[06:32:42] INFO: Train subjects (14): ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFS', 'YHS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRK', 'YSD', 'YSL'] | Val subjects (3): ['YIS', 'YRP', 'YTL'] | Test subject: YFR
+[06:32:42] INFO: Train size: 13070 | Val size: 2941 | Test size: 633
+[06:32:42] INFO: Train label counts: {np.int64(0): np.int64(4362), np.int64(1): np.int64(8708)}
+[06:32:42] INFO: Val label counts: {np.int64(0): np.int64(987), np.int64(1): np.int64(1954)}
+[06:32:42] INFO: Test label counts: {np.int64(0): np.int64(230), np.int64(1): np.int64(403)}
+[06:32:42] INFO: Class weights: NR=1.4982, TSR=0.7505
+[06:32:47] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:32:47] INFO: Missing keys count: 0
+[06:32:47] INFO: Unexpected keys count: 0
+[06:33:07] INFO: [Fold 6 | Epoch 001] train_loss=0.7547 train_acc=0.5471 train_bal_acc=0.5440 train_f1=0.5301 | val_loss=0.6387 val_acc=0.6624 val_bal_acc=0.5120 val_f1=0.4452
+[06:36:15] INFO: [Fold 6 | Epoch 010] train_loss=0.5490 train_acc=0.6445 train_bal_acc=0.6968 train_f1=0.6425 | val_loss=0.7973 val_acc=0.5202 val_bal_acc=0.5412 val_f1=0.5139
+[06:39:41] INFO: [Fold 6 | Epoch 020] train_loss=0.5251 train_acc=0.6432 train_bal_acc=0.7164 train_f1=0.6430 | val_loss=1.3216 val_acc=0.6216 val_bal_acc=0.5650 val_f1=0.5660
+[06:41:25] INFO: [Fold 6 | Epoch 025] train_loss=0.5185 train_acc=0.6474 train_bal_acc=0.7236 train_f1=0.6474 | val_loss=1.1021 val_acc=0.5413 val_bal_acc=0.5578 val_f1=0.5330
+[06:41:33] INFO: [Fold 6 TEST] subject=YFR acc=0.6367 bal_acc=0.5383 macro_f1=0.5109
+[06:41:33] INFO: ========================================================================================
+[06:41:33] INFO: Fold 7/18 | held-out subject: YFS
+[06:41:34] INFO: Train subjects (14): ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YHS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRP', 'YSD', 'YSL'] | Val subjects (3): ['YIS', 'YRK', 'YTL'] | Test subject: YFS
+[06:41:34] INFO: Train size: 12753 | Val size: 2927 | Test size: 964
+[06:41:34] INFO: Train label counts: {np.int64(0): np.int64(4277), np.int64(1): np.int64(8476)}
+[06:41:34] INFO: Val label counts: {np.int64(0): np.int64(981), np.int64(1): np.int64(1946)}
+[06:41:34] INFO: Test label counts: {np.int64(0): np.int64(321), np.int64(1): np.int64(643)}
+[06:41:34] INFO: Class weights: NR=1.4909, TSR=0.7523
+[06:41:38] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:41:38] INFO: Missing keys count: 0
+[06:41:38] INFO: Unexpected keys count: 0
+[06:41:59] INFO: [Fold 7 | Epoch 001] train_loss=0.7469 train_acc=0.5436 train_bal_acc=0.5389 train_f1=0.5262 | val_loss=0.7096 val_acc=0.5251 val_bal_acc=0.5648 val_f1=0.5230
+[06:45:02] INFO: [Fold 7 | Epoch 010] train_loss=0.5430 train_acc=0.6450 train_bal_acc=0.6995 train_f1=0.6435 | val_loss=1.0215 val_acc=0.4493 val_bal_acc=0.5340 val_f1=0.4456
+[06:48:25] INFO: [Fold 7 | Epoch 020] train_loss=0.5249 train_acc=0.6399 train_bal_acc=0.7109 train_f1=0.6398 | val_loss=1.0279 val_acc=0.4725 val_bal_acc=0.5217 val_f1=0.4722
+[06:50:07] INFO: [Fold 7 | Epoch 025] train_loss=0.5140 train_acc=0.6486 train_bal_acc=0.7270 train_f1=0.6486 | val_loss=1.1420 val_acc=0.5196 val_bal_acc=0.5336 val_f1=0.5109
+[06:50:16] INFO: [Fold 7 TEST] subject=YFS acc=0.6670 bal_acc=0.5000 macro_f1=0.4001
+[06:50:16] INFO: ========================================================================================
+[06:50:16] INFO: Fold 8/18 | held-out subject: YHS
+[06:50:17] INFO: Train subjects (14): ['YAC', 'YAG', 'YDG', 'YDR', 'YFR', 'YIS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YAK', 'YFS', 'YRK'] | Test subject: YHS
+[06:50:17] INFO: Train size: 12917 | Val size: 2736 | Test size: 991
+[06:50:17] INFO: Train label counts: {np.int64(0): np.int64(4359), np.int64(1): np.int64(8558)}
+[06:50:17] INFO: Val label counts: {np.int64(0): np.int64(887), np.int64(1): np.int64(1849)}
+[06:50:17] INFO: Test label counts: {np.int64(0): np.int64(333), np.int64(1): np.int64(658)}
+[06:50:17] INFO: Class weights: NR=1.4816, TSR=0.7547
+[06:50:21] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[06:50:21] INFO: Missing keys count: 0
+[06:50:21] INFO: Unexpected keys count: 0
+[06:50:52] INFO: [Fold 8 | Epoch 001] train_loss=0.7639 train_acc=0.5604 train_bal_acc=0.5598 train_f1=0.5450 | val_loss=0.8379 val_acc=0.4218 val_bal_acc=0.5053 val_f1=0.4197
+[06:55:22] INFO: [Fold 8 | Epoch 010] train_loss=0.5453 train_acc=0.6425 train_bal_acc=0.6976 train_f1=0.6413 | val_loss=0.9408 val_acc=0.5972 val_bal_acc=0.5172 val_f1=0.5161
+[07:00:28] INFO: [Fold 8 | Epoch 020] train_loss=0.5144 train_acc=0.6467 train_bal_acc=0.7193 train_f1=0.6467 | val_loss=1.1215 val_acc=0.4441 val_bal_acc=0.5154 val_f1=0.4438
+[07:02:58] INFO: [Fold 8 | Epoch 025] train_loss=0.5081 train_acc=0.6515 train_bal_acc=0.7317 train_f1=0.6514 | val_loss=1.2039 val_acc=0.5596 val_bal_acc=0.5137 val_f1=0.5124
+[07:03:09] INFO: [Fold 8 TEST] subject=YHS acc=0.6569 bal_acc=0.4969 macro_f1=0.4048
+[07:03:09] INFO: ========================================================================================
+[07:03:09] INFO: Fold 9/18 | held-out subject: YIS
+[07:03:10] INFO: Train subjects (14): ['YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YLS', 'YMD', 'YMS', 'YRH', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YAC', 'YAG', 'YRK'] | Test subject: YIS
+[07:03:10] INFO: Train size: 13029 | Val size: 2626 | Test size: 989
+[07:03:10] INFO: Train label counts: {np.int64(0): np.int64(4365), np.int64(1): np.int64(8664)}
+[07:03:10] INFO: Val label counts: {np.int64(0): np.int64(882), np.int64(1): np.int64(1744)}
+[07:03:10] INFO: Test label counts: {np.int64(0): np.int64(332), np.int64(1): np.int64(657)}
+[07:03:10] INFO: Class weights: NR=1.4924, TSR=0.7519
+[07:03:15] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:03:15] INFO: Missing keys count: 0
+[07:03:15] INFO: Unexpected keys count: 0
+[07:03:44] INFO: [Fold 9 | Epoch 001] train_loss=0.7457 train_acc=0.5530 train_bal_acc=0.5524 train_f1=0.5373 | val_loss=0.7050 val_acc=0.5617 val_bal_acc=0.5069 val_f1=0.5069
+[07:08:17] INFO: [Fold 9 | Epoch 010] train_loss=0.5456 train_acc=0.6440 train_bal_acc=0.6960 train_f1=0.6422 | val_loss=1.2949 val_acc=0.5449 val_bal_acc=0.5201 val_f1=0.5155
+[07:11:49] INFO: [Fold 9 | Epoch 020] train_loss=0.5154 train_acc=0.6517 train_bal_acc=0.7274 train_f1=0.6517 | val_loss=1.5631 val_acc=0.5442 val_bal_acc=0.5150 val_f1=0.5117
+[07:13:33] INFO: [Fold 9 | Epoch 025] train_loss=0.5122 train_acc=0.6471 train_bal_acc=0.7280 train_f1=0.6471 | val_loss=1.3836 val_acc=0.5118 val_bal_acc=0.5347 val_f1=0.5063
+[07:13:41] INFO: [Fold 9 TEST] subject=YIS acc=0.5329 bal_acc=0.6335 macro_f1=0.5283
+[07:13:41] INFO: ========================================================================================
+[07:13:41] INFO: Fold 10/18 | held-out subject: YLS
+[07:13:42] INFO: Train subjects (14): ['YAC', 'YAG', 'YAK', 'YDG', 'YFR', 'YFS', 'YHS', 'YIS', 'YMD', 'YRH', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YDR', 'YMS', 'YRK'] | Test subject: YLS
+[07:13:42] INFO: Train size: 12763 | Val size: 2909 | Test size: 972
+[07:13:42] INFO: Train label counts: {np.int64(0): np.int64(4280), np.int64(1): np.int64(8483)}
+[07:13:42] INFO: Val label counts: {np.int64(0): np.int64(972), np.int64(1): np.int64(1937)}
+[07:13:42] INFO: Test label counts: {np.int64(0): np.int64(327), np.int64(1): np.int64(645)}
+[07:13:42] INFO: Class weights: NR=1.4910, TSR=0.7523
+[07:13:46] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:13:46] INFO: Missing keys count: 0
+[07:13:46] INFO: Unexpected keys count: 0
+[07:14:07] INFO: [Fold 10 | Epoch 001] train_loss=0.7515 train_acc=0.5491 train_bal_acc=0.5447 train_f1=0.5317 | val_loss=0.8927 val_acc=0.4682 val_bal_acc=0.5138 val_f1=0.4676
+[07:17:10] INFO: [Fold 10 | Epoch 010] train_loss=0.5494 train_acc=0.6422 train_bal_acc=0.6990 train_f1=0.6410 | val_loss=0.9427 val_acc=0.5174 val_bal_acc=0.5397 val_f1=0.5113
+[07:20:32] INFO: [Fold 10 | Epoch 020] train_loss=0.5160 train_acc=0.6480 train_bal_acc=0.7241 train_f1=0.6479 | val_loss=1.1079 val_acc=0.5569 val_bal_acc=0.5268 val_f1=0.5233
+[07:22:14] INFO: [Fold 10 | Epoch 025] train_loss=0.5068 train_acc=0.6529 train_bal_acc=0.7301 train_f1=0.6529 | val_loss=0.9826 val_acc=0.4826 val_bal_acc=0.5367 val_f1=0.4825
+[07:22:21] INFO: [Fold 10 TEST] subject=YLS acc=0.6584 bal_acc=0.5037 macro_f1=0.4241
+[07:22:21] INFO: ========================================================================================
+[07:22:21] INFO: Fold 11/18 | held-out subject: YMD
+[07:22:22] INFO: Train subjects (14): ['YAC', 'YAG', 'YAK', 'YFR', 'YFS', 'YHS', 'YIS', 'YMS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YDG', 'YDR', 'YLS'] | Test subject: YMD
+[07:22:22] INFO: Train size: 12740 | Val size: 2942 | Test size: 962
+[07:22:22] INFO: Train label counts: {np.int64(0): np.int64(4268), np.int64(1): np.int64(8472)}
+[07:22:22] INFO: Val label counts: {np.int64(0): np.int64(987), np.int64(1): np.int64(1955)}
+[07:22:22] INFO: Test label counts: {np.int64(0): np.int64(324), np.int64(1): np.int64(638)}
+[07:22:22] INFO: Class weights: NR=1.4925, TSR=0.7519
+[07:22:27] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:22:27] INFO: Missing keys count: 0
+[07:22:27] INFO: Unexpected keys count: 0
+[07:22:47] INFO: [Fold 11 | Epoch 001] train_loss=0.7474 train_acc=0.5535 train_bal_acc=0.5494 train_f1=0.5361 | val_loss=0.7550 val_acc=0.5068 val_bal_acc=0.5491 val_f1=0.5055
+[07:25:49] INFO: [Fold 11 | Epoch 010] train_loss=0.5464 train_acc=0.6441 train_bal_acc=0.6982 train_f1=0.6425 | val_loss=1.0319 val_acc=0.5394 val_bal_acc=0.5140 val_f1=0.5097
+[07:29:10] INFO: [Fold 11 | Epoch 020] train_loss=0.5138 train_acc=0.6494 train_bal_acc=0.7271 train_f1=0.6494 | val_loss=1.4061 val_acc=0.5894 val_bal_acc=0.5014 val_f1=0.4950
+[07:30:51] INFO: [Fold 11 | Epoch 025] train_loss=0.5135 train_acc=0.6482 train_bal_acc=0.7241 train_f1=0.6482 | val_loss=0.8569 val_acc=0.4966 val_bal_acc=0.5232 val_f1=0.4924
+[07:30:59] INFO: [Fold 11 TEST] subject=YMD acc=0.3763 bal_acc=0.4766 macro_f1=0.3616
+[07:30:59] INFO: ========================================================================================
+[07:30:59] INFO: Fold 12/18 | held-out subject: YMS
+[07:31:00] INFO: Train subjects (14): ['YAG', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YRH', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YAC', 'YAK', 'YMD'] | Test subject: YMS
+[07:31:00] INFO: Train size: 13204 | Val size: 2470 | Test size: 970
+[07:31:00] INFO: Train label counts: {np.int64(0): np.int64(4454), np.int64(1): np.int64(8750)}
+[07:31:00] INFO: Val label counts: {np.int64(0): np.int64(802), np.int64(1): np.int64(1668)}
+[07:31:00] INFO: Test label counts: {np.int64(0): np.int64(323), np.int64(1): np.int64(647)}
+[07:31:00] INFO: Class weights: NR=1.4823, TSR=0.7545
+[07:31:04] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:31:04] INFO: Missing keys count: 0
+[07:31:04] INFO: Unexpected keys count: 0
+[07:31:25] INFO: [Fold 12 | Epoch 001] train_loss=0.7486 train_acc=0.5514 train_bal_acc=0.5483 train_f1=0.5350 | val_loss=0.7809 val_acc=0.5049 val_bal_acc=0.5460 val_f1=0.5021
+[07:34:33] INFO: [Fold 12 | Epoch 010] train_loss=0.5498 train_acc=0.6415 train_bal_acc=0.6987 train_f1=0.6406 | val_loss=1.2315 val_acc=0.6045 val_bal_acc=0.5563 val_f1=0.5553
+[07:38:04] INFO: [Fold 12 | Epoch 020] train_loss=0.5210 train_acc=0.6440 train_bal_acc=0.7208 train_f1=0.6440 | val_loss=1.0744 val_acc=0.5526 val_bal_acc=0.5493 val_f1=0.5336
+[07:39:48] INFO: [Fold 12 | Epoch 025] train_loss=0.5182 train_acc=0.6462 train_bal_acc=0.7218 train_f1=0.6462 | val_loss=1.2900 val_acc=0.5409 val_bal_acc=0.5306 val_f1=0.5186
+[07:39:56] INFO: [Fold 12 TEST] subject=YMS acc=0.6670 bal_acc=0.5000 macro_f1=0.4001
+[07:39:56] INFO: ========================================================================================
+[07:39:56] INFO: Fold 13/18 | held-out subject: YRH
+[07:39:57] INFO: Train subjects (14): ['YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YLS', 'YMS', 'YRK', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YAC', 'YIS', 'YMD'] | Test subject: YRH
+[07:39:57] INFO: Train size: 13165 | Val size: 2643 | Test size: 836
+[07:39:57] INFO: Train label counts: {np.int64(0): np.int64(4406), np.int64(1): np.int64(8759)}
+[07:39:57] INFO: Val label counts: {np.int64(0): np.int64(888), np.int64(1): np.int64(1755)}
+[07:39:57] INFO: Test label counts: {np.int64(0): np.int64(285), np.int64(1): np.int64(551)}
+[07:39:57] INFO: Class weights: NR=1.4940, TSR=0.7515
+[07:40:02] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:40:02] INFO: Missing keys count: 0
+[07:40:02] INFO: Unexpected keys count: 0
+[07:40:23] INFO: [Fold 13 | Epoch 001] train_loss=0.7429 train_acc=0.5504 train_bal_acc=0.5458 train_f1=0.5328 | val_loss=0.7360 val_acc=0.6228 val_bal_acc=0.4943 val_f1=0.4558
+[07:43:31] INFO: [Fold 13 | Epoch 010] train_loss=0.5458 train_acc=0.6393 train_bal_acc=0.6986 train_f1=0.6384 | val_loss=1.1800 val_acc=0.5853 val_bal_acc=0.5573 val_f1=0.5532
+[07:47:00] INFO: [Fold 13 | Epoch 020] train_loss=0.5154 train_acc=0.6489 train_bal_acc=0.7275 train_f1=0.6489 | val_loss=1.5295 val_acc=0.5793 val_bal_acc=0.5842 val_f1=0.5657
+[07:48:44] INFO: [Fold 13 | Epoch 025] train_loss=0.5130 train_acc=0.6425 train_bal_acc=0.7247 train_f1=0.6425 | val_loss=1.6132 val_acc=0.5895 val_bal_acc=0.5863 val_f1=0.5720
+[07:48:51] INFO: [Fold 13 TEST] subject=YRH acc=0.4916 bal_acc=0.5669 macro_f1=0.4900
+[07:48:51] INFO: ========================================================================================
+[07:48:51] INFO: Fold 14/18 | held-out subject: YRK
+[07:48:52] INFO: Train subjects (14): ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YIS', 'YMD', 'YRH', 'YRP', 'YSD', 'YSL', 'YTL'] | Val subjects (3): ['YHS', 'YLS', 'YMS'] | Test subject: YRK
+[07:48:52] INFO: Train size: 12755 | Val size: 2933 | Test size: 956
+[07:48:52] INFO: Train label counts: {np.int64(0): np.int64(4276), np.int64(1): np.int64(8479)}
+[07:48:52] INFO: Val label counts: {np.int64(0): np.int64(983), np.int64(1): np.int64(1950)}
+[07:48:52] INFO: Test label counts: {np.int64(0): np.int64(320), np.int64(1): np.int64(636)}
+[07:48:52] INFO: Class weights: NR=1.4915, TSR=0.7522
+[07:48:57] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:48:57] INFO: Missing keys count: 0
+[07:48:57] INFO: Unexpected keys count: 0
+[07:49:17] INFO: [Fold 14 | Epoch 001] train_loss=0.7336 train_acc=0.5502 train_bal_acc=0.5484 train_f1=0.5341 | val_loss=0.8163 val_acc=0.4729 val_bal_acc=0.5002 val_f1=0.4693
+[07:52:20] INFO: [Fold 14 | Epoch 010] train_loss=0.5392 train_acc=0.6444 train_bal_acc=0.7083 train_f1=0.6438 | val_loss=1.0868 val_acc=0.5159 val_bal_acc=0.5073 val_f1=0.4971
+[07:55:42] INFO: [Fold 14 | Epoch 020] train_loss=0.5096 train_acc=0.6526 train_bal_acc=0.7301 train_f1=0.6526 | val_loss=0.9477 val_acc=0.3580 val_bal_acc=0.5031 val_f1=0.3058
+[07:57:25] INFO: [Fold 14 | Epoch 025] train_loss=0.5036 train_acc=0.6534 train_bal_acc=0.7327 train_f1=0.6534 | val_loss=1.7762 val_acc=0.5926 val_bal_acc=0.5213 val_f1=0.5204
+[07:57:32] INFO: [Fold 14 TEST] subject=YRK acc=0.3703 bal_acc=0.5011 macro_f1=0.3351
+[07:57:32] INFO: ========================================================================================
+[07:57:32] INFO: Fold 15/18 | held-out subject: YRP
+[07:57:33] INFO: Train subjects (14): ['YAC', 'YAG', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMS', 'YRH', 'YRK', 'YSD', 'YSL'] | Val subjects (3): ['YAK', 'YMD', 'YTL'] | Test subject: YRP
+[07:57:33] INFO: Train size: 12914 | Val size: 2760 | Test size: 970
+[07:57:33] INFO: Train label counts: {np.int64(0): np.int64(4354), np.int64(1): np.int64(8560)}
+[07:57:33] INFO: Val label counts: {np.int64(0): np.int64(899), np.int64(1): np.int64(1861)}
+[07:57:33] INFO: Test label counts: {np.int64(0): np.int64(326), np.int64(1): np.int64(644)}
+[07:57:33] INFO: Class weights: NR=1.4830, TSR=0.7543
+[07:57:38] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[07:57:38] INFO: Missing keys count: 0
+[07:57:38] INFO: Unexpected keys count: 0
+[07:57:58] INFO: [Fold 15 | Epoch 001] train_loss=0.7431 train_acc=0.5551 train_bal_acc=0.5547 train_f1=0.5399 | val_loss=0.7754 val_acc=0.4913 val_bal_acc=0.5319 val_f1=0.4889
+[08:01:07] INFO: [Fold 15 | Epoch 010] train_loss=0.5544 train_acc=0.6347 train_bal_acc=0.6879 train_f1=0.6334 | val_loss=0.7650 val_acc=0.4707 val_bal_acc=0.5103 val_f1=0.4685
+[08:04:35] INFO: [Fold 15 | Epoch 020] train_loss=0.5181 train_acc=0.6438 train_bal_acc=0.7229 train_f1=0.6438 | val_loss=0.9026 val_acc=0.4467 val_bal_acc=0.5271 val_f1=0.4455
+[08:06:18] INFO: [Fold 15 | Epoch 025] train_loss=0.5099 train_acc=0.6498 train_bal_acc=0.7277 train_f1=0.6498 | val_loss=0.9965 val_acc=0.4004 val_bal_acc=0.5010 val_f1=0.3924
+[08:06:26] INFO: [Fold 15 TEST] subject=YRP acc=0.6629 bal_acc=0.5076 macro_f1=0.4288
+[08:06:26] INFO: ========================================================================================
+[08:06:26] INFO: Fold 16/18 | held-out subject: YSD
+[08:06:27] INFO: Train subjects (14): ['YAC', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YMD', 'YMS', 'YRH', 'YRK', 'YSL', 'YTL'] | Val subjects (3): ['YAG', 'YLS', 'YRP'] | Test subject: YSD
+[08:06:27] INFO: Train size: 12735 | Val size: 2920 | Test size: 989
+[08:06:27] INFO: Train label counts: {np.int64(0): np.int64(4264), np.int64(1): np.int64(8471)}
+[08:06:27] INFO: Val label counts: {np.int64(0): np.int64(983), np.int64(1): np.int64(1937)}
+[08:06:27] INFO: Test label counts: {np.int64(0): np.int64(332), np.int64(1): np.int64(657)}
+[08:06:27] INFO: Class weights: NR=1.4933, TSR=0.7517
+[08:06:31] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[08:06:31] INFO: Missing keys count: 0
+[08:06:31] INFO: Unexpected keys count: 0
+[08:06:52] INFO: [Fold 16 | Epoch 001] train_loss=0.7284 train_acc=0.5624 train_bal_acc=0.5599 train_f1=0.5455 | val_loss=0.7530 val_acc=0.5394 val_bal_acc=0.5103 val_f1=0.5071
+[08:09:55] INFO: [Fold 16 | Epoch 010] train_loss=0.5357 train_acc=0.6506 train_bal_acc=0.7089 train_f1=0.6495 | val_loss=1.1521 val_acc=0.6003 val_bal_acc=0.4971 val_f1=0.4817
+[08:13:18] INFO: [Fold 16 | Epoch 020] train_loss=0.5104 train_acc=0.6512 train_bal_acc=0.7287 train_f1=0.6512 | val_loss=1.5827 val_acc=0.5455 val_bal_acc=0.4991 val_f1=0.4989
+[08:14:59] INFO: [Fold 16 | Epoch 025] train_loss=0.4975 train_acc=0.6580 train_bal_acc=0.7399 train_f1=0.6579 | val_loss=1.6527 val_acc=0.5373 val_bal_acc=0.4699 val_f1=0.4685
+[08:15:07] INFO: [Fold 16 TEST] subject=YSD acc=0.6279 bal_acc=0.4979 macro_f1=0.4587
+[08:15:07] INFO: ========================================================================================
+[08:15:07] INFO: Fold 17/18 | held-out subject: YSL
+[08:15:09] INFO: Train subjects (14): ['YAC', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YIS', 'YLS', 'YMD', 'YMS', 'YRP', 'YSD', 'YTL'] | Val subjects (3): ['YAG', 'YRH', 'YRK'] | Test subject: YSL
+[08:15:09] INFO: Train size: 12900 | Val size: 2770 | Test size: 974
+[08:15:09] INFO: Train label counts: {np.int64(0): np.int64(4315), np.int64(1): np.int64(8585)}
+[08:15:09] INFO: Val label counts: {np.int64(0): np.int64(935), np.int64(1): np.int64(1835)}
+[08:15:09] INFO: Test label counts: {np.int64(0): np.int64(329), np.int64(1): np.int64(645)}
+[08:15:09] INFO: Class weights: NR=1.4948, TSR=0.7513
+[08:15:14] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[08:15:14] INFO: Missing keys count: 0
+[08:15:14] INFO: Unexpected keys count: 0
+[08:15:34] INFO: [Fold 17 | Epoch 001] train_loss=0.7459 train_acc=0.5576 train_bal_acc=0.5562 train_f1=0.5413 | val_loss=0.7311 val_acc=0.5664 val_bal_acc=0.4996 val_f1=0.4986
+[08:18:39] INFO: [Fold 17 | Epoch 010] train_loss=0.5515 train_acc=0.6403 train_bal_acc=0.6933 train_f1=0.6386 | val_loss=0.7983 val_acc=0.5978 val_bal_acc=0.5123 val_f1=0.5068
+[08:22:06] INFO: [Fold 17 | Epoch 020] train_loss=0.5119 train_acc=0.6512 train_bal_acc=0.7270 train_f1=0.6512 | val_loss=1.0114 val_acc=0.5061 val_bal_acc=0.5066 val_f1=0.4926
+[08:23:48] INFO: [Fold 17 | Epoch 025] train_loss=0.5146 train_acc=0.6491 train_bal_acc=0.7230 train_f1=0.6491 | val_loss=1.0876 val_acc=0.5065 val_bal_acc=0.5284 val_f1=0.5011
+[08:23:56] INFO: [Fold 17 TEST] subject=YSL acc=0.4138 bal_acc=0.4874 macro_f1=0.4110
+[08:23:56] INFO: ========================================================================================
+[08:23:56] INFO: Fold 18/18 | held-out subject: YTL
+[08:23:57] INFO: Train subjects (14): ['YAC', 'YAG', 'YAK', 'YDG', 'YDR', 'YFR', 'YFS', 'YHS', 'YLS', 'YMD', 'YRH', 'YRP', 'YSD', 'YSL'] | Val subjects (3): ['YIS', 'YMS', 'YRK'] | Test subject: YTL
+[08:23:57] INFO: Train size: 12747 | Val size: 2915 | Test size: 982
+[08:23:57] INFO: Train label counts: {np.int64(0): np.int64(4275), np.int64(1): np.int64(8472)}
+[08:23:57] INFO: Val label counts: {np.int64(0): np.int64(975), np.int64(1): np.int64(1940)}
+[08:23:57] INFO: Test label counts: {np.int64(0): np.int64(329), np.int64(1): np.int64(653)}
+[08:23:57] INFO: Class weights: NR=1.4909, TSR=0.7523
+[08:24:02] INFO: Checkpoint loaded from ../checkpoints/cet_mae/cet_mae_transfer3_a100_80gb_best.pt
+[08:24:02] INFO: Missing keys count: 0
+[08:24:02] INFO: Unexpected keys count: 0
+[08:24:22] INFO: [Fold 18 | Epoch 001] train_loss=0.7436 train_acc=0.5481 train_bal_acc=0.5435 train_f1=0.5306 | val_loss=0.7153 val_acc=0.5293 val_bal_acc=0.5275 val_f1=0.5136
+[08:27:25] INFO: [Fold 18 | Epoch 010] train_loss=0.5593 train_acc=0.6389 train_bal_acc=0.6903 train_f1=0.6371 | val_loss=0.7014 val_acc=0.5022 val_bal_acc=0.5745 val_f1=0.5018
+[08:30:48] INFO: [Fold 18 | Epoch 020] train_loss=0.5071 train_acc=0.6537 train_bal_acc=0.7301 train_f1=0.6537 | val_loss=0.8493 val_acc=0.4312 val_bal_acc=0.5617 val_f1=0.4054
+[08:32:30] INFO: [Fold 18 | Epoch 025] train_loss=0.5188 train_acc=0.6488 train_bal_acc=0.7202 train_f1=0.6486 | val_loss=0.7841 val_acc=0.4775 val_bal_acc=0.5603 val_f1=0.4753
+[08:32:37] INFO: [Fold 18 TEST] subject=YTL acc=0.6558 bal_acc=0.5112 macro_f1=0.4551
+[08:32:38] INFO: ========================================================================================
+[08:32:38] INFO: Finished B2 fine-tuned reading-task classification (ZuCo 2.0 NR vs TSR)
+[08:32:38] INFO: Per-subject results saved to: results/B2_finetune_reading_pretrained/per_subject_results.csv
+[08:32:38] INFO: All predictions saved to: results/B2_finetune_reading_pretrained/all_predictions.csv
+[08:32:38] INFO: Summary saved to: results/B2_finetune_reading_pretrained/summary.json
+[08:32:38] INFO: Final LOSO results | accuracy=0.5775±0.1094 (95% bootstrap CI 0.5227 to 0.6237) | balanced_accuracy=0.5206±0.0399 (95% bootstrap CI 0.5041 to 0.5404) | macro_f1=0.4379±0.0568 (95% bootstrap CI 0.4117 to 0.4642)
